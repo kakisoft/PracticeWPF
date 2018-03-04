@@ -7,6 +7,51 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="150">
+            <!--
+            ===================================
+                シンプルなグリッド（2 X 3）
+            ===================================
+            -->
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- 1行目 -->
+                <Label Grid.Row="0" Grid.Column="0" Content="Label" />
+                <Button Grid.Row="0" Grid.Column="1" Content="Button" />
+                <!-- 2行目 -->
+            </Grid>
+
+
+
+        </StackPanel>
+
+
+        <Button Content="MyWindow01" HorizontalAlignment="Left" Height="35" Margin="60,74,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click"/>
+        <Button Content="MyWindow02" HorizontalAlignment="Left" Height="35" Margin="60,147,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click_1" />
+
+        <Button x:Name="Close" Margin="5" Content="Btn" Height="50" FontSize="20" />
+        <DataGrid HorizontalAlignment="Left" Height="81" Margin="45,213,0,0" VerticalAlignment="Top" Width="185">
+            <Button Content="4545"/>
+            <Button Content="4545"/>
+            <Button Content="4545"/>
+        </DataGrid>
+        <ListBox HorizontalAlignment="Left" Height="100" Margin="176,9,0,0" VerticalAlignment="Top" Width="100"/>
+        <ListView HorizontalAlignment="Left" Height="100" Margin="339,30,0,0" VerticalAlignment="Top" Width="100" Grid.Row="2" Grid.Column="3">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
     </Grid>
 </Window>
