@@ -19,9 +19,48 @@ namespace PracticeWPF
     /// </summary>
     public partial class MyWindow01 : Window
     {
+        #region 初期処理
+        /// <summary>
+        /// 初期処理
+        /// </summary>
+
         public MyWindow01()
         {
             InitializeComponent();
         }
+        #endregion
+
+        #region 画面ロード
+        /// <summary>
+        /// 画面ロード
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            //do something
+        }
+        #endregion
+
+        #region 画面終了時
+        /// <summary>
+        /// 画面終了時
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            //do something
+        }
+
+        #endregion
+
+        #region 閉じる
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+        #endregion
     }
+
 }

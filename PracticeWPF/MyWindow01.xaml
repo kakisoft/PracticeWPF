@@ -5,8 +5,152 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticeWPF"
         mc:Ignorable="d"
-        Title="MyWindow01" Height="300" Width="300">
+        Title="MyWindow01" Height="728" Width="1366" Loaded="Window_Loaded" Background="#FFEDE5F7" ResizeMode="CanResizeWithGrip" IsHitTestVisible="True" Top="0" Left="0" Closing="Window_Closing">
+    <Window.Resources>
+    </Window.Resources>
+
     <Grid>
-        
+        <!-- フォームの枠組みとなるグリッド -->
+        <!--
+        ===================================
+           フォームの枠組みとなるグリッド
+        ===================================
+        -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.25*"/>
+            <ColumnDefinition Width="0.75*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--
+        ===================================
+               シンプルなDockPanel 
+        ===================================
+        -->
+        <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  LastChildFill="False">
+            <Button Margin="5,0" Content="Grid.Row:0, Grid.Column:0, Grid.ColumnSpan:2, 【Button01】" />
+            <Button Margin="5,0" Content="Grid.Row:0, Grid.Column:0, Grid.ColumnSpan:2, 【Button02】" />
+            <Button Margin="5,0" Content="Grid.Row:0, Grid.Column:0, Grid.ColumnSpan:2, 【Button03】" />
+        </DockPanel>
+
+
+        <!--
+        ////////////////////////////////
+             左側に配置したDockPanel
+        ////////////////////////////////
+        -->
+        <DockPanel Grid.Row="1" Grid.Column="0" LastChildFill="False">
+            <!--
+            ===================================
+                シンプルなグリッド（2 X 3）
+            ===================================
+            -->
+            <Grid DockPanel.Dock="Top" Margin="0,15,0,0" Height="80">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*"/>
+                    <ColumnDefinition Width="0.3*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- 1行目 -->
+                <Label       Grid.Row="0" Grid.Column="0" Margin="5,0" Content="0-0" VerticalContentAlignment="Center" BorderThickness="2" BorderBrush="Black" Background="#FFFDFDA9"/>
+                <CheckBox    Grid.Row="0" Grid.Column="1" Margin="5,0" Content="0-1" />
+                <TextBox     Grid.Row="0" Grid.Column="2" Margin="5,0" Text="0-2" TextWrapping="Wrap" />
+                <!-- 2行目 -->
+                <RadioButton Grid.Row="1" Grid.Column="0" Content="1-0" />
+                <RadioButton Grid.Row="1" Grid.Column="1" Content="1-1" />
+                <DatePicker  Grid.Row="1" Grid.Column="2" Text="2018/1/2" />
+            </Grid>
+
+            <!--
+            ===================================
+                    トグル風ラジオボタン
+            ===================================
+            -->
+            <Grid DockPanel.Dock="Top" Margin="0,15,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="13.211"/>
+                    <RowDefinition Height="16.789"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.ColumnSpan="3"  BorderBrush="Black" BorderThickness="1.5" Grid.RowSpan="2" />
+
+                <RadioButton Grid.Row="0" Grid.Column="0" Style="{StaticResource {x:Type ToggleButton}}" x:Name="ToggleStyleButton1_Copy1" Margin="5,2" Content="Radio:Toggle 1" IsChecked="True" IsManipulationEnabled="True" Grid.RowSpan="2"  />
+                <RadioButton Grid.Row="0" Grid.Column="1" Style="{StaticResource {x:Type ToggleButton}}" x:Name="ToggleStyleButton2_Copy1" Margin="5,2" Content="Radio:Toggle 2" Grid.RowSpan="2" />
+                <RadioButton Grid.Row="0" Grid.Column="2" Style="{StaticResource {x:Type ToggleButton}}" x:Name="ToggleStyleButton3_Copy1" Margin="5,2" Content="Radio:Toggle 3" Grid.RowSpan="2" />
+
+            </Grid>
+
+
+            <!--
+            ===================================
+                  　　　  検索１
+            ===================================
+            -->
+            <Grid DockPanel.Dock="Top" Margin="0,15,0,0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.ColumnSpan="3"  BorderBrush="Black" BorderThickness="1" />
+
+                <Label   Grid.Row="0" Grid.Column="0" Content="SomeInfo" Background="#FF2E40F0" BorderThickness="1,1,0,1" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0" Foreground="White" FontSize="14"/>
+                <Button  Grid.Row="0" Grid.Column="1" Content="検索" BorderThickness="1" Margin="1,0,0,0" IsHitTestVisible="False" Padding="10,1" />
+                <TextBox Grid.Row="0" Grid.Column="2" Text="（何かの情報）" FontSize="14" VerticalContentAlignment="Center" />
+            </Grid>
+
+
+            <!--
+            ===================================
+                  　　　   検索２
+            ===================================
+            -->
+            <Grid DockPanel.Dock="Top" Margin="0,15,0,0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button  Grid.Row="0" Grid.Column="0" Margin="5,0,0,0" Content="　ＸＸ参照　" BorderThickness="1,1.5,0,1.5" />
+                <TextBox Grid.Row="0" Grid.Column="1" Text="（何かの情報）" FontSize="14" VerticalContentAlignment="Center" />
+            </Grid>
+
+            <!--
+            ===================================
+                  　コンテキストの折り返し
+            ===================================
+            -->
+            <Button DockPanel.Dock="Top" Content="コンテキスト&#10;折り返し" Height="50" Width="100"/>
+            
+            <!--
+            ===================================
+                  　　　下段
+            ===================================
+            -->
+            <Button x:Name="Close" DockPanel.Dock="Bottom" Margin="5" Content="DockPanel.Dock:Bottom" Height="50" FontSize="20">
+            </Button>
+        </DockPanel>
+
     </Grid>
 </Window>
+
