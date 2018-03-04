@@ -36,9 +36,9 @@
 
 
         <Button Content="MyWindow01" HorizontalAlignment="Left" Height="35" Margin="60,74,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click"/>
-        <Button Content="MyWindow02" HorizontalAlignment="Left" Height="35" Margin="60,147,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click_1" />
+        <Button Content="MyWindow02" HorizontalAlignment="Left" Height="35" Margin="60,112,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click_1" />
 
-        <Button x:Name="Close" Margin="5" Content="Btn" Height="50" FontSize="20" />
+        <Button x:Name="Close" Margin="5" Content="Btn" Height="20" FontSize="20" />
         <DataGrid HorizontalAlignment="Left" Height="81" Margin="45,213,0,0" VerticalAlignment="Top" Width="185">
             <Button Content="4545"/>
             <Button Content="4545"/>
