@@ -5,8 +5,57 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticeWPF"
         mc:Ignorable="d"
-        Title="MyWindow02" Height="300" Width="300">
+        Title="MyWindow02" Height="300" Width="800">
     <Grid>
-        
+        <DockPanel Height="100" VerticalAlignment="Top">
+            <!--
+            ===================================
+              シンプルなListBox(カラム数:1)
+            ===================================
+            -->
+            <ListBox SelectionMode="Single">
+                <ListBoxItem Content="Item 1"/>
+                <ListBoxItem Content="Item 2"/>
+                <ListBoxItem Content="Item 3"/>
+            </ListBox>
+
+            <!--
+            ===================================
+              シンプルなListView(カラム数:1)
+            ===================================
+            -->
+            <ListView>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ListView:ListView.View:GridView:GridViewColumn Header" />
+                    </GridView>
+                </ListView.View>
+                <ListBoxItem Content="ListView:ListBoxItem Content 1"/>
+                <ListBoxItem Content="ListView:ListBoxItem Content 2"/>
+            </ListView>
+
+
+            <!--
+            ===================================
+              シンプルなListView(カラム数:3)
+            ===================================
+            -->
+            <!-- StyleSelector を指定-->
+            <ListView x:Name="lv1">
+                <ListView.View>
+                    <GridView>
+                        <!--列を追加。-->
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding [0]}" />
+                        <GridViewColumn Header="Date" DisplayMemberBinding="{Binding [1]}" />
+                        <GridViewColumn Header="Url" DisplayMemberBinding="{Binding [2]}" />
+                    </GridView>
+                </ListView.View>
+                <!-- XAMLでの子の追加方法は知らん。無いの？　とりあえず追加は.csのButton_Clickイベントにて定義。 -->
+            </ListView>
+
+            <Button Content="add" Height="30" Width="50" Click="Button_Click" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+        </DockPanel>
+
     </Grid>
 </Window>
