@@ -141,7 +141,27 @@
             ===================================
             -->
             <Button DockPanel.Dock="Top" Content="コンテキスト&#10;折り返し" Height="50" Width="100"/>
-            
+
+
+            <!--
+            ===================================
+                  　  スクロールバー
+            ===================================
+            -->
+            <StackPanel DockPanel.Dock="Top" Height="100" Width="200" HorizontalAlignment="Left" Orientation="Horizontal">
+                <ScrollViewer Height="100" Width="100">
+                    <Ellipse Fill="#FFF4F4F5" Height="200" Width="200" Stroke="Black"/>
+                </ScrollViewer>
+
+                <Border BorderBrush="Black" BorderThickness="2" >
+                    <ScrollViewer  Height="100" Width="100" HorizontalScrollBarVisibility="Visible">
+                        <Ellipse Fill="#FFF4F4F5" Height="200" Width="200" Stroke="Black"/>
+
+                    </ScrollViewer>
+                </Border>
+            </StackPanel>
+
+
             <!--
             ===================================
                   　　　下段

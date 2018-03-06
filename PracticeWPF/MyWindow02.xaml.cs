@@ -23,5 +23,22 @@ namespace PracticeWPF
         {
             InitializeComponent();
         }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            lv1.Items.Add(new string[] { "1", "2", "3" });
+            lv1.Items.Add(new string[] { "4", "5", "6" });
+            //lv1.Add(new TestProperty { Title = "title", Score = "score", Date = "data" });
+            //lv1.Items.Add(new TestProperty { Title = "title", Score = "score", Date = "data" });
+
+            string[] ss = (string[])lv1.Items[1];
+            MessageBox.Show(ss[0]);
+        }
+
+        public class TestProperty
+        {
+            public string Title { get; set; }
+            public string Score { get; set; }
+            public string Date { get; set; }
+        }
     }
 }
