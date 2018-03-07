@@ -10,7 +10,7 @@
         <DockPanel Height="100" VerticalAlignment="Top">
             <!--
             ===================================
-              シンプルなListBox(カラム数:1)
+              シンプルな ListBox(カラム数:1)
             ===================================
             -->
             <ListBox SelectionMode="Single">
@@ -21,7 +21,7 @@
 
             <!--
             ===================================
-              シンプルなListView(カラム数:1)
+              シンプルな ListView(カラム数:1)
             ===================================
             -->
             <ListView>
@@ -37,7 +37,7 @@
 
             <!--
             ===================================
-              シンプルなListView(カラム数:3)
+              シンプルな ListView(カラム数:3)
             ===================================
             -->
             <!-- StyleSelector を指定-->
@@ -47,13 +47,27 @@
                         <!--列を追加。-->
                         <GridViewColumn Header="Name" DisplayMemberBinding="{Binding [0]}" />
                         <GridViewColumn Header="Date" DisplayMemberBinding="{Binding [1]}" />
-                        <GridViewColumn Header="Url" DisplayMemberBinding="{Binding [2]}" />
+                        <GridViewColumn Header="Url"  DisplayMemberBinding="{Binding [2]}" />
                     </GridView>
                 </ListView.View>
                 <!-- XAMLでの子の追加方法は知らん。無いの？　とりあえず追加は.csのButton_Clickイベントにて定義。 -->
             </ListView>
 
             <Button Content="add" Height="30" Width="50" Click="Button_Click" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+            <!--
+            ===================================
+              シンプルな DataGrid
+            ===================================
+            -->
+            <DataGrid ColumnWidth="SizeToCells" Height="100" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <!--列-->
+                <DataGrid.Columns >
+                    <DataGridTextColumn Header="ヘッダ１" Width="60"   />
+                    <DataGridTextColumn Header="ヘッダ２" Width="Auto" />
+                    <DataGridTextColumn Header="ヘッダ３" Width="*"    MinWidth="100"   />
+                </DataGrid.Columns>
+            </DataGrid>
 
         </DockPanel>
 

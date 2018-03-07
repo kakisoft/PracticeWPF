@@ -10,7 +10,6 @@
     </Window.Resources>
 
     <Grid>
-        <!-- フォームの枠組みとなるグリッド -->
         <!--
         ===================================
            フォームの枠組みとなるグリッド
@@ -140,15 +139,17 @@
                   　コンテキストの折り返し
             ===================================
             -->
-            <Button DockPanel.Dock="Top" Content="コンテキスト&#10;折り返し" Height="50" Width="100"/>
-
+            <StackPanel DockPanel.Dock="Top" Margin="0,15,0,0"  Orientation="Horizontal">
+                <Button Content="コンテキスト&#10;折り返し" Height="50" Width="100"/>
+                <Button x:Name="closeButton" Content="閉じる" Height="30" Width="80" Margin="20,10,15,5" Click="CloseButton_Click" Background="#FFC8DCFD"/>
+            </StackPanel>
 
             <!--
             ===================================
                   　  スクロールバー
             ===================================
             -->
-            <StackPanel DockPanel.Dock="Top" Height="100" Width="200" HorizontalAlignment="Left" Orientation="Horizontal">
+            <StackPanel DockPanel.Dock="Top" Height="100" Width="200" HorizontalAlignment="Left" Orientation="Horizontal" >
                 <ScrollViewer Height="100" Width="100">
                     <Ellipse Fill="#FFF4F4F5" Height="200" Width="200" Stroke="Black"/>
                 </ScrollViewer>
@@ -161,7 +162,6 @@
                 </Border>
             </StackPanel>
 
-
             <!--
             ===================================
                   　　　下段
@@ -173,4 +173,3 @@
 
     </Grid>
 </Window>
-

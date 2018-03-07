@@ -55,12 +55,9 @@ namespace PracticeWPF
 
         #endregion
 
-        #region 閉じる
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
-        #endregion
     }
-
 }
