@@ -25,33 +25,37 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- 1行目 -->
-                <Label Grid.Row="0" Grid.Column="0" Content="Label" />
+                <Label  Grid.Row="0" Grid.Column="0" Content="Label" />
                 <Button Grid.Row="0" Grid.Column="1" Content="Button" />
                 <!-- 2行目 -->
+                <TextBox  Grid.Row="1" Grid.Column="0"  Text="TextBox"/>
             </Grid>
-
-
 
         </StackPanel>
 
 
-        <Button Content="MyWindow01" HorizontalAlignment="Left" Height="35" Margin="60,74,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click"/>
-        <Button Content="MyWindow02" HorizontalAlignment="Left" Height="35" Margin="60,112,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click_1" />
+        <Button Content="MyWindow01" HorizontalAlignment="Left" Height="35" Margin="60,55,0,0"  VerticalAlignment="Top" Width="90" Click="MyWindow01button_Click"/>
+        <Button Content="MyWindow02" HorizontalAlignment="Left" Height="35" Margin="60,95,0,0"  VerticalAlignment="Top" Width="90" Click="MyWindow02button_Click" />
+        <Button Content="MyWindow03" HorizontalAlignment="Left" Height="35" Margin="60,135,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow03button_Click" />
 
-        <Button x:Name="Close" Margin="5" Content="Btn" Height="20" FontSize="20" />
         <DataGrid HorizontalAlignment="Left" Height="81" Margin="45,213,0,0" VerticalAlignment="Top" Width="185">
-            <Button Content="4545"/>
-            <Button Content="4545"/>
-            <Button Content="4545"/>
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="aaa"/>
+                <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}"/>
+            </DataGrid.Columns>
+            <ListBoxItem Content="aaa"/>
+            <Button/>
+            <Button/>
         </DataGrid>
-        <ListBox HorizontalAlignment="Left" Height="100" Margin="176,9,0,0" VerticalAlignment="Top" Width="100"/>
-        <ListView HorizontalAlignment="Left" Height="100" Margin="339,30,0,0" VerticalAlignment="Top" Width="100" Grid.Row="2" Grid.Column="3">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+
+
+        <StackPanel HorizontalAlignment="Left" Height="130" Margin="389,10,0,0" VerticalAlignment="Top" Width="120">
+            <Label>【バインディング】</Label>
+            <Label>Xの値：</Label>
+            <TextBlock Text="{Binding X}" />
+            <Label>Yの値：</Label>
+            <TextBlock Text="{Binding Y}" />
+        </StackPanel>
 
     </Grid>
 </Window>

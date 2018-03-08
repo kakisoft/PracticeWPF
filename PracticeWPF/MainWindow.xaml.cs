@@ -23,9 +23,12 @@ namespace PracticeWPF
         public MainWindow()
         {
             InitializeComponent();
+
+            //バインディング
+            this.DataContext = new { X = 10, Y = 20 };
         }
-        
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        private void MyWindow01button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -39,7 +42,7 @@ namespace PracticeWPF
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void MyWindow02button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -52,6 +55,19 @@ namespace PracticeWPF
                 MessageBox.Show(ex.Message);
             }
         }
-        
+
+        private void MyWindow03button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var myWindow03 = new MyWindow03();
+                myWindow03.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
     }
 }

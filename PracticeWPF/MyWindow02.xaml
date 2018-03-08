@@ -7,67 +7,131 @@
         mc:Ignorable="d"
         Title="MyWindow02" Height="300" Width="800">
     <Grid>
-        <DockPanel Height="100" VerticalAlignment="Top">
+        <DockPanel >
             <!--
-            ===================================
-              シンプルな ListBox(カラム数:1)
-            ===================================
+            ////////////////////////////////
+               １行目に配置した DockPanel
+            ////////////////////////////////
             -->
-            <ListBox SelectionMode="Single">
-                <ListBoxItem Content="Item 1"/>
-                <ListBoxItem Content="Item 2"/>
-                <ListBoxItem Content="Item 3"/>
-            </ListBox>
+            <DockPanel DockPanel.Dock="Top" Height="100" VerticalAlignment="Top">
+                <!--
+                ===================================
+                  シンプルな ListBox(カラム数:1)
+                ===================================
+                -->
+                <ListBox SelectionMode="Single">
+                    <ListBoxItem Content="Item 1"/>
+                    <ListBoxItem Content="Item 2"/>
+                    <ListBoxItem Content="Item 3"/>
+                </ListBox>
+
+                <!--
+                ===================================
+                  シンプルな ListView(カラム数:1)
+                ===================================
+                -->
+                <ListView>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="ListView:ListView.View:GridView:GridViewColumn Header" />
+                        </GridView>
+                    </ListView.View>
+                    <ListBoxItem Content="ListView:ListBoxItem Content 1"/>
+                    <ListBoxItem Content="ListView:ListBoxItem Content 2"/>
+                </ListView>
+
+
+                <!--
+                ===================================
+                  シンプルな ListView(カラム数:3)
+                ===================================
+                -->
+                <!-- StyleSelector を指定-->
+                <ListView x:Name="lv1">
+                    <ListView.View>
+                        <GridView>
+                            <!--列を追加。-->
+                            <GridViewColumn Header="Name" DisplayMemberBinding="{Binding [0]}" />
+                            <GridViewColumn Header="Date" DisplayMemberBinding="{Binding [1]}" />
+                            <GridViewColumn Header="Url"  DisplayMemberBinding="{Binding [2]}" />
+                        </GridView>
+                    </ListView.View>
+                    <!-- XAMLでの子の追加方法は知らん。無いの？　とりあえず追加は.csのButton_Clickイベントにて定義。 -->
+                </ListView>
+
+                <Button x:Name="addButton" Content="add" Height="30" Width="50" Click="addButton_Click" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+                <!--
+                ===================================
+                  シンプルな DataGrid
+                ===================================
+                -->
+                <DataGrid ColumnWidth="SizeToCells" Height="100" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <!--列-->
+                    <DataGrid.Columns >
+                        <DataGridTextColumn Header="ヘッダ１" Width="60"   />
+                        <DataGridTextColumn Header="ヘッダ２" Width="Auto" />
+                        <DataGridTextColumn Header="ヘッダ３" Width="*"    MinWidth="100"   />
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </DockPanel>
 
             <!--
-            ===================================
-              シンプルな ListView(カラム数:1)
-            ===================================
+            ////////////////////////////////
+               ２行目に配置した DockPanel
+            ////////////////////////////////
             -->
-            <ListView>
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="ListView:ListView.View:GridView:GridViewColumn Header" />
-                    </GridView>
-                </ListView.View>
-                <ListBoxItem Content="ListView:ListBoxItem Content 1"/>
-                <ListBoxItem Content="ListView:ListBoxItem Content 2"/>
-            </ListView>
+            <DockPanel DockPanel.Dock="Top" Height="130" VerticalAlignment="Top">
+                <!--
+                ===================================
+                    キャスト・イベント・例外
+                ===================================
+                -->
+                <StackPanel Width="220" VerticalAlignment="Top" >
+                    <Border BorderThickness="10,10,10,10" BorderBrush="#FFF5D235" CornerRadius="10">
+                        <Button>htmlタグみたいに要素を書ける。</Button>
+                    </Border>
+
+                    <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+                        <TextBox x:Name="myTextBox01" Width="50"  HorizontalAlignment="Center" TextWrapping="Wrap" Text="123" BorderThickness="0,0,0,2" >
+                            <TextBox.BorderBrush>
+                                <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
+                                    <GradientStop Color="#FFABADB3" Offset="0.05"/>
+                                    <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
+                                    <GradientStop Color="#FF61A5E8" Offset="1"/>
+                                </LinearGradientBrush>
+                            </TextBox.BorderBrush>
+                        </TextBox>
+                        <Label Content="÷"/>
+                        <TextBox x:Name="myTextBox02" Width="30"  HorizontalAlignment="Center"  TextWrapping="Wrap" Text="2" KeyDown="myTextBox02_KeyDown" KeyUp="myTextBox02_KeyUp" LostFocus="myTextBox02_LostFocus" LostKeyboardFocus="myTextBox02_LostKeyboardFocus" SelectionChanged="myTextBox02_SelectionChanged" />
+                    </StackPanel>
+
+                    <RichTextBox x:Name="myRichTextBox01" Height="70" >
+                        <FlowDocument>
+                            <Paragraph>
+                                <Run Text="RichTextBox"/>
+                            </Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                </StackPanel>
+
+                <!--
+                ===================================
+                          バインディング
+                ===================================
+                -->
+                <StackPanel Orientation="Vertical">
+                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Height="Auto" Width="Auto" Text="{Binding Name , Mode=TwoWay}" FontSize="{Binding Size}"/>
 
 
-            <!--
-            ===================================
-              シンプルな ListView(カラム数:3)
-            ===================================
-            -->
-            <!-- StyleSelector を指定-->
-            <ListView x:Name="lv1">
-                <ListView.View>
-                    <GridView>
-                        <!--列を追加。-->
-                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding [0]}" />
-                        <GridViewColumn Header="Date" DisplayMemberBinding="{Binding [1]}" />
-                        <GridViewColumn Header="Url"  DisplayMemberBinding="{Binding [2]}" />
-                    </GridView>
-                </ListView.View>
-                <!-- XAMLでの子の追加方法は知らん。無いの？　とりあえず追加は.csのButton_Clickイベントにて定義。 -->
-            </ListView>
 
-            <Button Content="add" Height="30" Width="50" Click="Button_Click" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <CheckBox x:Name="bindSampleCheckBox" VerticalAlignment="Center" Margin="5" IsChecked="{Binding IsChecked}" Content="MyDataクラスのIsCheckedプロパティとバインドします、" Checked="BindSampleCheckBox_checked" Unchecked="BindSampleCheckBox_Unchecked" />
+                    <TextBox Height="23" TextWrapping="Wrap" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="352"/>
+                </StackPanel>
 
-            <!--
-            ===================================
-              シンプルな DataGrid
-            ===================================
-            -->
-            <DataGrid ColumnWidth="SizeToCells" Height="100" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left">
-                <!--列-->
-                <DataGrid.Columns >
-                    <DataGridTextColumn Header="ヘッダ１" Width="60"   />
-                    <DataGridTextColumn Header="ヘッダ２" Width="Auto" />
-                    <DataGridTextColumn Header="ヘッダ３" Width="*"    MinWidth="100"   />
-                </DataGrid.Columns>
-            </DataGrid>
+
+            </DockPanel>
 
         </DockPanel>
 
