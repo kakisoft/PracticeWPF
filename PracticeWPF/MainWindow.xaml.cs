@@ -20,6 +20,27 @@ namespace PracticeWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region サンプルクラス
+        private User _user;
+        public class User
+        {
+            public string Name { get; set; }
+            public int Age { get; set; }
+            public bool Ismarried { get; set; }
+        }
+
+        private void CreateSampleInstance()
+        {
+            _user = new User
+            {
+                Name = "Kaki",
+                Age = 30,
+                Ismarried = true,
+            };
+            //this.DataContext = _user;
+        }
+        #endregion
+
         public MainWindow()
         {
             InitializeComponent();
@@ -63,6 +84,7 @@ namespace PracticeWPF
 
         private void MyWindow04button_Click(object sender, RoutedEventArgs e) => new MyWindow04().ShowDialog();
         private void MyWindow05button_Click(object sender, RoutedEventArgs e) => new MyWindow05().ShowDialog();
+        private void MyWindow06button_Click(object sender, RoutedEventArgs e) => new MyWindow06().ShowDialog();
     }
 
 }
