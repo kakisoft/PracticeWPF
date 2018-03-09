@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticeWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="450" Width="525">
     <Grid>
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="150">
             <!--
@@ -40,6 +40,7 @@
         <Button Content="MyWindow04" HorizontalAlignment="Left" Height="35" Margin="60,175,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow04button_Click" />
         <Button Content="MyWindow05" HorizontalAlignment="Left" Height="35" Margin="60,215,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow05button_Click" />
         <Button Content="MyWindow06" HorizontalAlignment="Left" Height="35" Margin="60,255,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow06button_Click" />
+        <Button Content="MyWindow07" HorizontalAlignment="Left" Height="35" Margin="60,295,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow07button_Click" />
 
         <DataGrid HorizontalAlignment="Left" Height="81" Margin="247,209,0,0" VerticalAlignment="Top" Width="185">
             <DataGrid.Columns>
