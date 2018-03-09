@@ -78,6 +78,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MyWindow04.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MyWindow01.xaml.cs">
@@ -88,6 +92,9 @@
     </Compile>
     <Compile Include="MyWindow03.xaml.cs">
       <DependentUpon>MyWindow03.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyWindow04.xaml.cs">
+      <DependentUpon>MyWindow04.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

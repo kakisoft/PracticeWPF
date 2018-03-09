@@ -142,6 +142,16 @@
             <StackPanel DockPanel.Dock="Top" Margin="0,15,0,0"  Orientation="Horizontal">
                 <Button Content="コンテキスト&#10;折り返し" Height="50" Width="100"/>
                 <Button x:Name="closeButton" Content="閉じる" Height="30" Width="80" Margin="20,10,15,5" Click="CloseButton_Click" Background="#FFC8DCFD"/>
+                <Button Content="color" Height="30" Width="100">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#FFF3F3F3" Offset="0"/>
+                            <GradientStop Color="#FFEBEBEB" Offset="0.172"/>
+                            <GradientStop Color="#FFDDDDDD" Offset="0.092"/>
+                            <GradientStop Color="#FFAFFF3C" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
             </StackPanel>
 
             <!--

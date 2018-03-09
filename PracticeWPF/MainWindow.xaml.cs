@@ -58,16 +58,10 @@ namespace PracticeWPF
 
         private void MyWindow03button_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                var myWindow03 = new MyWindow03();
-                myWindow03.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            new MyWindow03().ShowDialog();
         }
 
+        private void MyWindow04button_Click(object sender, RoutedEventArgs e) => new MyWindow04().ShowDialog();
     }
+
 }

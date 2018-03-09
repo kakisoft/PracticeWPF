@@ -37,8 +37,9 @@
         <Button Content="MyWindow01" HorizontalAlignment="Left" Height="35" Margin="60,55,0,0"  VerticalAlignment="Top" Width="90" Click="MyWindow01button_Click"/>
         <Button Content="MyWindow02" HorizontalAlignment="Left" Height="35" Margin="60,95,0,0"  VerticalAlignment="Top" Width="90" Click="MyWindow02button_Click" />
         <Button Content="MyWindow03" HorizontalAlignment="Left" Height="35" Margin="60,135,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow03button_Click" />
+        <Button Content="MyWindow04" HorizontalAlignment="Left" Height="35" Margin="60,175,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow04button_Click" />
 
-        <DataGrid HorizontalAlignment="Left" Height="81" Margin="45,213,0,0" VerticalAlignment="Top" Width="185">
+        <DataGrid HorizontalAlignment="Left" Height="81" Margin="247,209,0,0" VerticalAlignment="Top" Width="185">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="aaa"/>
                 <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}"/>

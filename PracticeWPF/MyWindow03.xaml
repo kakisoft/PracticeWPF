@@ -6,7 +6,19 @@
         xmlns:local="clr-namespace:PracticeWPF"
         mc:Ignorable="d"
         Title="MyWindow03" Height="300" Width="300">
-    <Grid>
-        
-    </Grid>
+    <Window.Resources>
+        <SolidColorBrush x:Key="MyBrush1" Color="#FF66EEEE"/>
+        <!-- System.Windows.Media.SolidColorBrush -->
+        <SolidColorBrush x:Key="MyBrush2" Color="Red"/>
+        <!-- このやり方では上手く行かず。 -->
+        <Control x:Key="style3"  BorderBrush="blue"  />
+        <Control x:Key="style4"  BorderBrush="red" BorderThickness="5" />
+    </Window.Resources>
+
+    <StackPanel>
+        <Button Content="Button 1" />
+        <Button Content="Button 2" Background="#FFFFB5B5" />
+        <Button Content="Button 3" Background="{StaticResource MyBrush1}"/>
+        <Button Content="Button 4" BorderBrush="{StaticResource ResourceKey=MyBrush2}" />
+    </StackPanel>
 </Window>
