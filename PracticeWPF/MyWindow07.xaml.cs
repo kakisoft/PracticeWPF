@@ -31,11 +31,11 @@ namespace PracticeWPF
 
         private void SetBindParameter()
         {
-            MyCustomParameters.Add(new CustomParameter { Id = 0, Text = "チェック１", Value = "value1", IsChecked = false, });
-            MyCustomParameters.Add(new CustomParameter { Id = 1, Text = "チェック２", Value = "value2", IsChecked = false, });
-            MyCustomParameters.Add(new CustomParameter { Id = 2, Text = "チェック３", Value = "value3", IsChecked = false, });
-            MyCustomParameters.Add(new CustomParameter { Id = 3, Text = "チェック４", Value = "value4", IsChecked = false, });
-            MyCustomParameters.Add(new CustomParameter { Id = 4, Text = "チェック５", Value = "value5", IsChecked = false, });
+            MyCustomParameters.Add(new CustomParameter{ Id = 0, Text = "チェック１", Value = "value1", IsChecked = false, });
+            MyCustomParameters.Add(new CustomParameter{ Id = 1, Text = "チェック２", Value = "value2", IsChecked = false, });
+            MyCustomParameters.Add(new CustomParameter{ Id = 2, Text = "チェック３", Value = "value3", IsChecked = false, });
+            MyCustomParameters.Add(new CustomParameter{ Id = 3, Text = "チェック４", Value = "value4", IsChecked = false, });
+            MyCustomParameters.Add(new CustomParameter{ Id = 4, Text = "チェック５", Value = "value5", IsChecked = false, });
 
             MyStackPanel02.DataContext = MyCustomParameters;
         }
