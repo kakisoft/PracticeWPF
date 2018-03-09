@@ -26,7 +26,7 @@ namespace PracticeWPF
         {
             public string Name { get; set; }
             public int Age { get; set; }
-            public bool Ismarried { get; set; }
+            public bool IsMarried { get; set; }
         }
 
         private void CreateSampleInstance()
@@ -35,7 +35,7 @@ namespace PracticeWPF
             {
                 Name = "Kaki",
                 Age = 30,
-                Ismarried = true,
+                IsMarried = true,
             };
             //this.DataContext = _user;
         }
