@@ -59,7 +59,13 @@
                     <!-- XAMLでの子の追加方法は知らん。無いの？　とりあえず追加は.csのButton_Clickイベントにて定義。 -->
                 </ListView>
 
-                <Button x:Name="addButton" Content="add" Height="30" Width="50" Click="addButton_Click" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <StackPanel>
+                    <Button x:Name="addButton" Content="add" Height="30" Width="50" Click="addButton_Click" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <Border BorderThickness="10,10,10,10" BorderBrush="#FF58F535" CornerRadius="10">
+                        <Button Content="bnt" Background="#FF58F535" BorderBrush="#FF58F535"/>
+                    </Border>
+
+                </StackPanel>
 
                 <!--
                 ===================================
