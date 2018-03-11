@@ -1,0 +1,18 @@
+﻿<Window x:Class="PracticeWPF.MyWindow08"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PracticeWPF"
+        mc:Ignorable="d"
+        Title="MyWindow08" Height="300" Width="300">
+    <Grid>
+        <StackPanel x:Name="MyStackPanel01" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100">
+            <Button Content="Button" Click="Button_Click1" />
+            <CheckBox x:Name="MyCheckBox01" IsChecked="{Binding Ismarried, Mode=TwoWay}" Content="MyCheckBox01" />
+            <TextBox  x:Name="MyTextBox01"  Text="{Binding Name}" />
+            <TextBlock x:Name="MyTextBlock01" Text="{Binding Name}" />
+            <Button Content="Button2" Click="Button_Click2" />
+        </StackPanel>
+    </Grid>
+</Window>
