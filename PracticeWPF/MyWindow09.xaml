@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticeWPF"
         mc:Ignorable="d"
-        Title="MyWindow09" Height="300" Width="300">
+        Title="MyWindow09" Height="450" Width="800">
     <Grid>
-        <Button Content="async" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <StackPanel>
+            <Border BorderBrush="#FF0C55F3" BorderThickness="5" HorizontalAlignment="Left">
+                <StackPanel x:Name="MyStackPanel01" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <!--                
+                <TextBlock Text="{Binding Name}" />
+                <TextBox Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+-->
+                    <TextBox Text="{Binding Name}" />
+                    <Button  x:Name="MyButton01" Content="テキスト変更" Click="MyButton01_Click" />
+                </StackPanel>
+            </Border>
+
+
+            <Border BorderBrush="#FFBB36EE" BorderThickness="5" HorizontalAlignment="Left">
+                <StackPanel x:Name="MyStackPanel02" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <CheckBox Content="Check01" IsChecked="{Binding [0].IsMarried}"/>
+                    <CheckBox Content="Check02" IsChecked="{Binding [1].IsMarried}"/>
+                    <CheckBox Content="Check03" IsChecked="{Binding [2].IsMarried}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="MyButton02" Content="ALL：ON"  Click="MyButton02_Click" Width="75"/>
+                        <Button x:Name="MyButton03" Content="ALL：OFF" Click="MyButton03_Click" Width="75"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
     </Grid>
 </Window>
