@@ -22,6 +22,7 @@ namespace PracticeWPF
         public MyWindow03()
         {
             InitializeComponent();
+
         }
     }
 }

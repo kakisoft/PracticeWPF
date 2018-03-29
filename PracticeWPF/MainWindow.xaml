@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticeWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="525">
+        Title="MainWindow" Height="500" Width="580">
     <Grid>
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="150">
             <!--
@@ -44,7 +44,7 @@
         <Button Content="MyWindow08" HorizontalAlignment="Left" Height="35" Margin="60,335,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow08button_Click" />
         <Button Content="MyWindow09" HorizontalAlignment="Left" Height="35" Margin="60,375,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow09button_Click" />
 
-        <DataGrid HorizontalAlignment="Left" Height="81" Margin="247,209,0,0" VerticalAlignment="Top" Width="185">
+        <DataGrid HorizontalAlignment="Left" Height="81" Margin="377,260,0,0" VerticalAlignment="Top" Width="185">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="aaa"/>
                 <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}"/>
@@ -62,6 +62,15 @@
             <Label>Yの値：</Label>
             <TextBlock Text="{Binding Y}" />
         </StackPanel>
+        <Label Content="各種パネルの配置" HorizontalAlignment="Left" Margin="155,60,0,0" VerticalAlignment="Top"/>
+        <Label Content="ボタン背景・グリッド" HorizontalAlignment="Left" Margin="153,100,0,0" VerticalAlignment="Top"/>
+        <Label Content="Window.Resources を参照してプロパティを設定" HorizontalAlignment="Left" Margin="153,141,0,0" VerticalAlignment="Top"/>
+        <Label Content="テキストボックスの双方向バインディング１" HorizontalAlignment="Left" Margin="153,178,0,0" VerticalAlignment="Top"/>
+        <Label Content="テキストボックスの双方向バインディング２" HorizontalAlignment="Left" Margin="153,225,0,0" VerticalAlignment="Top"/>
+        <Label Content="リスト要素のデータとのバインディング１" HorizontalAlignment="Left" Margin="153,260,0,0" VerticalAlignment="Top"/>
+        <Label Content="リスト要素のデータとのバインディング２" HorizontalAlignment="Left" Margin="153,299,0,0" VerticalAlignment="Top"/>
+        <Label Content="チェックボックスとのバインディング" HorizontalAlignment="Left" Margin="153,340,0,0" VerticalAlignment="Top"/>
+        <Label Content="チェックボックスとの双方向バインディング（応用）" HorizontalAlignment="Left" Margin="153,380,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

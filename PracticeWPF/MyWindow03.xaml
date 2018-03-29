@@ -16,9 +16,9 @@
     </Window.Resources>
 
     <StackPanel>
-        <Button Content="Button 1" />
-        <Button Content="Button 2" Background="#FFFFB5B5" />
-        <Button Content="Button 3" Background="{StaticResource MyBrush1}"/>
-        <Button Content="Button 4" BorderBrush="{StaticResource ResourceKey=MyBrush2}" />
+        <Button x:Name="btn1" Content="Button 1" />
+        <Button x:Name="btn2" Content="Button 2" Background="#FFFFB5B5" />
+        <Button x:Name="btn3" Content="Button 3" Background="{StaticResource MyBrush1}"/>
+        <Button x:Name="btn4" Content="Button 4" BorderBrush="{StaticResource ResourceKey=MyBrush2}" />
     </StackPanel>
 </Window>
