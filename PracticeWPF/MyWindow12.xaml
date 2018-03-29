@@ -1,0 +1,203 @@
+﻿<Window x:Class="PracticeWPF.MyWindow12"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PracticeWPF"
+        mc:Ignorable="d"
+        Title="MyWindow12" Height="650" Width="800">
+    <Grid>
+        <StackPanel>
+            <!--
+            ==========< ボタン >==========
+            -->
+            <StackPanel Width="500" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal">
+                <Button Width="75" Content="配置" Background="#FFDE95F3"/>
+                <Label  Width="30" Content="" />
+                <Button Width="50" Content="←←" Background="#FF90F199" FontWeight="Bold" Click="SwipeLeft" />
+                <Label  Width="50" Content="1/10" VerticalContentAlignment="Center" BorderThickness="2" HorizontalContentAlignment="Center"/>
+                <Button Width="50" Content="→→" Background="#FF90F199" FontWeight="Bold" Click="SwipeRight" />
+                <StackPanel>
+                    <Label></Label>
+                </StackPanel>
+                <Label  Width="30" Content="" />
+                <Button Width="75" Content="do1" Background="#FFFF8471" Click="button_do1Click"/>
+                <Label  Width="5" Content="" />
+                <Button Width="75" Content="do2" Background="#FFFF8471" Click="button_do2Click"/>
+            </StackPanel>
+
+            <!--
+            ==========< XX選択 >==========
+            -->
+            <Border BorderBrush="#FF0C55F3" BorderThickness="5" HorizontalAlignment="Left">
+                <StackPanel x:Name="MyStackPanel01" Width="500" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <GroupBox  Grid.Row="0" Grid.Column="1" Header="XX選択" BorderBrush="#FF10679B" BorderThickness="3,3,2,2" FontSize="16" Foreground="#FF132595">
+                        <Grid Margin="0,5,0,0" Height="Auto">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- 項目 -->
+                            <Grid Grid.Row="0" Grid.Column="0" Margin="5,0" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <RadioButton Grid.Row="0" Grid.Column="0" Style="{StaticResource {x:Type ToggleButton}}" x:Name="Select_Area_01" Content="バックネット" IsChecked="True" />
+                                <RadioButton Grid.Row="0" Grid.Column="1" Style="{StaticResource {x:Type ToggleButton}}" x:Name="Select_Area_02" Content="３塁側" />
+                                <RadioButton Grid.Row="0" Grid.Column="2" Style="{StaticResource {x:Type ToggleButton}}" x:Name="Select_Area_03" Content="１塁側" />
+                            </Grid>
+
+                            <!-- ページャー -->
+                            <Grid Grid.Row="1" Grid.Column="0" Margin="5,0,5,5" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="6*"/>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="6*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Button Grid.Row="0" Grid.Column="1" Content="←←" Background="#FF90F199" FontWeight="Bold" />
+                                <Label  Grid.Row="0" Grid.Column="2" Content="1/10" VerticalContentAlignment="Center" BorderThickness="2" HorizontalContentAlignment="Center"/>
+                                <Button Grid.Row="0" Grid.Column="3" Content="→→" Background="#FF90F199" FontWeight="Bold" />
+                            </Grid>
+
+                        </Grid>
+                    </GroupBox>
+
+                </StackPanel>
+            </Border>
+
+            <!--
+            ==========< ボタンのモデル >==========
+            -->
+            <StackPanel Width="500" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal">
+                <RadioButton x:Name="ToggyeTypeRadioButtonModel" Style="{StaticResource {x:Type ToggleButton}}" Content="model" Width="70" Height="50" HorizontalAlignment="Left"/>
+                <StackPanel>
+                    <Label>Gridだと配置が難しい。（Grid.Column, Grid.Rowを指定できないため）</Label>
+                    <Label>StackPanelの方がいい感じ。</Label>
+                    <Label>Gridだとどうなる？（GridLayoutじゃない方のグリッド。）</Label>
+                </StackPanel>
+            </StackPanel>
+
+            <!--
+            ==========< Gridに配置 >==========
+            -->
+            <Border BorderBrush="#FFBB36EE" BorderThickness="5" HorizontalAlignment="Left">
+                <StackPanel x:Name="MyStackPanel02" Width="500" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+                    <GroupBox  Grid.Row="0" Grid.Column="1" Header="Gridに配置" BorderBrush="#FF10679B" BorderThickness="3,3,2,2" FontSize="16" Foreground="#FF132595">
+                        <Grid Margin="0,5,0,0" Height="Auto">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- 項目 -->
+                            <Grid x:Name="PaymentType_Grid"  Grid.Row="0" Grid.Column="0" Margin="5,0" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
+            </Border>
+
+            <!--
+            ==========< StackPanelに配置-１ >==========
+            -->
+            <Border BorderBrush="#FF0CBEF3" BorderThickness="5" HorizontalAlignment="Left">
+
+                <StackPanel Width="500" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <GroupBox  Grid.Row="0" Grid.Column="1" Header="StackPanelに配置-１" BorderBrush="#FF10679B" BorderThickness="3,3,2,2" FontSize="16" Foreground="#FF132595">
+                        <Grid Margin="0,5,0,0" Height="Auto">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- 項目 -->
+                            <ScrollViewer x:Name="PaymentType_ScrollViewer01"  VerticalScrollBarVisibility="Auto" CanContentScroll="True" HorizontalScrollBarVisibility="Visible">
+                                <StackPanel x:Name="PaymentType_SstackPanel01" Height="50" Orientation="Horizontal"/>
+                            </ScrollViewer>
+
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
+            </Border>
+
+
+            <!--
+            ==========< StackPanelに配置-２ >==========
+            -->
+            <Border BorderBrush="#FFF39F0C" BorderThickness="5" HorizontalAlignment="Left">
+
+                <StackPanel Width="500" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <GroupBox  Grid.Row="0" Grid.Column="1" Header="StackPanelに配置-２" BorderBrush="#FF10679B" BorderThickness="3,3,2,2" FontSize="16" Foreground="#FF132595">
+                        <Grid Margin="0,5,0,0" Height="Auto">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- 項目 -->
+                            <ScrollViewer x:Name="PaymentType_ScrollViewer02"  VerticalScrollBarVisibility="Auto" CanContentScroll="True" HorizontalScrollBarVisibility="Visible">
+                                <StackPanel x:Name="PaymentType_SstackPanel02" Height="50" Orientation="Horizontal"/>
+                            </ScrollViewer>
+
+                            <!-- ページャー -->
+                            <Grid Grid.Row="1" Grid.Column="0" Margin="5,0,5,5" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="6*"/>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="6*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Button Grid.Row="0" Grid.Column="1" Content="←←" Background="#FF90F199" FontWeight="Bold" />
+                                <Label  Grid.Row="0" Grid.Column="2" Content="1/10" VerticalContentAlignment="Center" BorderThickness="2" HorizontalContentAlignment="Center"/>
+                                <Button Grid.Row="0" Grid.Column="3" Content="→→" Background="#FF90F199" FontWeight="Bold" />
+                            </Grid>
+
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
+            </Border>
+
+
+        </StackPanel>
+    </Grid>
+</Window>
