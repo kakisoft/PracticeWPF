@@ -25,10 +25,27 @@
                     <CheckBox Content="Check01" IsChecked="{Binding [0].IsMarried}"/>
                     <CheckBox Content="Check02" IsChecked="{Binding [1].IsMarried}"/>
                     <CheckBox Content="Check03" IsChecked="{Binding [2].IsMarried}"/>
+                    <CheckBox Content="Check04" IsChecked="{Binding [3].IsMarried}"/>
+                    <CheckBox Content="Check05" IsChecked="{Binding [4].IsMarried}"/>
                     <StackPanel Orientation="Horizontal">
                         <Button x:Name="MyButton02" Content="ALL：ON"  Click="MyButton02_Click" Width="75"/>
                         <Button x:Name="MyButton03" Content="ALL：OFF" Click="MyButton03_Click" Width="75"/>
                     </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="MyButton04" Content="GetQueSty1"  Click="MyButton04_Click" Width="75" BorderBrush="White" Background="#FFBBFF94"/>
+                        <Button x:Name="MyButton05" Content="GetQueSty2"  Click="MyButton05_Click" Width="75" Background="#FFBBFF94"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border BorderBrush="#FF0CBEF3" BorderThickness="5" HorizontalAlignment="Left">
+                <StackPanel x:Name="MyStackPanel03" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <TextBox Text="{Binding BaseText}" />
+
+                    <Button  x:Name="MyButton06" Content="日付フォーマット" Click="MyButton06_Click" />
+                    <TextBlock TextWrapping="Wrap" Text="{Binding GetFormat1}" />
+                    <TextBlock TextWrapping="Wrap" Text="{Binding GetFormat2}" />
+
                 </StackPanel>
             </Border>
 
