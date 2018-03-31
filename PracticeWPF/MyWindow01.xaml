@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticeWPF"
         mc:Ignorable="d"
-        Title="MyWindow01" Height="728" Width="1366" Loaded="Window_Loaded" Background="#FFEDE5F7" ResizeMode="CanResizeWithGrip" IsHitTestVisible="True" Top="0" Left="0" Closing="Window_Closing">
+        Title="MyWindow01" Height="728" Width="1366" Loaded="Window_Loaded" Background="#FFEDE5F7" ResizeMode="CanResizeWithGrip" IsHitTestVisible="True" Top="0" Left="0" Closing="Window_Closing" SizeChanged="window_SizeChanged">
     <Window.Resources>
     </Window.Resources>
 
@@ -92,6 +92,40 @@
 
             </Grid>
 
+            <!--
+            ===================================================
+              画面の大きさに合わせてボタンの大きさをリサイズ
+            ===================================================
+            -->
+            <Grid DockPanel.Dock="Top" Margin="0,0,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Label                                   Grid.Row="0" Grid.Column="0"  Content="トグルボタン横サイズ："             />
+                    <Label x:Name="label_ToggleButtonWidth"  Grid.Row="0" Grid.Column="0"  Content=""                       Width="50"  />
+                </StackPanel>
+            </Grid>
+            <Grid DockPanel.Dock="Top" Margin="0,0,0,0">
+                <Button x:Name="resizeButton"  Content="resizeButton" Height="30" Width="100" >
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF37C121" Offset="0"/>
+                            <GradientStop Color="#FFE4FFE0" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </Grid>
+
+            <!--
+            ============================================================
+              画面の大きさに合わせてボタンの大きさをリサイズ（Grid風）
+            ============================================================
+            -->
+            <Grid x:Name="Grid_rsb"  DockPanel.Dock="Top" Margin="0,0,0,0">
+                <StackPanel x:Name="StackPanel_rsb"  Orientation="Horizontal">
+                    <Button x:Name="rsb1" Content="rsb1" Height="30" Width="50" />
+                    <Button x:Name="rsb2" Content="rsb2" Height="30" Width="50" />
+                    <Button x:Name="rsb3" Content="rsb3" Height="30" Width="50" />
+                </StackPanel>
+            </Grid>
 
             <!--
             ===================================
