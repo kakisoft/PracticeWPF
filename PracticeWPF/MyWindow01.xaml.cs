@@ -59,5 +59,26 @@ namespace PracticeWPF
         {
             Close();
         }
+
+        private void window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            Console.WriteLine("Height：" + this.Height);
+            Console.WriteLine("Width：" + this.Width);
+
+            label_ToggleButtonWidth.Content = ToggleStyleButton1_Copy1.ActualWidth;
+
+            resizeButton.Height = ToggleStyleButton1_Copy1.ActualHeight;
+            resizeButton.Width = ToggleStyleButton1_Copy1.ActualWidth;
+
+            int EXHIBIT_BUTTON_COUNT = 3;
+            //double stackPanelRsbWidth = StackPanel_rsb.ActualWidth; //StackPanelは動的にサイズが変わらないため、上手く行かず。
+            double gridRsbWidth = Grid_rsb.ActualWidth;
+
+            rsb1.Width = gridRsbWidth / EXHIBIT_BUTTON_COUNT;
+            rsb2.Width = gridRsbWidth / EXHIBIT_BUTTON_COUNT;
+            rsb3.Width = gridRsbWidth / EXHIBIT_BUTTON_COUNT;
+
+            Console.WriteLine(gridRsbWidth);
+        }
     }
 }
