@@ -1,0 +1,25 @@
+﻿<Window x:Class="PracticeWPF.MyWindow10"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PracticeWPF"
+        mc:Ignorable="d"
+        Title="MyWindow10" Height="150" Width="500">
+    <Grid>
+        <!--
+        ==========< ボタン内で改行を入れる >==========
+        -->
+        <StackPanel Width="500" Orientation="Horizontal"  HorizontalAlignment="Left" VerticalAlignment="Top" >
+            <!-- xaml側で実現  -->
+            <Button>
+                <TextBlock x:Name="InnerTextBlock01" TextWrapping="Wrap" Text="ButtonにTextBlockを入れ子にできるよ。" Width="80" />
+            </Button>
+
+            <!-- cs側で実現(csソース参照)  -->
+            <Button x:Name="Button02"  Content="" Width="80"/>
+
+        </StackPanel>
+
+    </Grid>
+</Window>

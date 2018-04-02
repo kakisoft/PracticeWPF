@@ -102,6 +102,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MyWindow10.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MyWindow12.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -134,6 +138,9 @@
     </Compile>
     <Compile Include="MyWindow09.xaml.cs">
       <DependentUpon>MyWindow09.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyWindow10.xaml.cs">
+      <DependentUpon>MyWindow10.xaml</DependentUpon>
     </Compile>
     <Compile Include="MyWindow12.xaml.cs">
       <DependentUpon>MyWindow12.xaml</DependentUpon>
