@@ -44,7 +44,8 @@
         <Button Content="MyWindow08" HorizontalAlignment="Left" Height="35" Margin="60,335,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow08button_Click" />
         <Button Content="MyWindow09" HorizontalAlignment="Left" Height="35" Margin="60,375,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow09button_Click" />
         <Button Content="MyWindow10" HorizontalAlignment="Left" Height="35" Margin="60,415,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow10button_Click" />
-        <Button Content="MyWindow12" HorizontalAlignment="Left" Height="35" Margin="60,455,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow12button_Click" />
+        <Button Content="MyWindow11" HorizontalAlignment="Left" Height="35" Margin="60,455,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow11button_Click" />
+        <Button Content="MyWindow12" HorizontalAlignment="Left" Height="35" Margin="60,495,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow12button_Click" />
 
         <DataGrid HorizontalAlignment="Left" Height="81" Margin="377,260,0,0" VerticalAlignment="Top" Width="185">
             <DataGrid.Columns>
@@ -73,8 +74,9 @@
         <Label Content="リスト要素のデータとのバインディング２" HorizontalAlignment="Left" Margin="153,299,0,0" VerticalAlignment="Top"/>
         <Label Content="チェックボックスとのバインディング" HorizontalAlignment="Left" Margin="153,340,0,0" VerticalAlignment="Top"/>
         <Label Content="チェックボックスとの双方向バインディング（応用）" HorizontalAlignment="Left" Margin="153,380,0,0" VerticalAlignment="Top"/>
-        <Label Content="非同期制御" HorizontalAlignment="Left" Margin="153,421,0,0" VerticalAlignment="Top"/>
-        <Label Content="コントロールを動的に配置、および選択パラメータを取得" HorizontalAlignment="Left" Margin="153,459,0,0" VerticalAlignment="Top"/>
+        <Label Content="ボタン内での改行（ContextにTextBlockを格納）" HorizontalAlignment="Left" Margin="153,417,0,0" VerticalAlignment="Top"/>
+        <Label Content="非同期制御" HorizontalAlignment="Left" Margin="153,461,0,0" VerticalAlignment="Top"/>
+        <Label Content="コントロールを動的に配置、および選択パラメータを取得" HorizontalAlignment="Left" Margin="153,502,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
