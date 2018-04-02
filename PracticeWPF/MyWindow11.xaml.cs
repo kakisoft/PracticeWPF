@@ -74,12 +74,32 @@ namespace PracticeWPF
         {
             resultsTextBox.Text += "Working . . . . . . .\r\n";
         }
+
+
+        // Sample Output:
+
+        // Working . . . . . . .
+
+        // Length of the downloaded string: 41564.
+
+
+
+
+        //===========================================
+        //
+        //
+        //===========================================
+        private void asyncSample_Click(object sender, RoutedEventArgs e)
+        {
+            //AsyncMethod();
+        }
+
+        async Task AsyncMethod()
+        {
+            await Task.Delay(1000); // 1000ミリ秒待機するという仕事の完了を待ち、
+            Console.WriteLine("Done!"); // "Done!"をコンソールに出力する
+        } // という、「一つのTask」を表す。
     }
 }
 
-// Sample Output:
-
-// Working . . . . . . .
-
-// Length of the downloaded string: 41564.
 
