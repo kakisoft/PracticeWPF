@@ -14,16 +14,19 @@
             <StackPanel Width="500" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal">
                 <Button Width="75" Content="配置" Background="#FFDE95F3"/>
                 <Label  Width="30" Content="" />
-                <Button Width="50" Content="←←" Background="#FF90F199" FontWeight="Bold" Click="SwipeLeft" />
-                <Label  Width="50" Content="1/10" VerticalContentAlignment="Center" BorderThickness="2" HorizontalContentAlignment="Center"/>
-                <Button Width="50" Content="→→" Background="#FF90F199" FontWeight="Bold" Click="SwipeRight" />
+                <Button x:Name="SwipeLeft_Button" Width="50" Content="←←" Background="#FF90F199" FontWeight="Bold" Click="SwipeLeft" />
+                <Label  x:Name="ScrollStatus"  Width="50" Content="1/10" VerticalContentAlignment="Center" BorderThickness="2" HorizontalContentAlignment="Center"/>
+                <Label    Width="50" Content="1/10" VerticalContentAlignment="Center" BorderThickness="2" HorizontalContentAlignment="Center"/>
+                <Button x:Name="SwipeRight_Button" Width="50" Content="→→" Background="#FF90F199" FontWeight="Bold" Click="SwipeRight" />
                 <StackPanel>
                     <Label></Label>
                 </StackPanel>
                 <Label  Width="30" Content="" />
-                <Button Width="75" Content="do1" Background="#FFFF8471" Click="button_do1Click"/>
+                <Button Width="45" Content="do1" Background="#FFFF8471" Click="button_do1Click"/>
                 <Label  Width="5" Content="" />
-                <Button Width="75" Content="do2" Background="#FFFF8471" Click="button_do2Click"/>
+                <Button Width="45" Content="do2" Background="#FFFF8471" Click="button_do2Click"/>
+                <Label  Width="5" Content="" />
+                <Button Width="45" Content="do3" Background="#FFFF8471" Click="button_do3Click"/>
             </StackPanel>
 
             <!--
@@ -143,7 +146,7 @@
                             </Grid.ColumnDefinitions>
 
                             <!-- 項目 -->
-                            <ScrollViewer x:Name="PaymentType_ScrollViewer01"  VerticalScrollBarVisibility="Auto" CanContentScroll="True" HorizontalScrollBarVisibility="Visible">
+                            <ScrollViewer x:Name="PaymentType_ScrollViewer01"  VerticalScrollBarVisibility="Auto" CanContentScroll="True" HorizontalScrollBarVisibility="Visible" ScrollChanged="PaymentType_ScrollViewer01_ScrollChanged">
                                 <StackPanel x:Name="PaymentType_SstackPanel01" Height="50" Orientation="Horizontal"/>
                             </ScrollViewer>
 
