@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace PracticeWPF
 {
     /// <summary>
-    /// MyWindow01.xaml の相互作用ロジック
+    /// 各種パネルの配置
     /// </summary>
     public partial class MyWindow01 : Window
     {

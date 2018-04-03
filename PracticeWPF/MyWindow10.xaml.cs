@@ -4,7 +4,7 @@ using System.Windows.Controls;
 namespace PracticeWPF
 {
     /// <summary>
-    /// MyWindow10.xaml の相互作用ロジック
+    /// ボタン内での改行（ContextにTextBlockを格納）
     /// </summary>
     public partial class MyWindow10 : Window
     {

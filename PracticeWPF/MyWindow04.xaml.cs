@@ -17,7 +17,7 @@ using System.Runtime.CompilerServices;
 namespace PracticeWPF
 {
     /// <summary>
-    /// MyWindow04.xaml の相互作用ロジック
+    /// テキストボックスの双方向バインディング１
     /// </summary>
     public partial class MyWindow04 : Window
     {

@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace PracticeWPF
 {
     /// <summary>
-    /// MyWindow11.xaml の相互作用ロジック
+    /// 非同期制御
     /// </summary>
     public partial class MyWindow11 : Window
     {

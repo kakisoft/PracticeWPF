@@ -14,7 +14,7 @@ using System.Text.RegularExpressions;
 namespace PracticeWPF
 {
     /// <summary>
-    /// MyWindow09.xaml の相互作用ロジック
+    /// チェックボックスとの双方向バインディング（応用）
     /// </summary>
     public partial class MyWindow09 : Window
     {

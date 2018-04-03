@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 namespace PracticeWPF
 {
     /// <summary>
-    /// MyWindow12.xaml の相互作用ロジック
+    /// コントロールを動的に配置、および選択パラメータを取得
     /// </summary>
     public partial class MyWindow12 : Window
     {
@@ -268,6 +268,11 @@ namespace PracticeWPF
 
             Console.WriteLine("selectedItemsValue4：" + selectedItemsValue4);
 
+
+
+            dynamic testobj;
+            testobj = DateTime.Now;
+            Console.WriteLine(testobj.Month + "月");
         }
         #endregion
 

@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace PracticeWPF
 {
     /// <summary>
-    /// MyWindow03.xaml の相互作用ロジック
+    /// Window.Resources を参照してプロパティを設定
     /// </summary>
     public partial class MyWindow03 : Window
     {

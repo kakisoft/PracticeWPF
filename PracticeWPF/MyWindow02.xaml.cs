@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace PracticeWPF
 {
     /// <summary>
-    /// MyWindow02.xaml の相互作用ロジック
+    /// ボタン背景・グリッド
     /// </summary>
     public partial class MyWindow02 : Window
     {

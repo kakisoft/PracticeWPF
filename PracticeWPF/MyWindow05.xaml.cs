@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace PracticeWPF
 {
     /// <summary>
-    /// MyWindow05.xaml の相互作用ロジック
+    /// テキストボックスの双方向バインディング２
     /// </summary>
     public partial class MyWindow05 : Window
     {

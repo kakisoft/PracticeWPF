@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace PracticeWPF
 {
     /// <summary>
-    /// MyWindow08.xaml の相互作用ロジック
+    /// チェックボックスとのバインディング
     /// </summary>
     public partial class MyWindow08 : Window
     {

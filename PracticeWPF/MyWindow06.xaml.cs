@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace PracticeWPF
 {
     /// <summary>
-    /// MyWindow06.xaml の相互作用ロジック
+    /// リスト要素のデータとのバインディング１
     /// </summary>
     public partial class MyWindow06 : Window
     {
