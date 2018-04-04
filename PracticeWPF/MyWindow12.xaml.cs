@@ -268,76 +268,41 @@ namespace PracticeWPF
 
             Console.WriteLine("selectedItemsValue4：" + selectedItemsValue4);
 
-
-
-            dynamic testobj;
-            testobj = DateTime.Now;
-            Console.WriteLine(testobj.Month + "月");
         }
 
         private void button_do3Click(object sender, RoutedEventArgs e)
         {
+            //==========< ボタン内で改行を入れる >==========
+            //(コード側で設定)
+            var b = new TextBlock();
+            b.Text = "ボタン内で改行を入れる";
+            b.TextWrapping = TextWrapping.Wrap;
+            Button02.Content = b;
+
+
+            //==========< format >==========
+            int sampleInt01 = 1000;
+            Console.WriteLine(sampleInt01.ToString("#,0"));
+            Console.WriteLine(sampleInt01.ToString("C"));
+
+            Console.WriteLine((12345).ToString("D8"));
+
+
+            //==========< スクロールバー >==========
+            var sb = PaymentType_ScrollViewer01;
+            Console.WriteLine("----------------------------------");
+            Console.WriteLine("ContentHorizontalOffset：" + sb.ContentHorizontalOffset);
+            Console.WriteLine("HorizontalOffset：" + sb.HorizontalOffset);
+
+
+            Console.WriteLine("ScrollableWidth：" + sb.ScrollableWidth);
+            ///Console.WriteLine("VisualChildrenCount：" + sb.VisualChildrenCount); // error
+            Console.WriteLine("ViewportWidth：" + sb.ViewportWidth);
+
+            //Console.WriteLine("Width：" + sb.Width);
+
         }
         #endregion
-
-        private void PaymentType_ScrollViewer01_ScrollChanged(object sender, ScrollChangedEventArgs e)
-        {
-            Console.WriteLine("aaa");
-
-            /*
-            if (PaymentType_ScrollViewer01.ContentHorizontalOffset == 0)  
-            {
-                SwipeLeft_Button.IsEnabled = false;
-            }
-            else
-            {
-                SwipeLeft_Button.IsEnabled = true;
-            }
-
-
-            if (PaymentType_ScrollViewer01.ContentHorizontalOffset == PaymentType_ScrollViewer01.ScrollableWidth)
-            {
-                SwipeRight_Button.IsEnabled = false;
-            }
-            else
-            {
-                SwipeRight_Button.IsEnabled = true;
-            }
-            */
-
-
-            SwipeLeft_Button.IsEnabled = (PaymentType_ScrollViewer01.ContentHorizontalOffset == 0) ? false : true;
-            SwipeRight_Button.IsEnabled = (PaymentType_ScrollViewer01.ContentHorizontalOffset == PaymentType_ScrollViewer01.ScrollableWidth) ? false : true;
-
-
-            ScrollStatus.Content = (PaymentType_ScrollViewer01.ContentHorizontalOffset + 1)
-                                   + "/"
-                                   + (PaymentType_ScrollViewer01.ScrollableWidth + 1);
-        }
-
-        //#region スクロールボタンイベント処理定義
-        //private void SetScrollButtonEventProcess()
-        //{
-        //    //-----< スクロールイベント追加 >-----
-        //    LineLeft_TicketMstStackPanel.Click += (sender, e) => TicketMstScrollViewer.LineLeft();
-        //    LineRight_TicketMstStackPanel.Click += (sender, e) => TicketMstScrollViewer.LineRight();
-
-        //    LineLeft_AreaMstStackPanel.Click += (sender, e) => AreaMstScrollViewer.LineLeft();
-        //    LineRight_AreaMstStackPanel.Click += (sender, e) => AreaMstScrollViewer.LineRight();
-
-        //    LineLeft_BlockMstStackPanel.Click += (sender, e) => BlockMstScrollViewer.LineLeft();
-        //    LineRight_BlockMstStackPanel.Click += (sender, e) => BlockMstScrollViewer.LineRight();
-
-        //    LineLeft_TicketPriceMstStackPanel.Click += (sender, e) => TicketPriceMstScrollViewer.LineLeft(); TicketPriceMstScrollViewer_PlusButton.LineLeft(); TicketPriceMstScrollViewer_MinusButton.LineLeft();
-        //    LineRight_TicketPriceMstStackPanel.Click += (sender, e) => TicketPriceMstScrollViewer.LineRight(); TicketPriceMstScrollViewer_PlusButton.LineRight(); TicketPriceMstScrollViewer_MinusButton.LineRight();
-
-        //    LineLeft_SettlementMstStackPanel.Click += (sender, e) => SettlementMstScrollViewer.LineLeft();
-        //    LineRight_SettlementMstStackPanel.Click += (sender, e) => SettlementMstScrollViewer.LineRight();
-
-        //    LineLeft_ReceiptMstStackPanel.Click += (sender, e) => ReceiptMstScrollViewer.LineLeft();
-        //    LineRight_ReceiptMstStackPanel.Click += (sender, e) => ReceiptMstScrollViewer.LineRight();
-        //}
-        //#endregion
 
         /***********************************************/
         #region カスタムクラス
@@ -396,6 +361,65 @@ namespace PracticeWPF
         }
 
         #endregion
+
+        private void PaymentType_ScrollViewer01_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+            Console.WriteLine("aaa");
+
+            /*
+            if (PaymentType_ScrollViewer01.ContentHorizontalOffset == 0)  
+            {
+                SwipeLeft_Button.IsEnabled = false;
+            }
+            else
+            {
+                SwipeLeft_Button.IsEnabled = true;
+            }
+
+
+            if (PaymentType_ScrollViewer01.ContentHorizontalOffset == PaymentType_ScrollViewer01.ScrollableWidth)
+            {
+                SwipeRight_Button.IsEnabled = false;
+            }
+            else
+            {
+                SwipeRight_Button.IsEnabled = true;
+            }
+            */
+
+
+            SwipeLeft_Button.IsEnabled = (PaymentType_ScrollViewer01.ContentHorizontalOffset == 0) ? false : true;
+            SwipeRight_Button.IsEnabled = (PaymentType_ScrollViewer01.ContentHorizontalOffset == PaymentType_ScrollViewer01.ScrollableWidth) ? false : true;
+
+
+            ScrollStatus.Content = (PaymentType_ScrollViewer01.ContentHorizontalOffset + 1)
+                                   + "/"
+                                   + (PaymentType_ScrollViewer01.ScrollableWidth + 1);
+
+            //#region スクロールボタンイベント処理定義
+            //private void SetScrollButtonEventProcess()
+            //{
+            //    //-----< スクロールイベント追加 >-----
+            //    LineLeft_TicketMstStackPanel.Click += (sender, e) => TicketMstScrollViewer.LineLeft();
+            //    LineRight_TicketMstStackPanel.Click += (sender, e) => TicketMstScrollViewer.LineRight();
+
+            //    LineLeft_AreaMstStackPanel.Click += (sender, e) => AreaMstScrollViewer.LineLeft();
+            //    LineRight_AreaMstStackPanel.Click += (sender, e) => AreaMstScrollViewer.LineRight();
+
+            //    LineLeft_BlockMstStackPanel.Click += (sender, e) => BlockMstScrollViewer.LineLeft();
+            //    LineRight_BlockMstStackPanel.Click += (sender, e) => BlockMstScrollViewer.LineRight();
+
+            //    LineLeft_TicketPriceMstStackPanel.Click += (sender, e) => TicketPriceMstScrollViewer.LineLeft(); TicketPriceMstScrollViewer_PlusButton.LineLeft(); TicketPriceMstScrollViewer_MinusButton.LineLeft();
+            //    LineRight_TicketPriceMstStackPanel.Click += (sender, e) => TicketPriceMstScrollViewer.LineRight(); TicketPriceMstScrollViewer_PlusButton.LineRight(); TicketPriceMstScrollViewer_MinusButton.LineRight();
+
+            //    LineLeft_SettlementMstStackPanel.Click += (sender, e) => SettlementMstScrollViewer.LineLeft();
+            //    LineRight_SettlementMstStackPanel.Click += (sender, e) => SettlementMstScrollViewer.LineRight();
+
+            //    LineLeft_ReceiptMstStackPanel.Click += (sender, e) => ReceiptMstScrollViewer.LineLeft();
+            //    LineRight_ReceiptMstStackPanel.Click += (sender, e) => ReceiptMstScrollViewer.LineRight();
+            //}
+            //#endregion    
+        }
 
     }
 }

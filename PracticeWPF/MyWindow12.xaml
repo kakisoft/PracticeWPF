@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticeWPF"
         mc:Ignorable="d"
-        Title="MyWindow12" Height="650" Width="800">
+        Title="MyWindow12" Height="730" Width="800">
     <Grid>
         <StackPanel>
             <!--
@@ -150,6 +150,52 @@
                                 <StackPanel x:Name="PaymentType_SstackPanel01" Height="50" Orientation="Horizontal"/>
                             </ScrollViewer>
 
+                            <!-- ページャー -->
+                            <Grid Grid.Row="1" Grid.Column="0" Margin="5,0,5,5" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="6*"/>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="6*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Button Grid.Row="0" Grid.Column="1" Content="←←" Background="#FF90F199" FontWeight="Bold" />
+
+
+
+
+                                <Grid Grid.Row="0" Grid.Column="2">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                    </Grid.ColumnDefinitions>
+
+
+
+
+                                    <Label  Grid.Row="0" Grid.Column="0" Content="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+                                    <Label  Grid.Row="0" Grid.Column="1" Content="/" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                                    <Label  Grid.Row="0" Grid.Column="2" Content="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+
+
+                                </Grid>
+
+
+
+
+
+
+                                <Button Grid.Row="0" Grid.Column="3" Content="→→" Background="#FF90F199" FontWeight="Bold" />
+                            </Grid>
+
                         </Grid>
                     </GroupBox>
                 </StackPanel>
@@ -199,6 +245,22 @@
                     </GroupBox>
                 </StackPanel>
             </Border>
+
+            <!--
+            ==========< ボタン内で改行を入れる >==========
+            -->
+            <StackPanel Width="500" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal">
+                <!-- xaml側で実現  -->
+                <Button>
+                    <TextBlock x:Name="InnerTextBlock01" TextWrapping="Wrap" Text="TextBlockあいうえおかき" Width="45" />
+                </Button>
+
+                <Button x:Name="Button02"  Content="" Width="45"/>
+
+
+                <TextBlock x:Name="x" TextWrapping="Wrap" Text="TextBlockあいうえおかき" Width="220" TextAlignment="Center" />
+
+            </StackPanel>
 
 
         </StackPanel>
