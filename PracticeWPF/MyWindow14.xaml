@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="MyWindow14" Height="450" Width="800">
     <Grid>
-        <StackPanel x:Name="myStackPanel01"  Width="500" Orientation="Horizontal"  HorizontalAlignment="Left" VerticalAlignment="Top" >
+        <StackPanel x:Name="myStackPanel01"  Orientation="Horizontal"  HorizontalAlignment="Left" VerticalAlignment="Top" >
         </StackPanel>
-        <StackPanel x:Name="myStackPanel02"  Width="500" Orientation="Horizontal"  HorizontalAlignment="Left" VerticalAlignment="Top" >
+        <StackPanel x:Name="myStackPanel02"  Orientation="Horizontal"  HorizontalAlignment="Left" VerticalAlignment="Top" >
         </StackPanel>
     </Grid>
 </Window>

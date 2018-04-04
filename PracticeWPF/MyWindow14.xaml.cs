@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media;
 
 namespace PracticeWPF
 {
@@ -15,7 +17,11 @@ namespace PracticeWPF
 
             SetButtonDynamicEvent();
             SetElementDynamicEvent();
+
+            AddEventHandler();
         }
+
+        #region ボタンを動的に配置し、イベントを定義する
         private void SetButtonDynamicEvent()
         {
             Button b1 = new Button();
@@ -35,11 +41,9 @@ namespace PracticeWPF
         {
             Console.WriteLine(((Button)sender).Name + "がクリックされました。");
         }
+        #endregion
 
-
-
-
-
+        #region 様々なエレメントを動的に追加し、イベントを定義する。
         private void SetElementDynamicEvent()
         {
             CheckBox e1 = new CheckBox();
@@ -65,6 +69,23 @@ namespace PracticeWPF
         {
             Console.WriteLine(((FrameworkElement)sender).Name + "がクリックされました。");
         }
+        #endregion
 
+        #region イベントハンドラ追加での対応
+        private void AddEventHandler()
+        {
+            TextBox box = new TextBox(); // 動的に生成されたコントロール
+            box.Width = 50;
+            box.MouseEnter += new MouseEventHandler(box_MouseEnter);
+            myStackPanel01.Children.Add(box);
+        }
+
+        void box_MouseEnter(object sender, MouseEventArgs e)
+        {
+            TextBox box = (TextBox)e.Source;  // TextBoxに変換
+            box.Background = Brushes.Blue;    // プロパティ設定
+
+        }
+        #endregion
     }
 }
