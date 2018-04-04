@@ -47,6 +47,9 @@ namespace PracticeWPF
 
             //バインディング
             this.DataContext = new { X = 10, Y = 20 };
+
+            //画面遷移ボタンのイベント定義
+            SetScreenTransitionBottonEvent();
         }
 
         private void MyWindow01button_Click(object sender, RoutedEventArgs e)
@@ -92,6 +95,11 @@ namespace PracticeWPF
         private void MyWindow11button_Click(object sender, RoutedEventArgs e) => new MyWindow11().ShowDialog();
         private void MyWindow12button_Click(object sender, RoutedEventArgs e) => new MyWindow12().ShowDialog();
         private void MyWindow13button_Click(object sender, RoutedEventArgs e) => new MyWindow13().ShowDialog();
+
+        private void SetScreenTransitionBottonEvent()
+        {
+            MyWindow14button.Click += (sender, e) => new MyWindow14().ShowDialog();
+        }
     }
 
 }

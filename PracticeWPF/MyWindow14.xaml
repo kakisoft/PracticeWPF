@@ -1,0 +1,15 @@
+﻿<Window x:Class="PracticeWPF.MyWindow14"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PracticeWPF"
+        mc:Ignorable="d"
+        Title="MyWindow14" Height="450" Width="800">
+    <Grid>
+        <StackPanel x:Name="myStackPanel01"  Width="500" Orientation="Horizontal"  HorizontalAlignment="Left" VerticalAlignment="Top" >
+        </StackPanel>
+        <StackPanel x:Name="myStackPanel02"  Width="500" Orientation="Horizontal"  HorizontalAlignment="Left" VerticalAlignment="Top" >
+        </StackPanel>
+    </Grid>
+</Window>

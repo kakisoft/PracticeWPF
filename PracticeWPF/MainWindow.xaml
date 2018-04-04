@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticeWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="580">
+        Title="MainWindow" Height="660" Width="580">
     <Grid>
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="150">
             <!--
@@ -47,7 +47,7 @@
         <Button Content="MyWindow11" HorizontalAlignment="Left" Height="35" Margin="60,455,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow11button_Click" />
         <Button Content="MyWindow12" HorizontalAlignment="Left" Height="35" Margin="60,495,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow12button_Click" />
         <Button Content="MyWindow13" HorizontalAlignment="Left" Height="35" Margin="60,535,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow13button_Click" />
-
+        <Button Content="MyWindow14" HorizontalAlignment="Left" Height="35" Margin="60,575,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow14button" />
         <DataGrid HorizontalAlignment="Left" Height="81" Margin="377,260,0,0" VerticalAlignment="Top" Width="185">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="aaa"/>
@@ -79,6 +79,7 @@
         <Label Content="非同期制御" HorizontalAlignment="Left" Margin="153,461,0,0" VerticalAlignment="Top"/>
         <Label Content="コントロールを動的に配置、および選択パラメータを取得" HorizontalAlignment="Left" Margin="153,502,0,0" VerticalAlignment="Top"/>
         <Label Content="タッチパネル風の数量入力" HorizontalAlignment="Left" Margin="153,540,0,0" VerticalAlignment="Top"/>
+        <Label Content="動的に配置したボタンにイベントを定義" HorizontalAlignment="Left" Margin="153,579,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
