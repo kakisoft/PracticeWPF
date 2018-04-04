@@ -1,0 +1,66 @@
+﻿<Window x:Class="PracticeWPF.MyWindow13"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PracticeWPF"
+        mc:Ignorable="d"
+        Title="MyWindow13" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <Border BorderBrush="#FF0C55F3" BorderThickness="5" HorizontalAlignment="Left">
+                <StackPanel x:Name="MyStackPanel01" Width="500" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <!--
+                    ==========< 枚数 >==========
+                    -->
+                    <GroupBox  Grid.Row="0" Grid.Column="1" Header="枚数" BorderBrush="#FF10679B" BorderThickness="3,3,2,2" FontSize="16" Foreground="#FF132595">
+                        <Grid Margin="5,5,5,5" Height="Auto">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- 合計 -->
+                            <TextBox  x:Name="numberOfTickets" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"  Text="{Binding DispText}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="30" />
+
+                            <!-- ＋－ -->
+                            <Button  x:Name="buttonAddTheNumberOfTickets"      Grid.Row="0" Grid.Column="1" Content="＋" Click="buttonAddTheNumberOfTickets_Click" />
+                            <Button  x:Name="buttonSubtractTheNumberOfTickets" Grid.Row="1" Grid.Column="1" Content="－" Click="buttonSubtractTheNumberOfTickets_Click" />
+
+                            <!-- 枚数選択 -->
+                            <Button  Grid.Row="0" Grid.Column="2" Content="1" Click="buttonSetTheNumberOfTickets_Click" />
+                            <Button  Grid.Row="0" Grid.Column="3" Content="2" Click="buttonSetTheNumberOfTickets_Click" />
+                            <Button  Grid.Row="0" Grid.Column="4" Content="3" Click="buttonSetTheNumberOfTickets_Click" />
+                            <Button  Grid.Row="0" Grid.Column="5" Content="4" Click="buttonSetTheNumberOfTickets_Click" />
+
+                            <Button  Grid.Row="1" Grid.Column="2" Content="5" Click="buttonSetTheNumberOfTickets_Click" />
+                            <Button  Grid.Row="1" Grid.Column="3" Content="6" Click="buttonSetTheNumberOfTickets_Click" />
+                            <Button  Grid.Row="1" Grid.Column="4" Content="7" Click="buttonSetTheNumberOfTickets_Click" />
+                            <Button  Grid.Row="1" Grid.Column="5" Content="8" Click="buttonSetTheNumberOfTickets_Click" />
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
+            </Border>
+
+            <StackPanel x:Name="MyStackPanel02" Width="500" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal">
+                <Label>数値入力のみ</Label>
+                <TextBox
+                      x:Name="textBoxPrice"
+                      InputMethod.IsInputMethodEnabled="False"
+                      PreviewTextInput="textBoxPrice_PreviewTextInput"
+                      CommandManager.PreviewExecuted="textBoxPrice_PreviewExecuted"
+                      Width="100"/>
+            </StackPanel>
+
+
+        </StackPanel>
+    </Grid>
+</Window>

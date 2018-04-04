@@ -91,6 +91,7 @@ namespace PracticeWPF
         private void MyWindow10button_Click(object sender, RoutedEventArgs e) => new MyWindow10().ShowDialog();
         private void MyWindow11button_Click(object sender, RoutedEventArgs e) => new MyWindow11().ShowDialog();
         private void MyWindow12button_Click(object sender, RoutedEventArgs e) => new MyWindow12().ShowDialog();
+        private void MyWindow13button_Click(object sender, RoutedEventArgs e) => new MyWindow13().ShowDialog();
     }
 
 }
