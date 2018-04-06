@@ -14,21 +14,52 @@
         <Button x:Name="editButton01"  Content="編集" HorizontalAlignment="Left" Margin="237,23,0,0" VerticalAlignment="Top" Width="75"/>
 
         <!-- グリッド２ -->
-        <DataGrid x:Name="myDataGrid02" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="237" Margin="398,64,0,0" VerticalAlignment="Top" Width="301"/>
+        <DataGrid x:Name="myDataGrid02" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="237" Margin="398,64,0,0" VerticalAlignment="Top" Width="301" />
         <Button x:Name="addButton02"   Content="追加" HorizontalAlignment="Left" Margin="412,23,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.487,0.455"/>
         <Button x:Name="clearButton02" Content="クリア" HorizontalAlignment="Left" Margin="510,23,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.604,0.418"/>
         <Button x:Name="editButton02"  Content="編集" HorizontalAlignment="Left" Margin="614,23,0,0" VerticalAlignment="Top" Width="75"/>
 
-        <!-- グリッド３ -->
+        <!-- グリッド３-１ -->
         <DataGrid x:Name="myDataGrid03_1" ItemsSource="{Binding}"  HorizontalAlignment="Left" Height="145" Margin="749,64,0,0" VerticalAlignment="Top" Width="301"/>
         <Button x:Name="addButton03"   Content="追加" HorizontalAlignment="Left" Margin="762,23,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.487,0.455"/>
         <Button x:Name="clearButton03" Content="クリア" HorizontalAlignment="Left" Margin="860,23,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.604,0.418"/>
         <Button x:Name="editButton03"  Content="編集" HorizontalAlignment="Left" Margin="964,23,0,0" VerticalAlignment="Top" Width="75"/>
 
-        <!-- グリッド４ -->
+        <!-- グリッド３-２ -->
         <DataGrid x:Name="myDataGrid03_2" ItemsSource="{Binding}"  HorizontalAlignment="Left" Height="140" Margin="749,244,0,0" VerticalAlignment="Top" Width="301"/>
 
+        <!-- グリッド４ -->
+        <DataGrid Name="myDataGrid04" IsReadOnly="True"  HorizontalAlignment="Left" Height="96" Margin="26,357,0,0" VerticalAlignment="Top" Width="301"
+                  AutoGenerateColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="番号" Width="80"
+                                    Binding="{Binding No, StringFormat=D2}" />
+                <DataGridTextColumn Header="名前" Width="100"
+                                    Binding="{Binding Name}" />
+                <DataGridTextColumn Header="誕生日" Width="*"
+                                    Binding="{Binding BirthDay, StringFormat=yyyy/MM/dd}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="addButton04"   Content="追加" HorizontalAlignment="Left" Margin="26,329,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.487,0.455"/>
+        <Button x:Name="clearButton04" Content="クリア" HorizontalAlignment="Left" Margin="124,329,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.604,0.418"/>
+        <Button x:Name="editButton04"  Content="編集" HorizontalAlignment="Left" Margin="237,329,0,0" VerticalAlignment="Top" Width="75"/>
 
+
+        <!-- グリッド５ -->
+        <DataGrid x:Name="myDataGrid05" IsReadOnly="True"  HorizontalAlignment="Left" Height="186" Margin="398,357,0,0" VerticalAlignment="Top" Width="301"
+            AutoGenerateColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="番号" Width="80"
+                    Binding="{Binding No, StringFormat=D2}" />
+                <DataGridTextColumn Header="名前" Width="100"
+                    Binding="{Binding Name}" />
+                <DataGridTextColumn Header="誕生日" Width="*"
+                    Binding="{Binding BirthDay, StringFormat=yyyy/MM/dd}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="addButton05"   Content="追加" HorizontalAlignment="Left" Margin="398,329,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.487,0.455"/>
+        <Button x:Name="clearButton05" Content="クリア" HorizontalAlignment="Left" Margin="496,329,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.604,0.418"/>
+        <Button x:Name="editButton05"  Content="編集" HorizontalAlignment="Left" Margin="609,329,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,8 @@ namespace PracticeWPF
         private ObservableCollection<User> userList02 = new ObservableCollection<User>();
         private DataTable userList03_1 = new DataTable();
         private DataTable userList03_2 = new DataTable();
-        private DataTable userList05 = new DataTable();
+        private List<Person01> personList04 = new List<Person01>();
+        private List<Person02> personList05 = new List<Person02>();
 
 
         // Enum だと、コンボボックス
@@ -41,6 +43,60 @@ namespace PracticeWPF
         }
         #endregion
 
+        #region クラス定義２
+        public class Person01
+        {
+            public int No { get; set; }
+            public string Name { get; set; }
+            public DateTime BirthDay { get; set; }
+        }
+
+
+        //-----< 双方向バインディングを実現するパターン >-----
+        public class Person02
+        {
+            //publicなsetterを作らず、コンストラクタで受け取る
+            public int No { get; private set; }
+            public string Name { get; private set; }
+            public DateTime BirthDay { get; private set; }
+
+            public Person02(int no, string name, DateTime birthDay)
+            {
+                this.No = no;
+                this.Name = name;
+                this.BirthDay = birthDay;
+            }
+        }
+
+        //public class Person
+        //{
+        //    public int No { get; set; }
+        //    public string Name { get; set; }
+        //    public DateTime BirthDay { get; set; }
+        //}
+
+        //public event PropertyChangedEventHandler PropertyChanged;
+
+        //private Person[] _persons;
+
+        //public Person[] Persons
+        //{
+        //    get
+        //    {
+        //        return _persons;
+        //    }
+        //    private set
+        //    {
+        //        _persons = value;
+
+        //        //更新通知
+        //        var h = PropertyChanged;
+        //        if (h != null) h(this, new PropertyChangedEventArgs("Persons"));
+        //    }
+        //}
+        #endregion
+
+
         #region イニシャライズ
         public MyWindow15()
         {
@@ -52,6 +108,8 @@ namespace PracticeWPF
             SetGridItemsSource02();
 
             InitializeDataset03();
+            InitializeDataset04();
+            InitializeDataset05();
         }
         #endregion
 
@@ -69,6 +127,14 @@ namespace PracticeWPF
             addButton03.Click   += (sender, e) => AddGridData03();
             clearButton03.Click += (sender, e) => ClearGridData03();
             editButton03.Click  += (sender, e) => EditGridData03();
+
+            addButton04.Click   += (sender, e) => AddGridData04();
+            clearButton04.Click += (sender, e) => ClearGridData04();
+            editButton04.Click  += (sender, e) => EditGridData04();
+
+            addButton05.Click   += (sender, e) => AddGridData05();
+            clearButton05.Click += (sender, e) => ClearGridData05();
+            editButton05.Click  += (sender, e) => EditGridData05();
         }
         #endregion
 
@@ -212,6 +278,91 @@ namespace PracticeWPF
 
 
             SetGridItemsSource03();
+        }
+        #endregion
+
+        #region グリッド制御４
+        private void InitializeDataset04()
+        {
+
+        }
+
+        private void AddGridData04()
+        {
+            SetUserList04();
+            //myDataGrid04.DataContext = person04;
+            myDataGrid04.ItemsSource = personList04;
+        }
+
+        private void ClearGridData04()
+        {
+            //userList04.Clear();
+        }
+        private void EditGridData04()
+        {
+            //userList04[0].Name = "a"; //画面上は変更なし
+            //myDataGrid02.DataContext = userList04;
+
+        }
+
+        private void SetUserList04()
+        {
+            personList04.Add(new Person01 { No = 1, Name = "Tanaka", BirthDay = new DateTime(2000, 1, 1) } );
+            personList04.Add(new Person01 { No = 2, Name = "Yamada", BirthDay = new DateTime(1990, 5, 5) });
+            personList04.Add(new Person01 { No = 3, Name = "Sato", BirthDay = new DateTime(2001, 12, 31) });
+        }
+
+        private void SetGridItemsSource04()
+        {
+            //myDataGrid04.DataContext = userList04;
+        }
+
+
+        #endregion
+
+        #region グリッド制御５
+        private void InitializeDataset05()
+        {
+            personList05.Add(new Person02(1, "Tanaka", new DateTime(2000, 1, 1)));
+            personList05.Add(new Person02(2, "Yamada", new DateTime(1990, 5, 5)));
+            personList05.Add(new Person02(3, "Sato", new DateTime(2001, 12, 31)));
+
+            UpdateDispList();
+        }
+
+        private void AddGridData05()
+        {
+            personList05.Add(new Person02(4, "Yoshida", new DateTime(2002, 2, 2)));
+            UpdateDispList();
+        }
+
+        private void ClearGridData05()
+        {
+            personList05.Clear();
+        }
+        private void EditGridData05()
+        {
+            var person02 = myDataGrid05.SelectedItem as Person02;
+            if (person02 == null) return;
+
+            var idx = personList05.IndexOf(person02);
+
+            //名前だけ変えた新しいインスタンスを作って入れ替える
+            var newPerson02 = new Person02(person02.No, "hayashi", person02.BirthDay);
+            personList05[idx] = newPerson02;
+
+            UpdateDispList();
+
+            //選択行を再現
+            myDataGrid05.SelectedIndex = idx;
+        }
+
+
+        //表示用リストを再設定
+        private void UpdateDispList()
+        {
+            //this.dataGrid.ItemsSource = new ReadOnlyCollection<Person>(person05);
+            myDataGrid05.ItemsSource = new List<Person02>(personList05);
         }
         #endregion
 
