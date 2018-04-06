@@ -1,0 +1,34 @@
+﻿<Window x:Class="PracticeWPF.MyWindow15"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PracticeWPF"
+        mc:Ignorable="d"
+        Title="MyWindow15" Height="600" Width="1200">
+    <Grid>
+        <!-- グリッド１ -->
+        <DataGrid x:Name="myDataGrid01"  HorizontalAlignment="Left" Height="237" Margin="26,64,0,0" VerticalAlignment="Top" Width="301"/>
+        <Button x:Name="addButton01"   Content="追加" HorizontalAlignment="Left" Margin="26,23,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.487,0.455"/>
+        <Button x:Name="clearButton01" Content="クリア" HorizontalAlignment="Left" Margin="124,23,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.604,0.418"/>
+        <Button x:Name="editButton01"  Content="編集" HorizontalAlignment="Left" Margin="237,23,0,0" VerticalAlignment="Top" Width="75"/>
+
+        <!-- グリッド２ -->
+        <DataGrid x:Name="myDataGrid02" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="237" Margin="398,64,0,0" VerticalAlignment="Top" Width="301"/>
+        <Button x:Name="addButton02"   Content="追加" HorizontalAlignment="Left" Margin="412,23,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.487,0.455"/>
+        <Button x:Name="clearButton02" Content="クリア" HorizontalAlignment="Left" Margin="510,23,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.604,0.418"/>
+        <Button x:Name="editButton02"  Content="編集" HorizontalAlignment="Left" Margin="614,23,0,0" VerticalAlignment="Top" Width="75"/>
+
+        <!-- グリッド３ -->
+        <DataGrid x:Name="myDataGrid03_1" ItemsSource="{Binding}"  HorizontalAlignment="Left" Height="145" Margin="749,64,0,0" VerticalAlignment="Top" Width="301"/>
+        <Button x:Name="addButton03"   Content="追加" HorizontalAlignment="Left" Margin="762,23,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.487,0.455"/>
+        <Button x:Name="clearButton03" Content="クリア" HorizontalAlignment="Left" Margin="860,23,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.604,0.418"/>
+        <Button x:Name="editButton03"  Content="編集" HorizontalAlignment="Left" Margin="964,23,0,0" VerticalAlignment="Top" Width="75"/>
+
+        <!-- グリッド４ -->
+        <DataGrid x:Name="myDataGrid03_2" ItemsSource="{Binding}"  HorizontalAlignment="Left" Height="140" Margin="749,244,0,0" VerticalAlignment="Top" Width="301"/>
+
+
+
+    </Grid>
+</Window>

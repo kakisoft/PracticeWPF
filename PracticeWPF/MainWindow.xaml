@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticeWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Top="10" Height="660" Width="580">
+        Title="MainWindow" Top="10" Height="700" Width="580">
     <Grid>
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="150">
             <!--
@@ -48,6 +48,9 @@
         <Button Content="MyWindow12" HorizontalAlignment="Left" Height="35" Margin="60,495,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow12button_Click" />
         <Button Content="MyWindow13" HorizontalAlignment="Left" Height="35" Margin="60,535,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow13button_Click" />
         <Button Content="MyWindow14" HorizontalAlignment="Left" Height="35" Margin="60,575,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow14button" />
+        <Button Content="MyWindow15" HorizontalAlignment="Left" Height="35" Margin="60,615,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow15button" />
+
+        
         <DataGrid HorizontalAlignment="Left" Height="81" Margin="377,260,0,0" VerticalAlignment="Top" Width="185">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="aaa"/>
@@ -68,10 +71,10 @@
         </StackPanel>
         <Label Content="各種パネルの配置" HorizontalAlignment="Left" Margin="155,60,0,0" VerticalAlignment="Top"/>
         <Label Content="ボタン背景・グリッド" HorizontalAlignment="Left" Margin="153,100,0,0" VerticalAlignment="Top"/>
-        <Label Content="Window.Resources を参照してプロパティを設定" HorizontalAlignment="Left" Margin="153,141,0,0" VerticalAlignment="Top"/>
-        <Label Content="テキストボックスの双方向バインディング１" HorizontalAlignment="Left" Margin="153,178,0,0" VerticalAlignment="Top"/>
-        <Label Content="テキストボックスの双方向バインディング２" HorizontalAlignment="Left" Margin="153,225,0,0" VerticalAlignment="Top"/>
-        <Label Content="リスト要素のデータとのバインディング１" HorizontalAlignment="Left" Margin="153,260,0,0" VerticalAlignment="Top"/>
+        <Label Content="Window.Resources を参照してプロパティを設定" HorizontalAlignment="Left" Margin="153,139,0,0" VerticalAlignment="Top"/>
+        <Label Content="テキストボックスの双方向バインディング１" HorizontalAlignment="Left" Margin="153,180,0,0" VerticalAlignment="Top"/>
+        <Label Content="テキストボックスの双方向バインディング２" HorizontalAlignment="Left" Margin="153,219,0,0" VerticalAlignment="Top"/>
+        <Label Content="リスト要素のデータとのバインディング１" HorizontalAlignment="Left" Margin="153,259,0,0" VerticalAlignment="Top"/>
         <Label Content="リスト要素のデータとのバインディング２" HorizontalAlignment="Left" Margin="153,299,0,0" VerticalAlignment="Top"/>
         <Label Content="チェックボックスとのバインディング" HorizontalAlignment="Left" Margin="153,340,0,0" VerticalAlignment="Top"/>
         <Label Content="チェックボックスとの双方向バインディング（応用）" HorizontalAlignment="Left" Margin="153,380,0,0" VerticalAlignment="Top"/>
@@ -80,6 +83,7 @@
         <Label Content="コントロールを動的に配置、および選択パラメータを取得" HorizontalAlignment="Left" Margin="153,502,0,0" VerticalAlignment="Top"/>
         <Label Content="タッチパネル風の数量入力" HorizontalAlignment="Left" Margin="153,540,0,0" VerticalAlignment="Top"/>
         <Label Content="動的に配置したボタンにイベントを定義" HorizontalAlignment="Left" Margin="153,579,0,0" VerticalAlignment="Top"/>
+        <Label Content="DataGrid" HorizontalAlignment="Left" Margin="153,622,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
