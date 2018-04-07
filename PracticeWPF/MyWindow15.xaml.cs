@@ -326,11 +326,11 @@ namespace PracticeWPF
         #region グリッド制御５
         private void InitializeDataset05()
         {
-            personList05.Add(new Person02(1, "Tanaka", new DateTime(2000, 1, 1)));
-            personList05.Add(new Person02(2, "Yamada", new DateTime(1990, 5, 5)));
-            personList05.Add(new Person02(3, "Sato", new DateTime(2001, 12, 31)));
-            personList05.Add(new Person02(4, "Ishikawa", new DateTime(2003, 5, 21)));
-            personList05.Add(new Person02(5, "Morita", new DateTime(2004, 7, 3)));
+            personList05.Add(new Person02(1, "Tanaka"  , new DateTime(2000, 1 , 1 )));
+            personList05.Add(new Person02(2, "Yamada"  , new DateTime(1990, 5 , 5 )));
+            personList05.Add(new Person02(3, "Sato"    , new DateTime(2001, 12, 31)));
+            personList05.Add(new Person02(4, "Ishikawa", new DateTime(2003, 5 , 21)));
+            personList05.Add(new Person02(5, "Morita"  , new DateTime(2004, 7 , 3 )));
 
             UpdateDispList();
         }
@@ -382,14 +382,92 @@ namespace PracticeWPF
         }
         #endregion
 
-        private void aa(object sender, SelectionChangedEventArgs e)
+        private void SelectionChanged_Grid05(object sender, SelectionChangedEventArgs e)
         {
-            
+            try
+            {
+                ////-----< エラー >-----
+                //DataGridRow d = (DataGridRow)sender;
+                ////DataGridRow dgr = sender as DataGridRow;
+                //var i = dgr.GetIndex();
+
+
+                ////-----< エラー >-----
+                //var elem = e.MouseDevice.DirectlyOver as FrameworkElement;
+
+                var el2 = e.Source;
+
+                ////-----< エラー >-----
+                //DataGridCell box = (DataGridCell)e.Source;  // TextBoxに変換
+                //box.Background = Brushes.Red;    // プロパティ設定
+
+
+                ////-----< エラー >-----
+                //var aaa = (Person02)e;
+
+                Console.WriteLine("SelectionChanged");
+
+            }
+            catch (Exception ex)
+            {
+
+                //throw;
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        private void bb(object sender, SelectedCellsChangedEventArgs e)
+        private void SelectedCellsChanged_Grid05(object sender, SelectedCellsChangedEventArgs e)
+        {   
+            Console.WriteLine("SelectedCellsChanged");
+
+        }
+
+        private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
 
+            var elem = e.MouseDevice.DirectlyOver as FrameworkElement;
+            if (elem != null)
+            {
+                DataGridCell cell = elem.Parent as DataGridCell;
+                if (cell == null)
+                {
+                    // ParentでDataGridCellが拾えなかった時はTemplatedParentを参照
+                    // （Borderをダブルクリックした時）
+                    cell = elem.TemplatedParent as DataGridCell;
+                }
+                if (cell != null)
+                {
+                    // ここでcellの内容を処理
+                    // （cell.DataContextにバインドされたものが入っているかと思います）
+                }
+            }
+        }
+
+        private void DataGrid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Console.WriteLine("DataGrid_MouseDown");
+
+
+            var elem = e.MouseDevice.DirectlyOver as FrameworkElement;
+            if (elem != null)
+            {
+                DataGridCell cell = elem.Parent as DataGridCell;    
+                //DataGridRow row = elem.Parent as DataGridRow;
+                if (cell != null)
+                {
+                    //cell.DataContext = "";
+                    cell.Content = "x" + (string)cell.Content;
+                    // ここでcellの内容を処理
+                    // （cell.DataContextにバインドされたものが入っているかと思います）
+                }
+                
+            }
+
+        }
+
+        private void DataGrid_TouchDown(object sender, TouchEventArgs e)
+        {
+            Console.WriteLine("DataGrid_TouchDown");
         }
     }
 }

@@ -47,7 +47,7 @@
 
         <!-- グリッド５ -->
         <DataGrid x:Name="myDataGrid05" IsReadOnly="True"  HorizontalAlignment="Left" Height="186" Margin="398,357,0,0" VerticalAlignment="Top" Width="301"
-            AutoGenerateColumns="False" SelectionChanged="aa" SelectedCellsChanged="bb" >
+            AutoGenerateColumns="False" SelectionChanged="SelectionChanged_Grid05" SelectedCellsChanged="SelectedCellsChanged_Grid05" MouseDoubleClick="DataGrid_MouseDoubleClick" MouseDown="DataGrid_MouseDown" TouchDown="DataGrid_TouchDown">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="番号" Width="80"
                     Binding="{Binding No, StringFormat=D2}" />
