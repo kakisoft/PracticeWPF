@@ -135,6 +135,9 @@ namespace PracticeWPF
             addButton05.Click   += (sender, e) => AddGridData05();
             clearButton05.Click += (sender, e) => ClearGridData05();
             editButton05.Click  += (sender, e) => EditGridData05();
+            edit2Button05.Click += (sender, e) => Edit2GridData05();
+            //myDataGrid05.SelectedCellsChanged  += (a, b) => MarkUpSelectedRowGrid05();
+            
         }
         #endregion
 
@@ -326,13 +329,15 @@ namespace PracticeWPF
             personList05.Add(new Person02(1, "Tanaka", new DateTime(2000, 1, 1)));
             personList05.Add(new Person02(2, "Yamada", new DateTime(1990, 5, 5)));
             personList05.Add(new Person02(3, "Sato", new DateTime(2001, 12, 31)));
+            personList05.Add(new Person02(4, "Ishikawa", new DateTime(2003, 5, 21)));
+            personList05.Add(new Person02(5, "Morita", new DateTime(2004, 7, 3)));
 
             UpdateDispList();
         }
 
         private void AddGridData05()
         {
-            personList05.Add(new Person02(4, "Yoshida", new DateTime(2002, 2, 2)));
+            personList05.Add(new Person02(50, "Igawa", new DateTime(2002, 2, 2)));
             UpdateDispList();
         }
 
@@ -355,8 +360,14 @@ namespace PracticeWPF
 
             //選択行を再現
             myDataGrid05.SelectedIndex = idx;
+
         }
 
+        private void Edit2GridData05()
+        {
+            personList05[0] = new Person02(0, "changed", new DateTime(2018, 4, 7));
+            UpdateDispList();
+        }
 
         //表示用リストを再設定
         private void UpdateDispList()
@@ -364,7 +375,21 @@ namespace PracticeWPF
             //this.dataGrid.ItemsSource = new ReadOnlyCollection<Person>(person05);
             myDataGrid05.ItemsSource = new List<Person02>(personList05);
         }
+
+        private void MarkUpSelectedRowGrid05()
+        {
+            Console.WriteLine("aa");
+        }
         #endregion
 
+        private void aa(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        private void bb(object sender, SelectedCellsChangedEventArgs e)
+        {
+
+        }
     }
 }

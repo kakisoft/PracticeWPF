@@ -47,7 +47,7 @@
 
         <!-- グリッド５ -->
         <DataGrid x:Name="myDataGrid05" IsReadOnly="True"  HorizontalAlignment="Left" Height="186" Margin="398,357,0,0" VerticalAlignment="Top" Width="301"
-            AutoGenerateColumns="False" >
+            AutoGenerateColumns="False" SelectionChanged="aa" SelectedCellsChanged="bb" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="番号" Width="80"
                     Binding="{Binding No, StringFormat=D2}" />
@@ -59,7 +59,8 @@
         </DataGrid>
         <Button x:Name="addButton05"   Content="追加" HorizontalAlignment="Left" Margin="398,329,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.487,0.455"/>
         <Button x:Name="clearButton05" Content="クリア" HorizontalAlignment="Left" Margin="496,329,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.604,0.418"/>
-        <Button x:Name="editButton05"  Content="編集" HorizontalAlignment="Left" Margin="609,329,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="editButton05"  Content="編集" HorizontalAlignment="Left" Margin="589,329,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="edit2Button05" Content="編集2" HorizontalAlignment="Left" Margin="672,329,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>
