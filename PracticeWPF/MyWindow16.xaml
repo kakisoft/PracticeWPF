@@ -26,9 +26,11 @@
         <Button Content="－９－"   HorizontalAlignment="Left" Margin="784,55,0,0" VerticalAlignment="Top" Width="75" Click="Button09_Click"/>
         <Button Content="－１０－" HorizontalAlignment="Left" Margin="877,55,0,0" VerticalAlignment="Top" Width="75" Click="Button10_Click"/>
 
-        <Label Content="シンプルなGet" HorizontalAlignment="Left" Margin="6,97,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.316,-2.923" Width="83"/>
-        <TextBox x:Name="textBox11"  Text="" HorizontalAlignment="Left" Height="23" Margin="6,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
-        <Button Content="－１１－" HorizontalAlignment="Left" Margin="14,151,0,0" VerticalAlignment="Top" Width="75" Click="Button11_Click"/>
-        <Label Content="URL" HorizontalAlignment="Left" Margin="149,140,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.316,-2.923"/>
+        <Label Content="URL" HorizontalAlignment="Left" Margin="6,102,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.316,-2.923"/>
+        <TextBox x:Name="textBox11"  Text="" HorizontalAlignment="Left" Height="23" Margin="6,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="475"/>
+        <Label Content="シンプルなGET"  HorizontalAlignment="Left" Margin="10,153,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.316,-2.923" Width="103"/>
+        <Label Content="シンプルなPOST" HorizontalAlignment="Left" Margin="10,184,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.316,-2.923" Width="103"/>
+        <Button Content="－１１－" HorizontalAlignment="Left" Margin="104,154,0,0" VerticalAlignment="Top" Width="75" Click="Button11_Click" />
+        <Button Content="－１２－" HorizontalAlignment="Left" Margin="104,187,0,0" VerticalAlignment="Top" Width="75" Click="Button12_Click" />
     </Grid>
 </Window>

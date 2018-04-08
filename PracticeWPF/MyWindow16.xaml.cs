@@ -25,6 +25,16 @@ namespace PracticeWPF
     /// </summary>
     public partial class MyWindow16 : Window
     {
+        //-------------------------------------------------------
+        // .NETクライアントからHTTPリクエストを送る場合、従来は、
+        //WebClientクラスや
+        //WebRequest, WebResponse クラスを
+        //使用していたが、こちらは設計が古いもよう。
+        //
+        //新しくは、.NET Framework 4.5 では BCL 入りした
+        //System.Net.Http.dllの HttpClient クラスを使用する。
+        //https://techinfoofmicrosofttech.osscons.jp/index.php?HttpClient%E3%81%AE%E9%A1%9E%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9
+        //-------------------------------------------------------
         public MyWindow16()
         {
             InitializeComponent();
@@ -457,5 +467,56 @@ namespace PracticeWPF
             return urlContents;
         }
         #endregion
+
+        #region  －１２－
+        //===========================================
+        //            シンプルなPOST
+        //
+        //===========================================
+        private void Button12_Click(object sender, RoutedEventArgs e)
+        {
+            //http://challenge-your-limits.herokuapp.com/challenge_users
+            string targetURL;
+            if (textBox11.Text.Trim() != "")
+            {
+                targetURL = textBox11.Text;
+            }
+            else
+            {
+                targetURL = "http://www.google.co.jp/";
+            }
+
+            Button12_Click_Content(targetURL);
+        }
+        private async void Button12_Click_Content(string targetURL)
+        {
+            try
+            {
+                string content = await PostAccessTheWebAsync(targetURL);
+
+                Console.WriteLine(content);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        async Task<string> PostAccessTheWebAsync(string targetURL)
+        {
+            HttpClient client = new HttpClient();
+
+            var content = new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "name", "YourName" },
+                { "email", "hoooobaaaaaa@tran.com" },
+            });
+            var response = await client.PostAsync(targetURL, content);
+            string urlContents = await response.Content.ReadAsStringAsync();
+
+            return urlContents;
+        }
+        #endregion
+
     }
 }
