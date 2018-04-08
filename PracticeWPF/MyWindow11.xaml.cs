@@ -26,6 +26,10 @@ namespace PracticeWPF
         }
 
         #region －１－
+        //===========================================
+        //   Async および Await を使用した非同期プログラミング (C#)
+        //https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/concepts/async/
+        //===========================================
         // Mark the event handler with async so you can use await in it.
         private async void StartButton_Click(object sender, RoutedEventArgs e)
         {

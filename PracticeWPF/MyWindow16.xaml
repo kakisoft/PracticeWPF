@@ -5,13 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticeWPF"
         mc:Ignorable="d"
-        Title="MyWindow16" Height="450" Width="800">
+        Title="MyWindow16" Height="450" Width="1000">
     <Grid>
-        <Button Content="POST" HorizontalAlignment="Left" Margin="238,39,0,0" VerticalAlignment="Top" Width="75" Click="Button01_Click"/>
-        <Button Content="POST2" HorizontalAlignment="Left" Margin="412,39,0,0" VerticalAlignment="Top" Width="75" Click="Button02_Click"/>
-        <Button Content="POST3" HorizontalAlignment="Left" Margin="412,39,0,0" VerticalAlignment="Top" Width="75" Click="Button03_Click"/>
-        <Button Content="POST4" HorizontalAlignment="Left" Margin="522,39,0,0" VerticalAlignment="Top" Width="75" Click="Button04_Click"/>
-        <Button Content="POST5" HorizontalAlignment="Left" Margin="613,39,0,0" VerticalAlignment="Top" Width="75" Click="Button05_Click"/>
+        <Button Content="－１－" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Width="75" Click="Button01_Click"/>
+        <Button Content="－２－" HorizontalAlignment="Left" Margin="104,55,0,0" VerticalAlignment="Top" Width="75" Click="Button02_Click"/>
+        <Button Content="－３－" HorizontalAlignment="Left" Margin="200,55,0,0" VerticalAlignment="Top" Width="75" Click="Button03_Click"/>
+        <Label Content="URL" HorizontalAlignment="Left" Margin="321,1,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.316,-2.923"/>
+        <TextBox Name="textBox04"  Text="" HorizontalAlignment="Left" Height="23" Margin="290,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142"/>
+        <Button Content="－４－" HorizontalAlignment="Left" Margin="304,55,0,0" VerticalAlignment="Top" Width="75" Click="Button04_Click"/>
+        <Button Content="－５－" HorizontalAlignment="Left" Margin="406,55,0,0" VerticalAlignment="Top" Width="75" Click="Button05_Click"/>
 
+        <Button Content="－６＿１－" HorizontalAlignment="Left" Margin="508,55,0,0" VerticalAlignment="Top" Width="75" Click="Button06_1_Click"/>
+        <Button Content="－６＿２－" HorizontalAlignment="Left" Margin="508,89,0,0" VerticalAlignment="Top" Width="75" Click="Button06_2_ClickAsync"/>
+
+        <Button Content="－７－" HorizontalAlignment="Left" Margin="604,55,0,0" VerticalAlignment="Top" Width="75" Click="Button07_Click"/>
+        <Label Content="Task" HorizontalAlignment="Left" Margin="709,27,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.316,-2.923"/>
+        <Button Content="－８＿１－" HorizontalAlignment="Left" Margin="694,55,0,0" VerticalAlignment="Top" Width="75" Click="Button08_1_Click"/>
+        <Button Content="－８＿２－" HorizontalAlignment="Left" Margin="694,89,0,0" VerticalAlignment="Top" Width="75" Click="Button08_2_Click"/>
+
+        <Button Content="－９－"   HorizontalAlignment="Left" Margin="784,55,0,0" VerticalAlignment="Top" Width="75" Click="Button09_Click"/>
+        <Button Content="－１０－" HorizontalAlignment="Left" Margin="877,55,0,0" VerticalAlignment="Top" Width="75" Click="Button10_Click"/>
+
+        <Label Content="シンプルなGet" HorizontalAlignment="Left" Margin="6,97,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.316,-2.923" Width="83"/>
+        <TextBox x:Name="textBox11"  Text="" HorizontalAlignment="Left" Height="23" Margin="6,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+        <Button Content="－１１－" HorizontalAlignment="Left" Margin="14,151,0,0" VerticalAlignment="Top" Width="75" Click="Button11_Click"/>
+        <Label Content="URL" HorizontalAlignment="Left" Margin="149,140,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.316,-2.923"/>
     </Grid>
 </Window>

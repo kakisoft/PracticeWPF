@@ -1,10 +1,12 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -46,7 +48,7 @@ namespace PracticeWPF
 
         #region －１－
         //===========================================
-        //
+        //             JSON形式で送信
         //
         //===========================================
         private void Button01_Click(object sender, RoutedEventArgs e)
@@ -78,7 +80,7 @@ namespace PracticeWPF
 
         #region  －２－
         //===========================================
-        //
+        //   
         //
         //===========================================
         private void Button02_Click(object sender, RoutedEventArgs e)
@@ -207,13 +209,44 @@ namespace PracticeWPF
         //===========================================
         private void Button04_Click(object sender, RoutedEventArgs e)
         {
+            //http://challenge-your-limits.herokuapp.com/call/me
+            string targetURL;
+            if (textBox04.Text.Trim() != "")
+            {
+                targetURL = textBox04.Text;
+            }
+            else
+            {
+                targetURL = "http://www.google.co.jp/";
+            }
+
+
             //HTTPリクエスト
-            var req = HttpWebRequest.Create("http://www.google.co.jp/");
+            var req = HttpWebRequest.Create(targetURL);
             req.Timeout = 15000;//タイムアウト(15秒)
             //HTPレスポンス
             var res = (HttpWebResponse)req.GetResponse();
 
+
             Console.WriteLine(res);
+
+
+            //ヘッダ取得
+            Console.WriteLine("");
+            Console.WriteLine("[SEND]");
+            var h = req.Headers;
+            for (int i = 0; i < h.Count; i++ ) {
+                Console.WriteLine("{0}: {1}", h.GetKey(i), h[i]);
+            }
+
+            //ヘッダ取得
+            Console.WriteLine("");
+            Console.WriteLine("[RECV]");
+            h = res.Headers;
+            for (int i = 0; i < h.Count; i++) {
+                Console.WriteLine("{0}: {1}", h.GetKey(i), h[i]);
+            }
+
         }
         #endregion
 
@@ -236,5 +269,193 @@ namespace PracticeWPF
         }
         #endregion
 
+        #region  －６－
+        //==========< 同期 >=========
+        private void Button06_1_Click(object sender, RoutedEventArgs e)
+        {
+            Download();
+        }
+        public static string ReadFromUrl(Uri url)
+        {
+            using (WebClient webClient = new WebClient())
+            {
+                using (Stream stream = webClient.OpenRead(url))
+                {
+                    TextReader tr = new StreamReader(stream, Encoding.UTF8, true);
+                    string body = tr.ReadToEnd();
+                    return body;
+                }
+            }
+        }
+
+        public static void Download()
+        {
+            Uri url = new Uri("https://github.com/Microsoft/dotnet/blob/master/README.md");
+            string body = ReadFromUrl(url);
+            Console.WriteLine(body);
+        }
+
+        //==========< 非同期 >=========
+        private async void Button06_2_ClickAsync(object sender, RoutedEventArgs e)
+        {
+            await DownloadAsync();
+        }
+        public static async Task DownloadAsync()
+        {
+            Uri url = new Uri("https://github.com/Microsoft/dotnet/blob/master/README.md");
+            // Step8: ReadFromUrlから非同期対応のReadFromUrlAsyncに変更する。
+            // Step9: ReadFromUrlAsyncがTask<string>を返すので、awaitする。
+            //        awaitすると、stringが得られる。
+            string body = await ReadFromUrlAsync(url);
+            Console.WriteLine(body);
+        }
+        public static async Task<string> ReadFromUrlAsync(Uri url)
+        {
+            using (WebClient webClient = new WebClient())
+            {
+                // Step1: OpenReadから非同期対応のOpenReadTaskAsyncに変更する。
+                // Step2: OpenReadTaskAsyncがTask<Stream>を返すので、awaitする。
+                //        awaitすると、Streamが得られる。
+                using (Stream stream = await webClient.OpenReadTaskAsync(url))
+                {
+                    TextReader tr = new StreamReader(stream, Encoding.UTF8, true);
+                    // Step3: ReadToEndから非同期対応のReadToEndAsyncに変更する。
+                    // Step4: ReadToEndAsyncがTask<string>を返すので、awaitする。
+                    //        awaitすると、stringが得られる。
+                    string body = await tr.ReadToEndAsync();
+                    return body;
+                }
+            }
+        }
+        #endregion
+
+        #region  －７－
+        static int count = 1;
+        private void Button07_Click(object sender, RoutedEventArgs e)
+        {
+            Task task = Task.Factory.StartNew(() => {
+                Console.WriteLine(count.ToString() + "！");
+                count++;
+                Thread.Sleep(1000);
+                Console.WriteLine(count.ToString() + "！");
+                count++;
+                Thread.Sleep(1000);
+                Console.WriteLine(count.ToString() + "！");
+                count++;
+                Thread.Sleep(1000);
+                Console.WriteLine("だ～～～～～～～～～～～～～～～～～～～～～～～～～～～～");
+                Thread.Sleep(1000);
+            });
+
+            // メインスレッドが先に終わらないように・・・
+            while (true) ;
+        }
+        #endregion
+
+        #region  －８－
+        //===========================================
+        //         シンプルなTaskの使い方
+        //
+        //===========================================
+        private void Button08_1_Click(object sender, RoutedEventArgs e)
+        {
+            TaskSample01();
+        }
+        //Task <TResult>クラスは、値を返し、通常は非同期に実行される単一の操作を表します。
+        private void TaskSample01()
+        {
+            var t = Task<int>.Run(() => {
+                // Just loop.
+                int max = 1000000;
+                int ctr = 0;
+                for (ctr = 0; ctr <= max; ctr++)
+                {
+                    if (ctr == max / 2 && DateTime.Now.Hour <= 12)
+                    {
+                        ctr++;
+                        break;
+                    }
+                }
+                return ctr;
+            });
+            Console.WriteLine("Finished {0:N0} iterations.", t.Result);
+        }
+
+        //===========================================
+        //          明示的なタスクの実行
+        //https://docs.microsoft.com/ja-jp/dotnet/standard/parallel-programming/task-based-asynchronous-programming?view=netframework-4.7.2
+        //===========================================
+        private void Button08_2_Click(object sender, RoutedEventArgs e)
+        {
+            TaskSample01();
+        }
+        #endregion
+
+        #region  －９－
+        //===========================================
+        //
+        //
+        //===========================================
+        private void Button09_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+        #endregion
+
+        #region  －１０－
+        //===========================================
+        //
+        //
+        //===========================================
+        private void Button10_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+        #endregion
+
+        #region  －１１－
+        //===========================================
+        //            シンプルなGet
+        //
+        //===========================================
+        private void Button11_Click(object sender, RoutedEventArgs e)
+        {
+            //http://challenge-your-limits.herokuapp.com/call/me
+            string targetURL;
+            if (textBox11.Text.Trim() != "")
+            {
+                targetURL = textBox11.Text;
+            }
+            else
+            {
+                targetURL = "http://www.google.co.jp/";
+            }
+
+            Button11_Click_Content(targetURL);
+        }
+        private async void Button11_Click_Content(string targetURL)
+        {
+            try
+            {
+                string content = await AccessTheWebAsync(targetURL);
+
+                Console.WriteLine(content);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        async Task<string> AccessTheWebAsync(string targetURL)
+        {
+            HttpClient client = new HttpClient();
+
+            Task<string> getStringTask = client.GetStringAsync(targetURL);
+            string urlContents = await getStringTask;
+
+            return urlContents;
+        }
+        #endregion
     }
 }
