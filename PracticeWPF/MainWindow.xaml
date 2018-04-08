@@ -51,9 +51,10 @@
         <Button Content="MyWindow14" HorizontalAlignment="Left" Height="35" Margin="60,575,0,0"  VerticalAlignment="Top" Width="90" x:Name="MyWindow14button" />
         <Button Content="MyWindow15" HorizontalAlignment="Left" Height="35" Margin="60,615,0,0"  VerticalAlignment="Top" Width="90" x:Name="MyWindow15button" />
         <Button Content="MyWindow16" HorizontalAlignment="Left" Height="35" Margin="414,131,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow16button" />
+        <Button Content="MyWindow17" HorizontalAlignment="Left" Height="35" Margin="414,177,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow17button" />
 
 
-        <DataGrid HorizontalAlignment="Left" Height="81" Margin="421,267,0,0" VerticalAlignment="Top" Width="185">
+        <DataGrid HorizontalAlignment="Left" Height="81" Margin="485,329,0,0" VerticalAlignment="Top" Width="185">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="シンプルなグリッド"/>
                 <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" />
@@ -87,6 +88,7 @@
         <Label Content="動的に配置したボタンにイベントを定義" HorizontalAlignment="Left" Margin="153,579,0,0" VerticalAlignment="Top"/>
         <Label Content="DataGrid" HorizontalAlignment="Left" Margin="153,622,0,0" VerticalAlignment="Top"/>
         <Label Content="HTTP通信：非同期" HorizontalAlignment="Left" Margin="509,136,0,0" VerticalAlignment="Top"/>
+        <Label Content="デリゲート・イベント" HorizontalAlignment="Left" Margin="509,182,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
