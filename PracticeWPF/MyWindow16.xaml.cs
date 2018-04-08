@@ -18,7 +18,7 @@ using System.Windows.Shapes;
 namespace PracticeWPF
 {
     /// <summary>
-    /// MyWindow16.xaml の相互作用ロジック
+    /// HTTP通信：非同期
     /// ツール→NuGetパッケージマネージャ→ソリューションのNuGetパッケージの管理：『Json.NET』
     /// </summary>
     public partial class MyWindow16 : Window

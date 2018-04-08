@@ -25,7 +25,7 @@ namespace PracticeWPF
             InitializeComponent();
         }
 
-
+        #region －１－
         // Mark the event handler with async so you can use await in it.
         private async void StartButton_Click(object sender, RoutedEventArgs e)
         {
@@ -82,23 +82,66 @@ namespace PracticeWPF
 
         // Length of the downloaded string: 41564.
 
+        #endregion
 
-
-
+        #region －２－
         //===========================================
         //
         //
         //===========================================
-        private void asyncSample_Click(object sender, RoutedEventArgs e)
+        private void asyncSample02_Click(object sender, RoutedEventArgs e)
         {
-            //AsyncMethod();
+            CallAsyncMethodAsync();
         }
-
+        private async void CallAsyncMethodAsync()
+        {
+            await AsyncMethod();
+        }
         async Task AsyncMethod()
         {
             await Task.Delay(1000); // 1000ミリ秒待機するという仕事の完了を待ち、
             Console.WriteLine("Done!"); // "Done!"をコンソールに出力する
         } // という、「一つのTask」を表す。
+
+        #endregion
+
+        #region －３－
+        //===========================================
+        //
+        //
+        //===========================================
+        private async void asyncSample03_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int returnValue = await ReturnValueSampleAsync();
+
+                Console.WriteLine(returnValue);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private async Task<int> ReturnValueSampleAsync()
+        {
+            HttpClient client = new HttpClient();
+            Task<string> getStringTask = client.GetStringAsync("http://msdn.microsoft.com");
+            string urlContents = await getStringTask;
+
+            //-----( await演算子が無い場合、同期的に実行される。)-----
+            //int returnValueAsync = await MyTaskWork();
+            int returnValueAsync = 5656;
+
+            return returnValueAsync;
+        }
+        private Task<int> MyTaskWork()
+        {
+            return null;
+        }
+
+        #endregion
     }
 }
 

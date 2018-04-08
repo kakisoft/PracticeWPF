@@ -86,7 +86,7 @@
         <Label Content="タッチパネル風の数量入力" HorizontalAlignment="Left" Margin="153,540,0,0" VerticalAlignment="Top"/>
         <Label Content="動的に配置したボタンにイベントを定義" HorizontalAlignment="Left" Margin="153,579,0,0" VerticalAlignment="Top"/>
         <Label Content="DataGrid" HorizontalAlignment="Left" Margin="153,622,0,0" VerticalAlignment="Top"/>
-        <Label Content="HTTP通信" HorizontalAlignment="Left" Margin="509,136,0,0" VerticalAlignment="Top"/>
+        <Label Content="HTTP通信：非同期" HorizontalAlignment="Left" Margin="509,136,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

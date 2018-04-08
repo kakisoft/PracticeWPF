@@ -14,7 +14,10 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="startButton" Content="Start&#xd;&#xa;" HorizontalAlignment="Left" Margin="217,10,0,0" VerticalAlignment="Top" Width="75" Height="24"  Click="StartButton_Click" Grid.Column="1"/>
         <TextBox x:Name="resultsTextBox" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="576" Height="263" FontFamily="Lucida Console" FontSize="10" VerticalScrollBarVisibility="Visible" Grid.ColumnSpan="3"/>
-        <Button x:Name="asyncSample" Content="Start&#xA;" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" Width="75" Height="24"  Click="asyncSample_Click" Grid.Column="2"/>
+
+
+        <Button x:Name="asyncSample02" Click="asyncSample02_Click"  Content="Sample01" HorizontalAlignment="Left" Margin="30,10,0,0"  VerticalAlignment="Top" Width="75" Height="24" Grid.Column="2"/>
+        <Button x:Name="asyncSample03" Click="asyncSample03_Click"  Content="Sample02" HorizontalAlignment="Left" Margin="130,10,0,0" VerticalAlignment="Top" Width="75" Height="24" Grid.Column="2"/>
 
 
     </Grid>
