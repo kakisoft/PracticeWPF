@@ -20,8 +20,10 @@
 
         <Button Content="－７－" HorizontalAlignment="Left" Margin="604,55,0,0" VerticalAlignment="Top" Width="75" Click="Button07_Click"/>
         <Label Content="Task" HorizontalAlignment="Left" Margin="709,27,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.316,-2.923"/>
-        <Button Content="－８＿１－" HorizontalAlignment="Left" Margin="694,55,0,0" VerticalAlignment="Top" Width="75" Click="Button08_1_Click"/>
-        <Button Content="－８＿２－" HorizontalAlignment="Left" Margin="694,89,0,0" VerticalAlignment="Top" Width="75" Click="Button08_2_Click"/>
+        <Button Content="－８＿１－" HorizontalAlignment="Left" Margin="694,55,0,0"  VerticalAlignment="Top" Width="75" Click="Button08_1_Click"/>
+        <Button Content="－８＿２－" HorizontalAlignment="Left" Margin="694,86,0,0"  VerticalAlignment="Top" Width="75" Click="Button08_2_Click"/>
+        <Button Content="－８＿３－" HorizontalAlignment="Left" Margin="694,118,0,0" VerticalAlignment="Top" Width="75" Click="Button08_3_Click"/>
+        <Button Content="－８＿４－" HorizontalAlignment="Left" Margin="694,148,0,0" VerticalAlignment="Top" Width="75" Click="Button08_4_Click"/>
 
         <Button Content="－９－"   HorizontalAlignment="Left" Margin="784,55,0,0" VerticalAlignment="Top" Width="75" Click="Button09_Click"/>
         <Button Content="－１０－" HorizontalAlignment="Left" Margin="877,55,0,0" VerticalAlignment="Top" Width="75" Click="Button10_Click"/>
@@ -30,7 +32,9 @@
         <TextBox x:Name="textBox11"  Text="" HorizontalAlignment="Left" Height="23" Margin="6,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="475"/>
         <Label Content="シンプルなGET"  HorizontalAlignment="Left" Margin="10,153,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.316,-2.923" Width="103"/>
         <Label Content="シンプルなPOST" HorizontalAlignment="Left" Margin="10,184,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.316,-2.923" Width="103"/>
+        <Label Content="Task使用POST" HorizontalAlignment="Left" Margin="10,216,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.316,-2.923" Width="103"/>
         <Button Content="－１１－" HorizontalAlignment="Left" Margin="104,154,0,0" VerticalAlignment="Top" Width="75" Click="Button11_Click" />
         <Button Content="－１２－" HorizontalAlignment="Left" Margin="104,187,0,0" VerticalAlignment="Top" Width="75" Click="Button12_Click" />
+        <Button Content="－１３－" HorizontalAlignment="Left" Margin="104,219,0,0" VerticalAlignment="Top" Width="75" Click="Button13_Click" />
     </Grid>
 </Window>

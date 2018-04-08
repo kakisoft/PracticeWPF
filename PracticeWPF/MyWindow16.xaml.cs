@@ -397,8 +397,117 @@ namespace PracticeWPF
         //===========================================
         private void Button08_2_Click(object sender, RoutedEventArgs e)
         {
-            TaskSample01();
+            TaskSample02();
         }
+        private void TaskSample02()
+        {
+            Thread.CurrentThread.Name = "Main";
+
+            // Create a task and supply a user delegate by using a lambda expression. 
+            Task taskA = new Task(() => Console.WriteLine("Hello from taskA."));
+            // Start the task.
+            taskA.Start();
+
+            // Output a message from the calling thread.
+            Console.WriteLine("Hello from thread '{0}'.",
+                              Thread.CurrentThread.Name);
+            taskA.Wait();
+        }
+        // The example displays output like the following:
+        //       Hello from thread 'Main'.
+        //       Hello from taskA.
+
+
+        //===========================================
+        //          Task<TResult>
+        //
+        //===========================================
+        private void Button08_3_Click(object sender, RoutedEventArgs e)
+        {
+            TaskSample03();
+        }
+        private void TaskSample03()
+        {
+            var t = Task<int>.Run(() => {
+                // Just loop.
+                int max = 1000000;
+                int ctr = 0;
+                for (ctr = 0; ctr <= max; ctr++)
+                {
+                    if (ctr == max / 2 && DateTime.Now.Hour <= 12)
+                    {
+                        ctr++;
+                        break;
+                    }
+                }
+                return ctr;
+            });
+            Console.WriteLine("Finished {0:N0} iterations.", t.Result);
+        }
+
+        //===========================================
+        //     Task.Status Property　　状態確認
+        //https://docs.microsoft.com/ja-jp/dotnet/api/system.threading.tasks.task.status?view=netframework-4.7.2
+        //===========================================
+        private void Button08_4_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                TaskSample04();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void TaskSample04()
+        {
+            var tasks = new List<Task<int>>();
+            var source = new CancellationTokenSource();
+            var token = source.Token;
+            int completedIterations = 0;
+
+            for (int n = 0; n <= 19; n++)
+                tasks.Add(Task.Run(() => {
+                    int iterations = 0;
+                    for (int ctr = 1; ctr <= 2000000; ctr++)
+                    {
+                        token.ThrowIfCancellationRequested();
+                        iterations++;
+                    }
+                    Interlocked.Increment(ref completedIterations);
+                    if (completedIterations >= 10)
+                        source.Cancel();
+                    return iterations;
+                }, token));
+
+            Console.WriteLine("Waiting for the first 10 tasks to complete...\n");
+            try
+            {
+                Task.WaitAll(tasks.ToArray());
+            }
+            catch (AggregateException)
+            {
+                Console.WriteLine("Status of tasks:\n");
+                Console.WriteLine("{0,10} {1,20} {2,14:N0}", "Task Id",
+                                  "Status", "Iterations");
+                foreach (var t in tasks)
+                    Console.WriteLine("{0,10} {1,20} {2,14}",
+                                      t.Id, t.Status,
+                                      t.Status != TaskStatus.Canceled ? t.Result.ToString("N0") : "n/a");
+            }
+        }
+        // The example displays output like the following:
+        //    Waiting for the first 10 tasks to complete...
+        //    Status of tasks:
+        //
+        //       Task Id               Status     Iterations
+        //             1      RanToCompletion      2,000,000
+        //             2      RanToCompletion      2,000,000
+        //（中略）
+        //            16      RanToCompletion      2,000,000
+        //            17             Canceled            n/a
+        //            20             Canceled            n/a        #endregion
         #endregion
 
         #region  －９－
@@ -503,6 +612,58 @@ namespace PracticeWPF
         }
 
         async Task<string> PostAccessTheWebAsync(string targetURL)
+        {
+            HttpClient client = new HttpClient();
+
+            var content = new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "name", "YourName" },
+                { "email", "hoooobaaaaaa@tran.com" },
+            });
+            var response = await client.PostAsync(targetURL, content);
+            string urlContents = await response.Content.ReadAsStringAsync();
+
+            return urlContents;
+        }
+        #endregion
+
+        #region  －１３－
+        //===========================================
+        //          Taskを使用したPOST
+        //
+        //===========================================
+        private void Button13_Click(object sender, RoutedEventArgs e)
+        {
+            //http://challenge-your-limits.herokuapp.com/challenge_users
+            string targetURL;
+            if (textBox11.Text.Trim() != "")
+            {
+                targetURL = textBox11.Text;
+            }
+            else
+            {
+                targetURL = "http://www.google.co.jp/";
+            }
+
+            Button13_Click_Content(targetURL);
+        }
+        private void Button13_Click_Content(string targetURL)
+        {
+            try
+            {
+                var task = Task.Run(() =>
+                {
+                    return PostAccess02TheWebAsync(targetURL);
+                });
+                System.Console.WriteLine(task.Result);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        async Task<string> PostAccess02TheWebAsync(string targetURL)
         {
             HttpClient client = new HttpClient();
 
