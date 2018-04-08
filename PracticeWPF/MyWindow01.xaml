@@ -210,7 +210,7 @@
                   　　　下段
             ===================================
             -->
-            <Button x:Name="Close" DockPanel.Dock="Bottom" Margin="5" Content="DockPanel.Dock:Bottom" Height="50" FontSize="20">
+            <Button x:Name="closeButton02" DockPanel.Dock="Bottom" Margin="5" Content="DockPanel.Dock:Bottom" Height="50" FontSize="20" Click="CloseButton_Click" >
             </Button>
         </DockPanel>
 
