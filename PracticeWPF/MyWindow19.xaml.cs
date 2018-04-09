@@ -4,7 +4,7 @@ using System.Windows.Controls;
 namespace PracticeWPF
 {
     /// <summary>
-    /// MyWindow19.xaml の相互作用ロジック
+    /// Gridの指定位置に要素を追加
     /// </summary>
     public partial class MyWindow19 : Window
     {
