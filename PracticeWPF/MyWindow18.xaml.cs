@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace PracticeWPF
 {
     /// <summary>
-    /// MyWindow18.xaml の相互作用ロジック
+    /// LINQ
     /// </summary>
     public partial class MyWindow18 : Window
     {
