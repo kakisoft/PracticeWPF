@@ -20,6 +20,28 @@ namespace PracticeWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //----< メッセージを表示 >-----
+            MessageBox.Show("入力情報をクリアしました。", "", MessageBoxButton.OK, MessageBoxImage.Information);
+
+
+            var resut01 = MessageBox.Show("YesNo", "", MessageBoxButton.YesNo, MessageBoxImage.Information);
+
+            if (resut01 == MessageBoxResult.OK)
+            {
+
+            }
+
+            var resut02 = MessageBox.Show("YesNoCancel", "", MessageBoxButton.YesNoCancel, MessageBoxImage.Information);
+            if (resut01 == MessageBoxResult.Cancel)
+            {
+
+            }
+
+        }
+
+
         #region サンプルクラス
         private User _user;
         public class User
@@ -103,6 +125,7 @@ namespace PracticeWPF
             MyWindow16button.Click += (sender, e) => new MyWindow16().ShowDialog();
             MyWindow17button.Click += (sender, e) => new MyWindow17().ShowDialog();
         }
+
     }
 
 }
