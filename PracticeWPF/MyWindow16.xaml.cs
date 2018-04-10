@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace PracticeWPF
 {
@@ -46,6 +47,12 @@ namespace PracticeWPF
                 this.Age = age;
                 this.Name = name;
             }
+        }
+
+        public class MyResult
+        {
+            public HttpStatusCode StatusCode { get; set; }
+            public string Response { get; set; }
         }
 
         #region －１－
@@ -668,6 +675,83 @@ namespace PracticeWPF
             string urlContents = await response.Content.ReadAsStringAsync();
 
             return urlContents;
+        }
+        #endregion
+
+        #region  －１４－
+        //===========================================
+        //          
+        //https://medium.com/@joni2nja/leveraging-c-7-tuple-how-to-stream-api-result-to-the-client-using-tuple-3ce68a75ae7c
+        //===========================================
+        //private readonly HttpClient _httpClient;
+        //public MyService1(HttpClient httpClient)
+        //{
+        //    _httpClient = httpClient;
+        //}
+
+        private void Button14_Click(object sender, RoutedEventArgs e)
+        {
+            string targetURL;
+            if (textBox11.Text.Trim() != "")
+            {
+                targetURL = textBox11.Text;
+            }
+            else
+            {
+                targetURL = "http://www.google.co.jp/";
+            }
+
+            //-------(     )-------
+            if( ((Button)sender).Content.ToString() == "－１４＿１－")
+            {
+                Button14_1_Click_Content(targetURL);
+            }
+            else
+            {
+                Button14_2_Click_Content(targetURL);
+            }
+
+        }
+
+        //==========< －１４＿１－  >==========
+        private async void Button14_1_Click_Content(string targetURL)
+        {
+            var result = await PostAccessFromButton14_1Async(targetURL);
+
+            Console.WriteLine(result.StatusCode);
+            Console.WriteLine(result.Response);
+        }
+
+        public async Task<MyResult> PostAccessFromButton14_1Async(string targetURL)
+        {
+            var _httpClient = new HttpClient();
+
+            var result = await _httpClient.PostAsync("http://example.com/", new StringContent(""));
+            return new MyResult
+            {
+                StatusCode = result.StatusCode,
+                Response = await result.Content.ReadAsStringAsync()
+            };
+        }
+
+        //==========< －１４＿２－  >==========
+        private async void Button14_2_Click_Content(string targetURL)
+        {
+            var result = await PostAccessFromButton14_2Async(targetURL);
+
+            Console.WriteLine(result);
+        }
+
+        //--------------------------------------------------------------
+        // Tuple
+        //    NuGet：Install-Package System.ValueTuple -Version 4.4.0
+        //--------------------------------------------------------------
+        public async Task<(HttpStatusCode StatusCode, string Response)> PostAccessFromButton14_2Async(string targetURL)
+        {
+            var _httpClient = new HttpClient();
+
+            var result = await _httpClient.PostAsync("http://example.com/", new StringContent(""));
+            return (result.StatusCode, await result.Content.ReadAsStringAsync());
         }
         #endregion
 
