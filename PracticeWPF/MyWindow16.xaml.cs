@@ -512,7 +512,7 @@ namespace PracticeWPF
         #region  －９－
         //===========================================
         //
-        //
+        //https://araramistudio.jimdo.com/2015/08/26/async-await%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%9F%E9%9D%9E%E5%90%8C%E6%9C%9F%E5%87%A6%E7%90%86/
         //===========================================
         private CancellationTokenSource m_CancelToken;
         private void btnStart_Click(object sender, RoutedEventArgs e)
