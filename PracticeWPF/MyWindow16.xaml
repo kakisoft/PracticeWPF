@@ -25,8 +25,10 @@
         <Button Content="－８＿３－" HorizontalAlignment="Left" Margin="694,118,0,0" VerticalAlignment="Top" Width="75" Click="Button08_3_Click"/>
         <Button Content="－８＿４－" HorizontalAlignment="Left" Margin="694,148,0,0" VerticalAlignment="Top" Width="75" Click="Button08_4_Click"/>
 
-        <Button Content="－９－"   HorizontalAlignment="Left" Margin="784,55,0,0" VerticalAlignment="Top" Width="75" Click="Button09_Click"/>
-        <Button Content="－１０－" HorizontalAlignment="Left" Margin="877,55,0,0" VerticalAlignment="Top" Width="75" Click="Button10_Click"/>
+        <Button Content="－９－ btnStart"  x:Name="btnStart"  HorizontalAlignment="Left" Margin="784,55,0,0" VerticalAlignment="Top" Width="105" Click="btnStart_Click" HorizontalContentAlignment="Left"/>
+        <Button Content="－９－ btnCancel" x:Name="btnCancel" HorizontalAlignment="Left" Margin="784,82,0,0" VerticalAlignment="Top" Width="105" Click="btnCancel_Click" HorizontalContentAlignment="Left"/>
+        <TextBlock x:Name="textboxProc1" HorizontalAlignment="Left" Margin="806,107,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <Button Content="－１０－" HorizontalAlignment="Left" Margin="900,55,0,0" VerticalAlignment="Top" Width="75" Click="Button10_Click"/>
 
         <Label Content="URL" HorizontalAlignment="Left" Margin="6,102,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.316,-2.923"/>
         <TextBox x:Name="textBox11"  Text="" HorizontalAlignment="Left" Height="23" Margin="6,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="475"/>

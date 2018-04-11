@@ -514,9 +514,51 @@ namespace PracticeWPF
         //
         //
         //===========================================
-        private void Button09_Click(object sender, RoutedEventArgs e)
+        private CancellationTokenSource m_CancelToken;
+        private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            
+            btnStart_Click_Content();
+        }
+        private async void btnStart_Click_Content()
+        {
+            this.btnStart.IsEnabled = false;
+            this.btnCancel.IsEnabled = true;
+
+            //キャンセル処理にはCancellationTokenSourceを使う
+            m_CancelToken = new CancellationTokenSource();
+
+
+            //awaitで並列処理化
+            //並列処理部分を匿名メソッドで定義する
+            await Task.Run(() => {
+                for (int i = 1; i <= 10; ++i)
+                {
+                    if (m_CancelToken.IsCancellationRequested) break;
+
+                    //非同期で処理されるので直接UIにアクセスできない
+                    //Invokeをつかって処理する
+                    Dispatcher.Invoke((Action)(() => {
+                        this.textboxProc1.Text = "処理：(" + i + "/10)";
+                    }));
+                    Thread.Sleep(1000);
+                }
+            });
+            //awaitで並列処理部分の処理を待つが、その間他の処理がちゃんと動く
+
+            m_CancelToken.Dispose();
+            m_CancelToken = null;
+
+            this.btnCancel.IsEnabled = false;
+            this.btnStart.IsEnabled = true;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            //awaitで並列処理部分の処理を待つ間でもここに来る
+            if (null != m_CancelToken)
+            {
+                m_CancelToken.Cancel();
+            }
         }
         #endregion
 
