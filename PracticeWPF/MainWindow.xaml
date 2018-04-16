@@ -76,7 +76,7 @@
             <TextBlock Text="{Binding Y}" />
         </StackPanel>
         <Label Content="01：各種パネルの配置" HorizontalAlignment="Left" Margin="155,60,0,0" VerticalAlignment="Top"/>
-        <Label Content="02：ボタン背景・グリッド" HorizontalAlignment="Left" Margin="153,100,0,0" VerticalAlignment="Top"/>
+        <Label Content="02：ボタン背景・グリッド・ListView" HorizontalAlignment="Left" Margin="153,100,0,0" VerticalAlignment="Top"/>
         <Label Content="03：Window.Resources を参照してプロパティを設定" HorizontalAlignment="Left" Margin="153,139,0,0" VerticalAlignment="Top"/>
         <Label Content="04：テキストボックスの双方向バインディング１" HorizontalAlignment="Left" Margin="153,180,0,0" VerticalAlignment="Top"/>
         <Label Content="05:テキストボックスの双方向バインディング２" HorizontalAlignment="Left" Margin="153,219,0,0" VerticalAlignment="Top"/>

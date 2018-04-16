@@ -1,14 +1,34 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
 
 namespace PracticeWPF
 {
     /// <summary>
-    /// ボタン背景・グリッド
+    /// ボタン背景・グリッド・ListView
     /// </summary>
     public partial class MyWindow02 : Window
     {
+        #region ListView制御用クラス
+        List<TextTypeControl> textList = new List<TextTypeControl>();
+
+        private class TextTypeControl : BindableBase
+        {
+            public int Id { get; set; }
+
+            private string dispText;
+            public string DispText
+            {
+                get { return this.dispText; }
+                set { this.SetProperty(ref this.dispText, value); }
+            }
+        }
+        #endregion
+
+
         #region バインディング用のデータ
         private MyData _obj;
         public class MyData
@@ -170,6 +190,78 @@ namespace PracticeWPF
             else
             {
 
+            }
+        }
+        #endregion
+
+        #region ListView
+        private void addListView01_Click(object sender, RoutedEventArgs e)
+        {
+            AddListView01Click();
+        }
+        private void AddListView01Click()
+        {
+            TextTypeControl textElement01 = new TextTypeControl();
+            textElement01.Id = myListView01.Items.Count;
+            textElement01.DispText = "要素" + myListView01.Items.Count;
+            textList.Add(textElement01);
+            myListView01.Items.Add(textElement01);
+
+
+            TextTypeControl textElement02 = new TextTypeControl();
+            textElement02.Id = myListView01.Items.Count;
+            textElement02.DispText = "要素" + myListView01.Items.Count;
+            textList.Add(textElement02);
+            myListView01.Items.Add(textElement02);
+
+            TextTypeControl textElement03 = new TextTypeControl();
+            textElement03.Id = myListView01.Items.Count;
+            textElement03.DispText = "要素" + myListView01.Items.Count;
+            textList.Add(textElement03);
+            myListView01.Items.Add(textElement03);
+        }
+
+        private void selectListView01_Click(object sender, RoutedEventArgs e)
+        {
+            //OK
+            myListView01.SelectedIndex = 1;
+
+            //foreach(var el in myListView01)
+            //{
+
+            //}
+        }
+
+        private void editListView01_Click(object sender, RoutedEventArgs e)
+        {
+            TextTypeControl selectedElement = (TextTypeControl)myListView01.SelectedItem;
+
+            if (selectedElement == null) return;
+
+
+            Console.WriteLine(selectedElement.Id);
+            selectedElement.DispText = "aaaaaaaaaaa";
+
+
+            //グリッドの内容も変更される。
+            textList[0].DispText = "nn";
+        }
+
+        #endregion
+
+        //*******************************************//
+        #region バンディング用ベースクラス
+        protected class BindableBase : INotifyPropertyChanged
+        {
+            public event PropertyChangedEventHandler PropertyChanged;
+
+            protected virtual bool SetProperty<T>(ref T field, T value, [CallerMemberName]string propertyName = null)
+            {
+                if (Equals(field, value)) { return false; }
+                field = value;
+                var h = this.PropertyChanged;
+                if (h != null) { h(this, new PropertyChangedEventArgs(propertyName)); }
+                return true;
             }
         }
         #endregion

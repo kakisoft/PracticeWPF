@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticeWPF"
         mc:Ignorable="d"
-        Title="MyWindow02" Height="300" Width="800">
+        Title="MyWindow02" Height="500" Width="800">
     <Grid>
         <DockPanel >
             <!--
@@ -139,7 +139,43 @@
 
             </DockPanel>
 
-        </DockPanel>
+            <!--
+            ////////////////////////////////
+               ２行目に配置した DockPanel
+            ////////////////////////////////
+            -->
+            <DockPanel DockPanel.Dock="Top" Height="130" VerticalAlignment="Top">
+                <!--
+                ===================================
+                              ListView
+                ===================================
+                -->
+                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal">
+                    <ListView x:Name="myListView01" Width="150">
+                        <ListView.View>
+                            <GridView>
+                                <GridView.ColumnHeaderContainerStyle>
+                                    <Style TargetType="GridViewColumnHeader">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </Style>
+                                </GridView.ColumnHeaderContainerStyle>
 
+
+                                <GridViewColumn Header="id"   Width="30"  DisplayMemberBinding="{Binding Id}" />
+                                <GridViewColumn Header="text" Width="100"  DisplayMemberBinding="{Binding DispText}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                    <StackPanel>
+                        <Button x:Name="addListView01"    Content="add"    Height="30" Width="50" Click="addListView01_Click"    VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                        <Button x:Name="selectListView01" Content="select" Height="30" Width="50" Click="selectListView01_Click" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                        <Button x:Name="editListView01"   Content="edit"   Height="30" Width="50" Click="editListView01_Click"   VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    </StackPanel>
+
+                </StackPanel>
+            </DockPanel>
+
+        </DockPanel>
     </Grid>
 </Window>
