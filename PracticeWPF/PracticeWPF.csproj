@@ -152,6 +152,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MyWindow21.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MyWindow01.xaml.cs">
@@ -213,6 +217,9 @@
     </Compile>
     <Compile Include="MyWindow20.xaml.cs">
       <DependentUpon>MyWindow20.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyWindow21.xaml.cs">
+      <DependentUpon>MyWindow21.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

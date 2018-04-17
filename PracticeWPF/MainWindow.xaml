@@ -55,6 +55,7 @@
         <Button Content="MyWindow18" HorizontalAlignment="Left" Height="35" Margin="414,227,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow18button" />
         <Button Content="MyWindow19" HorizontalAlignment="Left" Height="35" Margin="414,272,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow19button" />
         <Button Content="MyWindow20" HorizontalAlignment="Left" Height="35" Margin="414,317,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow20button" />
+        <Button Content="MyWindow21" HorizontalAlignment="Left" Height="35" Margin="414,364,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow21button" />
 
 
         <DataGrid HorizontalAlignment="Left" Height="81" Margin="518,415,0,0" VerticalAlignment="Top" Width="185">
@@ -95,6 +96,7 @@
         <Label Content="18：LINQ" HorizontalAlignment="Left" Margin="511,232,0,0" VerticalAlignment="Top"/>
         <Label Content="19：Gridの指定位置に要素を追加" HorizontalAlignment="Left" Margin="513,277,0,0" VerticalAlignment="Top"/>
         <Label Content="20：超簡単な async/await" HorizontalAlignment="Left" Margin="513,321,0,0" VerticalAlignment="Top"/>
+        <Label Content="21：全角・半角の変換" HorizontalAlignment="Left" Margin="513,369,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
