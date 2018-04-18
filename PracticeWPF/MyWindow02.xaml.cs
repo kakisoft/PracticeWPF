@@ -223,13 +223,13 @@ namespace PracticeWPF
 
         private void selectListView01_Click(object sender, RoutedEventArgs e)
         {
-            //OK
+            //-----( 選択 )-----
             myListView01.SelectedIndex = 1;
 
-            //foreach(var el in myListView01)
-            //{
 
-            //}
+            //-----( 削除 )-----
+            myListView01.Items.Remove(1);    //NG
+            myListView01.Items.RemoveAt(2);  //OK
         }
 
         private void editListView01_Click(object sender, RoutedEventArgs e)
