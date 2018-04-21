@@ -99,8 +99,8 @@
         <Label Content="19：Gridの指定位置に要素を追加" HorizontalAlignment="Left" Margin="536,258,0,0" VerticalAlignment="Top"/>
         <Label Content="20：超簡単な async/await" HorizontalAlignment="Left" Margin="536,299,0,0" VerticalAlignment="Top"/>
         <Label Content="21：全角・半角の変換" HorizontalAlignment="Left" Margin="536,341,0,0" VerticalAlignment="Top"/>
-        <Label Content="22：XMLシリアライズ・デシリアライズ" HorizontalAlignment="Left" Margin="537,382,0,0" VerticalAlignment="Top"/>
-        <Label Content="23：typeof・nameof・GUID" HorizontalAlignment="Left" Margin="537,424,0,0" VerticalAlignment="Top"/>
+        <Label Content="22：typeof・nameof・GUID" HorizontalAlignment="Left" Margin="537,382,0,0" VerticalAlignment="Top"/>
+        <Label Content="23：XMLシリアライズ・デシリアライズ" HorizontalAlignment="Left" Margin="537,424,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

@@ -173,11 +173,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MyWindow22.xaml">
+    <Page Include="MyWindow23.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MyWindow23.xaml">
+    <Page Include="MyWindow22.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -246,11 +246,11 @@
     <Compile Include="MyWindow21.xaml.cs">
       <DependentUpon>MyWindow21.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MyWindow22.xaml.cs">
-      <DependentUpon>MyWindow22.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MyWindow23.xaml.cs">
       <DependentUpon>MyWindow23.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyWindow22.xaml.cs">
+      <DependentUpon>MyWindow22.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -288,6 +288,10 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="ExternalFiles\myXMLFile01.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

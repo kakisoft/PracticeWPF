@@ -1,29 +1,64 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.Xml;
 
 namespace PracticeWPF
 {
     /// <summary>
-    /// MyWindow23.xaml の相互作用ロジック
+    /// XMLのシリアライズ・デシリアライズ
     /// </summary>
+
+    //==============================================
+    // ソリューションエクスプローラの「参照」にて右クリック→「参照の追加」
+    // 『System.Runtime.Serialization』を追加。
+    //==============================================
     public partial class MyWindow23 : Window
     {
-        //private int sample01 = 0;
+
+        #region データ定義
+        public class Person01
+        {
+            public int ID { get; set; }
+            public string Name { get; set; }
+        }
+
+        //==============================================
+        // DataContract
+        //   ・DataContractSerializerで使われる
+        //   ・System.Runtime.Serializationを参照に追加することで使用可能。
+        //   ・DataContractをクラスへ、DataMemberをプロパティへつける。
+        //   ・DataContractSerializerのWriteObjectでシリアライズ、ReadObjectでデシリアライズできる
+        //==============================================
+        [System.Runtime.Serialization.DataContract]
+        public class Person02
+        {
+            [System.Runtime.Serialization.DataMember]
+            public int ID { get; set; }
+            [System.Runtime.Serialization.DataMember]
+            public string Name { get; set; }
+            [DataMember(Name="ad")]  //xml出力する時、要素名が「ad」となる。
+            public string Address { get; set; }
+
+            //==============================================
+            // DataMember
+            //   ・「そのプロパティが、外部で使用される時の識別子」…と解釈して良さそう。
+            //
+            // When applied to the member of a type, specifies that the member is part of a data contract and is serializable by the DataContractSerializer.
+            // →DataContractSerializerによって直列化可能であることを指定します。
+            //==============================================
+        }
+        #endregion
 
         public MyWindow23()
         {
             InitializeComponent();
+
             AddMyEvent();
         }
 
@@ -31,48 +66,117 @@ namespace PracticeWPF
         {
             myButton01.Click += (sender, e) => MyButton01_Click();
             myButton02.Click += (sender, e) => MyButton02_Click();
+            myButton03.Click += (sender, e) => MyButton03_Click();
+            myButton04.Click += (sender, e) => MyButton04_Click();
         }
 
-        #region typeof
+        #region 属性を付けない場合
         private void MyButton01_Click()
         {
-            //===================
-            //      typeof
-            //===================
+            //============================
+            //   属性を付けない場合
+            //============================
 
-            //型を取得する時に使用する
-            System.Type type = typeof(int);
+            // コンストラクタにターゲットの型を渡す  
+            var ds1 = new DataContractSerializer(typeof(Person01));
 
-            //変数から取得
-            int i = 0;
-            System.Type type01 = i.GetType();
+            // 出力先を作成  
+            var sw1 = new StringWriter();
+            var xw1 = new XmlTextWriter(sw1);
+            // 読みやすいように整形
+            xw1.Formatting = Formatting.Indented;
 
-            //
-            Type t = typeof(MyWindow23);
+            // シリアライズ
+            ds1.WriteObject(xw1, new Person01 { ID = 1, Name = "田中　太郎" });
 
-            Console.WriteLine("Methods:");
-            System.Reflection.MethodInfo[] methodInfo = t.GetMethods();
+            // 結果確認  
+            Console.WriteLine(sw1);  //シリアライズ可
 
-            foreach (System.Reflection.MethodInfo mInfo in methodInfo)
-                Console.WriteLine(mInfo.ToString());
-
-            Console.WriteLine("Members:");
-            System.Reflection.MemberInfo[] memberInfo = t.GetMembers();
-
-            foreach (System.Reflection.MemberInfo mInfo in memberInfo)
-                Console.WriteLine(mInfo.ToString());
+            // デシリアライズ  
+            var sr1 = new StringReader(sw1.ToString());
+            var xr1 = new XmlTextReader(sr1);
+            var person1 = (Person01)ds1.ReadObject(xr1);
+            Console.WriteLine("ID:{0}, Name:{1}", person1.ID, person1.Name);   //デシリアライズ可
         }
         #endregion
 
-        #region nameof
+        #region 属性を付ける場合
         private void MyButton02_Click()
         {
-            Guid guidValue = Guid.NewGuid();
-            string sample01 = guidValue.ToString();
+            //============================
+            //      属性を付ける場合
+            //============================
 
-            string variableName = nameof(sample01);
+            // コンストラクタにターゲットの型を渡す  
+            var ds2 = new DataContractSerializer(typeof(Person02));
 
-            Console.WriteLine(variableName);
+            // 出力先を作成  
+            var sw2 = new StringWriter();
+            var xw2 = new XmlTextWriter(sw2);
+            // 読みやすいように整形
+            xw2.Formatting = Formatting.Indented;
+
+            // シリアライズ
+            ds2.WriteObject(xw2, new Person02 { ID = 1, Name = "田中　太郎" });
+
+            // 結果確認  
+            Console.WriteLine(sw2);  //シリアライズ可
+
+            // デシリアライズ  
+            var sr2 = new StringReader(sw2.ToString());
+            var xr2 = new XmlTextReader(sr2);
+            var person2 = (Person02)ds2.ReadObject(xr2);
+            Console.WriteLine("ID:{0}, Name:{1}", person2.ID, person2.Name);   //デシリアライズ可
+        }
+        #endregion
+
+        #region 複数要素
+        private void MyButton03_Click()
+        {
+            //============================
+            //         複数要素
+            //============================
+
+            // コンストラクタにターゲットの型を渡す  
+            var persons = new DataContractSerializer(typeof(List<Person02>));
+
+            // 出力先を作成  
+            var sw = new StringWriter();
+            var xw = new XmlTextWriter(sw);
+            // 読みやすいように整形
+            xw.Formatting = Formatting.Indented;
+
+            //要素を作成
+            var contents = new List<Person02>();
+            contents.Add(new Person02 { ID = 1, Name = "田中　太郎" });
+            contents.Add(new Person02 { ID = 2, Name = "石川　五右衛門" });
+            contents.Add(new Person02 { ID = 3, Name = "柳生　十兵衛"  , Address = "江戸"});
+            // シリアライズ
+            persons.WriteObject(xw, contents);
+
+            // 結果確認  
+            Console.WriteLine(sw);  //シリアライズ可
+
+            // デシリアライズ  
+            var sr = new StringReader(sw.ToString());
+            var xr = new XmlTextReader(sr);
+
+            List<Person02> person2 = (List<Person02>)persons.ReadObject(xr);
+
+            //コンソール出力
+            Console.WriteLine(person2);
+            foreach (var item in person2)
+            {
+                Console.WriteLine("ID:" + item.ID + ",  Name:" + item.Name + ",  Address:" + item.Address);
+
+            }
+        }
+        #endregion
+
+        #region 外部ファイルを読み込んでデシリアライズ
+        private void MyButton04_Click()
+        {
+
         }
         #endregion
     }
