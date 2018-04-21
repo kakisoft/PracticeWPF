@@ -50,15 +50,17 @@
 
         <Button Content="MyWindow14" HorizontalAlignment="Left" Height="35" Margin="60,575,0,0"  VerticalAlignment="Top" Width="90" x:Name="MyWindow14button" />
         <Button Content="MyWindow15" HorizontalAlignment="Left" Height="35" Margin="60,615,0,0"  VerticalAlignment="Top" Width="90" x:Name="MyWindow15button" />
-        <Button Content="MyWindow16" HorizontalAlignment="Left" Height="35" Margin="414,131,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow16button" />
-        <Button Content="MyWindow17" HorizontalAlignment="Left" Height="35" Margin="414,177,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow17button" />
-        <Button Content="MyWindow18" HorizontalAlignment="Left" Height="35" Margin="414,227,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow18button" />
-        <Button Content="MyWindow19" HorizontalAlignment="Left" Height="35" Margin="414,272,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow19button" />
-        <Button Content="MyWindow20" HorizontalAlignment="Left" Height="35" Margin="414,317,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow20button" />
-        <Button Content="MyWindow21" HorizontalAlignment="Left" Height="35" Margin="414,364,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow21button" />
+        <Button Content="MyWindow16" HorizontalAlignment="Left" Height="35" Margin="437,131,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow16button" />
+        <Button Content="MyWindow17" HorizontalAlignment="Left" Height="35" Margin="437,177,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow17button" />
+        <Button Content="MyWindow18" HorizontalAlignment="Left" Height="35" Margin="437,227,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow18button" />
+        <Button Content="MyWindow19" HorizontalAlignment="Left" Height="35" Margin="437,272,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow19button" />
+        <Button Content="MyWindow20" HorizontalAlignment="Left" Height="35" Margin="437,317,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow20button" />
+        <Button Content="MyWindow21" HorizontalAlignment="Left" Height="35" Margin="437,364,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow21button" />
+        <Button Content="MyWindow22" HorizontalAlignment="Left" Height="35" Margin="437,412,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow22button" />
+        <Button Content="MyWindow23" HorizontalAlignment="Left" Height="35" Margin="437,464,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow23button" />
 
 
-        <DataGrid HorizontalAlignment="Left" Height="81" Margin="518,415,0,0" VerticalAlignment="Top" Width="185">
+        <DataGrid HorizontalAlignment="Left" Height="81" Margin="585,561,0,0" VerticalAlignment="Top" Width="185">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="シンプルなグリッド"/>
                 <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" />
@@ -91,12 +93,14 @@
         <Label Content="13：タッチパネル風の数量入力" HorizontalAlignment="Left" Margin="153,540,0,0" VerticalAlignment="Top"/>
         <Label Content="14：動的に配置したボタンにイベントを定義" HorizontalAlignment="Left" Margin="153,579,0,0" VerticalAlignment="Top"/>
         <Label Content="15：DataGrid" HorizontalAlignment="Left" Margin="153,622,0,0" VerticalAlignment="Top"/>
-        <Label Content="16：HTTP通信：非同期" HorizontalAlignment="Left" Margin="509,136,0,0" VerticalAlignment="Top"/>
-        <Label Content="17：デリゲート・イベント" HorizontalAlignment="Left" Margin="509,182,0,0" VerticalAlignment="Top"/>
-        <Label Content="18：LINQ" HorizontalAlignment="Left" Margin="511,232,0,0" VerticalAlignment="Top"/>
-        <Label Content="19：Gridの指定位置に要素を追加" HorizontalAlignment="Left" Margin="513,277,0,0" VerticalAlignment="Top"/>
-        <Label Content="20：超簡単な async/await" HorizontalAlignment="Left" Margin="513,321,0,0" VerticalAlignment="Top"/>
-        <Label Content="21：全角・半角の変換" HorizontalAlignment="Left" Margin="513,369,0,0" VerticalAlignment="Top"/>
+        <Label Content="16：HTTP通信：非同期" HorizontalAlignment="Left" Margin="532,136,0,0" VerticalAlignment="Top"/>
+        <Label Content="17：デリゲート・イベント" HorizontalAlignment="Left" Margin="532,182,0,0" VerticalAlignment="Top"/>
+        <Label Content="18：LINQ" HorizontalAlignment="Left" Margin="534,232,0,0" VerticalAlignment="Top"/>
+        <Label Content="19：Gridの指定位置に要素を追加" HorizontalAlignment="Left" Margin="536,277,0,0" VerticalAlignment="Top"/>
+        <Label Content="20：超簡単な async/await" HorizontalAlignment="Left" Margin="536,321,0,0" VerticalAlignment="Top"/>
+        <Label Content="21：全角・半角の変換" HorizontalAlignment="Left" Margin="536,369,0,0" VerticalAlignment="Top"/>
+        <Label Content="22：XMLシリアライズ・デシリアライズ" HorizontalAlignment="Left" Margin="537,417,0,0" VerticalAlignment="Top"/>
+        <Label Content="23：typeof" HorizontalAlignment="Left" Margin="537,469,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
