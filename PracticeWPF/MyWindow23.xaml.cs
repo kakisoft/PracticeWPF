@@ -30,7 +30,10 @@ namespace PracticeWPF
         private void AddMyEvent()
         {
             myButton01.Click += (sender, e) => MyButton01_Click();
+            myButton02.Click += (sender, e) => MyButton02_Click();
         }
+
+        #region typeof
         private void MyButton01_Click()
         {
             //===================
@@ -59,5 +62,18 @@ namespace PracticeWPF
             foreach (System.Reflection.MemberInfo mInfo in memberInfo)
                 Console.WriteLine(mInfo.ToString());
         }
+        #endregion
+
+        #region nameof
+        private void MyButton02_Click()
+        {
+            Guid guidValue = Guid.NewGuid();
+            string sample01 = guidValue.ToString();
+
+            string variableName = nameof(sample01);
+
+            Console.WriteLine(variableName);
+        }
+        #endregion
     }
 }
