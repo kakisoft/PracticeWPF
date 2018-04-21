@@ -82,11 +82,13 @@ namespace PracticeWPF
             foreach (var r in RadioList)
             {
                 PaymentType_Grid.Children.Add(r);
-                PaymentType_Grid.RegisterName(r.Name, r); //アクセスできるように、名前を登録する。
+                if (FindName(r.Name) == null)
+                {
+                    PaymentType_Grid.RegisterName(r.Name, r); //アクセスできるように、名前を登録する。
+                    //※ただし、表示/非表示を繰り返すと、上手く行かない。リストへアクセスするのが吉。
+                }
             }
         }
-
-
 
         /// <summary>
         /// スタックパネルに配置１
