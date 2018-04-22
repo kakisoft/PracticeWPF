@@ -58,6 +58,7 @@
         <Button Content="MyWindow21" HorizontalAlignment="Left" Height="35" Margin="437,336,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow21button" />
         <Button Content="MyWindow22" HorizontalAlignment="Left" Height="35" Margin="437,377,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow22button" />
         <Button Content="MyWindow23" HorizontalAlignment="Left" Height="35" Margin="437,419,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow23button" />
+        <Button Content="MyWindow24" HorizontalAlignment="Left" Height="35" Margin="437,461,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow24button" />
 
 
         <DataGrid HorizontalAlignment="Left" Height="81" Margin="585,561,0,0" VerticalAlignment="Top" Width="185">
@@ -101,6 +102,7 @@
         <Label Content="21：全角・半角の変換、カレントディレクト、リソース取得" HorizontalAlignment="Left" Margin="536,341,0,0" VerticalAlignment="Top"/>
         <Label Content="22：typeof・nameof・GUID" HorizontalAlignment="Left" Margin="537,382,0,0" VerticalAlignment="Top"/>
         <Label Content="23：XMLシリアライズ・デシリアライズ" HorizontalAlignment="Left" Margin="537,424,0,0" VerticalAlignment="Top"/>
+        <Label Content="24：JSONシリアライズ・デシリアライズ" HorizontalAlignment="Left" Margin="537,466,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
