@@ -11,6 +11,7 @@
         <Button x:Name="myButton02"  Content="myButton02" HorizontalAlignment="Left" Margin="154,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
         <Button x:Name="myButton03"  Content="myButton03" HorizontalAlignment="Left" Margin="264,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
         <Button x:Name="myButton04"  Content="myButton04" HorizontalAlignment="Left" Margin="382,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
-        
+        <Button x:Name="myButton05"  Content="myButton05" HorizontalAlignment="Left" Margin="500,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
+
     </Grid>
 </Window>

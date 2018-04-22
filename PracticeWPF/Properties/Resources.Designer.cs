@@ -61,6 +61,16 @@ namespace PracticeWPF.Properties {
         }
         
         /// <summary>
+        ///   型 System.Byte[] のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static byte[] myJsonFile01 {
+            get {
+                object obj = ResourceManager.GetObject("myJsonFile01", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   &lt;Person02&gt;
         ///  &lt;Person02&gt;
         ///    &lt;ID&gt;1&lt;/ID&gt;

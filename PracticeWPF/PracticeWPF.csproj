@@ -281,6 +281,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Resources\myJsonFile01.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

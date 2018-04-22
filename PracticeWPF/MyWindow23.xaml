@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="MyWindow23" Height="450" Width="800">
     <Grid>
-        <Button x:Name="myButton01"  Content="myButton01" HorizontalAlignment="Left" Margin="119,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
-        <Button x:Name="myButton02"  Content="myButton02" HorizontalAlignment="Left" Margin="253,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
-        <Button x:Name="myButton03"  Content="myButton03" HorizontalAlignment="Left" Margin="385,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
-        <Button x:Name="myButton04"  Content="myButton04" HorizontalAlignment="Left" Margin="517,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
-        <Button x:Name="myButton05"  Content="myButton05" HorizontalAlignment="Left" Margin="517,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
+        <Button x:Name="myButton01"  Content="myButton01" HorizontalAlignment="Left" Margin="25,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
+        <Button x:Name="myButton02"  Content="myButton02" HorizontalAlignment="Left" Margin="159,36,0,0" VerticalAlignment="Top" Width="92" Height="40" RenderTransformOrigin="-0.152,0.475"/>
+        <Button x:Name="myButton03"  Content="myButton03" HorizontalAlignment="Left" Margin="275,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
+        <Button x:Name="myButton04"  Content="myButton04" HorizontalAlignment="Left" Margin="395,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
+        <Button x:Name="myButton05"  Content="myButton05" HorizontalAlignment="Left" Margin="513,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
 
     </Grid>
 </Window>

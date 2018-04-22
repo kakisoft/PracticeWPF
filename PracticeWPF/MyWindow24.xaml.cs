@@ -39,7 +39,7 @@ namespace PracticeWPF
             myButton02.Click += (sender, e) => MyButton02_Click();
             myButton03.Click += (sender, e) => MyButton03_Click();
             myButton04.Click += (sender, e) => MyButton04_Click();
-            //myButton05.Click += (sender, e) => MyButton05_Click();
+            myButton05.Click += (sender, e) => MyButton05_Click();
         }
         #endregion
 
@@ -251,7 +251,7 @@ namespace PracticeWPF
         }
         #endregion
 
-        #region 【 ver3 】実装１
+        #region 【 ver3 】実装１（シリアライズ）
         private void MyButton03_Click()
         {
             // 日本語ちゃんと出力されるようにしておく
@@ -276,7 +276,7 @@ namespace PracticeWPF
         }
         #endregion
 
-        #region 【 ver3 】実装２
+        #region 【 ver3 】実装２（デシリアライズ）
         private void MyButton04_Click()
         {
             // 日本語ちゃんと出力されるようにしておく
@@ -296,9 +296,41 @@ namespace PracticeWPF
 
             // 結果確認用出力
             Console.WriteLine("-------- parse json result --------");
-            booksByJson.ForEach((book) => {
+            booksByJson.ForEach((book) =>
+            {
                 Console.WriteLine(book.Id + ", " + book.Name + ", " + book.Asin);
             });
+        }
+        #endregion
+
+        #region 【 ver3 】実装３（外部ファイルから読み込んで、デシリアライズ）
+        private void MyButton05_Click()
+        {
+            try
+            {
+                //パス指定
+                string targetDirectory = System.Environment.CurrentDirectory + "\\..\\" + "\\..\\" + "Resources\\";
+                string targetFileName = "myJsonFile01.json";
+                string targetFileFullPath = targetDirectory + targetFileName;
+
+                //ファイル読み込み
+                System.IO.FileStream fs = new System.IO.FileStream(targetFileFullPath, System.IO.FileMode.Open);
+                StreamReader sr = new StreamReader(fs);
+                string myJsonContent = sr.ReadToEnd();
+
+                //デシリアライズ
+                List<Book> booksByJson = JsonConvert.DeserializeObject<List<Book>>(myJsonContent);
+
+                //コンソール出力
+                foreach (var item in booksByJson)
+                {
+                    Console.WriteLine("item:" + item.Id + ", Name:" + item.Name + ", Asin:" + item.Asin);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         #endregion
     }

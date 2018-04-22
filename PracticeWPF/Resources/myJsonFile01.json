@@ -1,0 +1,17 @@
+[
+  {
+    "Id": 1,
+    "Name": "パーフェクト C#",
+    "Asin": "B00M84FTOS"
+  },
+  {
+    "Id": 2,
+    "Name": "Node.jsの許可書",
+    "Asin": "B00DVYTZ12"
+  },
+  {
+    "Id": 3,
+    "Name": "CSSの基礎",
+    "Asin": "B00DVYTZ13"
+  }
+]
