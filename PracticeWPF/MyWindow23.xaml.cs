@@ -176,7 +176,77 @@ namespace PracticeWPF
         #region 外部ファイルを読み込んでデシリアライズ
         private void MyButton04_Click()
         {
+            try
+            {
+                string currentCurrentDirectory01 = System.IO.Directory.GetCurrentDirectory();
+                string currentCurrentDirectory02 = System.Environment.CurrentDirectory;
 
+                // カレントディレクトリを「C:\Hoge\」に設定する
+                System.IO.Directory.SetCurrentDirectory(@"F:\Csharp\");
+                // カレントディレクトリを「C:\Hoge\」に設定する
+                System.Environment.CurrentDirectory = @"F:\Csharp\";
+               
+
+
+
+
+
+
+
+                var xmlFile01 = Properties.Resources.myXMLFile01;
+
+
+                var persons = new DataContractSerializer(typeof(List<Person02>));
+
+                var sw = new StringWriter();
+                persons.WriteObject(new XmlTextWriter(sw), xmlFile01);
+
+                // コンストラクタにターゲットの型を渡す  
+                //var persons = new DataContractSerializer(typeof(List<Person02>));
+
+                //// 出力先を作成  
+                //var sw = new StringWriter();
+                //var xw = new XmlTextWriter(sw);
+                //// 読みやすいように整形
+                //xw.Formatting = Formatting.Indented;
+
+                // デシリアライズ  
+                //var sr = new StringReader(sw.ToString());
+                //var xr = new XmlTextReader(sr);
+
+                var sr = new StringReader(persons.ToString());
+                var xr = new XmlTextReader(sr);
+
+
+                List<Person02> person2 = (List<Person02>)persons.ReadObject(xr);
+
+                //コンソール出力
+                Console.WriteLine(person2);
+                foreach (var item in person2)
+                {
+                    Console.WriteLine("ID:" + item.ID + ",  Name:" + item.Name + ",  Address:" + item.Address);
+
+                }
+
+
+
+
+                //string filepath = "ExternalFiles/";
+                //string filename = "myXMLFile01.xml";
+                //string filefullpath = filepath + filename;
+
+                //StreamReader sr = new StreamReader(filefullpath, Encoding.GetEncoding("Shift_JIS"));
+
+                //string text = sr.ReadToEnd();
+
+                //sr.Close();
+
+                //Console.Write(text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         #endregion
     }

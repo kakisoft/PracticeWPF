@@ -60,12 +60,23 @@ namespace PracticeWPF
             };
         #endregion
 
+        #region 初期化
         public MyWindow21()
         {
             InitializeComponent();
+            AddMyEvent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void AddMyEvent()
+        {
+            myButton01.Click += (sender, e) => MyButton01_Click();
+            myButton02.Click += (sender, e) => MyButton02_Click();
+            myButton03.Click += (sender, e) => MyButton03_Click();
+        }
+        #endregion
+
+        #region 全角⇔半角
+        private void MyButton01_Click()
         {
             //===============================
             //     変換テーブルを使用
@@ -109,5 +120,37 @@ namespace PracticeWPF
             Console.WriteLine(d5);
 
         }
+        #endregion
+
+        #region カレントディレクトリ所得・カレントディレクトリ変更
+        private void MyButton02_Click()
+        {
+            //カレントディレクトリ取得
+            string currentCurrentDirectory01 = System.IO.Directory.GetCurrentDirectory();  //（プロジェクトのルート）\PracticeWPF\bin\Debug
+            string currentCurrentDirectory02 = System.Environment.CurrentDirectory;
+
+            // カレントディレクトリを「C:\Hoge\」に設定する
+            System.IO.Directory.SetCurrentDirectory(@"F:\Csharp\");
+            // カレントディレクトリを「C:\Hoge\」に設定する
+            System.Environment.CurrentDirectory = @"F:\Csharp\";
+
+
+        }
+        #endregion
+
+        #region リソース取得
+        private void MyButton03_Click()
+        {
+            //=====================================
+            //  リソースの設定
+            //     プロジェクトのルート→プロパティ→[リソース]タブ
+            //     →追加したいリソースをドラッグ＆ドロップ。
+            //=====================================
+
+            //リソース取得
+            var xmlFile01 = Properties.Resources.myXMLFile01;
+
+        }
+        #endregion
     }
 }
