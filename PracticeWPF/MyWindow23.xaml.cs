@@ -125,6 +125,7 @@ namespace PracticeWPF
             myButton02.Click += (sender, e) => MyButton02_Click();
             myButton03.Click += (sender, e) => MyButton03_Click();
             myButton04.Click += (sender, e) => MyButton04_Click();
+            myButton05.Click += (sender, e) => MyButton05_Click();
         }
         #endregion
 
@@ -236,14 +237,13 @@ namespace PracticeWPF
         {
             try
             {
-                //相対パス
+                //パス指定
                 string targetDirectory = System.Environment.CurrentDirectory + "\\..\\" + "\\..\\" + "Resources\\";
                 string targetFileName = "system-config.xml";
                 string targetFileFullPath = targetDirectory + targetFileName;
 
 
-
-                System.IO.FileStream fs = new System.IO.FileStream(@"system-config.xml", System.IO.FileMode.Open);
+                System.IO.FileStream fs = new System.IO.FileStream(targetFileFullPath, System.IO.FileMode.Open);
                 System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(SystemConfig));
                 SystemConfig configModel = (SystemConfig)serializer.Deserialize(fs);
 
@@ -253,86 +253,44 @@ namespace PracticeWPF
                     Console.WriteLine(String.Format("ID={0}, EMAIL={1}, EXPIRED={2}", userModel.Id, userModel.MailAddress, userModel.Expired));
                 }
                 fs.Close();
-
-
-                //var xmlFile01 = Properties.Resources.myXMLFile01;
-
-
-
-                //// シリアライズ
-                //var sw = new StringWriter(); // 出力先のWriterを定義
-                //var serializer = new XmlSerializer(typeof(List<Person02>)); // Bookクラスのシリアライザを定義
-                //serializer.Serialize(sw, xmlFile01);
-
-                //var xml = sw.ToString();
-                //Console.WriteLine(xml);
-
-                // デシリアライズ
-                //var deserializedBook = (Book)serializer.Deserialize(new StringReader(xml));
-
-
-
-
-
-
-
-
-
-
-
-
-
-                //var persons = new DataContractSerializer(typeof(List<Person02>));
-
-                //var sw = new StringWriter();
-                //persons.WriteObject(new XmlTextWriter(sw), xmlFile01);
-
-                // コンストラクタにターゲットの型を渡す  
-                //var persons = new DataContractSerializer(typeof(List<Person02>));
-
-                //// 出力先を作成  
-                //var sw = new StringWriter();
-                //var xw = new XmlTextWriter(sw);
-                //// 読みやすいように整形
-                //xw.Formatting = Formatting.Indented;
-
-                // デシリアライズ  
-                //var sr = new StringReader(sw.ToString());
-                //var xr = new XmlTextReader(sr);
-
-                //var sr = new StringReader(persons.ToString());
-                //var xr = new XmlTextReader(sr);
-
-
-                //List<Person02> person2 = (List<Person02>)persons.ReadObject(xr);
-
-                ////コンソール出力
-                //Console.WriteLine(person2);
-                //foreach (var item in person2)
-                //{
-                //    Console.WriteLine("ID:" + item.ID + ",  Name:" + item.Name + ",  Address:" + item.Address);
-
-                //}
-
-
-
-
-                //string filepath = "ExternalFiles/";
-                //string filename = "myXMLFile01.xml";
-                //string filefullpath = filepath + filename;
-
-                //StreamReader sr = new StreamReader(filefullpath, Encoding.GetEncoding("Shift_JIS"));
-
-                //string text = sr.ReadToEnd();
-
-                //sr.Close();
-
-                //Console.Write(text);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        #endregion
+
+        #region 外部ファイルを読み込んでデシリアライズ　．２
+        private void MyButton05_Click()
+        {
+            try
+            {
+                //パス指定
+                string targetDirectory = System.Environment.CurrentDirectory + "\\..\\" + "\\..\\" + "Resources\\";
+                string targetFileName = "system-config.xml";
+                string targetFileFullPath = targetDirectory + targetFileName;
+
+
+                using (FileStream fs = new System.IO.FileStream(targetFileFullPath, System.IO.FileMode.Open))
+                {
+                    XmlSerializer serializer = new XmlSerializer(typeof(SystemConfig));
+                    SystemConfig configModel = (SystemConfig)serializer.Deserialize(fs);
+
+                    //ヘッダ情報
+                    Console.WriteLine(String.Format("SYSTEM={0}, Version={1}", configModel.SystemName, configModel.Version));
+                    //要素
+                    foreach (User userModel in configModel.Users)
+                    {
+                        Console.WriteLine(String.Format("ID={0}, EMAIL={1}, EXPIRED={2}", userModel.Id, userModel.MailAddress, userModel.Expired));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
         #endregion
     }
