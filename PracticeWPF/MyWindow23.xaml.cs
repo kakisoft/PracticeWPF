@@ -236,6 +236,12 @@ namespace PracticeWPF
         {
             try
             {
+                //相対パス
+                string targetDirectory = System.Environment.CurrentDirectory + "\\..\\" + "\\..\\" + "Resources\\";
+                string targetFileName = "system-config.xml";
+                string targetFileFullPath = targetDirectory + targetFileName;
+
+
 
                 System.IO.FileStream fs = new System.IO.FileStream(@"system-config.xml", System.IO.FileMode.Open);
                 System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(SystemConfig));

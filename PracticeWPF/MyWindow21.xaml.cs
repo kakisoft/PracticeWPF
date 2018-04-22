@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -72,6 +73,7 @@ namespace PracticeWPF
             myButton01.Click += (sender, e) => MyButton01_Click();
             myButton02.Click += (sender, e) => MyButton02_Click();
             myButton03.Click += (sender, e) => MyButton03_Click();
+            myButton04.Click += (sender, e) => MyButton04_Click();
         }
         #endregion
 
@@ -126,8 +128,8 @@ namespace PracticeWPF
         private void MyButton02_Click()
         {
             //カレントディレクトリ取得
-            string currentCurrentDirectory01 = System.IO.Directory.GetCurrentDirectory();  //（プロジェクトのルート）\PracticeWPF\bin\Debug
-            string currentCurrentDirectory02 = System.Environment.CurrentDirectory;
+            string currentDirectory01 = System.IO.Directory.GetCurrentDirectory();  //（プロジェクトのルート）\PracticeWPF\bin\Debug
+            string currentDirectory02 = System.Environment.CurrentDirectory;
 
             // カレントディレクトリを「C:\Hoge\」に設定する
             System.IO.Directory.SetCurrentDirectory(@"F:\Csharp\");
@@ -136,8 +138,8 @@ namespace PracticeWPF
 
 
             //相対パス
-            string currentCurrentDirectory03 = currentCurrentDirectory01 + "\\..\\" + "\\..\\"　+ "Resources\\";
-            System.IO.Directory.SetCurrentDirectory(currentCurrentDirectory03);
+            string currentDirectory03 = currentDirectory01 + "\\..\\" + "\\..\\"　+ "Resources\\";
+            System.IO.Directory.SetCurrentDirectory(currentDirectory03);
 
             Console.WriteLine(System.Environment.CurrentDirectory);  // ../../Resources 　に移動している
         }
@@ -158,6 +160,40 @@ namespace PracticeWPF
             //リソース取得
             var xmlFile01 = Properties.Resources.myXMLFile01;
 
+
+            Console.WriteLine(xmlFile01);
+        }
+        #endregion
+
+        #region ファイル読み込み
+        private void MyButton04_Click()
+        {
+            try
+            {
+                //パス指定
+                string targetDirectory = System.Environment.CurrentDirectory + "\\..\\" + "\\..\\" + "Resources\\";
+                string targetFileName = "system-config.xml";
+                string targetFileFullPath = targetDirectory + targetFileName;
+
+
+                StreamReader sr1 = new StreamReader(targetFileFullPath, Encoding.GetEncoding("Shift_JIS"));
+                string text1 = sr1.ReadToEnd();
+                sr1.Close();
+
+                Console.Write(text1);
+
+
+                //using
+                using (StreamReader sr2 = new StreamReader(targetFileFullPath, Encoding.GetEncoding("Shift_JIS")))
+                {
+                    string text2 = sr2.ReadToEnd();
+                    Console.Write(text2);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         #endregion
     }
