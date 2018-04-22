@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Windows;
 using System.Xml;
+using System.Xml.Serialization;
 
 namespace PracticeWPF
 {
@@ -55,6 +56,62 @@ namespace PracticeWPF
         }
         #endregion
 
+        #region データ定義（外部ファイル読み込み用）
+
+        #region SystemConfig
+        /// <summary>
+        /// システム設定
+        /// </summary>
+        [System.Xml.Serialization.XmlRoot("system-config")]
+        public class SystemConfig
+        {
+            /// <summary>
+            /// システム名
+            /// </summary>
+            [System.Xml.Serialization.XmlElement("system-name")]
+            public string SystemName { get; set; }
+            /// <summary>
+            /// バージョン
+            /// </summary>
+            [System.Xml.Serialization.XmlElement("version")]
+            public string Version { get; set; }
+            /// <summary>
+            /// ユーザ情報
+            /// </summary>
+            [System.Xml.Serialization.XmlArray("users")]
+            [System.Xml.Serialization.XmlArrayItem("user")]
+            public List<User> Users { get; set; }
+        }
+        #endregion
+
+        #region User
+        /// <summary>
+        /// ユーザ情報
+        /// </summary>
+        [Serializable]
+        public class User
+        {
+            /// <summary>
+            /// ID
+            /// </summary>
+            [System.Xml.Serialization.XmlAttribute("id")]
+            public string Id { get; set; }
+            /// <summary>
+            /// メールアドレス
+            /// </summary>
+            [System.Xml.Serialization.XmlElement("email")]
+            public string MailAddress { get; set; }
+            /// <summary>
+            /// 有効期限
+            /// </summary>
+            [System.Xml.Serialization.XmlElement("expired")]
+            public string Expired { get; set; }
+        }
+        #endregion
+
+        #endregion
+
+        #region 初期化
         public MyWindow23()
         {
             InitializeComponent();
@@ -69,6 +126,7 @@ namespace PracticeWPF
             myButton03.Click += (sender, e) => MyButton03_Click();
             myButton04.Click += (sender, e) => MyButton04_Click();
         }
+        #endregion
 
         #region 属性を付けない場合
         private void MyButton01_Click()
@@ -178,28 +236,50 @@ namespace PracticeWPF
         {
             try
             {
-                string currentCurrentDirectory01 = System.IO.Directory.GetCurrentDirectory();
-                string currentCurrentDirectory02 = System.Environment.CurrentDirectory;
 
-                // カレントディレクトリを「C:\Hoge\」に設定する
-                System.IO.Directory.SetCurrentDirectory(@"F:\Csharp\");
-                // カレントディレクトリを「C:\Hoge\」に設定する
-                System.Environment.CurrentDirectory = @"F:\Csharp\";
-               
+                System.IO.FileStream fs = new System.IO.FileStream(@"system-config.xml", System.IO.FileMode.Open);
+                System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(SystemConfig));
+                SystemConfig configModel = (SystemConfig)serializer.Deserialize(fs);
 
-
-
-
-
+                Console.WriteLine(String.Format("SYSTEM={0}, Version={1}", configModel.SystemName, configModel.Version));
+                foreach (User userModel in configModel.Users)
+                {
+                    Console.WriteLine(String.Format("ID={0}, EMAIL={1}, EXPIRED={2}", userModel.Id, userModel.MailAddress, userModel.Expired));
+                }
+                fs.Close();
 
 
-                var xmlFile01 = Properties.Resources.myXMLFile01;
+                //var xmlFile01 = Properties.Resources.myXMLFile01;
 
 
-                var persons = new DataContractSerializer(typeof(List<Person02>));
 
-                var sw = new StringWriter();
-                persons.WriteObject(new XmlTextWriter(sw), xmlFile01);
+                //// シリアライズ
+                //var sw = new StringWriter(); // 出力先のWriterを定義
+                //var serializer = new XmlSerializer(typeof(List<Person02>)); // Bookクラスのシリアライザを定義
+                //serializer.Serialize(sw, xmlFile01);
+
+                //var xml = sw.ToString();
+                //Console.WriteLine(xml);
+
+                // デシリアライズ
+                //var deserializedBook = (Book)serializer.Deserialize(new StringReader(xml));
+
+
+
+
+
+
+
+
+
+
+
+
+
+                //var persons = new DataContractSerializer(typeof(List<Person02>));
+
+                //var sw = new StringWriter();
+                //persons.WriteObject(new XmlTextWriter(sw), xmlFile01);
 
                 // コンストラクタにターゲットの型を渡す  
                 //var persons = new DataContractSerializer(typeof(List<Person02>));
@@ -214,19 +294,19 @@ namespace PracticeWPF
                 //var sr = new StringReader(sw.ToString());
                 //var xr = new XmlTextReader(sr);
 
-                var sr = new StringReader(persons.ToString());
-                var xr = new XmlTextReader(sr);
+                //var sr = new StringReader(persons.ToString());
+                //var xr = new XmlTextReader(sr);
 
 
-                List<Person02> person2 = (List<Person02>)persons.ReadObject(xr);
+                //List<Person02> person2 = (List<Person02>)persons.ReadObject(xr);
 
-                //コンソール出力
-                Console.WriteLine(person2);
-                foreach (var item in person2)
-                {
-                    Console.WriteLine("ID:" + item.ID + ",  Name:" + item.Name + ",  Address:" + item.Address);
+                ////コンソール出力
+                //Console.WriteLine(person2);
+                //foreach (var item in person2)
+                //{
+                //    Console.WriteLine("ID:" + item.ID + ",  Name:" + item.Name + ",  Address:" + item.Address);
 
-                }
+                //}
 
 
 

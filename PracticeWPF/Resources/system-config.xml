@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<system-config>
+  <system-name>XXXXX</system-name>
+  <version>1.1</version>
+  <users>
+    <user id="0001">
+      <email>foo@example.com</email>
+      <expired>2015/12/31</expired>
+    </user>
+    <user id="0002">
+      <email>bar@example.com</email>
+      <expired>2015/09/30</expired>
+    </user>
+  </users>
+</system-config>

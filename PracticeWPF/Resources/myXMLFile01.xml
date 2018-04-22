@@ -1,5 +1,23 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Person02 xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/PracticeWPF">
+﻿<Person02>
+  <Person02>
+    <ID>1</ID>
+    <Name>田中　太郎</Name>
+    <ad>江戸</ad>
+  </Person02>
+  <Person02>
+    <ID>2</ID>
+    <Name>石川　五右衛門</Name>
+    <ad>江戸</ad>
+  </Person02>
+  <Person02>
+    <ID>3</ID>
+    <Name>柳生　十兵衛</Name>
+    <ad>江戸</ad>
+  </Person02>
+</Person02>
+<!--
+<?xml version="1.0" encoding="utf-8" ?>
+<ArrayOfMyWindow22.Person02 xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/PracticeWPF">
   <MyWindow22.Person02>
     <ID>1</ID>
     <Name>田中　太郎</Name>
@@ -15,4 +33,5 @@
     <Name>柳生　十兵衛</Name>
     <ad>江戸</ad>
   </MyWindow22.Person02>
-</Person02>
+</ArrayOfMyWindow22.Person02>
+-->

@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace PracticeWPF
 {
     /// <summary>
-    /// 全角・半角の変換
+    /// 全角・半角の変換、カレントディレクト、リソース取得
     /// </summary>
     public partial class MyWindow21 : Window
     {
@@ -135,6 +135,11 @@ namespace PracticeWPF
             System.Environment.CurrentDirectory = @"F:\Csharp\";
 
 
+            //相対パス
+            string currentCurrentDirectory03 = currentCurrentDirectory01 + "\\..\\" + "\\..\\"　+ "Resources\\";
+            System.IO.Directory.SetCurrentDirectory(currentCurrentDirectory03);
+
+            Console.WriteLine(System.Environment.CurrentDirectory);  // ../../Resources 　に移動している
         }
         #endregion
 
@@ -145,6 +150,9 @@ namespace PracticeWPF
             //  リソースの設定
             //     プロジェクトのルート→プロパティ→[リソース]タブ
             //     →追加したいリソースをドラッグ＆ドロップ。
+            //
+            //
+            //  リソース名の変更は、ソリューションエクスプローラからでなく、↑の画面でやった方が良さげ。
             //=====================================
 
             //リソース取得

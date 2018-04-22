@@ -61,28 +61,56 @@ namespace PracticeWPF.Properties {
         }
         
         /// <summary>
-        ///   &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-        ///&lt;Person02 xmlns:i=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns=&quot;http://schemas.datacontract.org/2004/07/PracticeWPF&quot;&gt;
-        ///  &lt;MyWindow22.Person02&gt;
+        ///   &lt;Person02&gt;
+        ///  &lt;Person02&gt;
         ///    &lt;ID&gt;1&lt;/ID&gt;
         ///    &lt;Name&gt;田中　太郎&lt;/Name&gt;
-        ///    &lt;ad i:nil=&quot;true&quot; /&gt;
-        ///  &lt;/MyWindow22.Person02&gt;
-        ///  &lt;MyWindow22.Person02&gt;
+        ///    &lt;ad&gt;江戸&lt;/ad&gt;
+        ///  &lt;/Person02&gt;
+        ///  &lt;Person02&gt;
         ///    &lt;ID&gt;2&lt;/ID&gt;
         ///    &lt;Name&gt;石川　五右衛門&lt;/Name&gt;
-        ///    &lt;ad i:nil=&quot;true&quot; /&gt;
-        ///  &lt;/MyWindow22.Person02&gt;
-        ///  &lt;MyWindow22.Person02&gt;
+        ///    &lt;ad&gt;江戸&lt;/ad&gt;
+        ///  &lt;/Person02&gt;
+        ///  &lt;Person02&gt;
         ///    &lt;ID&gt;3&lt;/ID&gt;
         ///    &lt;Name&gt;柳生　十兵衛&lt;/Name&gt;
         ///    &lt;ad&gt;江戸&lt;/ad&gt;
-        ///  &lt;/MyWindow22.Person02&gt;
-        ///&lt;/Pe [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
+        ///  &lt;/Person02&gt;
+        ///&lt;/Person02&gt;
+        ///&lt;!--
+        ///&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+        ///&lt;ArrayOfMyWindow22.Person02 xmlns:i=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns=&quot;http://schemas.datacontract.org/2004/07/PracticeWPF&quot;&gt;
+        ///  &lt;MyWindow22.Person02&gt;
+        ///    &lt;ID&gt;1&lt;/I [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string myXMLFile01 {
             get {
                 return ResourceManager.GetString("myXMLFile01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;system-config&gt;
+        ///  &lt;system-name&gt;XXXXX&lt;/system-name&gt;
+        ///  &lt;version&gt;1.1&lt;/version&gt;
+        ///  &lt;users&gt;
+        ///    &lt;user id=&quot;0001&quot;&gt;
+        ///      &lt;email&gt;foo@example.com&lt;/email&gt;
+        ///      &lt;expired&gt;2015/12/31&lt;/expired&gt;
+        ///    &lt;/user&gt;
+        ///    &lt;user id=&quot;0002&quot;&gt;
+        ///      &lt;email&gt;bar@example.com&lt;/email&gt;
+        ///      &lt;expired&gt;2015/09/30&lt;/expired&gt;
+        ///    &lt;/user&gt;
+        ///  &lt;/users&gt;
+        ///&lt;/system-config&gt;
+        /// に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string system_config {
+            get {
+                return ResourceManager.GetString("system_config", resourceCulture);
             }
         }
     }
