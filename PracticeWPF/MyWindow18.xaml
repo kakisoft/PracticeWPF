@@ -8,6 +8,7 @@
         Title="MyWindow18" Height="450" Width="800">
     <Grid>
         <Button x:Name="myButton01" Content="－１－" HorizontalAlignment="Left" Height="26" Margin="35,24,0,0" VerticalAlignment="Top" Width="95"/>
+        <Button x:Name="myButton02" Content="－２－" HorizontalAlignment="Left" Height="26" Margin="156,24,0,0" VerticalAlignment="Top" Width="95"/>
 
     </Grid>
 </Window>
