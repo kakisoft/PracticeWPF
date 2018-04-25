@@ -68,27 +68,41 @@ namespace PracticeWPF
         private async Task HttpGetRequestAsync(string targetURL, string postalCode)
         {
             string fullUrl = targetURL + "?" + ZIP_CODE_KEYNAME + "="+ postalCode;
-            string contents;
+            string resultContents;
 
             using (var _httpClient = new HttpClient())
             {
                 Task<string> response = _httpClient.GetStringAsync(fullUrl);
-                contents = await response;
+                resultContents = await response;
 
-                Console.WriteLine(contents);
+                Console.WriteLine(resultContents);
             }
 
-            //デシリアライズ
-            dynamic responseData = JsonConvert.DeserializeObject(contents);
-            //dynamic 
-
-            Console.WriteLine(responseData.status);
-            foreach (var item in responseData)
+            try
             {
+                //デシリアライズ
+                dynamic responseData = JsonConvert.DeserializeObject(resultContents);
+
+                Console.WriteLine(responseData.status);
+                Console.WriteLine("=====================================");
+                foreach (var item1 in responseData.results)
+                {
+                    Console.WriteLine(item1);
+                    Console.WriteLine("-------------------------------------");
+                    foreach (var item2 in item1)
+                    {
+                        Console.WriteLine(item2);
+                    }
+                }
+                Console.WriteLine("=====================================");
+
+                gridResult.ItemsSource = responseData.results;
 
             }
-
-            gridResult.ItemsSource = responseData.results;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         #endregion
     }
