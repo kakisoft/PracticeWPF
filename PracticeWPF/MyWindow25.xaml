@@ -10,7 +10,7 @@
         <Button x:Name="myButton01"  Content="郵便番号から住所を検索" HorizontalAlignment="Left" Margin="26,70,0,0" VerticalAlignment="Top" Width="190" Height="40"/>
         <TextBox x:Name="textGetPostalCodeBaseURL"  HorizontalAlignment="Left" Height="22" Margin="26,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="513"/>
         <TextBox x:Name="textPostalCode" HorizontalAlignment="Left" Height="23" Margin="26,38,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <DataGrid x:Name="gridResult" HorizontalAlignment="Left" Height="138" Margin="26,115,0,0" VerticalAlignment="Top" Width="595"/>
+        <DataGrid x:Name="gridResult" HorizontalAlignment="Left" Height="138" Margin="26,115,0,0" VerticalAlignment="Top" Width="595" IsReadOnly="True"/>
 
     </Grid>
 </Window>
