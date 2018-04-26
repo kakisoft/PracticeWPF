@@ -104,7 +104,7 @@
         <Label Content="22：typeof・nameof・GUID" HorizontalAlignment="Left" Margin="549,380,0,0" VerticalAlignment="Top"/>
         <Label Content="23：XMLシリアライズ・デシリアライズ" HorizontalAlignment="Left" Margin="549,422,0,0" VerticalAlignment="Top"/>
         <Label Content="24：JSONシリアライズ・デシリアライズ" HorizontalAlignment="Left" Margin="549,464,0,0" VerticalAlignment="Top"/>
-        <Label Content="25：" HorizontalAlignment="Left" Margin="549,504,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
+        <Label Content="25：郵便番号検索API" HorizontalAlignment="Left" Margin="549,504,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
 
     </Grid>
 </Window>

@@ -60,6 +60,14 @@
                       Width="100"/>
             </StackPanel>
 
+            <StackPanel x:Name="MyStackPanel03" Width="500" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Height="30">
+                <Button x:Name="buttonNumberType01" Content="１" Tag="1" Width="50"/>
+                <Button x:Name="buttonNumberType02" Content="２" Tag="2" Width="50"/>
+                <Button x:Name="buttonNumberType03" Content="３" Tag="3" Width="50"/>
+                <Button x:Name="buttonNumberType04" Content="４" Tag="4" Width="50"/>
+                <Button x:Name="buttonNumberType05" Content="５" Tag="5" Width="50"/>
+                <TextBox  x:Name="myTextBox01" Width="200" Margin="20,0,0,0"/>
+            </StackPanel>
 
         </StackPanel>
     </Grid>

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -59,6 +60,22 @@ namespace PracticeWPF
         {
             SetBindConfig();
             SetBindParameter();
+            AddMyEvent();
+        }
+
+        private void AddMyEvent()
+        {
+            buttonNumberType01.PreviewGotKeyboardFocus += (sender, e) => buttonNumberType_PreviewGotKeyboardFocus();
+            buttonNumberType02.PreviewGotKeyboardFocus += (sender, e) => buttonNumberType_PreviewGotKeyboardFocus();
+            buttonNumberType03.PreviewGotKeyboardFocus += (sender, e) => buttonNumberType_PreviewGotKeyboardFocus();
+            buttonNumberType04.PreviewGotKeyboardFocus += (sender, e) => buttonNumberType_PreviewGotKeyboardFocus();
+            buttonNumberType05.PreviewGotKeyboardFocus += (sender, e) => buttonNumberType_PreviewGotKeyboardFocus();
+
+            buttonNumberType01.Click += (sender, e) => buttonNumberType_Click(sender);
+            buttonNumberType02.Click += (sender, e) => buttonNumberType_Click(sender);
+            buttonNumberType03.Click += (sender, e) => buttonNumberType_Click(sender);
+            buttonNumberType04.Click += (sender, e) => buttonNumberType_Click(sender);
+            buttonNumberType05.Click += (sender, e) => buttonNumberType_Click(sender);
         }
         #endregion
 
@@ -105,7 +122,6 @@ namespace PracticeWPF
         }
         #endregion
 
-
         #region 数値入力のみに制限
         private void textBoxPrice_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
@@ -122,6 +138,45 @@ namespace PracticeWPF
         }
         #endregion
 
+        #region フォーカス位置に値をセット
+        private TextBox forcusedInputObject = null;
+        private int forcusedCaretIndex = 0;
+        private void buttonNumberType_PreviewGotKeyboardFocus()
+        {
+            forcusedInputObject = FocusManager.GetFocusedElement(this) as TextBox;
+        }
+
+        private void buttonNumberType_Click(object sender)
+        {
+            try
+            {
+                if (forcusedInputObject == null) return;
+
+                Button clickedButton = (Button)sender;
+
+                Console.WriteLine("SelectionStart:" + forcusedInputObject.SelectionStart);
+                Console.WriteLine("CaretIndex:" + forcusedInputObject.CaretIndex);
+
+                //forcusedInputObject.Text += clickedButton.Tag; //末尾に追加
+
+                forcusedCaretIndex = forcusedInputObject.CaretIndex;
+
+                string leftCursorString  = forcusedInputObject.Text.Substring(0, forcusedCaretIndex);
+                string rightCursorString = forcusedInputObject.Text.Substring(forcusedCaretIndex);
+
+                forcusedInputObject.Text = leftCursorString + clickedButton.Tag + rightCursorString;
+
+                //-----( フォーカスがボタンに移動しているので、元に戻す )-----
+                FocusManager.SetFocusedElement(this, forcusedInputObject);
+                //forcusedInputObject.Select(forcusedInputObject.Text.Length, 0); //末尾にカーソルを合わせる
+                forcusedInputObject.Select(forcusedCaretIndex + 1, 0);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        #endregion
 
         //*******************************************//
         #region バンディング用ベースクラス

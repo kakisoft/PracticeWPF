@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 namespace PracticeWPF
 {
     /// <summary>
-    /// MyWindow25.xaml の相互作用ロジック
+    /// 郵便番号検索API
     /// </summary>
     public partial class MyWindow25 : Window
     {
