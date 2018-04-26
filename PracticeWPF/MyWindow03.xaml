@@ -13,6 +13,65 @@
         <!-- このやり方では上手く行かず。 -->
         <Control x:Key="style3"  BorderBrush="blue"  />
         <Control x:Key="style4"  BorderBrush="red" BorderThickness="5" />
+
+        <!--
+        ============================================================
+           全画面のリソースとして使用する場合、App.xamlに記述する
+        ============================================================
+        -->
+
+        <!-- TextBlockリソース -->
+        <Style TargetType="TextBlock" x:Key="staticInputTitle">
+            <Setter Property="Width"             Value="90"></Setter>
+            <Setter Property="TextAlignment"     Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="FontSize"          Value="13"></Setter>
+        </Style>
+
+        <!-- TextBoxリソース -->
+        <Style TargetType="TextBox" x:Key="staticInputNumberContent">
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        </Style>
+
+        <!-- ToggleButtonスタイル（イベントが上手く行ってない） -->
+        <Style TargetType="{x:Type ToggleButton}" x:Key="ToggleStyleButton01" BasedOn="{StaticResource {x:Type ToggleButton}}">
+            <Style.Triggers>
+                <Trigger Property="IsChecked" Value="False">
+                    <Setter Property="Background" Value="Beige"/>
+                </Trigger>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Background" Value="LightSeaGreen"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="ToggleButton" x:Key="ToggleStyleButton02"  BasedOn="{StaticResource {x:Type ToggleButton}}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <BulletDecorator Cursor="Hand">
+                            <Border BorderBrush="#FF707070" BorderThickness="1" x:Name="OriginRadioButtonBorder">
+                                <Grid x:Name="RadioMark" Background="#FFDDDDDD">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Grid>
+                            </Border>
+                        </BulletDecorator>
+
+                        <!-- イベント発生時 -->
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="OriginRadioButtonBorder" Property="Cursor" Value="Arrow"/>
+                                <Setter TargetName="RadioMark" Property="Background" Value="#FFBCDDEE"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="true">
+                                <Setter TargetName="RadioMark" Property="Background" Value="LightSeaGreen"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </Window.Resources>
 
     <StackPanel>
@@ -20,5 +79,10 @@
         <Button x:Name="btn2" Content="Button 2" Background="#FFFFB5B5" />
         <Button x:Name="btn3" Content="Button 3" Background="{StaticResource MyBrush1}"/>
         <Button x:Name="btn4" Content="Button 4" BorderBrush="{StaticResource ResourceKey=MyBrush2}" />
+        <TextBlock   Style="{StaticResource ResourceKey=staticInputTitle}"         TextWrapping="Wrap" Text="TextBlock"/>
+        <TextBox     Style="{StaticResource ResourceKey=staticInputNumberContent}" Height="23" TextWrapping="Wrap" Text="TextBox"/>
+        <CheckBox    Style="{StaticResource ResourceKey=ToggleStyleButton01}"  Content="CheckBox"/>
+        <RadioButton Style="{StaticResource ResourceKey=ToggleStyleButton02}" Content="RadioButton"/>
     </StackPanel>
 </Window>
+    

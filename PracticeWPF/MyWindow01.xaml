@@ -174,9 +174,13 @@
             ===================================
             -->
             <StackPanel DockPanel.Dock="Top" Margin="0,15,0,0"  Orientation="Horizontal">
-                <Button Content="コンテキスト&#10;折り返し" Height="50" Width="100"/>
-                <Button x:Name="closeButton" Content="閉じる" Height="30" Width="80" Margin="20,10,15,5" Click="CloseButton_Click" Background="#FFC8DCFD"/>
-                <Button Content="color" Height="30" Width="100">
+                <Button Content="コンテキスト&#10;折り返し" Height="50" Width="70"/>
+                <TextBlock>
+                    TexoBlockだと<LineBreak />
+                    こんな感じ
+                </TextBlock>
+                <Button x:Name="closeButton" Content="閉じる" Height="30" Width="70" Margin="20,10,15,5" Click="CloseButton_Click" Background="#FFC8DCFD"/>
+                <Button Content="color" Height="30" Width="90">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                             <GradientStop Color="#FFF3F3F3" Offset="0"/>
