@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 
 namespace PracticeWPF
@@ -8,6 +9,15 @@ namespace PracticeWPF
     /// </summary>
     public partial class MyWindow01 : Window
     {
+
+        #region データ定義
+        private class Person
+        {
+            public string Name { get; set; }
+            public int Age { get; set; }
+        }
+        #endregion
+
         #region 初期処理
         /// <summary>
         /// 初期処理
@@ -16,6 +26,24 @@ namespace PracticeWPF
         public MyWindow01()
         {
             InitializeComponent();
+
+            InitializeThisWindowsParameters();
+        }
+
+        private void InitializeThisWindowsParameters()
+        {
+            SetThisWindowsInitializeParameter();
+            AddThisWindowsEvent();
+        }
+
+        private void SetThisWindowsInitializeParameter()
+        {
+            SetMyComboboxItems();
+        }
+
+        private void AddThisWindowsEvent()
+        {
+            resizeButton.Click += (sender, e) => GetSeledtedParameterFromMyCombobox();
         }
         #endregion
 
@@ -44,11 +72,14 @@ namespace PracticeWPF
 
         #endregion
 
+        #region 閉じるボタン
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
+        #endregion
 
+        #region リサイズイベント
         private void window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             Console.WriteLine("Height：" + this.Height);
@@ -69,5 +100,44 @@ namespace PracticeWPF
 
             Console.WriteLine(gridRsbWidth);
         }
+        #endregion
+
+        #region コンボボックス
+        private void SetMyComboboxItems()
+        {
+            var items = Enumerable.Range(1, 10)
+                .Select(i => new Person { Name = "やまだ" + i, Age = 20 + i })
+                .ToList();
+
+            this.myComboBox01.ItemsSource = items;
+            this.myComboBox02.ItemsSource = items;
+        }
+
+        private void GetSeledtedParameterFromMyCombobox()
+        {
+            try
+            {
+                int selectedIndex = myComboBox01.SelectedIndex;
+                string selectedItemsText = myComboBox01.Text;
+                Person selectedItem = (Person)myComboBox01.SelectedItem;
+
+                if (selectedItem == null) return;
+
+                string message = String.Empty;
+                message += "SelectedIndex　：　" + selectedIndex.ToString() + System.Environment.NewLine
+                        + "Text　：　"           + selectedItemsText        + System.Environment.NewLine
+                        + "selectedItem　：　"   + selectedItem.Name        + System.Environment.NewLine
+                        + "selectedItem　：　"   + selectedItem.Age         + System.Environment.NewLine
+                        ;
+
+                MessageBox.Show(message);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        #endregion
     }
 }

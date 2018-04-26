@@ -104,14 +104,38 @@
                 </StackPanel>
             </Grid>
             <Grid DockPanel.Dock="Top" Margin="0,0,0,0">
-                <Button x:Name="resizeButton"  Content="resizeButton" Height="30" Width="100" >
-                    <Button.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FF37C121" Offset="0"/>
-                            <GradientStop Color="#FFE4FFE0" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-                </Button>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="resizeButton"  Content="resizeButton" Height="30" Width="100" >
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF37C121" Offset="0"/>
+                                <GradientStop Color="#FFE4FFE0" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+
+                    <ComboBox x:Name="myComboBox01" Width="90">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name}" Margin="2.5"/>
+                                    <TextBlock Text="{Binding Age}" Margin="2.5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <ComboBox x:Name="myComboBox02" Width="90" TextSearch.TextPath="Name">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name}" Margin="2.5"/>
+                                    <TextBlock Text="{Binding Age}" Margin="2.5"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
             </Grid>
 
             <!--
@@ -216,6 +240,86 @@
             -->
             <Button x:Name="closeButton02" DockPanel.Dock="Bottom" Margin="5" Content="DockPanel.Dock:Bottom" Height="50" FontSize="20" Click="CloseButton_Click" >
             </Button>
+        </DockPanel>
+
+        <!--
+        ////////////////////////////////
+             中央に配置したDockPanel
+        ////////////////////////////////
+        -->
+        <DockPanel Grid.Row="1" Grid.Column="1">
+            <!--
+            ===================================
+                       ツリービュー
+            ===================================
+            -->
+            <StackPanel Orientation="Horizontal" Height="200" VerticalAlignment="Top">
+                <!-- TreeView -->
+                <TreeView Width="150">
+                    <TreeViewItem Header="Item1">
+                        <TreeViewItem Header="Item1-1">
+                            <TreeViewItem Header="Item1-1-1" />
+                            <TreeViewItem Header="Item1-1-2" />
+                            <TreeViewItem Header="Item1-1-3" />
+                        </TreeViewItem>
+                        <TreeViewItem Header="Item1-2">
+                            <TreeViewItem Header="Item1-2-1" />
+                            <TreeViewItem Header="Item1-2-2" />
+                        </TreeViewItem>
+                    </TreeViewItem>
+                    <TreeViewItem Header="Item2" IsExpanded="True">
+                        <TreeViewItem Header="Item2-1" IsExpanded="True" IsSelected="True">
+                            <TreeViewItem Header="Item2-1-1" />
+                            <TreeViewItem Header="Item2-1-2" />
+                            <TreeViewItem Header="Item2-1-3" />
+                        </TreeViewItem>
+                    </TreeViewItem>
+                </TreeView>
+
+                <!-- カラフルなTreeView -->
+                <TreeView>
+                    <TreeViewItem IsExpanded="True">
+                        <TreeViewItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Fill="Olive" Width="15" Height="15" />
+                                <TextBlock Text="矢印アイコン" Margin="5,0" />
+                                <Rectangle Fill="Olive" Width="15" Height="15" />
+                            </StackPanel>
+                        </TreeViewItem.Header>
+                        <TreeViewItem>
+                            <TreeViewItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <Grid Margin="2.5">
+                                        <Ellipse Width="20" Height="20" Stroke="Olive" StrokeThickness="2" />
+                                        <TextBlock Text="↑" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Foreground="Olive" />
+                                    </Grid>
+                                    <TextBlock Text="上矢印" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </TreeViewItem.Header>
+                        </TreeViewItem>
+                        <TreeViewItem>
+                            <TreeViewItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <Grid Margin="2.5">
+                                        <Ellipse Width="20" Height="20" Stroke="Olive" StrokeThickness="2" />
+                                        <TextBlock Text="→" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Foreground="Olive" />
+                                    </Grid>
+                                    <TextBlock Text="右矢印" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </TreeViewItem.Header>
+                        </TreeViewItem>
+                        …省略…
+                    </TreeViewItem>
+                </TreeView>
+                <!--
+                ===================================
+                           
+                ===================================
+                -->
+
+
+            </StackPanel>
+
         </DockPanel>
 
     </Grid>
