@@ -31,7 +31,10 @@
         ===================================
         -->        
         <Menu>
-            <MenuItem Header="ファイル(_F)" />
+            <MenuItem Header="ファイル(_F)" ><!-- Altキーをつけてのショートカット -->
+                <MenuItem Header="サブメニュー１"/>
+                <MenuItem Header="サブメニュー２"/>
+            </MenuItem>
             <MenuItem Header="編集(_E)" />
             <MenuItem Header="オプション(_O)">
                 <MenuItem IsCheckable="True" Header="オプション1" />
