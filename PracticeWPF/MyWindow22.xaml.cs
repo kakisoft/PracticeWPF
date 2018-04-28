@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -33,6 +34,7 @@ namespace PracticeWPF
             myButton01.Click += (sender, e) => MyButton01_Click();
             myButton02.Click += (sender, e) => MyButton02_Click();
             myButton03.Click += (sender, e) => MyButton03_Click();
+            myButton04.Click += (sender, e) => MyButton04_Click();
         }
         #endregion
 
@@ -158,7 +160,66 @@ namespace PracticeWPF
         #endregion
 
         #region ダウンキャスト
+        //親クラス
+        class BaseClass
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public int Position { get; set; }
+        }
+        //子クラス
+        class ExtendClass : BaseClass
+        {
+            public bool IsChecked { get; set; } //
 
+            public ExtendClass(BaseClass value)
+            {
+                PropertyInfo[] propertyInfoinfoArray = value.GetType().GetProperties();
+                foreach (PropertyInfo item in propertyInfoinfoArray)
+                {
+                    Console.WriteLine(item.Name + ": " + item.GetValue(this, null));
+                    Console.WriteLine(item.Name + ": " + item.GetValue(this));
+
+                    //-------OK
+                    var property1 = typeof(BaseClass).GetProperty("Name");
+
+                    //インスタンスの値を取得
+                    var beforeName = property1.GetValue(item);
+
+                    // インスタンスに値を設定
+                    property1.SetValue(this, "newName");
+
+                    //-----------------
+                    //
+                    //-----------------
+                    var property = value.GetType().GetProperty(item.Name);
+
+                    // インスタンスに値を設定
+                    property.SetValue(this, item.GetValue(value));
+
+                }
+
+                this.Id = value.Id;
+            }
+        }
+
+        private List<BaseClass> BaseClasses;
+        private List<ExtendClass> ExtendClasses;
+
+        private void MyButton04_Click()
+        {
+            BaseClasses = new List<BaseClass>();
+            BaseClasses.Add(new BaseClass { Id = 1, Name = "Tanaka"  , Position = 1 });
+            BaseClasses.Add(new BaseClass { Id = 2, Name = "Yamada"  , Position = 1 });
+            BaseClasses.Add(new BaseClass { Id = 3, Name = "Watanabe", Position = 2 });
+
+            ExtendClasses = new List<ExtendClass>();
+            foreach (var item in BaseClasses)
+            {
+                ExtendClass el = new ExtendClass(item);
+                ExtendClasses.Add(el);
+            }
+        }
         #endregion
     }
-}
+    }

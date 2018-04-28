@@ -14,6 +14,7 @@
             <TextBlock Text="{Binding Name}" />
             <TextBox Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <Button Content="TextBoxからフォーカス外す用" />
+            <Button x:Name="myButton01" Content="myButton01" Width="80"/>
         </StackPanel>
     </Grid>
 </Window>

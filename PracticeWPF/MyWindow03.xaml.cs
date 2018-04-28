@@ -14,16 +14,16 @@ namespace PracticeWPF
         /// <summary>
         /// 確保条件
         /// </summary>
-        enum Signal
+        enum Signal:int
         {
             Red = 0,
             Yellow = 1,
             Blue = 2
         }
         Dictionary<int, string> _signalDict = new Dictionary<int, string>() {
-            {0, "赤"},
-            {1, "黄色"},
-            {2, "青" + Environment.NewLine + "と緑"},
+            {(int)Signal.Red   , "赤"},
+            {(int)Signal.Yellow, "黄色"},
+            {(int)Signal.Blue  , "青" + Environment.NewLine + "と緑"},
         };
         #endregion
 
