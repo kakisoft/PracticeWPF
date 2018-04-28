@@ -156,5 +156,9 @@ namespace PracticeWPF
             child03 = (ChildClass)parent03;
         }
         #endregion
+
+        #region ダウンキャスト
+
+        #endregion
     }
 }

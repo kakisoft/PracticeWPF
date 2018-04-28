@@ -25,6 +25,14 @@ namespace PracticeWPF
                 get { return this.dispText; }
                 set { this.SetProperty(ref this.dispText, value); }
             }
+
+            private bool _isChecked;
+            public bool IsChecked
+            {
+                get { return this._isChecked; }
+                set { this.SetProperty(ref this._isChecked, value); }
+            }
+
         }
         #endregion
 
@@ -204,6 +212,7 @@ namespace PracticeWPF
             TextTypeControl textElement01 = new TextTypeControl();
             textElement01.Id = myListView01.Items.Count;
             textElement01.DispText = "要素" + myListView01.Items.Count;
+            textElement01.IsChecked = true;
             textList.Add(textElement01);
             myListView01.Items.Add(textElement01);
 
@@ -211,12 +220,14 @@ namespace PracticeWPF
             TextTypeControl textElement02 = new TextTypeControl();
             textElement02.Id = myListView01.Items.Count;
             textElement02.DispText = "要素" + myListView01.Items.Count;
+            textElement02.IsChecked = true;
             textList.Add(textElement02);
             myListView01.Items.Add(textElement02);
 
             TextTypeControl textElement03 = new TextTypeControl();
             textElement03.Id = myListView01.Items.Count;
             textElement03.DispText = "要素" + myListView01.Items.Count;
+            textElement03.IsChecked = false;
             textList.Add(textElement03);
             myListView01.Items.Add(textElement03);
         }
@@ -225,11 +236,6 @@ namespace PracticeWPF
         {
             //-----( 選択 )-----
             myListView01.SelectedIndex = 1;
-
-
-            //-----( 削除 )-----
-            myListView01.Items.Remove(1);    //NG
-            myListView01.Items.RemoveAt(2);  //OK
         }
 
         private void editListView01_Click(object sender, RoutedEventArgs e)
@@ -245,6 +251,23 @@ namespace PracticeWPF
 
             //グリッドの内容も変更される。
             textList[0].DispText = "nn";
+        }
+
+        private void deleteListView01_Click(object sender, RoutedEventArgs e)
+        {
+            //myListView01.Items
+
+            foreach (var item in textList)
+            {
+                if (item.IsChecked)
+                {
+                    
+                }
+            }
+
+            //-----( 削除 )-----
+            myListView01.Items.Remove(1);    //NG
+            myListView01.Items.RemoveAt(2);  //OK
         }
 
         #endregion

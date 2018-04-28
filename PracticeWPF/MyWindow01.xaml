@@ -16,6 +16,7 @@
         ===================================
         -->
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -26,10 +27,25 @@
 
         <!--
         ===================================
+                    メニュー
+        ===================================
+        -->        
+        <Menu>
+            <MenuItem Header="ファイル(_F)" />
+            <MenuItem Header="編集(_E)" />
+            <MenuItem Header="オプション(_O)">
+                <MenuItem IsCheckable="True" Header="オプション1" />
+                <MenuItem IsCheckable="True" Header="オプション2" />
+                <MenuItem IsCheckable="True" Header="オプション3" />
+            </MenuItem>
+        </Menu>
+
+        <!--
+        ===================================
                シンプルなDockPanel 
         ===================================
         -->
-        <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  LastChildFill="False">
+        <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  LastChildFill="False">
             <Button Margin="5,0" Content="Grid.Row:0, Grid.Column:0, Grid.ColumnSpan:2, 【Button01】" />
             <Button Margin="5,0" Content="Grid.Row:0, Grid.Column:0, Grid.ColumnSpan:2, 【Button02】" />
             <Button Margin="5,0" Content="Grid.Row:0, Grid.Column:0, Grid.ColumnSpan:2, 【Button03】" />
@@ -41,7 +57,7 @@
              左側に配置したDockPanel
         ////////////////////////////////
         -->
-        <DockPanel Grid.Row="1" Grid.Column="0" LastChildFill="False">
+        <DockPanel Grid.Row="2" Grid.Column="0" LastChildFill="False">
             <!--
             ===================================
                 シンプルなグリッド（2 X 3）
@@ -247,7 +263,7 @@
              中央に配置したDockPanel
         ////////////////////////////////
         -->
-        <DockPanel Grid.Row="1" Grid.Column="1">
+        <DockPanel Grid.Row="2" Grid.Column="1">
             <!--
             ===================================
                        ツリービュー

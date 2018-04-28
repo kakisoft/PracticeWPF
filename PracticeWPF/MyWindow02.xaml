@@ -151,9 +151,10 @@
                 ===================================
                 -->
                 <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal">
-                    <ListView x:Name="myListView01" Width="150">
+                    <ListView x:Name="myListView01" Width="200">
                         <ListView.View>
                             <GridView>
+                                <!-- ヘッダ非表示 -->
                                 <GridView.ColumnHeaderContainerStyle>
                                     <Style TargetType="GridViewColumnHeader">
                                         <Setter Property="Visibility" Value="Collapsed" />
@@ -163,6 +164,15 @@
 
                                 <GridViewColumn Header="id"   Width="30"  DisplayMemberBinding="{Binding Id}" />
                                 <GridViewColumn Header="text" Width="100"  DisplayMemberBinding="{Binding DispText}" />
+
+                                <GridViewColumn Header="チェック">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <CheckBox IsChecked="{Binding IsSelected}" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
                             </GridView>
                         </ListView.View>
                     </ListView>
@@ -171,6 +181,7 @@
                         <Button x:Name="addListView01"    Content="add"    Height="30" Width="50" Click="addListView01_Click"    VerticalAlignment="Top" HorizontalAlignment="Left"/>
                         <Button x:Name="selectListView01" Content="select" Height="30" Width="50" Click="selectListView01_Click" VerticalAlignment="Top" HorizontalAlignment="Left"/>
                         <Button x:Name="editListView01"   Content="edit"   Height="30" Width="50" Click="editListView01_Click"   VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                        <Button x:Name="deleteListView01" Content="delete" Height="30" Width="50" Click="deleteListView01_Click" VerticalAlignment="Top" HorizontalAlignment="Left"/>
                     </StackPanel>
 
                 </StackPanel>
