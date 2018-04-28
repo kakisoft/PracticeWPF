@@ -19,6 +19,7 @@ namespace PracticeWPF
     /// </summary>
     public partial class MyWindow18 : Window
     {
+        #region 定義情報
         List<Employee> _employee = new List<Employee>();
 
         public class Employee
@@ -41,7 +42,9 @@ namespace PracticeWPF
             kacyou = 2,
             bucyou = 3
         }
+        #endregion
 
+        #region 初期化
         public MyWindow18()
         {
             InitializeComponent();
@@ -52,13 +55,13 @@ namespace PracticeWPF
 
         private void SetParameters()
         {
-            _employee.Add(new Employee { Name = "Fukuzawa" , Age = 35, IsMarried = true , Position = (int)PositionCode.hira   });
-            _employee.Add(new Employee { Name = "Higuchi"  , Age = 28, IsMarried = true , Position = (int)PositionCode.hira   });
-            _employee.Add(new Employee { Name = "Noda"     , Age = 42, IsMarried = false, Position = (int)PositionCode.hira   });
-            _employee.Add(new Employee { Name = "Igawa"    , Age = 21, IsMarried = false, Position = (int)PositionCode.syunin });
-            _employee.Add(new Employee { Name = "Sawada"   , Age = 31, IsMarried = true , Position = (int)PositionCode.syunin });
-            _employee.Add(new Employee { Name = "yamaguchi", Age = 28, IsMarried = true , Position = (int)PositionCode.kacyou });
-            _employee.Add(new Employee { Name = "fujisawa" , Age = 36, IsMarried = true , Position = (int)PositionCode.bucyou });
+            _employee.Add(new Employee { Name = "Fukuzawa", Age = 35, IsMarried = true, Position = (int)PositionCode.hira });
+            _employee.Add(new Employee { Name = "Higuchi", Age = 28, IsMarried = true, Position = (int)PositionCode.hira });
+            _employee.Add(new Employee { Name = "Noda", Age = 42, IsMarried = false, Position = (int)PositionCode.hira });
+            _employee.Add(new Employee { Name = "Igawa", Age = 21, IsMarried = false, Position = (int)PositionCode.syunin });
+            _employee.Add(new Employee { Name = "Sawada", Age = 31, IsMarried = true, Position = (int)PositionCode.syunin });
+            _employee.Add(new Employee { Name = "yamaguchi", Age = 28, IsMarried = true, Position = (int)PositionCode.kacyou });
+            _employee.Add(new Employee { Name = "fujisawa", Age = 36, IsMarried = true, Position = (int)PositionCode.bucyou });
         }
 
 
@@ -66,7 +69,9 @@ namespace PracticeWPF
         {
             myButton01.Click += (sender, e) => button01_Click_addedEvent();
             myButton02.Click += (sender, e) => button02_Click_addedEvent();
+            myButton03.Click += (sender, e) => button03_Click_addedEvent();
         }
+        #endregion
 
         #region 他のリストを生成
         private void button01_Click_addedEvent()
@@ -90,6 +95,9 @@ namespace PracticeWPF
         #region group by
         private void button02_Click_addedEvent()
         {
+            //-------------------------------
+            //
+            //-------------------------------
             var _grouped_employee01 = _employee.GroupBy(x => x.Position).ToList();
 
             foreach (var item1 in _grouped_employee01)
@@ -105,6 +113,9 @@ namespace PracticeWPF
 
             Console.WriteLine("================================");
 
+            //-------------------------------
+            //
+            //-------------------------------
             var _grouped_employee02 = from x in _employee
                                       group x by x.IsMarried;
             foreach (var item1 in _grouped_employee02)
@@ -117,6 +128,29 @@ namespace PracticeWPF
                 Console.WriteLine("---------------------");
             }
 
+
+            Console.WriteLine("================================");
+
+        }
+        #endregion
+
+        #region group by 複数キー
+        private void button03_Click_addedEvent()
+        {
+            var _grouped_employee03 = _employee.GroupBy(x => new { x.Position, x.IsMarried }).ToList();
+
+            foreach (var item1 in _grouped_employee03)
+            {
+                Console.WriteLine(item1.Key);
+                Console.WriteLine(item1.Key.Position);
+                Console.WriteLine(item1.Key.IsMarried);
+
+                foreach (var item2 in item1)
+                {
+                    Console.WriteLine(item2.Name);
+                }
+                Console.WriteLine("---------------------");
+            }
         }
         #endregion
     }
