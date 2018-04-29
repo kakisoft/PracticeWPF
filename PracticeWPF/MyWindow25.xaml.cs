@@ -18,6 +18,7 @@ namespace PracticeWPF
 {
     /// <summary>
     /// 郵便番号検索API
+    /// http://zipcloud.ibsnet.co.jp/doc/api
     /// </summary>
     public partial class MyWindow25 : Window
     {
@@ -70,19 +71,37 @@ namespace PracticeWPF
             string fullUrl = targetURL + "?" + ZIP_CODE_KEYNAME + "="+ postalCode;
             string resultContents;
 
-            using (var _httpClient = new HttpClient())
-            {
-                Task<string> response = _httpClient.GetStringAsync(fullUrl);
-                resultContents = await response;
-
-                Console.WriteLine(resultContents);
-            }
-
             try
             {
-                //デシリアライズ
+                //-----< データ取得 >-----
+                using (var _httpClient = new HttpClient())
+                {
+                    Task<string> response = _httpClient.GetStringAsync(fullUrl);
+                    resultContents = await response;
+
+                    Console.WriteLine(resultContents);
+                }
+
+                //-----< デシリアライズ >-----
                 dynamic responseData = JsonConvert.DeserializeObject(resultContents);
 
+
+                //-----< エラー発生時は return >-----
+                if (responseData.status != 200)
+                {
+                    Console.WriteLine(responseData);
+                    MessageBox.Show(responseData.message.ToString());
+                    return;
+                }
+
+                //-----< 戻り値が nullだった場合 >-----
+                if ( responseData.results == null)
+                {
+                    MessageBox.Show("該当する住所がありません。");
+                    return;
+                }
+
+                //-----< コンソールに出力 >-----
                 Console.WriteLine(responseData.status);
                 Console.WriteLine("=====================================");
                 foreach (var item1 in responseData.results)
@@ -96,6 +115,8 @@ namespace PracticeWPF
                 }
                 Console.WriteLine("=====================================");
 
+
+                //-----< グリッドにに出力 >-----
                 gridResult.ItemsSource = responseData.results;
 
             }

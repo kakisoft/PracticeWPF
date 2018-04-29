@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticeWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Top="10" Height="700" Width="900">
+        Title="MainWindow" Top="10" Height="710" Width="1220">
     <Grid>
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="150">
             <!--
@@ -34,35 +34,37 @@
         </StackPanel>
 
 
-        <Button Content="MyWindow01" HorizontalAlignment="Left" Height="35" Margin="60,55,0,0"  VerticalAlignment="Top" Width="90" Click="MyWindow01button_Click"/>
-        <Button Content="MyWindow02" HorizontalAlignment="Left" Height="35" Margin="60,95,0,0"  VerticalAlignment="Top" Width="90" Click="MyWindow02button_Click" />
-        <Button Content="MyWindow03" HorizontalAlignment="Left" Height="35" Margin="60,135,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow03button_Click" />
-        <Button Content="MyWindow04" HorizontalAlignment="Left" Height="35" Margin="60,175,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow04button_Click" />
-        <Button Content="MyWindow05" HorizontalAlignment="Left" Height="35" Margin="60,215,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow05button_Click" />
-        <Button Content="MyWindow06" HorizontalAlignment="Left" Height="35" Margin="60,255,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow06button_Click" />
-        <Button Content="MyWindow07" HorizontalAlignment="Left" Height="35" Margin="60,295,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow07button_Click" />
-        <Button Content="MyWindow08" HorizontalAlignment="Left" Height="35" Margin="60,335,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow08button_Click" />
-        <Button Content="MyWindow09" HorizontalAlignment="Left" Height="35" Margin="60,375,0,0"  VerticalAlignment="Top" Width="90" Click="MyWindow09button_Click" />
-        <Button Content="MyWindow10" HorizontalAlignment="Left" Height="35" Margin="60,415,0,0"  VerticalAlignment="Top" Width="90" Click="MyWindow10button_Click" />
-        <Button Content="MyWindow11" HorizontalAlignment="Left" Height="35" Margin="60,455,0,0"  VerticalAlignment="Top" Width="90" Click="MyWindow11button_Click" />
-        <Button Content="MyWindow12" HorizontalAlignment="Left" Height="35" Margin="60,495,0,0"  VerticalAlignment="Top" Width="90" Click="MyWindow12button_Click" />
-        <Button Content="MyWindow13" HorizontalAlignment="Left" Height="35" Margin="60,535,0,0"  VerticalAlignment="Top" Width="90" Click="MyWindow13button_Click" />
+        <Button Content="MyWindow01" HorizontalAlignment="Left" Height="35" Margin="38,61,0,0"  VerticalAlignment="Top" Width="90" Click="MyWindow01button_Click"/>
+        <Button Content="MyWindow02" HorizontalAlignment="Left" Height="35" Margin="38,101,0,0"  VerticalAlignment="Top" Width="90" Click="MyWindow02button_Click" />
+        <Button Content="MyWindow03" HorizontalAlignment="Left" Height="35" Margin="38,141,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow03button_Click" />
+        <Button Content="MyWindow04" HorizontalAlignment="Left" Height="35" Margin="38,181,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow04button_Click" />
+        <Button Content="MyWindow05" HorizontalAlignment="Left" Height="35" Margin="38,221,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow05button_Click" />
+        <Button Content="MyWindow06" HorizontalAlignment="Left" Height="35" Margin="38,261,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow06button_Click" />
+        <Button Content="MyWindow07" HorizontalAlignment="Left" Height="35" Margin="38,301,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow07button_Click" />
+        <Button Content="MyWindow08" HorizontalAlignment="Left" Height="35" Margin="38,341,0,0" VerticalAlignment="Top" Width="90" Click="MyWindow08button_Click" />
+        <Button Content="MyWindow09" HorizontalAlignment="Left" Height="35" Margin="38,381,0,0"  VerticalAlignment="Top" Width="90" Click="MyWindow09button_Click" />
+        <Button Content="MyWindow10" HorizontalAlignment="Left" Height="35" Margin="38,421,0,0"  VerticalAlignment="Top" Width="90" Click="MyWindow10button_Click" />
+        <Button Content="MyWindow11" HorizontalAlignment="Left" Height="35" Margin="38,461,0,0"  VerticalAlignment="Top" Width="90" Click="MyWindow11button_Click" />
+        <Button Content="MyWindow12" HorizontalAlignment="Left" Height="35" Margin="38,501,0,0"  VerticalAlignment="Top" Width="90" Click="MyWindow12button_Click" />
+        <Button Content="MyWindow13" HorizontalAlignment="Left" Height="35" Margin="38,541,0,0"  VerticalAlignment="Top" Width="90" Click="MyWindow13button_Click" />
 
-        <Button Content="MyWindow14" HorizontalAlignment="Left" Height="35" Margin="60,575,0,0"  VerticalAlignment="Top" Width="90" x:Name="MyWindow14button" />
-        <Button Content="MyWindow15" HorizontalAlignment="Left" Height="35" Margin="60,615,0,0"  VerticalAlignment="Top" Width="90" x:Name="MyWindow15button" />
-        <Button Content="MyWindow16" HorizontalAlignment="Left" Height="35" Margin="446,57,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow16button" />
-        <Button Content="MyWindow17" HorizontalAlignment="Left" Height="35" Margin="446,98,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow17button" />
-        <Button Content="MyWindow18" HorizontalAlignment="Left" Height="35" Margin="446,138,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow18button" />
-        <Button Content="MyWindow19" HorizontalAlignment="Left" Height="35" Margin="446,179,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow19button" />
-        <Button Content="MyWindow20" HorizontalAlignment="Left" Height="35" Margin="446,221,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow20button" />
-        <Button Content="MyWindow21" HorizontalAlignment="Left" Height="35" Margin="446,262,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow21button" />
-        <Button Content="MyWindow22" HorizontalAlignment="Left" Height="35" Margin="446,303,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow22button" />
-        <Button Content="MyWindow23" HorizontalAlignment="Left" Height="35" Margin="446,345,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow23button" />
-        <Button Content="MyWindow24" HorizontalAlignment="Left" Height="35" Margin="446,387,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow24button" />
-        <Button Content="MyWindow25" HorizontalAlignment="Left" Height="35" Margin="446,427,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow25button" />
+        <Button Content="MyWindow14" HorizontalAlignment="Left" Height="35" Margin="38,581,0,0"  VerticalAlignment="Top" Width="90" x:Name="MyWindow14button" />
+        <Button Content="MyWindow15" HorizontalAlignment="Left" Height="35" Margin="38,621,0,0"  VerticalAlignment="Top" Width="90" x:Name="MyWindow15button" />
+        <Button Content="MyWindow16" HorizontalAlignment="Left" Height="35" Margin="462,60,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow16button" />
+        <Button Content="MyWindow17" HorizontalAlignment="Left" Height="35" Margin="462,101,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow17button" />
+        <Button Content="MyWindow18" HorizontalAlignment="Left" Height="35" Margin="462,141,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow18button" />
+        <Button Content="MyWindow19" HorizontalAlignment="Left" Height="35" Margin="462,182,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow19button" />
+        <Button Content="MyWindow20" HorizontalAlignment="Left" Height="35" Margin="462,224,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow20button" />
+        <Button Content="MyWindow21" HorizontalAlignment="Left" Height="35" Margin="462,265,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow21button" />
+        <Button Content="MyWindow22" HorizontalAlignment="Left" Height="35" Margin="462,306,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow22button" />
+        <Button Content="MyWindow23" HorizontalAlignment="Left" Height="35" Margin="462,348,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow23button" />
+        <Button Content="MyWindow24" HorizontalAlignment="Left" Height="35" Margin="462,390,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow24button" />
+        <Button Content="MyWindow25" HorizontalAlignment="Left" Height="35" Margin="462,430,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow25button" />
+
+        <Button Content="MyWindow31" HorizontalAlignment="Left" Height="35" Margin="867,60,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow31button" />
 
 
-        <DataGrid HorizontalAlignment="Left" Height="81" Margin="585,561,0,0" VerticalAlignment="Top" Width="185">
+        <DataGrid HorizontalAlignment="Left" Height="81" Margin="601,564,0,0" VerticalAlignment="Top" Width="185">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="シンプルなグリッド"/>
                 <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" />
@@ -72,31 +74,33 @@
             <Button/>
         </DataGrid>
 
-        <Label Content="01：各種パネルの配置" HorizontalAlignment="Left" Margin="155,60,0,0" VerticalAlignment="Top"/>
-        <Label Content="02：ボタン背景・グリッド・ListView" HorizontalAlignment="Left" Margin="153,100,0,0" VerticalAlignment="Top"/>
-        <Label Content="03：Window.Resources を参照してプロパティを設定" HorizontalAlignment="Left" Margin="153,139,0,0" VerticalAlignment="Top"/>
-        <Label Content="04：テキストボックスの双方向バインディング１" HorizontalAlignment="Left" Margin="153,180,0,0" VerticalAlignment="Top"/>
-        <Label Content="05：テキストボックスの双方向バインディング２" HorizontalAlignment="Left" Margin="153,219,0,0" VerticalAlignment="Top"/>
-        <Label Content="06：リスト要素のデータとのバインディング１" HorizontalAlignment="Left" Margin="153,259,0,0" VerticalAlignment="Top"/>
-        <Label Content="07：リスト要素のデータとのバインディング２" HorizontalAlignment="Left" Margin="153,299,0,0" VerticalAlignment="Top"/>
-        <Label Content="08：チェックボックスとのバインディング" HorizontalAlignment="Left" Margin="153,340,0,0" VerticalAlignment="Top"/>
-        <Label Content="09：チェックボックスとの双方向バインディング（応用）" HorizontalAlignment="Left" Margin="153,380,0,0" VerticalAlignment="Top"/>
-        <Label Content="10：ボタン内での改行（ContextにTextBlockを格納）" HorizontalAlignment="Left" Margin="153,417,0,0" VerticalAlignment="Top"/>
-        <Label Content="11：非同期制御" HorizontalAlignment="Left" Margin="153,461,0,0" VerticalAlignment="Top"/>
-        <Label Content="12：コントロールを動的に配置、および選択パラメータを取得" HorizontalAlignment="Left" Margin="153,502,0,0" VerticalAlignment="Top"/>
-        <Label Content="13：タッチパネル風の数量入力" HorizontalAlignment="Left" Margin="153,540,0,0" VerticalAlignment="Top"/>
-        <Label Content="14：動的に配置したボタンにイベントを定義" HorizontalAlignment="Left" Margin="153,579,0,0" VerticalAlignment="Top"/>
-        <Label Content="15：DataGrid" HorizontalAlignment="Left" Margin="153,622,0,0" VerticalAlignment="Top"/>
-        <Label Content="16：HTTP通信：非同期" HorizontalAlignment="Left" Margin="541,62,0,0" VerticalAlignment="Top"/>
-        <Label Content="17：デリゲート・イベント" HorizontalAlignment="Left" Margin="541,103,0,0" VerticalAlignment="Top"/>
-        <Label Content="18：LINQ" HorizontalAlignment="Left" Margin="543,143,0,0" VerticalAlignment="Top"/>
-        <Label Content="19：Gridの指定位置に要素を追加" HorizontalAlignment="Left" Margin="545,184,0,0" VerticalAlignment="Top"/>
-        <Label Content="20：超簡単な async/await" HorizontalAlignment="Left" Margin="545,225,0,0" VerticalAlignment="Top"/>
-        <Label Content="21：全角・半角の変換、カレントディレクト、リソース取得" HorizontalAlignment="Left" Margin="545,267,0,0" VerticalAlignment="Top"/>
-        <Label Content="22：typeof・nameof・GUID・キャスト" HorizontalAlignment="Left" Margin="546,308,0,0" VerticalAlignment="Top"/>
-        <Label Content="23：XMLシリアライズ・デシリアライズ" HorizontalAlignment="Left" Margin="546,350,0,0" VerticalAlignment="Top"/>
-        <Label Content="24：JSONシリアライズ・デシリアライズ" HorizontalAlignment="Left" Margin="546,392,0,0" VerticalAlignment="Top"/>
-        <Label Content="25：郵便番号検索API" HorizontalAlignment="Left" Margin="546,432,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
+        <Label Content="01：各種パネルの配置" HorizontalAlignment="Left" Margin="133,66,0,0" VerticalAlignment="Top"/>
+        <Label Content="02：ボタン背景・グリッド・ListView" HorizontalAlignment="Left" Margin="131,106,0,0" VerticalAlignment="Top"/>
+        <Label Content="03：Window.Resources を参照してプロパティを設定" HorizontalAlignment="Left" Margin="131,145,0,0" VerticalAlignment="Top"/>
+        <Label Content="04：テキストボックスの双方向バインディング１" HorizontalAlignment="Left" Margin="131,186,0,0" VerticalAlignment="Top"/>
+        <Label Content="05：テキストボックスの双方向バインディング２" HorizontalAlignment="Left" Margin="131,225,0,0" VerticalAlignment="Top"/>
+        <Label Content="06：リスト要素のデータとのバインディング１" HorizontalAlignment="Left" Margin="131,265,0,0" VerticalAlignment="Top"/>
+        <Label Content="07：リスト要素のデータとのバインディング２" HorizontalAlignment="Left" Margin="131,305,0,0" VerticalAlignment="Top"/>
+        <Label Content="08：チェックボックスとのバインディング" HorizontalAlignment="Left" Margin="131,346,0,0" VerticalAlignment="Top"/>
+        <Label Content="09：チェックボックスとの双方向バインディング（応用）" HorizontalAlignment="Left" Margin="131,386,0,0" VerticalAlignment="Top"/>
+        <Label Content="10：ボタン内での改行（ContextにTextBlockを格納）" HorizontalAlignment="Left" Margin="131,423,0,0" VerticalAlignment="Top"/>
+        <Label Content="11：非同期制御" HorizontalAlignment="Left" Margin="131,467,0,0" VerticalAlignment="Top"/>
+        <Label Content="12：コントロールを動的に配置、および選択パラメータを取得" HorizontalAlignment="Left" Margin="131,508,0,0" VerticalAlignment="Top"/>
+        <Label Content="13：タッチパネル風の数量入力" HorizontalAlignment="Left" Margin="131,546,0,0" VerticalAlignment="Top"/>
+        <Label Content="14：動的に配置したボタンにイベントを定義" HorizontalAlignment="Left" Margin="131,585,0,0" VerticalAlignment="Top"/>
+        <Label Content="15：DataGrid" HorizontalAlignment="Left" Margin="131,628,0,0" VerticalAlignment="Top"/>
+        <Label Content="16：HTTP通信：非同期" HorizontalAlignment="Left" Margin="557,65,0,0" VerticalAlignment="Top"/>
+        <Label Content="17：デリゲート・イベント" HorizontalAlignment="Left" Margin="557,106,0,0" VerticalAlignment="Top"/>
+        <Label Content="18：LINQ" HorizontalAlignment="Left" Margin="559,146,0,0" VerticalAlignment="Top"/>
+        <Label Content="19：Gridの指定位置に要素を追加" HorizontalAlignment="Left" Margin="561,187,0,0" VerticalAlignment="Top"/>
+        <Label Content="20：超簡単な async/await" HorizontalAlignment="Left" Margin="561,228,0,0" VerticalAlignment="Top"/>
+        <Label Content="21：全角・半角の変換、カレントディレクト、リソース取得" HorizontalAlignment="Left" Margin="561,270,0,0" VerticalAlignment="Top"/>
+        <Label Content="22：typeof・nameof・GUID・キャスト" HorizontalAlignment="Left" Margin="562,311,0,0" VerticalAlignment="Top"/>
+        <Label Content="23：XMLシリアライズ・デシリアライズ" HorizontalAlignment="Left" Margin="562,353,0,0" VerticalAlignment="Top"/>
+        <Label Content="24：JSONシリアライズ・デシリアライズ" HorizontalAlignment="Left" Margin="562,395,0,0" VerticalAlignment="Top"/>
+        <Label Content="25：郵便番号検索API" HorizontalAlignment="Left" Margin="562,435,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
+
+        <Label Content="31：ReactivePropertyを使った双方向バインド" HorizontalAlignment="Left" Margin="962,65,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
 
     </Grid>
 </Window>
