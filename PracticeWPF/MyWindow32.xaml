@@ -12,28 +12,41 @@
            フォームの枠組みとなるグリッド
         ===================================
         -->
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.2*"/>
-            <ColumnDefinition Width="0.8*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="8*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="1" Grid.Column="0">
-            <Expander Header="Expander" >
-                <Grid Background="#FFE5E5E5">
-                </Grid>
-            </Expander>
+        <!--
+        ////////////////////////////////
+             左側に配置したPanel
+        ////////////////////////////////
+        -->        
+        <StackPanel Grid.Column="0" Background="Azure">
+            
+            
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="1">
-            <TextBox x:Name="myTextBox01" HorizontalAlignment="Left" Height="20" Margin="89,16,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-            <Button  x:Name="myButton01"  Content="myButton01" HorizontalAlignment="Left" Margin="209,16,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.453,0.7" Height="20"/>
+        <!--
+        ////////////////////////////////
+                  スプリッタ
+        ////////////////////////////////
+        -->
+        <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Center" />
+
+        <!--
+        ////////////////////////////////
+             右側に配置したPanel
+        ////////////////////////////////
+        -->
+        <StackPanel Grid.Column="2" Background="Cornsilk">
+            <StackPanel Orientation="Horizontal">
+                <Label></Label>
+                <Button  x:Name="myButton01"  Content="myButton01" Width="75" Height="20"/>
+            </StackPanel>
+
+
         </StackPanel>
-
-        <Separator HorizontalAlignment="Left" Height="101" Margin="164,80,0,0" VerticalAlignment="Top" Width="203"/>
-
     </Grid>
 </Window>

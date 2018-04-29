@@ -35,7 +35,7 @@ namespace PracticeWPF
 
         private void AddMyEvent()
         {
-            myButton01.Click += (sender, e) => MyButton01_Click();
+            //myButton01.Click += (sender, e) => MyButton01_Click();
             //myButton02.Click += (sender, e) => MyButton02_Click();
         }
         #endregion
