@@ -48,9 +48,6 @@ namespace PracticeWPF
         {
             //myButton01.Click += (sender, e) => MyButton01_Click();
             //myButton02.Click += (sender, e) => MyButton02_Click();
-            //myButton03.Click += (sender, e) => MyButton03_Click();
-            //myButton04.Click += (sender, e) => MyButton04_Click();
-            //myButton05.Click += (sender, e) => MyButton05_Click();
         }
         #endregion
 

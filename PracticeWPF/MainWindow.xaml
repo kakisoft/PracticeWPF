@@ -62,6 +62,7 @@
         <Button Content="MyWindow25" HorizontalAlignment="Left" Height="35" Margin="462,430,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow25button" />
 
         <Button Content="MyWindow31" HorizontalAlignment="Left" Height="35" Margin="867,60,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow31button" />
+        <Button Content="MyWindow32" HorizontalAlignment="Left" Height="35" Margin="867,101,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow32button" />
 
 
         <DataGrid HorizontalAlignment="Left" Height="81" Margin="601,564,0,0" VerticalAlignment="Top" Width="185">
@@ -101,6 +102,7 @@
         <Label Content="25：郵便番号検索API" HorizontalAlignment="Left" Margin="562,435,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
 
         <Label Content="31：ReactivePropertyを使った双方向バインド" HorizontalAlignment="Left" Margin="962,65,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
+        <Label Content="32：" HorizontalAlignment="Left" Margin="962,106,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
 
     </Grid>
 </Window>
