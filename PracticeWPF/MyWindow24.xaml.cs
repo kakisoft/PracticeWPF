@@ -40,6 +40,7 @@ namespace PracticeWPF
             myButton03.Click += (sender, e) => MyButton03_Click();
             myButton04.Click += (sender, e) => MyButton04_Click();
             myButton05.Click += (sender, e) => MyButton05_Click();
+            myButton06.Click += (sender, e) => MyButton06_Click();
         }
         #endregion
 
@@ -333,5 +334,23 @@ namespace PracticeWPF
             }
         }
         #endregion
+
+        #region 【 ver4 】実装４（外部ファイルから読み込んで、デシリアライズ）
+        private void MyButton06_Click()
+        {
+            //パス指定
+            string targetDirectory = System.Environment.CurrentDirectory + "\\..\\" + "\\..\\" + "Resources\\";
+            string targetFileName = "myJsonFile01.json";
+            string targetFileFullPath = targetDirectory + targetFileName;
+
+            //ファイル読み込み
+            System.IO.FileStream fs = new System.IO.FileStream(targetFileFullPath, System.IO.FileMode.Open);
+            StreamReader sr = new StreamReader(fs);
+            string myJsonContent = sr.ReadToEnd();
+
+            //デシリアライズ
+            List<Book> booksByJson = JsonConvert.DeserializeObject<List<Book>>(myJsonContent);
+
+        }
+        #endregion
     }
-}

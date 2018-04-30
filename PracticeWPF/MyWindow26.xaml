@@ -99,9 +99,10 @@
         </StackPanel>
 
         <!-- グリッド -->
-        <ListView x:Name="gridResult" Grid.Row="3" Grid.Column="0" />
+        <ListView x:Name="myListView01" Grid.Row="3" Grid.Column="0" />
+        
 <!--
-        <DataGrid x:Name="gridResult" Grid.Row="3" Grid.Column="0" IsReadOnly="True" />
+        <DataGrid x:Name="myGrid01" Grid.Row="3" Grid.Column="0" IsReadOnly="True" />
 -->
         <!--
         <TextBox x:Name="textTargetBaseURL"  HorizontalAlignment="Left" Height="22" Margin="31,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="513"/>

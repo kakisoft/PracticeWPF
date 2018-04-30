@@ -181,7 +181,7 @@ namespace PracticeWPF
                 //gridResult.ItemsSource = rootObject.response.area;
 
 
-                List<string> areaList = new List<string>();
+                //List<string> areaList = new List<string>();
                 List<string> areaList2 = new List<string>();
 
                 var hogeTable_2 = new Dictionary<string, string>()
@@ -198,104 +198,81 @@ namespace PracticeWPF
                 foreach (var item in rootObject.response.area)
                 {
                     Console.WriteLine(item);
-                    areaList.Add(item);
+                    //areaList.Add(item);
 //                    areaList.Add(item);
                 }
                 //gridResult.ItemsSource = hogeTable_2;
                 //gridResult.ItemsSource = hogeTable_3;
 
                 //gridResult.ItemsSource = areaList;
-                gridResult.ItemsSource = rootObject.response.area;
-
-
-                //-----< 戻り値が nullだった場合 >-----
-                //if (responseData.results == null)
-                //{
-                //    MessageBox.Show("該当するデータがありません。");
-                //    return;
-                //}
-
-                //-----< コンソールに出力 >-----
-                foreach (var item in responseData.response)
-                {
-                    Console.WriteLine(item);
-                    Console.WriteLine("-------------------------------------");
-                }
-
-                Console.WriteLine(responseData.response.area);
+                //myGrid01.ItemsSource = rootObject.response.area;
 
 
 
-                //List<dynamic> areaList = responseData.response.area;
-                //List<dynamic> areaList = new List<dynamic>();
 
-                //dynamic areaList = responseData.response.area;
 
-                //Sample s1 = new Sample();
-                //s1.response = (List<string>)responseData.response.area;
-
+                List<dynamic> areaList = new List<dynamic>();
                 foreach (var item in responseData.response.area)
                 {
-                    //areaList.Add(item);
-                    //areaList.Add(item.Value);
-                    //areaList.Add(item.Value.ToString());
-                    //Console.WriteLine(areaList.Add(item.Value));
-
-
-                    //areaList.Add(item.ToString());
-                    //areaList.Add(item.ToList());
-
-                    //foreach (var item2 in item1)
-                    //{
-                    //    areaList.Add(item2);
-                    //}
+                    areaList.Add(item);
                 }
+                myListView01.ItemsSource = areaList;
 
 
-                foreach (var item in responseData.response)
-                {
-                    //areaList.Add(item["area"]);
 
 
-                    //areaList.Add(item);
-                    //areaList.Add(item.Value);
-                    //areaList.Add(item.Value.ToString());
-                    //Console.WriteLine(areaList.Add(item.Value));
+                //areaList.Add(item.Value);
+                //areaList.Add(item.Value.ToString());
+                //Console.WriteLine(areaList.Add(item.Value));
 
 
-                    //areaList.Add(item.ToString());
-                    //areaList.Add(item.ToList());
+                //areaList.Add(item.ToString());
+                //areaList.Add(item.ToList());
 
-                    //foreach (var item2 in item1)
-                    //{
-                    //    areaList.Add(item2);
-                    //}
-                }
+                //foreach (var item2 in item1)
+                //{
+                //    areaList.Add(item2);
+                //}
+
+
+
+
+                //foreach (var item in responseData.response)
+                //{
+                //    //areaList.Add(item["area"]);
+
+
+                //    areaList.Add(item);
+                //    //areaList.Add(item.Value);
+                //    //areaList.Add(item.Value.ToString());
+                //    //Console.WriteLine(areaList.Add(item.Value));
+
+
+                //    //areaList.Add(item.ToString());
+                //    //areaList.Add(item.ToList());
+
+                //    //foreach (var item2 in item1)
+                //    //{
+                //    //    areaList.Add(item2);
+                //    //}
+                //}
+                //myGrid01.ItemsSource = areaList;
 
 
                 JObject o = JObject.Parse(resultContents);
-                //string name = (string)o["response"];
-                //var name = (string)o["response"];
-                //var name = (List<String>)o["response"];
-                var name = o["response"];
 
+                var name = o["response"];
                 foreach (var item in name)
                 {
                     Console.WriteLine(item);
-
-                    //gridResult.ItemsSource = item;
                 }
 
-                //var s2 = responseData.response.are.ToList();
 
 
-                //-----< グリッドにに出力 >-----
-                //gridResult.ItemsSource = responseData.response.area;
-                //gridResult.ItemsSource = areaList;
-                //gridResult.ItemsSource = areaList.Select( x => x.Value);
-                //gridResult.ItemsSource = areaList.Select(x => x.Length());
 
-                //gridResult.ItemsSource = responseData.response.area;
+
+
+
 
 
 
