@@ -9,16 +9,9 @@
     <Grid>
         <Button x:Name="myButton01" Content="myButton01" HorizontalAlignment="Left" Margin="35,19,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.4,0.3"/>
         <Button x:Name="myButton02" Content="myButton02" HorizontalAlignment="Left" Margin="139,19,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.4,0.3"/>
+        <Button x:Name="myButton03" Content="myButton03" HorizontalAlignment="Left" Margin="233,19,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.4,0.3"/>
 
         <DataGrid x:Name="myDataGrid01" HorizontalAlignment="Left" Height="113" Margin="35,70,0,0" VerticalAlignment="Top" Width="327"/>
-        <ListView x:Name="myListView01" HorizontalAlignment="Left" Height="102" Margin="35,188,0,0" VerticalAlignment="Top" Width="264">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-
-
+        <ListView x:Name="myListView01" HorizontalAlignment="Left" Height="102" Margin="35,188,0,0" VerticalAlignment="Top" Width="264" />
     </Grid>
 </Window>

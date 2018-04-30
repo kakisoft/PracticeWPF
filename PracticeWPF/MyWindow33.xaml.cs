@@ -19,18 +19,6 @@ namespace PracticeWPF
     /// </summary>
     public partial class MyWindow33 : Window
     {
-        #region 定義情報
-        //Dictionary hogeTable = new Dictionary<string, string>();
-
-        // newするときに一緒に内容を指定する
-        //Dictionary hogeTable_2 = new Dictionary<string, string>()
-        //{
-        //    { "one", "abc" },
-        //    { "tow", "def" },
-        //    { "three", "hij" }
-        //}
-        #endregion
-
         #region イニシャライズ
         public MyWindow33()
         {
@@ -49,6 +37,7 @@ namespace PracticeWPF
         {
             myButton01.Click += (sender, e) => MyButton01_Click();
             myButton02.Click += (sender, e) => MyButton02_Click();
+            myButton03.Click += (sender, e) => MyButton03_Click();
         }
         #endregion
 
@@ -115,5 +104,28 @@ namespace PracticeWPF
             myListView01.ItemsSource = myStringList01;
         }
         #endregion
+
+        #region 辞書→Grid、List　２
+        private class JapaneseRegions
+        {
+            public int Id { get; set; }
+            public string Value { get; set; }
+        }
+
+        private void MyButton03_Click()
+        {
+            List<string> myStringList01 = new List<string>();
+
+            List<JapaneseRegions> japaneseRegionList = new List<JapaneseRegions>();
+            japaneseRegionList.Add(new JapaneseRegions { Id = 0, Value = "北海道" });
+            japaneseRegionList.Add(new JapaneseRegions { Id = 1, Value = "東北" });
+            japaneseRegionList.Add(new JapaneseRegions { Id = 1, Value = "関東" });
+
+
+            myDataGrid01.ItemsSource = japaneseRegionList;
+            myListView01.ItemsSource = japaneseRegionList;
+        }
+        #endregion
+
     }
 }
