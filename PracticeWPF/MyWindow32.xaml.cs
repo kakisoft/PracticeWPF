@@ -16,6 +16,8 @@ namespace PracticeWPF
 {
     /// <summary>
     /// MyWindow32.xaml の相互作用ロジック
+    /// https://www.ipentec.com/document/csharp-shell-namespace-create-explorer-tree-view-control-and-linked-list-view
+    /// https://www.doraxdora.com/blog/2018/02/14/post-3933/
     /// </summary>
     public partial class MyWindow32 : Window
     {
