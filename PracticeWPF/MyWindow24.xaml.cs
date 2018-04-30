@@ -1,10 +1,12 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 using System.Text;
@@ -335,22 +337,36 @@ namespace PracticeWPF
         }
         #endregion
 
-        #region 【 ver4 】実装４（外部ファイルから読み込んで、デシリアライズ）
-        private void MyButton06_Click()
+        #region 【 ver4 】実装４（JObject.Parse を使ったデシリアライズ）
+        private async void MyButton06_Click()
         {
-            //パス指定
-            string targetDirectory = System.Environment.CurrentDirectory + "\\..\\" + "\\..\\" + "Resources\\";
-            string targetFileName = "myJsonFile01.json";
-            string targetFileFullPath = targetDirectory + targetFileName;
+            string fullUrl = "http://geoapi.heartrails.com/api/json?method=getAreas";
+            string resultContents;
 
-            //ファイル読み込み
-            System.IO.FileStream fs = new System.IO.FileStream(targetFileFullPath, System.IO.FileMode.Open);
-            StreamReader sr = new StreamReader(fs);
-            string myJsonContent = sr.ReadToEnd();
+            try
+            {
+                //-----< データ取得 >-----
+                using (var _httpClient = new HttpClient())
+                {
+                    Task<string> response = _httpClient.GetStringAsync(fullUrl);
+                    resultContents = await response;
+                }
 
-            //デシリアライズ
-            List<Book> booksByJson = JsonConvert.DeserializeObject<List<Book>>(myJsonContent);
 
+                JObject parsedObject = JObject.Parse(resultContents);
+
+                var responseData = parsedObject["response"];
+                foreach (var item in responseData)
+                {
+                    Console.WriteLine(item);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         #endregion
     }
+}
