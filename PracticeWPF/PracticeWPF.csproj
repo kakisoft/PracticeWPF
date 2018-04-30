@@ -216,6 +216,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MyWindow26.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MyWindow31.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -300,6 +304,9 @@
     </Compile>
     <Compile Include="MyWindow25.xaml.cs">
       <DependentUpon>MyWindow25.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyWindow26.xaml.cs">
+      <DependentUpon>MyWindow26.xaml</DependentUpon>
     </Compile>
     <Compile Include="MyWindow31.xaml.cs">
       <DependentUpon>MyWindow31.xaml</DependentUpon>

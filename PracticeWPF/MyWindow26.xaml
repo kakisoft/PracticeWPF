@@ -1,0 +1,112 @@
+﻿<Window x:Class="PracticeWPF.MyWindow26"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PracticeWPF"
+        mc:Ignorable="d"
+        Title="MyWindow26" Height="450" Width="800">
+    <Window.Resources>
+        <!-- StackPanelリソース -->
+        <Style TargetType="StackPanel" x:Key="StaticResources_StackPanel01">
+            <Setter Property="Orientation"       Value="Horizontal"></Setter>
+            <Setter Property="VerticalAlignment" Value="Top"></Setter>
+            <Setter Property="Width" Value="Auto"></Setter>
+        </Style>
+
+        <!-- Lavelリソース -->
+        <Style TargetType="Label" x:Key="StaticResources_Label01">
+            <Setter Property="Width"                      Value="100"></Setter>
+            <Setter Property="Height"                     Value="30"></Setter>
+            <Setter Property="Foreground"                 Value="White"></Setter>
+            <Setter Property="Background"                 Value="#FF2E40F0"></Setter>
+            <Setter Property="FontSize"                   Value="14"></Setter>
+            <Setter Property="BorderThickness"            Value="1,1,0,1"></Setter>
+            <Setter Property="VerticalContentAlignment"   Value="Center"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+            <Setter Property="Margin"                     Value="0,0,0,0"></Setter>
+            <Setter Property="Padding"                    Value="10,0,10,0"></Setter>
+        </Style>
+
+        <!-- Lavelリソース -->
+        <Style TargetType="Label" x:Key="StaticResources_Label02">
+            <Setter Property="Height"            Value="30"></Setter>
+            <Setter Property="FontSize"          Value="14"></Setter>
+            <Setter Property="Padding"           Value="10,5,0,0"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        </Style>
+
+        <!-- TextBlockリソース -->
+        <Style TargetType="TextBlock" x:Key="StaticResources_TextBlock01">
+            <Setter Property="Height"            Value="30"></Setter>
+            <Setter Property="FontSize"          Value="14"></Setter>
+            <Setter Property="Padding"           Value="230,0,0,0"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        </Style>
+
+        <!-- TextBoxリソース（ReadOnly） -->
+        <Style TargetType="TextBox" x:Key="StaticResources_TextBox01">
+            <Setter Property="Height"            Value="30"></Setter>
+            <Setter Property="FontSize"          Value="14"></Setter>
+            <Setter Property="Padding"           Value="10,5,0,0"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="IsReadOnly"        Value="True"></Setter>
+            <Setter Property="BorderThickness"            Value="0,0,0,0"></Setter>
+        </Style>
+
+    </Window.Resources>
+    <Grid>
+        <!--
+        ===================================
+           フォームの枠組みとなるグリッド
+        ===================================
+        -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- ベースURL -->
+        <StackPanel Grid.Row="0" Grid.Column="0" Style="{StaticResource ResourceKey=StaticResources_StackPanel01}">
+            <Label Style="{StaticResource ResourceKey=StaticResources_Label01}">ベースURL</Label>
+            <TextBlock x:Name="myTextBlock01" Style="{StaticResource ResourceKey=StaticResources_TextBlock01}"></TextBlock>
+        </StackPanel>
+
+        <!-- リクエストタイプ -->
+        <StackPanel Grid.Row="1" Grid.Column="0" Style="{StaticResource ResourceKey=StaticResources_StackPanel01}">
+            <Label Style="{StaticResource ResourceKey=StaticResources_Label01}">xxxx</Label>
+            <ComboBox x:Name="myComboBox02" Width="200" Height="30">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Label Content="{Binding Summary}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <TextBox x:Name="myTextBox02" Style="{StaticResource ResourceKey=StaticResources_TextBox01}" Text="{Binding DispText}"></TextBox>
+        </StackPanel>
+
+        <!-- ボタン -->
+        <StackPanel Grid.Row="2" Grid.Column="0" Style="{StaticResource ResourceKey=StaticResources_StackPanel01}">
+            <Button x:Name="myButton01"  Content="geoapi" Height="30"/>
+        </StackPanel>
+
+        <!-- グリッド -->
+        <ListView x:Name="gridResult" Grid.Row="3" Grid.Column="0" />
+<!--
+        <DataGrid x:Name="gridResult" Grid.Row="3" Grid.Column="0" IsReadOnly="True" />
+-->
+        <!--
+        <TextBox x:Name="textTargetBaseURL"  HorizontalAlignment="Left" Height="22" Margin="31,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="513"/>
+        <TextBox x:Name="textSubParameter" HorizontalAlignment="Left" Height="23" Margin="31,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <DataGrid x:Name="gridResult" HorizontalAlignment="Left" Height="138" Margin="31,163,0,0" VerticalAlignment="Top" Width="595" IsReadOnly="True"/>
+-->
+    </Grid>
+</Window>
