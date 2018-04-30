@@ -24,6 +24,13 @@ namespace PracticeWPF
 {
     /// <summary>
     /// MyWindow24.xaml の相互作用ロジック
+    ///
+    /// ## JSONのクラスを作成してくれる超便利なサイト
+    /// http://json2csharp.com/
+    /// 
+    /// ## JSONのparseを色々試してみた。
+    /// https://techinfoofmicrosofttech.osscons.jp/index.php?JSON%E3%81%AEparse%E3%82%92%E8%89%B2%E3%80%85%E8%A9%A6%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F%E3%80%82
+    /// 
     /// </summary>
     public partial class MyWindow24 : Window
     {
@@ -43,6 +50,7 @@ namespace PracticeWPF
             myButton04.Click += (sender, e) => MyButton04_Click();
             myButton05.Click += (sender, e) => MyButton05_Click();
             myButton06.Click += (sender, e) => MyButton06_Click();
+            myButton07.Click += (sender, e) => MyButton07_Click();
         }
         #endregion
 
@@ -352,11 +360,53 @@ namespace PracticeWPF
                     resultContents = await response;
                 }
 
-
+                //パース
                 JObject parsedObject = JObject.Parse(resultContents);
 
                 var responseData = parsedObject["response"];
                 foreach (var item in responseData)
+                {
+                    Console.WriteLine(item);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        #endregion
+
+        #region 【 ver5 】実装５（）
+        public class Response
+        {
+            public List<string> area { get; set; }
+        }
+
+        public class RootObject
+        {
+            public Response response { get; set; }
+        }
+
+        private async void MyButton07_Click()
+        {
+            string fullUrl = "http://geoapi.heartrails.com/api/json?method=getAreas";
+            string resultContents;
+
+            try
+            {
+                //-----< データ取得 >-----
+                using (var _httpClient = new HttpClient())
+                {
+                    Task<string> response = _httpClient.GetStringAsync(fullUrl);
+                    resultContents = await response;
+                }
+
+                //デシリアライズ
+                RootObject jsonRoot = JsonConvert.DeserializeObject<RootObject>(resultContents);
+
+                //コンソール出力
+                foreach (var item in jsonRoot.response.area)
                 {
                     Console.WriteLine(item);
                 }

@@ -7,12 +7,13 @@
         mc:Ignorable="d"
         Title="MyWindow24" Height="450" Width="800">
     <Grid>
-        <Button x:Name="myButton01"  Content="myButton01" HorizontalAlignment="Left" Margin="36,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
-        <Button x:Name="myButton02"  Content="myButton02" HorizontalAlignment="Left" Margin="154,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
-        <Button x:Name="myButton03"  Content="myButton03" HorizontalAlignment="Left" Margin="264,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
-        <Button x:Name="myButton04"  Content="myButton04" HorizontalAlignment="Left" Margin="382,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
-        <Button x:Name="myButton05"  Content="myButton05" HorizontalAlignment="Left" Margin="500,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
-        <Button x:Name="myButton06"  Content="myButton06" HorizontalAlignment="Left" Margin="615,36,0,0" VerticalAlignment="Top" Width="92" Height="40" RenderTransformOrigin="1.652,0.7"/>
+        <Button x:Name="myButton01"  Content="myButton01" HorizontalAlignment="Left" Margin="22,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
+        <Button x:Name="myButton02"  Content="myButton02" HorizontalAlignment="Left" Margin="131,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
+        <Button x:Name="myButton03"  Content="myButton03" HorizontalAlignment="Left" Margin="238,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
+        <Button x:Name="myButton04"  Content="myButton04" HorizontalAlignment="Left" Margin="346,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
+        <Button x:Name="myButton05"  Content="myButton05" HorizontalAlignment="Left" Margin="453,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
+        <Button x:Name="myButton06"  Content="myButton06" HorizontalAlignment="Left" Margin="559,36,0,0" VerticalAlignment="Top" Width="92" Height="40" />
+        <Button x:Name="myButton07"  Content="myButton07" HorizontalAlignment="Left" Margin="668,36,0,0" VerticalAlignment="Top" Width="92" Height="40" />
 
     </Grid>
 </Window>
