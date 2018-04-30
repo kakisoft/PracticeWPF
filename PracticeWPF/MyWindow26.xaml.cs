@@ -27,9 +27,8 @@ namespace PracticeWPF
     public partial class MyWindow26 : Window
     {
         #region 定義情報
-        private const string GET_POSTAL_CODE_BASE_URL = "http://geoapi.heartrails.com/api/";
+        private const string BASE_URL = "http://geoapi.heartrails.com/api/";
         private const string FORMAT_OPTION = "json?method=getStations/";  //json形式で取得 
-        private const string ZIP_CODE_KEYNAME = "zipcode";
 
         //------------------------------
         //
@@ -52,7 +51,9 @@ namespace PracticeWPF
         #endregion
 
         #region バンディングリスト
+        TextTypeControl baseURLCluster = new TextTypeControl();
         TextTypeControl requestTypeURLCluster = new TextTypeControl();
+
         private class TextTypeControl : BindableBase
         {
             private string dispText;
@@ -63,7 +64,6 @@ namespace PracticeWPF
             }
         }
         #endregion
-
 
         #region イニシャライズ
         public MyWindow26()
@@ -96,10 +96,13 @@ namespace PracticeWPF
         }
         private void SetBindConfig()
         {
+            myTextBox01.DataContext = baseURLCluster;
             myTextBox02.DataContext = requestTypeURLCluster;
         }
         private void SetInitializeParameter()
         {
+            baseURLCluster.DispText = BASE_URL;
+
             myComboBox02.SelectedIndex = 0;
         }
 

@@ -74,7 +74,7 @@
         <!-- ベースURL -->
         <StackPanel Grid.Row="0" Grid.Column="0" Style="{StaticResource ResourceKey=StaticResources_StackPanel01}">
             <Label Style="{StaticResource ResourceKey=StaticResources_Label01}">ベースURL</Label>
-            <TextBlock x:Name="myTextBlock01" Style="{StaticResource ResourceKey=StaticResources_TextBlock01}"></TextBlock>
+            <TextBox x:Name="myTextBox01" Style="{StaticResource ResourceKey=StaticResources_TextBox01}" Text="{Binding DispText}"></TextBox>
         </StackPanel>
 
         <!-- リクエストタイプ -->
