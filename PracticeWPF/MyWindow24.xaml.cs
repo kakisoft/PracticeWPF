@@ -23,7 +23,7 @@ using System.Windows.Shapes;
 namespace PracticeWPF
 {
     /// <summary>
-    /// MyWindow24.xaml の相互作用ロジック
+    /// JSONシリアライズ・デシリアライズ
     ///
     /// ## JSONのクラスを作成してくれる超便利なサイト
     /// http://json2csharp.com/

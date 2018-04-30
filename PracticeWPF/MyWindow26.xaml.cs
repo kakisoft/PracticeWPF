@@ -31,10 +31,6 @@ namespace PracticeWPF
         private const string FORMAT_OPTION = "json?method=getStations/";  //json形式で取得 
         private const string ZIP_CODE_KEYNAME = "zipcode";
 
-
-        //http://geoapi.heartrails.com/api/json?method=getAreas
-
-
         //------------------------------
         //
         //------------------------------
@@ -79,10 +75,6 @@ namespace PracticeWPF
 
         private void InitializeThisContents()
         {
-
-            //textTargetBaseURL.Text = GET_POSTAL_CODE_BASE_URL;
-            //textSubParameter.Text = "7830060";
-
             AddThisEvent();
             SetThisConstParameters();
             SetBindConfig();
@@ -138,23 +130,6 @@ namespace PracticeWPF
 
             await HttpGetRequestAsync(targetURL, "");
         }
-
-
-
-
-
-
-        public class Response
-        {
-            public List<string> area { get; set; }
-        }
-
-        public class AreaTypeResponse
-        {
-            public Response response { get; set; }
-        }
-
-
         private async Task HttpGetRequestAsync(string targetURL, string subParameter)
         {
             string fullUrl = targetURL; // + "?" + ZIP_CODE_KEYNAME + "=" + subParameter;
@@ -167,114 +142,19 @@ namespace PracticeWPF
                 {
                     Task<string> response = _httpClient.GetStringAsync(fullUrl);
                     resultContents = await response;
-
-                    Console.WriteLine(resultContents);
                 }
 
                 //-----< デシリアライズ >-----
                 dynamic responseData = JsonConvert.DeserializeObject(resultContents);
 
-                //Response r1 = responseData;
-                AreaTypeResponse rootObject = JsonConvert.DeserializeObject<AreaTypeResponse>(resultContents);
-                //gridResult.ItemsSource = rootObject.response;
 
-                //gridResult.ItemsSource = rootObject.response.area;
-
-
-                //List<string> areaList = new List<string>();
-                List<string> areaList2 = new List<string>();
-
-                var hogeTable_2 = new Dictionary<string, string>()
-{
-    { "one", "abc" },
-    { "tow", "def" },
-    { "three", "hij" },
-};
-
-                var hogeTable_3 = new Dictionary<int, string>();
-                hogeTable_3.Add(1, "10ab");
-                hogeTable_3.Add(2, "10ab");
-
-                foreach (var item in rootObject.response.area)
-                {
-                    Console.WriteLine(item);
-                    //areaList.Add(item);
-//                    areaList.Add(item);
-                }
-                //gridResult.ItemsSource = hogeTable_2;
-                //gridResult.ItemsSource = hogeTable_3;
-
-                //gridResult.ItemsSource = areaList;
-                //myGrid01.ItemsSource = rootObject.response.area;
-
-
-
-
-
+                //-----< 出力 >-----
                 List<dynamic> areaList = new List<dynamic>();
                 foreach (var item in responseData.response.area)
                 {
                     areaList.Add(item);
                 }
                 myListView01.ItemsSource = areaList;
-
-
-
-
-                //areaList.Add(item.Value);
-                //areaList.Add(item.Value.ToString());
-                //Console.WriteLine(areaList.Add(item.Value));
-
-
-                //areaList.Add(item.ToString());
-                //areaList.Add(item.ToList());
-
-                //foreach (var item2 in item1)
-                //{
-                //    areaList.Add(item2);
-                //}
-
-
-
-
-                //foreach (var item in responseData.response)
-                //{
-                //    //areaList.Add(item["area"]);
-
-
-                //    areaList.Add(item);
-                //    //areaList.Add(item.Value);
-                //    //areaList.Add(item.Value.ToString());
-                //    //Console.WriteLine(areaList.Add(item.Value));
-
-
-                //    //areaList.Add(item.ToString());
-                //    //areaList.Add(item.ToList());
-
-                //    //foreach (var item2 in item1)
-                //    //{
-                //    //    areaList.Add(item2);
-                //    //}
-                //}
-                //myGrid01.ItemsSource = areaList;
-
-
-                JObject o = JObject.Parse(resultContents);
-
-                var name = o["response"];
-                foreach (var item in name)
-                {
-                    Console.WriteLine(item);
-                }
-
-
-
-
-
-
-
-
-
 
             }
             catch (Exception ex)
