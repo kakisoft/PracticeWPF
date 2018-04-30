@@ -80,7 +80,7 @@
         <!-- リクエストタイプ -->
         <StackPanel Grid.Row="1" Grid.Column="0" Style="{StaticResource ResourceKey=StaticResources_StackPanel01}">
             <Label Style="{StaticResource ResourceKey=StaticResources_Label01}">xxxx</Label>
-            <ComboBox x:Name="myComboBox02" Width="200" Height="30">
+            <ComboBox x:Name="myComboBox02" Width="200" Height="30" >
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>

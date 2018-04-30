@@ -33,24 +33,33 @@ namespace PracticeWPF
         //------------------------------
         //
         //------------------------------
+        enum RequestTypeId : int
+        {
+            Area = 0,
+            Prefecture = 1,
+            Municipality = 2
+        }
+
+        private List<RequestType> RequestTypeList = new List<RequestType>();
         private class RequestType
         {
             public int Id { get; set; }
             public string Summary { get; set; }
             public string URL { get; set; }
         }
-        private List<RequestType> RequestTypeList = new List<RequestType>();
+
         private void SetRequestType()
         {
             RequestTypeList = new List<RequestType>();
-            RequestTypeList.Add(new RequestType { Id = 0, Summary = "エリア情報取得 API"　 , URL = "http://geoapi.heartrails.com/api/json?method=getAreas" });
-            RequestTypeList.Add(new RequestType { Id = 1, Summary = "都道府県情報取得 API" , URL = "http://geoapi.heartrails.com/api/json?method=getPrefectures" });
-            RequestTypeList.Add(new RequestType { Id = 2, Summary = "市区町村情報取得 API" , URL = "http://geoapi.heartrails.com/api/json?method=getCities" });
+            RequestTypeList.Add(new RequestType { Id = (int)RequestTypeId.Area        , Summary = "エリア情報取得 API"　 , URL = "http://geoapi.heartrails.com/api/json?method=getAreas" });
+            RequestTypeList.Add(new RequestType { Id = (int)RequestTypeId.Prefecture  , Summary = "都道府県情報取得 API" , URL = "http://geoapi.heartrails.com/api/json?method=getPrefectures" });
+            RequestTypeList.Add(new RequestType { Id = (int)RequestTypeId.Municipality, Summary = "市区町村情報取得 API" , URL = "http://geoapi.heartrails.com/api/json?method=getCities" });
             myComboBox02.ItemsSource = RequestTypeList;
         }
         #endregion
 
-        #region バンディングリスト
+        #region プライベート変数
+        RequestType selectedItem = new RequestType();
         TextTypeControl baseURLCluster = new TextTypeControl();
         TextTypeControl requestTypeURLCluster = new TextTypeControl();
 
@@ -111,7 +120,7 @@ namespace PracticeWPF
         #region リクエストタイプを設定
         private void SetSelectedRequestType()
         {
-            RequestType selectedItem = (RequestType)myComboBox02.SelectedItem;
+            selectedItem = (RequestType)myComboBox02.SelectedItem;
 
             if (selectedItem == null) return;
 
@@ -120,7 +129,7 @@ namespace PracticeWPF
         }
         #endregion
 
-        #region ボタン
+        #region ボタン押下時の処理
         private void MyButton01_Click()
         {
             Button01_ClickContentAsync();
@@ -130,12 +139,11 @@ namespace PracticeWPF
             string targetURL = requestTypeURLCluster.DispText;
             //string postalCode = textSubParameter.Text;
 
-
             await HttpGetRequestAsync(targetURL, "");
         }
         private async Task HttpGetRequestAsync(string targetURL, string subParameter)
         {
-            string fullUrl = targetURL; // + "?" + ZIP_CODE_KEYNAME + "=" + subParameter;
+            string fullUrl = targetURL;
             string resultContents;
 
             try
@@ -152,18 +160,82 @@ namespace PracticeWPF
 
 
                 //-----< 出力 >-----
-                List<dynamic> areaList = new List<dynamic>();
-                foreach (var item in responseData.response.area)
-                {
-                    areaList.Add(item);
-                }
-                myListView01.ItemsSource = areaList;
+                ShowResponseData(responseData);
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        #endregion
+
+        #region 取得タイプごとの分岐
+        private bool ShowResponseData(dynamic responseData)
+        {
+            switch (selectedItem.Id)
+            {
+                case (int)RequestTypeId.Area:
+                    return ExpressAreaData(responseData);
+
+                case (int)RequestTypeId.Prefecture:
+                    return ExpressPrefectureData(responseData);
+
+                case (int)RequestTypeId.Municipality:
+                    break;
+                default:
+                    return false;
+            }
+
+            return true;
+        }
+        #endregion
+
+        #region エリア情報取得
+        private bool ExpressAreaData(dynamic responseData)
+        {
+            try
+            {
+                //-----< 出力 >-----
+                List<dynamic> expressList = new List<dynamic>();
+                foreach (var item in responseData.response.area)  //area
+                {
+                    expressList.Add(item);
+                }
+                myListView01.ItemsSource = expressList;
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+
+        }
+        #endregion
+
+        #region 都道府県情報取得
+        private bool ExpressPrefectureData(dynamic responseData)
+        {
+            try
+            {
+                //-----< 出力 >-----
+                List<dynamic> expressList = new List<dynamic>();
+                foreach (var item in responseData.response.prefecture)  //prefecture
+                {
+                    expressList.Add(item);
+                }
+                myListView01.ItemsSource = expressList;
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+
         }
         #endregion
 
