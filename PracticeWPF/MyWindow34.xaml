@@ -7,6 +7,23 @@
         mc:Ignorable="d"
         Title="MyWindow34" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="32"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Background="#FF043957">
+            <TextBlock Margin="10,0,0,0" VerticalAlignment="Center" Text="ページ遷移サンプル"
+                       Foreground="White"/>
+        </StackPanel>
+        <Frame Grid.Row="1" NavigationUIVisibility="Hidden" Name="myFrame"
+               Loaded="myFrame_Loaded" Navigated="myFrame_Navigated" />
+        <StackPanel Orientation="Horizontal" Background="#FF043957" Grid.Row="2">
+            <Button Name="prevButton" Content="Prev" HorizontalAlignment="Left"
+                    Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Center"
+                    Width="50" Click="prevButton_Click"/>
+            <Button Name="nextButton" Content="Next" HorizontalAlignment="Left"
+                    VerticalAlignment="Center" Width="50" Click="nextButton_Click" />
+        </StackPanel>        
     </Grid>
 </Window>

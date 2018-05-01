@@ -116,6 +116,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MyPages\MyPage01.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyPages\MyPage02.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyPages\MyPage03.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MyWindow01.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -238,6 +250,15 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyPages\MyPage01.xaml.cs">
+      <DependentUpon>MyPage01.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyPages\MyPage02.xaml.cs">
+      <DependentUpon>MyPage02.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyPages\MyPage03.xaml.cs">
+      <DependentUpon>MyPage03.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MyWindow01.xaml.cs">
       <DependentUpon>MyWindow01.xaml</DependentUpon>
     </Compile>
