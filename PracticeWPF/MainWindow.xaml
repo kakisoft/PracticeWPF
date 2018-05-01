@@ -65,6 +65,7 @@
         <Button Content="MyWindow31" HorizontalAlignment="Left" Height="35" Margin="843,60,0,0"  VerticalAlignment="Top" Width="90" x:Name="MyWindow31button" />
         <Button Content="MyWindow32" HorizontalAlignment="Left" Height="35" Margin="843,101,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow32button" />
         <Button Content="MyWindow33" HorizontalAlignment="Left" Height="35" Margin="843,141,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow33button" />
+        <Button Content="MyWindow34" HorizontalAlignment="Left" Height="35" Margin="843,182,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow34button" />
 
 
         <DataGrid HorizontalAlignment="Left" Height="81" Margin="601,564,0,0" VerticalAlignment="Top" Width="185">
@@ -107,6 +108,7 @@
         <Label Content="31：ReactivePropertyを使った双方向バインド" HorizontalAlignment="Left" Margin="938,65,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
         <Label Content="32：ファイルエクスプローラ関連" HorizontalAlignment="Left" Margin="938,106,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
         <Label Content="33：Dictionaryをソースにした GridやListView" HorizontalAlignment="Left" Margin="938,146,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
+        <Label Content="34：Page、NavigationService" HorizontalAlignment="Left" Margin="938,187,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
 
     </Grid>
 </Window>

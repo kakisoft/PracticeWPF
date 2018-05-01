@@ -17,8 +17,7 @@ using System.Windows.Shapes;
 namespace PracticeWPF
 {
     /// <summary>
-    /// Install-Package ReactiveProperty
-    /// 
+    /// ReactivePropertyを使った双方向バインド
     /// </summary>
     public partial class MyWindow31 : Window
     {

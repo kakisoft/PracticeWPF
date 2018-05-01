@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace PracticeWPF
 {
     /// <summary>
-    /// MyWindow32.xaml の相互作用ロジック
+    /// ファイルエクスプローラ関連
     /// https://www.ipentec.com/document/csharp-shell-namespace-create-explorer-tree-view-control-and-linked-list-view
     /// https://www.doraxdora.com/blog/2018/02/14/post-3933/
     /// </summary>
