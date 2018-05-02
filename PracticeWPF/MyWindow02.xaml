@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticeWPF"
         mc:Ignorable="d"
-        Title="MyWindow02" Height="500" Width="800">
+        Title="MyWindow02" Height="600" Width="800">
     <Grid>
         <DockPanel >
             <!--
@@ -165,6 +165,9 @@
                                 <GridViewColumn Header="id"   Width="30"  DisplayMemberBinding="{Binding Id}" />
                                 <GridViewColumn Header="text" Width="100"  DisplayMemberBinding="{Binding DispText}" />
 
+                                <GridViewColumn Header="DispText" DisplayMemberBinding="{Binding SalesStatus}"   Width="0" />
+                                <GridViewColumn Header="DispText" DisplayMemberBinding="{Binding PaymentStatus}" Width="0" />
+
                                 <GridViewColumn Header="チェック">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
@@ -186,6 +189,39 @@
 
                 </StackPanel>
             </DockPanel>
+
+            <!--
+            ////////////////////////////////
+               ３行目に配置した DockPanel
+            ////////////////////////////////
+            -->
+            <DockPanel DockPanel.Dock="Top" Height="130" VerticalAlignment="Top">
+                <!--
+                ===================================
+                              ListView
+                ===================================
+                -->
+                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal">
+                    <ListView x:Name="myListView02" Width="200">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="id"   Width="30"  DisplayMemberBinding="{Binding Id}" />
+                                <GridViewColumn Header="text" Width="100"  DisplayMemberBinding="{Binding DispText}" />
+
+                                <GridViewColumn Header="DispText" DisplayMemberBinding="{Binding SalesStatus}"   Width="0" />
+                                <GridViewColumn Header="DispText" DisplayMemberBinding="{Binding PaymentStatus}" Width="0" />
+                            </GridView>
+                        </ListView.View>
+
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_PreviewMouseLeftButtonDown" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                </StackPanel>
+            </DockPanel>
+
 
         </DockPanel>
     </Grid>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace PracticeWPF
@@ -54,6 +55,8 @@ namespace PracticeWPF
 
             //バインディング
             SetBindingData();
+
+            SetThisWindowsParameters2();
         }
         #endregion
 
@@ -272,6 +275,45 @@ namespace PracticeWPF
 
         #endregion
 
+        #region ListView2
+        List<TextTypeControl> textList2 = new List<TextTypeControl>();
+
+        private void SetThisWindowsParameters2()
+        {
+            textList2.Add(new TextTypeControl { Id = 1, DispText ="北海道"});
+            textList2.Add(new TextTypeControl { Id = 2, DispText = "東北" });
+            textList2.Add(new TextTypeControl { Id = 3, DispText = "関東" });
+            textList2.Add(new TextTypeControl { Id = 4, DispText = "近畿" });
+
+            myListView02.ItemsSource = textList2;
+        }
+
+        private void ListViewItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var item = sender as ListViewItem;
+            //if (item != null && item.IsSelected)
+            if (item != null)
+            {
+
+                Console.WriteLine("===============================");
+                Console.WriteLine(item.DataContext);
+                Console.WriteLine("===============================");
+
+                var a1 = (TextTypeControl)item.DataContext;
+                Console.WriteLine("===============================");
+                Console.WriteLine(a1);
+                Console.WriteLine("===============================");
+
+                var a2 = a1.DispText;
+                Console.WriteLine("===============================");
+                Console.WriteLine(a2);
+                Console.WriteLine("===============================");
+            }
+
+
+        }
+
+        #endregion
         //*******************************************//
         #region バンディング用ベースクラス
         protected class BindableBase : INotifyPropertyChanged
