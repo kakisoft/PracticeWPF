@@ -6,6 +6,35 @@
         xmlns:local="clr-namespace:PracticeWPF"
         mc:Ignorable="d"
         Title="MyWindow02" Height="600" Width="800">
+    <Window.Resources>
+        <Style TargetType="ToggleButton" x:Key="ToggleStyleButton02"  BasedOn="{StaticResource {x:Type ToggleButton}}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <BulletDecorator Cursor="Hand">
+                            <Border BorderBrush="#FF707070" BorderThickness="1" x:Name="OriginRadioButtonBorder">
+                                <Grid x:Name="RadioMark" Background="#FFDDDDDD">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Grid>
+                            </Border>
+                        </BulletDecorator>
+
+                        <!-- イベント発生時 -->
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="OriginRadioButtonBorder" Property="Cursor" Value="Arrow"/>
+                                <Setter TargetName="RadioMark" Property="Background" Value="#FFBCDDEE"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="true">
+                                <Setter TargetName="RadioMark" Property="Background" Value="LightSeaGreen"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
     <Grid>
         <DockPanel >
             <!--
@@ -220,9 +249,37 @@
                         </ListView.ItemContainerStyle>
                     </ListView>
                 </StackPanel>
+
+                <!--
+                ===================================
+                              ListView
+                ===================================
+                -->
+                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal">
+                    <ListView x:Name="myListView03" Width="200">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="id"   Width="30"  DisplayMemberBinding="{Binding Id}" />
+                                <GridViewColumn Header="text" Width="100"  DisplayMemberBinding="{Binding DispText}" />
+
+                                <GridViewColumn Header="DispText" DisplayMemberBinding="{Binding SalesStatus}"   Width="0" />
+                                <GridViewColumn Header="DispText" DisplayMemberBinding="{Binding PaymentStatus}" Width="0" />
+
+
+                                <GridViewColumn Header="チェック">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <CheckBox IsChecked="{Binding IsSelected}" IsEnabled="True">
+                                            </CheckBox>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </StackPanel>
             </DockPanel>
-
-
+            
         </DockPanel>
     </Grid>
 </Window>

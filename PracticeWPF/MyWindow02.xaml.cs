@@ -57,6 +57,8 @@ namespace PracticeWPF
             SetBindingData();
 
             SetThisWindowsParameters2();
+            SetThisWindowsParameters3();
+            SetThisWindowsEvent3();
         }
         #endregion
 
@@ -264,7 +266,7 @@ namespace PracticeWPF
             {
                 if (item.IsChecked)
                 {
-                    
+
                 }
             }
 
@@ -280,10 +282,10 @@ namespace PracticeWPF
 
         private void SetThisWindowsParameters2()
         {
-            textList2.Add(new TextTypeControl { Id = 1, DispText ="北海道"});
+            textList2.Add(new TextTypeControl { Id = 1, DispText = "北海道" });
             textList2.Add(new TextTypeControl { Id = 2, DispText = "東北" });
             textList2.Add(new TextTypeControl { Id = 3, DispText = "関東" });
-            textList2.Add(new TextTypeControl { Id = 4, DispText = "近畿" });
+            textList2.Add(new TextTypeControl { Id = 4, DispText = "中部" });
 
             myListView02.ItemsSource = textList2;
         }
@@ -309,11 +311,51 @@ namespace PracticeWPF
                 Console.WriteLine(a2);
                 Console.WriteLine("===============================");
             }
+        }
+        #endregion
 
+        #region ListView3
+        List<TextTypeControl> textList3 = new List<TextTypeControl>();
 
+        private void SetThisWindowsParameters3()
+        {
+            textList3.Add(new TextTypeControl { Id = 1, DispText = "九州", IsChecked = true });
+            textList3.Add(new TextTypeControl { Id = 2, DispText = "四国", IsChecked = false });
+            textList3.Add(new TextTypeControl { Id = 3, DispText = "中国", IsChecked = false });
+            textList3.Add(new TextTypeControl { Id = 4, DispText = "近畿", IsChecked = true });
+
+            myListView03.ItemsSource = textList3;
         }
 
+        private void SetThisWindowsEvent3()
+        {
+            //-----< グリッド >-----
+            myListView03.TouchDown += (sender, e) => GetSelectedElementFromMyListView03(sender);
+            //myListView03.MouseDown += (sender, e) => GetSelectedElementFromMyListView03(sender);
+            //myListView03.MouseDoubleClick += (sender, e) => GetSelectedElementFromMyListView03(sender);
+
+            myListView03.PreviewMouseLeftButtonDown += (sender, e) => GetSelectedElementFromMyListView03(sender);
+
+            //myListView03.MouseUp += (sender, e) => aaaaaaaaa(sender);
+
+            myListView03.MouseLeftButtonUp += (sender, e) => GetSelectedElementFromMyListView03(sender);
+            myListView03.MouseLeftButtonDown += (sender, e) => GetSelectedElementFromMyListView03(sender);
+
+            //↑のうち、どれも CheckBoxの上では反応しない。
+        }
+
+        private void GetSelectedElementFromMyListView03(object sender)
+        {
+            //-----( 選択内容を取得 )-----
+            TextTypeControl selectedElement = (TextTypeControl)((ListView)sender).SelectedValue;
+
+            if (selectedElement == null) return;
+
+
+            Console.WriteLine(selectedElement.DispText);
+        }
         #endregion
+
         //*******************************************//
         #region バンディング用ベースクラス
         protected class BindableBase : INotifyPropertyChanged
