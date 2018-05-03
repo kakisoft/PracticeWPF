@@ -324,6 +324,9 @@ namespace PracticeWPF
             textList3.Add(new TextTypeControl { Id = 3, DispText = "中国", IsChecked = false });
             textList3.Add(new TextTypeControl { Id = 4, DispText = "近畿", IsChecked = true });
 
+            //Listに、別のListの要素を追加
+            textList3.AddRange(textList2);
+
             myListView03.ItemsSource = textList3;
         }
 
