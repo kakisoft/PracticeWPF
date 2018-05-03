@@ -339,7 +339,7 @@ namespace PracticeWPF
 
             myListView03.PreviewMouseLeftButtonDown += (sender, e) => GetSelectedElementFromMyListView03(sender);
 
-            //myListView03.MouseUp += (sender, e) => aaaaaaaaa(sender);
+            //myListView03.MouseUp += (sender, e) => aaaaaaaaa(sender); //枠外でしか反応しない？
 
             myListView03.MouseLeftButtonUp += (sender, e) => GetSelectedElementFromMyListView03(sender);
             myListView03.MouseLeftButtonDown += (sender, e) => GetSelectedElementFromMyListView03(sender);
