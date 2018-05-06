@@ -40,9 +40,20 @@ namespace PracticeWPF
     /// </summary>
     public partial class MyWindow36 : Window
     {
+        //パスを指定しない場合、bin/debug または bin/Release 
+        //private const string ConnectionString = @"Data Source=Sample.db";
+
+        //パス指定
+        //string targetDirectory = System.Environment.CurrentDirectory + @"\..\..\Resources\";
+        //string targetSource = "Sample01.db";
+        string ConnectionString = System.Environment.CurrentDirectory + @"\..\..\Resources\Sample01.db";
+
+
         public MyWindow36()
         {
             InitializeComponent();
         }
+
+
     }
 }
