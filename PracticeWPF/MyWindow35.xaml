@@ -11,5 +11,10 @@
         <Button x:Name="myButton02" Content="@  verbatim ２" HorizontalAlignment="Left" Height="20" Margin="29,66,0,0" VerticalAlignment="Top" Width="89" RenderTransformOrigin="0.506,0.9"/>
         <Button x:Name="myButton03" Content="@  verbatim ３" HorizontalAlignment="Left" Height="20" Margin="29,103,0,0" VerticalAlignment="Top" Width="89" RenderTransformOrigin="0.528,3.5"/>
 
+        <TextBlock Text="&quot;" HorizontalAlignment="Left" Margin="163,32,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" RenderTransformOrigin="-1.408,-1.188" Width="26"/>
+        <TextBlock Text="&amp;" HorizontalAlignment="Left" Margin="163,53,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" RenderTransformOrigin="-1.408,-1.188" Width="26"/>
+        <TextBlock Text="&gt;" HorizontalAlignment="Left" Margin="163,90,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" RenderTransformOrigin="-1.408,-1.188" Width="26"/>
+        <TextBlock Text="{}{テスト;" HorizontalAlignment="Left" Margin="163,122,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" RenderTransformOrigin="-1.408,-1.188" Width="49"/>
+
     </Grid>
 </Window>
