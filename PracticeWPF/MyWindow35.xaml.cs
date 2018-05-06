@@ -41,6 +41,7 @@ namespace PracticeWPF
             myButton01.Click += (sender, e) => MyButton01_Click();
             myButton02.Click += (sender, e) => MyButton02_Click();
             myButton03.Click += (sender, e) => MyButton03_Click();
+            myButton04.Click += (sender, e) => MyButton04_Click();
         }
         #endregion
 
@@ -99,6 +100,19 @@ namespace PracticeWPF
             string path2 = @"\windows\system32\drivers\etc\hosts";      //verbatim文字列を使って表現
 
             Console.WriteLine(path1 == path2); // True
+        }
+        #endregion
+
+        #region $  文字列補間
+        private void MyButton04_Click()
+        {
+            string name = "Mark";
+            var date = DateTime.Now;
+
+            // Composite formatting:
+            Console.WriteLine("Hello, {0}! Today is {1}, it's {2:HH:mm} now.", name, date.DayOfWeek, date);
+            // String interpolation:
+            Console.WriteLine($"Hello, {name}! Today is {date.DayOfWeek}, it's {date:HH:mm} now.");
         }
         #endregion
 
