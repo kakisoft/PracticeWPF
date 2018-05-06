@@ -50,7 +50,7 @@ namespace PracticeWPF
         }
         #endregion
 
-        #region －２．－
+        #region －２．OpenFileDialog －
         private void MyButton02_Click()
         {
             //OpenFileDialogクラスのインスタンスを作成
@@ -95,9 +95,8 @@ namespace PracticeWPF
             }
             //this.DialogResult = true;
 
-
         }
         #endregion
-
     }
+
 }

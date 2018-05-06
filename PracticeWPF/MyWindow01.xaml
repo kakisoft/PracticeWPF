@@ -19,6 +19,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.25*"/>
@@ -335,11 +336,43 @@
                            
                 ===================================
                 -->
+                <StackPanel Margin="5" Width="100" Height="50" VerticalAlignment="Top">
+                    <Slider x:Name="slider1" Minimum="-20" Maximum="20" Value="-10" />
+                    <TextBlock Text="{Binding Value, ElementName=slider1}" />
+                </StackPanel>
 
+                <StackPanel Margin="5" Orientation="Horizontal" >
+                    <Slider x:Name="slider2"
+                            Minimum="10"
+                            Maximum="100" 
+                            SmallChange="1" 
+                            LargeChange="10" 
+                            TickPlacement="BottomRight"
+                            Orientation="Vertical"/>
+                    <TextBlock Text="{Binding Value, ElementName=slider2}" />
+                </StackPanel>
 
             </StackPanel>
 
         </DockPanel>
 
+        <!--
+        ===================================
+                 タブコントロール                
+        ===================================
+        -->
+        <DockPanel Grid.Row="3" Grid.Column="1" Height="200" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <TabControl>
+                <TabItem Header="TabItem1">
+                    <TextBlock Text="TabItem1 Content" />
+                </TabItem>
+                <TabItem Header="TabItem2">
+                    <TextBlock Text="TabItem2 Content" />
+                </TabItem>
+                <TabItem Header="TabItem3">
+                    <TextBlock Text="TabItem3 Content" />
+                </TabItem>
+            </TabControl>
+        </DockPanel>
     </Grid>
 </Window>

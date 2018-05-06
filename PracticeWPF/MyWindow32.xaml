@@ -44,7 +44,7 @@
             <StackPanel Orientation="Horizontal">
                 <Button  x:Name="myButton01"  Content="FILE EXPLORER" Height="20" Padding="10,0"/>
                 <Label></Label>
-                <Button  x:Name="myButton02"  Content="FILE EXPLORER" Height="20" Padding="10,0"/>
+                <Button  x:Name="myButton02"  Content="OpenFileDialog" Height="20" Padding="10,0"/>
                 <TextBox x:Name="myTextBox01" Width="200"/>
             </StackPanel>
 
