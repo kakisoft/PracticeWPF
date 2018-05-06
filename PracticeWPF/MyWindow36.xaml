@@ -5,12 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticeWPF"
         mc:Ignorable="d"
-        Title="MyWindow36" Height="450" Width="800">
+        Title="MyWindow36" Height="550" Width="800">
     <Grid>
         <Button x:Name="buttonCreate"  Content="buttonCreate" HorizontalAlignment="Left" VerticalAlignment="Top" Width="102" Margin="30,32,0,0"/>
         <Button x:Name="buttonInsert"  Content="buttonInsert" HorizontalAlignment="Left" Margin="30,77,0,0" VerticalAlignment="Top" Width="102"/>
         <Button x:Name="buttonSelect"  Content="buttonSelect" HorizontalAlignment="Left" Margin="30,123,0,0" VerticalAlignment="Top" Width="102"/>
         <Button x:Name="buttonSelect2" Content="buttonSelect2" HorizontalAlignment="Left" Margin="30,167,0,0" VerticalAlignment="Top" Width="102"/>
+
+        <Button x:Name="buttonConnectOption" Content="buttonConnectOption" HorizontalAlignment="Left" Margin="30,211,0,0" VerticalAlignment="Top" Width="161"/>
+        <DataGrid x:Name="myDataGrid01" HorizontalAlignment="Left" Height="187" Margin="32,246,0,0" VerticalAlignment="Top" Width="460"/>
 
     </Grid>
 </Window>

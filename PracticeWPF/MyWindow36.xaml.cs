@@ -48,8 +48,7 @@ namespace PracticeWPF
         //-----< パス指定 >-----
         //string targetDirectory = System.Environment.CurrentDirectory + @"\..\..\Resources\";
         //string targetSource = "Sample01.db";
-        string ConnectionString = @"Data Source=" + System.Environment.CurrentDirectory + @"\..\..\Resources\Sample01.db";
-
+        string CONNECTION_STRING = @"Data Source=" + System.Environment.CurrentDirectory + @"\..\..\Resources\Sample01.db";
 
         #region 初期化
         public MyWindow36()
@@ -70,19 +69,32 @@ namespace PracticeWPF
             buttonInsert.Click += (sender, e) => buttonInsert_Click();
             buttonSelect.Click += (sender, e) => buttonSelect_Click();
             buttonSelect2.Click += (sender, e) => buttonSelect2_Click();
+
+            buttonConnectOption.Click += (sender, e) => buttonConnectOption_Click();
         }
         #endregion
 
         #region テーブルの作成
         private void buttonCreate_Click()
         {
-            using (var con = new SQLiteConnection(ConnectionString))
+            using (var con = new SQLiteConnection(CONNECTION_STRING))
             {
                 con.Open();
 
                 using (var cmd = con.CreateCommand())
                 {
-                    cmd.CommandText = "CREATE TABLE T_MEMO(ID INTEGER PRIMARY KEY AUTOINCREMENT,MEMO TEXT) ";
+                    //cmd.CommandText = "CREATE TABLE T_MEMO(ID INTEGER PRIMARY KEY AUTOINCREMENT,MEMO TEXT) ";
+
+
+                    cmd.CommandText = @"
+CREATE TABLE artists(
+   id          INTEGER PRIMARY key
+  ,name        TEXT
+  ,created_at  TIMESTAMP DEFAULT (DATETIME('now','localtime'))
+  ,updated_at  TIMESTAMP DEFAULT (DATETIME('now','localtime'))
+);
+
+";
 
                     cmd.ExecuteNonQuery();
                 }
@@ -93,7 +105,7 @@ namespace PracticeWPF
         #region データの挿入
         private void buttonInsert_Click()
         {
-            using (var con = new SQLiteConnection(ConnectionString))
+            using (var con = new SQLiteConnection(CONNECTION_STRING))
             {
                 con.Open();
 
@@ -113,7 +125,7 @@ namespace PracticeWPF
         {
             var list = new List<string>();
 
-            using (var con = new SQLiteConnection(ConnectionString))
+            using (var con = new SQLiteConnection(CONNECTION_STRING))
             {
                 con.Open();
 
@@ -127,7 +139,7 @@ namespace PracticeWPF
                         {
                             list.Add(reader.GetString(0));
                         }
-                    }
+                    }                    
                 }
             }
 
@@ -138,13 +150,73 @@ namespace PracticeWPF
         #region 非接続型の読み出し
         private void buttonSelect2_Click()
         {
-            var adapter = new SQLiteDataAdapter("SELECT MEMO FROM T_MEMO", ConnectionString);
+            var adapter = new SQLiteDataAdapter("SELECT MEMO FROM T_MEMO", CONNECTION_STRING);
 
             var ds = new DataSet();
 
             adapter.Fill(ds, "T_MEMO");
 
             MessageBox.Show(ds.Tables[0].Rows.Count.ToString());
+        }
+        #endregion
+
+        #region ConnectOption
+        public class Artist
+        {
+            public int ID { get; set; }
+            public string Name { get; set; }
+            public DateTime CreatedAt { get; set; }
+            public DateTime UpdatedAt{ get; set; }
+        }
+
+        private void buttonConnectOption_Click()
+        {
+            try
+            {
+                //-----< オプションを指定して接続 >-----
+                var builder = new System.Data.SQLite.SQLiteConnectionStringBuilder
+                {
+                    DataSource = CONNECTION_STRING,
+                    SyncMode = SynchronizationModes.Normal,
+                    JournalMode = SQLiteJournalModeEnum.Persist,
+                };
+                string connectionString = builder.ToString();
+
+
+                List<Artist> artists = new List<Artist>();
+                //-----< オプションを指定して接続 >-----
+                //using (var con = new SQLiteConnection(connectionString))
+                using (var con = new SQLiteConnection(CONNECTION_STRING))
+                {
+                    con.Open();
+
+                    using (var cmd = con.CreateCommand())
+                    {
+                        cmd.CommandText = "SELECT * FROM artists";
+
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Artist _artist = new Artist();
+                                _artist.ID = reader.GetInt16(0);
+                                _artist.Name = reader.GetString(1);
+                                //_artist.CreatedAt = reader.GetValue(0);
+                                //_artist.UpdatedAt = reader.GetValues(0);
+
+                                artists.Add(_artist);
+                            }
+                        }
+                    }
+                }
+
+                //-----< オプションを指定して接続 >-----
+                myDataGrid01.ItemsSource = artists;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         #endregion
 
