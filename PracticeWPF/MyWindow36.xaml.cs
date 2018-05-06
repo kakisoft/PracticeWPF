@@ -71,6 +71,8 @@ namespace PracticeWPF
             buttonSelect2.Click += (sender, e) => buttonSelect2_Click();
 
             buttonConnectOption.Click += (sender, e) => buttonConnectOption_Click();
+
+            MoveOnMemory.Click += (sender, e) => MoveOnMemory_Click();
         }
         #endregion
 
@@ -120,7 +122,7 @@ CREATE TABLE artists(
         }
         #endregion
 
-        #region テーブルの作成
+        #region テーブルの読み込み
         private void buttonSelect_Click()
         {
             var list = new List<string>();
@@ -185,7 +187,7 @@ CREATE TABLE artists(
 
                 List<Artist> artists = new List<Artist>();
                 //-----< オプションを指定して接続 >-----
-                //using (var con = new SQLiteConnection(connectionString))
+                //using (var con = new SQLiteConnection(connectionString)) //上手く行かない・・・。
                 using (var con = new SQLiteConnection(CONNECTION_STRING))
                 {
                     con.Open();
@@ -216,6 +218,32 @@ CREATE TABLE artists(
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+        #endregion
+
+        #region オンメモリDB
+        private void MoveOnMemory_Click()
+        {
+            string ON_MEMORY_CONNECTION_STRING = "DataSource=:memory:";
+
+            using (var con = new SQLiteConnection(ON_MEMORY_CONNECTION_STRING))
+            {
+                con.Open();
+
+                using (var cmd = con.CreateCommand())
+                {
+                    cmd.CommandText = @"
+CREATE TABLE artists(
+   id          INTEGER PRIMARY key
+  ,name        TEXT
+  ,created_at  TIMESTAMP DEFAULT (DATETIME('now','localtime'))
+  ,updated_at  TIMESTAMP DEFAULT (DATETIME('now','localtime'))
+);
+
+";
+                    cmd.ExecuteNonQuery();
+                }
             }
         }
         #endregion
