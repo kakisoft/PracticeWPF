@@ -248,6 +248,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MyWindow35.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyWindow36.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MyPages\MyPage01.xaml.cs">
@@ -348,6 +356,12 @@
     </Compile>
     <Compile Include="MyWindow34.xaml.cs">
       <DependentUpon>MyWindow34.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyWindow35.xaml.cs">
+      <DependentUpon>MyWindow35.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyWindow36.xaml.cs">
+      <DependentUpon>MyWindow36.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
