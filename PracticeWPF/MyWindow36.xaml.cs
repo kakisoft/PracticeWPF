@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 using System.Data.SQLite;
 using System.Linq;
@@ -73,6 +74,8 @@ namespace PracticeWPF
             buttonConnectOption.Click += (sender, e) => buttonConnectOption_Click();
 
             MoveOnMemory.Click += (sender, e) => MoveOnMemory_Click();
+
+            SystemDataSQLite.Click += (sender, e) => SystemDataSQLite_Click();
         }
         #endregion
 
@@ -248,5 +251,44 @@ CREATE TABLE artists(
         }
         #endregion
 
+        #region System.Data.SQLite １
+
+        class User
+        {
+            public string Id { get; set; }
+            public string UserName { get; set; }
+            public string Email { get; set; }
+            public DateTime? Birthday { get; set; }
+            public int? Age { get; set; }
+            public string Memo1 { get; set; }
+        }
+
+        private void SystemDataSQLite_Click()
+        {
+            //string CONNECTION_STRING = @"Data Source=" + System.Environment.CurrentDirectory + @"\..\..\Resources\Sample01.db";
+
+            try
+            {
+                SQLiteConnectionStringBuilder aConnectionString = new SQLiteConnectionStringBuilder
+                {
+                    //DataSource = @"R:\Test.db"
+                    DataSource = @"Sample02.db"
+                };
+
+
+                using (SQLiteConnection aConnection = new SQLiteConnection(aConnectionString.ToString()))
+                {
+                    aConnection.Open();
+
+                    // ここにデータベース処理コードを書く
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        #endregion
     }
 }
