@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="MyWindow01" Height="728" Width="1366" Loaded="Window_Loaded" Background="#FFEDE5F7" ResizeMode="CanResizeWithGrip" IsHitTestVisible="True" Top="0" Left="0" Closing="Window_Closing" SizeChanged="window_SizeChanged">
     <Window.Resources>
+        <!-- 日付 -->
+        <Style TargetType="DatePicker" x:Key="staticInputDatePicker">
+            <Setter Property="Width" Value="110"></Setter>
+            <Setter Property="IsTodayHighlighted" Value="True"></Setter>
+            <Setter Property="SelectedDateFormat" Value="Long"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        </Style>
     </Window.Resources>
 
     <Grid>
@@ -85,7 +93,10 @@
                 <!-- 2行目 -->
                 <RadioButton Grid.Row="1" Grid.Column="0" Content="1-0" />
                 <RadioButton Grid.Row="1" Grid.Column="1" Content="1-1" />
-                <DatePicker  Grid.Row="1" Grid.Column="2" Text="2018/1/2" />
+                <StackPanel Orientation="Horizontal"  Grid.Row="1" Grid.Column="2" >
+                    <DatePicker  x:Name="myDatePicker01" Text="2018/1/2" Style="{StaticResource ResourceKey=staticInputDatePicker}"/>
+                    <DatePicker  x:Name="myDatePicker02" Text="2018/1/2" Style="{StaticResource ResourceKey=staticInputDatePicker}"/>
+                </StackPanel>
             </Grid>
 
             <!--
@@ -125,7 +136,7 @@
             </Grid>
             <Grid DockPanel.Dock="Top" Margin="0,0,0,0">
                 <StackPanel Orientation="Horizontal">
-                    <Button x:Name="resizeButton"  Content="resizeButton" Height="30" Width="100" >
+                    <Button x:Name="resizeButton"  Content="resizeButton" Height="30" Width="100" Click="resizeButton_Click" >
                         <Button.Background>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                 <GradientStop Color="#FF37C121" Offset="0"/>

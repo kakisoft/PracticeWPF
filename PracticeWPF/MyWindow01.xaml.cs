@@ -139,5 +139,17 @@ namespace PracticeWPF
             }
         }
         #endregion
+
+        #region DatePickerから値を取得
+        private void resizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            DateTime dt1 = new DateTime();
+            var m1 = dt1.ToBinary();
+
+            DateTime? dt2 = myDatePicker01.SelectedDate;
+            int numTypeDate = dt2.HasValue ? Convert.ToInt32(dt2.Value.ToString("yyyyMMdd")) : 0;
+
+        }
+        #endregion
     }
 }
