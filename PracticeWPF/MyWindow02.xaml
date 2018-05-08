@@ -252,7 +252,7 @@
 
                 <!--
                 ===================================
-                              ListView
+                  ListView（チェックボックス付き）
                 ===================================
                 -->
                 <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal">
@@ -278,6 +278,37 @@
                         </ListView.View>
                     </ListView>
                 </StackPanel>
+
+                <!--
+                ===================================
+                  ListView（チェックボックス付き）
+                ===================================
+                -->
+                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal">
+                    <ListView x:Name="myListView04" Width="200">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="{x:Type ListViewItem}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsChecked}" Value="True">
+                                        <Setter Property="BorderBrush" Value="Red"/>
+                                        <Setter Property="Background" Value="#FFF9C5C5"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="id"   Width="30"  DisplayMemberBinding="{Binding Id}" />
+                                <GridViewColumn Header="text" Width="100"  DisplayMemberBinding="{Binding DispText}" />
+
+                                <GridViewColumn Header="DispText" DisplayMemberBinding="{Binding SalesStatus}"   Width="0" />
+                                <GridViewColumn Header="DispText" DisplayMemberBinding="{Binding PaymentStatus}" Width="0" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </StackPanel>
+
             </DockPanel>
             
         </DockPanel>

@@ -59,6 +59,8 @@ namespace PracticeWPF
             SetThisWindowsParameters2();
             SetThisWindowsParameters3();
             SetThisWindowsEvent3();
+
+            SetThisWindowsParameters4();
         }
         #endregion
 
@@ -356,6 +358,20 @@ namespace PracticeWPF
 
 
             Console.WriteLine(selectedElement.DispText);
+        }
+        #endregion
+
+        #region ListView4
+        List<TextTypeControl> textList4 = new List<TextTypeControl>();
+
+        private void SetThisWindowsParameters4()
+        {
+            textList4.Add(new TextTypeControl { Id = 1, DispText = "九州", IsChecked = false });
+            textList4.Add(new TextTypeControl { Id = 2, DispText = "四国", IsChecked = true });
+            textList4.Add(new TextTypeControl { Id = 3, DispText = "中国", IsChecked = true });
+            textList4.Add(new TextTypeControl { Id = 4, DispText = "近畿", IsChecked = false });
+
+            myListView04.ItemsSource = textList4;
         }
         #endregion
 
