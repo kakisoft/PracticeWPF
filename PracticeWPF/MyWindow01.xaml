@@ -364,12 +364,12 @@
                     </StackPanel>
                 </StackPanel>
 
-                <!--
-                ===================================
-                         タブコントロール                
-                ===================================
-                -->
                 <StackPanel Orientation="Horizontal" Height="150" Margin="0,10,0,0">
+                    <!--
+                    ===================================
+                             タブコントロール
+                    ===================================
+                    -->
                     <TabControl>
                         <TabItem Header="TabItem1">
                             <TextBlock Text="TabItem1 Content" />
@@ -382,7 +382,11 @@
                         </TabItem>
                     </TabControl>
 
-
+                    <!--
+                    ===================================
+                                コンフィグ
+                    ===================================
+                    -->
                     <TabControl>
                         <TabItem Header="AppConfig">
                             <StackPanel>
