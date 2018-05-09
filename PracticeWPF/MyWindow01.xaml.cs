@@ -39,11 +39,15 @@ namespace PracticeWPF
         private void SetThisWindowsInitializeParameter()
         {
             SetMyComboboxItems();
+            DispAppConfigParameters();
         }
 
         private void AddThisWindowsEvent()
         {
             resizeButton.Click += (sender, e) => GetSeledtedParameterFromMyCombobox();
+
+            showUserConfig_button.Click += (sender, e) => ShowUserConfig();
+            saveUserConfig_button.Click += (sender, e) => SaveUserConfig();
         }
         #endregion
 
@@ -149,6 +153,37 @@ namespace PracticeWPF
             DateTime? dt2 = myDatePicker01.SelectedDate;
             int numTypeDate = dt2.HasValue ? Convert.ToInt32(dt2.Value.ToString("yyyyMMdd")) : 0;
 
+        }
+        #endregion
+
+        #region App.configから値を取得
+        private void DispAppConfigParameters()
+        {
+            myAppConfig01.Text = Properties.Settings.Default.AppStringConfig01;
+            myAppConfig02.Text = Properties.Settings.Default.AppBoolConfig01.ToString();
+            myAppConfig03.Text = Properties.Settings.Default.AppIntConfig01.ToString();
+        }
+
+        private void ShowUserConfig()
+        {
+            myUserConfig01.Text = Properties.Settings.Default.UserStringConfig01;
+            myUserConfig02.Text = Properties.Settings.Default.UserBoolConfig01.ToString();
+            myUserConfig03.Text = Properties.Settings.Default.UserIntConfig01.ToString();
+        }
+
+        private void SaveUserConfig()
+        {
+            try
+            {
+                Properties.Settings.Default.UserStringConfig01 = myUserConfig01.Text;
+                Properties.Settings.Default.UserBoolConfig01 = Convert.ToBoolean(myUserConfig02.Text);
+                Properties.Settings.Default.UserIntConfig01 = Convert.ToInt16(myUserConfig03.Text);
+                Properties.Settings.Default.Save();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         #endregion
     }

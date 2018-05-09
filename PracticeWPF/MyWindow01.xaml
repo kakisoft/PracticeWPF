@@ -384,6 +384,31 @@
                     <TextBlock Text="TabItem3 Content" />
                 </TabItem>
             </TabControl>
+
+
+            <TabControl>
+                <TabItem Header="AppConfig">
+                    <StackPanel>
+                        <TextBlock x:Name="myAppConfig01" />
+                        <TextBlock x:Name="myAppConfig02" />
+                        <TextBlock x:Name="myAppConfig03" />
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="UserConfig">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="showUserConfig_button" Height="20" Width="60" Content="show"/>
+                            <Button x:Name="saveUserConfig_button" Height="20" Width="60" Content="save"/>
+                        </StackPanel>
+                        <TextBox x:Name="myUserConfig01" />
+                        <TextBox x:Name="myUserConfig02" />
+                        <TextBox x:Name="myUserConfig03" />
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+
         </DockPanel>
+
+
     </Grid>
 </Window>
