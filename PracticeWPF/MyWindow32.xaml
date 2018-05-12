@@ -49,6 +49,14 @@
             </StackPanel>
 
 
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                <Label>印刷</Label>
+                <Button  x:Name="myButton03"  Content="XpsDocumentWriter" Height="20" Padding="10,0"/>
+                <Label></Label>
+                <Button  x:Name="myButton04"  Content="FixedDocumen" Height="20" Padding="10,0"/>
+            </StackPanel>
+
+
         </StackPanel>
     </Grid>
 </Window>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Printing;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,13 +13,20 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Xps;
 
 namespace PracticeWPF
 {
     /// <summary>
-    /// ファイルエクスプローラ関連
+    /// ファイルエクスプローラ
     /// https://www.ipentec.com/document/csharp-shell-namespace-create-explorer-tree-view-control-and-linked-list-view
     /// https://www.doraxdora.com/blog/2018/02/14/post-3933/
+    /// 
+    /// 
+    /// 印刷
+    /// 　参照の追加：System.Printing、ReachFramework
+    /// 　（ソリューションエクスプローラの「参照」にて、右クリック→参照の追加）
+    /// 
     /// </summary>
     public partial class MyWindow32 : Window
     {
@@ -40,6 +48,8 @@ namespace PracticeWPF
         {
             myButton01.Click += (sender, e) => MyButton01_Click();
             myButton02.Click += (sender, e) => MyButton02_Click();
+            myButton03.Click += (sender, e) => MyButton03_Click();
+            myButton04.Click += (sender, e) => MyButton04_Click();
         }
         #endregion
 
@@ -97,6 +107,87 @@ namespace PracticeWPF
 
         }
         #endregion
-    }
 
+        #region －３－　XpsDocumentWriterを使った印刷
+        //https://qiita.com/tricogimmick/items/133e9b6bcbcaa6c07d63
+        private void MyButton03_Click()
+        {
+            // 1.各種オブジェクトの生成
+            LocalPrintServer lps = new LocalPrintServer();
+            PrintQueue queue = lps.DefaultPrintQueue;
+            XpsDocumentWriter writer = PrintQueue.CreateXpsDocumentWriter(queue);
+
+            // 2. 用紙サイズの設定
+            PrintTicket ticket = queue.DefaultPrintTicket;
+            ticket.PageMediaSize = new PageMediaSize(PageMediaSizeName.ISOA4);
+            ticket.PageOrientation = PageOrientation.Portrait;
+
+            // 3. FixedPage の生成
+            FixedPage page = new FixedPage();
+
+            // 4. 印字データの作成
+            Canvas canvas = new Canvas();
+            TextBlock tb = new TextBlock();
+            tb.Text = "TEST";
+            tb.FontSize = 24;
+            Canvas.SetTop(tb, 100);
+            Canvas.SetLeft(tb, 100);
+            canvas.Children.Add(tb);
+            page.Children.Add(canvas);
+
+            // 5. 印刷の実行
+            writer.Write(page, ticket);
+        }
+        #endregion
+
+        #region －４－　FixedDocumenを使った印刷
+        //http://shen7113.blog.fc2.com/blog-entry-50.html
+        private void MyButton04_Click()
+        {
+            // 印刷ダイアログを作成。
+            var dPrt = new System.Windows.Controls.PrintDialog();
+
+            // 印刷ダイアログを表示して、プリンタ選択と印刷設定を行う。
+            if (dPrt.ShowDialog() == true)
+            {
+                // ここから印刷を実行する。
+
+                // 印刷可能領域を取得する。
+                var area = dPrt.PrintQueue.GetPrintCapabilities().PageImageableArea;
+
+                // 上と左の余白を含めた印刷可能領域の大きさのCanvasを作る。
+                var canv = new Canvas();
+                canv.Width = area.OriginWidth + area.ExtentWidth;
+                canv.Height = area.OriginHeight + area.ExtentHeight;
+
+                // ここでCanvasに描画する。
+                TextBlock tb = new TextBlock();
+                tb.Text = "sample02";
+                tb.FontSize = 24;
+                Canvas.SetTop(tb, 100);
+                Canvas.SetLeft(tb, 100);
+                canv.Children.Add(tb);
+
+                /* ここで単ページのVisualを直接印刷する場合、PrintVisual()と言うメソッドもある。
+                dPrt.PrintVisual(canv, "PrintTest1");
+                */
+
+                // FixedPageを作って印刷対象（ここではCanvas）を設定する。
+                var page = new FixedPage();
+                page.Children.Add(canv);
+
+                // PageContentを作ってFixedPageを設定する。
+                var cont = new PageContent();
+                cont.Child = page;
+
+                // FixedDocumentを作ってPageContentを設定する。
+                var doc = new FixedDocument();
+                doc.Pages.Add(cont);
+
+                // 印刷する。
+                dPrt.PrintDocument(doc.DocumentPaginator, "Print1");
+            }
+        }
+        #endregion
+    }
 }
