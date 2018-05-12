@@ -159,6 +159,25 @@ namespace PracticeWPF
             DateTime? dt2 = myDatePicker01.SelectedDate;
             int numTypeDate = dt2.HasValue ? Convert.ToInt32(dt2.Value.ToString("yyyyMMdd")) : 0;
 
+
+
+
+            DateTime axisTime = DateTime.Now.Date; //本日の、日付のみ取得
+
+            DateTime? startDate = DateTime.Parse("2018/5/11");
+            DateTime? endDate = DateTime.Parse("2018/7/11");
+
+            startDate = myDatePicker01.SelectedDate;
+            endDate = myDatePicker02.SelectedDate;
+
+            if (startDate <= axisTime && axisTime <= endDate)
+            {
+                Console.WriteLine("期間内");
+            }
+            else
+            {
+                Console.WriteLine("外");
+            }
         }
         #endregion
 
