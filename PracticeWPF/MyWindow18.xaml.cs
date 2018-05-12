@@ -62,14 +62,18 @@ namespace PracticeWPF
             _employee.Add(new Employee { Name = "Sawada", Age = 31, IsMarried = true, Position = (int)PositionCode.syunin });
             _employee.Add(new Employee { Name = "yamaguchi", Age = 28, IsMarried = true, Position = (int)PositionCode.kacyou });
             _employee.Add(new Employee { Name = "fujisawa", Age = 36, IsMarried = true, Position = (int)PositionCode.bucyou });
+            _employee.Add(new Employee { Name = "oda", Age = 20, IsMarried = false, Position = (int)PositionCode.hira });
+            _employee.Add(new Employee { Name = "oda", Age = 20, IsMarried = false, Position = (int)PositionCode.hira });
+            _employee.Add(new Employee { Name = "oda", Age = 20, IsMarried = false, Position = (int)PositionCode.hira });
         }
-
 
         private void SetEvent()
         {
             myButton01.Click += (sender, e) => button01_Click_addedEvent();
             myButton02.Click += (sender, e) => button02_Click_addedEvent();
             myButton03.Click += (sender, e) => button03_Click_addedEvent();
+            myButton04.Click += (sender, e) => button04_Click_addedEvent();
+            myButton05.Click += (sender, e) => button05_Click_addedEvent();
         }
         #endregion
 
@@ -151,6 +155,58 @@ namespace PracticeWPF
                 }
                 Console.WriteLine("---------------------");
             }
+        }
+        #endregion
+
+        #region group by した内容を、カンマ区切りで取得
+        private void button04_Click_addedEvent()
+        {
+            var _grouped_employee07 = _employee
+                                        .Where(x => x.IsMarried == false)
+                                        .Select(x => x.Name)
+                                        .Distinct();
+
+
+            string filterdNames = string.Join(",", _grouped_employee07);
+            Console.WriteLine("============================");
+            Console.WriteLine(filterdNames);
+            Console.WriteLine("============================");
+
+        }
+        #endregion
+
+        #region Distinct・Sum・Count
+        private void button05_Click_addedEvent()
+        {
+            //---------------
+            //   Distinct
+            //---------------
+            var _grouped_employee04 = _employee.Select(x => x.Age).Distinct();
+            Console.WriteLine("============================");
+            foreach (var item in _grouped_employee04)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("============================");
+
+
+            //---------------
+            //     Sum
+            //---------------
+            var _grouped_employee05 = _employee.Select(x => x.Age).Sum();
+            Console.WriteLine("============================");
+            Console.WriteLine(_grouped_employee05);
+            Console.WriteLine("============================");
+
+
+            //---------------
+            //     Count
+            //---------------
+            var _grouped_employee06 = _employee.Select(x => x.Age).Count();
+            Console.WriteLine("============================");
+            Console.WriteLine(_grouped_employee06);
+            Console.WriteLine("============================");
+
         }
         #endregion
     }

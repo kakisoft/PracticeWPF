@@ -10,6 +10,8 @@
         <Button x:Name="myButton01" Content="－１－" HorizontalAlignment="Left" Height="26" Margin="35,24,0,0" VerticalAlignment="Top" Width="95"/>
         <Button x:Name="myButton02" Content="－２－" HorizontalAlignment="Left" Height="26" Margin="156,24,0,0" VerticalAlignment="Top" Width="95"/>
         <Button x:Name="myButton03" Content="－３－" HorizontalAlignment="Left" Height="26" Margin="270,24,0,0" VerticalAlignment="Top" Width="95"/>
+        <Button x:Name="myButton04" Content="－４－" HorizontalAlignment="Left" Height="26" Margin="379,24,0,0" VerticalAlignment="Top" Width="95"/>
+        <Button x:Name="myButton05" Content="－５－" HorizontalAlignment="Left" Height="26" Margin="490,24,0,0" VerticalAlignment="Top" Width="95" RenderTransformOrigin="0.632,0.577"/>
 
     </Grid>
 </Window>
