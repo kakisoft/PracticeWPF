@@ -407,6 +407,30 @@
                             </StackPanel>
                         </TabItem>
                     </TabControl>
+
+
+                    <!--
+                    ===================================
+                                 Canvas
+                    
+                    子要素をCanvasの中に絶対座標指定で配置できる。
+                    子要素を複数持つことができる。
+                    ===================================
+                    -->
+                    <StackPanel Width="150" Height="100">
+                        <Label></Label>
+                        <Label></Label>
+                        <Label></Label>
+                        <Label></Label>
+
+                        <Canvas>
+                            <Button Canvas.Top="10" Canvas.Left="10" Content="Button1" />
+                            <Button Canvas.Top="10" Canvas.Right="10" Content="Button2" />
+                            <Button Canvas.Bottom="10" Canvas.Left="10" Content="Button3" />
+                            <Button Canvas.Bottom="10" Canvas.Right="10" Content="Button4" />
+                        </Canvas>
+                    </StackPanel>
+
                 </StackPanel>
             </StackPanel>
         </DockPanel>
