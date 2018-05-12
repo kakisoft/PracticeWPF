@@ -41,7 +41,7 @@ namespace PracticeWPF
 
         private void InitializeThisWindowsParameters()
         {
-
+            PrintLocalPrinterInfo();
         }
 
         private void AddMyEvent()
@@ -50,6 +50,8 @@ namespace PracticeWPF
             myButton02.Click += (sender, e) => MyButton02_Click();
             myButton03.Click += (sender, e) => MyButton03_Click();
             myButton04.Click += (sender, e) => MyButton04_Click();
+
+            printerListComboBox.SelectionChanged += (sender, e) => printerListComboBox_SelectionChanged(sender, e);
         }
         #endregion
 
@@ -104,6 +106,30 @@ namespace PracticeWPF
                 myTextBox01.Text = ofd.FileName;
             }
             //this.DialogResult = true;
+
+        }
+        #endregion
+
+        #region プリンタ関連
+        private LocalPrintServer myLocalPrintServer = new LocalPrintServer();
+
+        private void PrintLocalPrinterInfo()
+        {
+            foreach (PrintQueue queue in myLocalPrintServer.GetPrintQueues())
+            {
+                Console.WriteLine("------------------");
+                Console.WriteLine(queue);
+                Console.WriteLine(queue.Name);
+                Console.WriteLine(queue.FullName);
+                Console.WriteLine("------------------");
+            }
+
+            PrintQueue defaultPrinter = myLocalPrintServer.DefaultPrintQueue;
+        }
+
+
+        private void printerListComboBox_SelectionChanged(object sender, RoutedEventArgs e)
+        {
 
         }
         #endregion
@@ -189,5 +215,6 @@ namespace PracticeWPF
             }
         }
         #endregion
+
     }
 }
