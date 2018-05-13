@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PracticeWPF.Common;
+using PracticeWPF.SubWindows;
+using System;
 using System.Linq;
 using System.Windows;
 
@@ -18,6 +20,64 @@ namespace PracticeWPF
         }
         #endregion
 
+        #region バインディングデータ定義
+        SubConfigParameters subConfigParametersCluster = new SubConfigParameters();
+
+        public class SubConfigParameters : BindableBase
+        {
+            private string _stringParam1;
+            private string _stringParam2;
+            private string _stringParam3;
+            private DateTime? _dateTimeParam1;
+            private DateTime? _dateTimeParam2;
+
+            public string StringParam1
+            {
+                get { return this._stringParam1; }
+                set { this.SetProperty(ref this._stringParam1, value); }
+            }
+
+            public string StringParam2
+            {
+                get { return this._stringParam2; }
+                set { this.SetProperty(ref this._stringParam2, value); }
+            }
+
+            public string StringParam3
+            {
+                get { return this._stringParam3; }
+                set { this.SetProperty(ref this._stringParam3, value); }
+            }
+
+            public DateTime? DateTimeParam1
+            {
+                get { return this._dateTimeParam1; }
+                set { this.SetProperty(ref this._dateTimeParam1, value); }
+            }
+
+            public DateTime? DateTimeParam2
+            {
+                get { return this._dateTimeParam2; }
+                set { this.SetProperty(ref this._dateTimeParam2, value); }
+            }
+        }
+        #endregion
+
+        #region バインディング設定
+        private void SetBindConfig()
+        {
+            subConfigParametersPanel.DataContext = subConfigParametersCluster;
+        }
+        private void ClearBindParameters()
+        {
+            subConfigParametersCluster.StringParam1 = "";
+            subConfigParametersCluster.StringParam2 = "";
+            subConfigParametersCluster.StringParam3 = "";
+            subConfigParametersCluster.DateTimeParam1 = DateTime.Today;
+            subConfigParametersCluster.DateTimeParam2 = null;
+        }
+        #endregion
+
         #region 初期処理
         /// <summary>
         /// 初期処理
@@ -33,6 +93,7 @@ namespace PracticeWPF
         private void InitializeThisWindowsParameters()
         {
             SetThisWindowsInitializeParameter();
+            SetBindConfig();
             AddThisWindowsEvent();
         }
 
@@ -48,6 +109,10 @@ namespace PracticeWPF
 
             showUserConfig_button.Click += (sender, e) => ShowUserConfig();
             saveUserConfig_button.Click += (sender, e) => SaveUserConfig();
+
+
+            openSubWindowButton.Click += (sender, e) => OpenSubWindow();
+            resetSubWindowsParametersButton.Click += (sender, e) => ClearBindParameters();
         }
         #endregion
 
@@ -209,6 +274,34 @@ namespace PracticeWPF
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        #endregion
+
+        #region 別ウィンドウを開く
+        private void OpenSubWindow()
+        {
+            //openSubWindowButton.Click += (sender, e) => new SubWindow01().ShowDialog();
+            //openSubWindowButton.Click += (sender, e) => new SubWindow01().Show();
+
+
+            ////var conditionJanruCode = (MstJanru)ComboBoxJanruCode.SelectedItem;
+
+            ////try
+            ////{
+            ////    var mstJanruListWindow = new JanruListWindow(true, true, false);
+            ////    mstJanruListWindow.ShowDialog();
+
+            ////    if (mstJanruListWindow.SelectedMstJanru != null)
+            ////    {
+            ////        conditionJanruCode = mstJanruListWindow.SelectedMstJanru;
+            ////    }
+            ////}
+            ////catch (Exception ex)
+            ////{
+            ////    MessageBox.Show(ex.Message);
+            ////}
+
+            //InitializeComboBoxJanruList(conditionJanruCode.JanruCode);
         }
         #endregion
     }

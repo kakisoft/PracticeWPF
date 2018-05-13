@@ -1,0 +1,185 @@
+﻿<Window x:Class="PracticeWPF.SubWindows.SubWindow01"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PracticeWPF.SubWindows"
+        mc:Ignorable="d"
+        Title="SubWindow01" Height="450" Width="800">
+    <Grid>
+        <TabControl Name="tabRunTime" TabStripPlacement="Left">
+            <TabItem Name="subItems01" Header="subItems01">
+                <StackPanel Margin="5" Width="Auto" Height="Auto" VerticalAlignment="Top">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="param1" VerticalAlignment="Center" Height="Auto" Margin="0,2"/>
+                        <TextBox x:Name="subParam1textBox" Text="" HorizontalAlignment="Center" Width="100" VerticalContentAlignment="Center" Height="auto" Margin="0,2"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="param2" VerticalAlignment="Center" Height="Auto" Margin="0,2"/>
+                        <TextBox x:Name="subParam2textBox" Text="" HorizontalAlignment="Center" Width="100" VerticalContentAlignment="Center" Height="auto" Margin="0,2"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="param3" VerticalAlignment="Center" Height="Auto" Margin="0,2"/>
+                        <TextBox x:Name="subParam3textBox" Text="" HorizontalAlignment="Center" Width="100" VerticalContentAlignment="Center" Height="auto" Margin="0,2"/>
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Name="tabItemRunOnce" Header="1回のみ">
+                <StackPanel Margin="10">
+                    <!-- 実行予定１ -->
+                    <StackPanel Margin="10" Orientation="Horizontal">
+                        <CheckBox Name="checkBoxRumTimeOnce1" Margin="0,5,0,0" Content="実行予定１" />
+                        <DatePicker Name="datePickerRunTimeOnce1" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDateFormat="Long" Width="120" IsEnabled="False"/>
+                        <TextBox Name="textboxRunTimeOnceHour1" Margin="5,2,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" IsEnabled="False" MaxLength="2" />
+                        <Label Content=":" Margin="3,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <TextBox Name="textboxRunTimeOnceMinute1" Margin="3,2,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" IsEnabled="False" MaxLength="2" />
+                    </StackPanel>
+                    <!-- 実行予定２ -->
+                    <StackPanel Margin="10" Orientation="Horizontal">
+                        <CheckBox Name="checkBoxRumTimeOnce2" Content="実行予定２" Margin="0,5,0,0" />
+                        <DatePicker Name="datePickerRunTimeOnce2" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDateFormat="Long" Width="120" IsEnabled="False"/>
+                        <TextBox Name="textboxRunTimeOnceHour2" Margin="5,2,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" IsEnabled="False" MaxLength="2" />
+                        <Label Content=":" Margin="3,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <TextBox Name="textboxRunTimeOnceMinute2" Margin="3,2,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" IsEnabled="False" MaxLength="2" />
+                    </StackPanel>
+                    <!-- 実行予定３ -->
+                    <StackPanel Margin="10" Orientation="Horizontal">
+                        <CheckBox Name="checkBoxRumTimeOnce3" Content="実行予定３" Margin="0,5,0,0" />
+                        <DatePicker Name="datePickerRunTimeOnce3" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDateFormat="Long" Width="120" IsEnabled="False"/>
+                        <TextBox Name="textboxRunTimeOnceHour3" Margin="5,2,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" IsEnabled="False" MaxLength="2" />
+                        <Label Content=":" Margin="3,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <TextBox Name="textboxRunTimeOnceMinute3" Margin="3,2,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" IsEnabled="False" MaxLength="2" />
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+            <TabItem Name="tabItemRunEveryDay" Header="毎日実行">
+                <StackPanel Margin="10">
+                    <StackPanel Margin="10" Orientation="Horizontal">
+                        <!-- 期間 -->
+                        <Label Content="期間" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <DatePicker Name="datePickerEveryDayStart" Margin="5,2,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDateFormat="Long" Width="120"/>
+                        <Label Content="～" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <DatePicker Name="datePickerEveryDayEnd" Margin="5,2,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDateFormat="Long" Width="120"/>
+                        <!-- ここから下は非表示 -->
+                        <!-- 開始時刻（0時00分固定） -->
+                        <TextBox Name="textboxEveryDayStartHour" Margin="5,3,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" MaxLength="2" Text="0" Visibility="Hidden"/>
+                        <Label Content=":" Margin="3,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden"/>
+                        <TextBox Name="textboxEveryDayStartMinute" Margin="3,3,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" MaxLength="2" Text="00" Visibility="Hidden"/>
+                        <!-- 終了時刻（23時59分固定） -->
+                        <TextBox Name="textboxEveryDayEndHour" Margin="5,2,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" MaxLength="2" Text="23" Visibility="Hidden"/>
+                        <Label Content=":" Margin="2,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden"/>
+                        <TextBox Name="textboxEveryDayEndMinute" Margin="3,2,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" MaxLength="2" Text="59" Visibility="Hidden"/>
+                        <!-- ここから上は非表示 -->
+                    </StackPanel>
+
+                    <!-- 実行予定１ -->
+                    <StackPanel Margin="10,30,0,0" Orientation="Horizontal">
+                        <CheckBox Name="checkBoxRumTimeEveryDay1" Content="実行予定１" Margin="0,5,0,0" />
+                        <TextBox Name="textboxRunTimeEveryDayHour1" Margin="5,2,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" IsEnabled="False" MaxLength="2" />
+                        <Label Content=":" Margin="3,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <TextBox Name="textboxRunTimeEveryDayMinute1" Margin="3,2,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" IsEnabled="False" MaxLength="2" />
+                    </StackPanel>
+                    <!-- 実行予定２ -->
+                    <StackPanel Margin="10,10,0,0" Orientation="Horizontal">
+                        <CheckBox Name="checkBoxRumTimeEveryDay2" Content="実行予定２" Margin="0,5,0,0" />
+                        <TextBox Name="textboxRunTimeEveryDayHour2" Margin="5,2,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" IsEnabled="False" MaxLength="2" />
+                        <Label Content=":" Margin="3,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <TextBox Name="textboxRunTimeEveryDayMinute2" Margin="3,2,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" IsEnabled="False" MaxLength="2" />
+                    </StackPanel>
+                    <!-- 実行予定３ -->
+                    <StackPanel Margin="10,10,0,0" Orientation="Horizontal">
+                        <CheckBox Name="checkBoxRumTimeEveryDay3" Content="実行予定３" Margin="0,5,0,0" />
+                        <TextBox Name="textboxRunTimeEveryDayHour3" Margin="5,2,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" IsEnabled="False" MaxLength="2" />
+                        <Label Content=":" Margin="3,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <TextBox Name="textboxRunTimeEveryDayMinute3" Margin="3,2,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" IsEnabled="False" MaxLength="2" />
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+            <TabItem Name="tabItemRunEveryWeek" Header="毎週実行">
+                <StackPanel Margin="10">
+                    <StackPanel Margin="10" Orientation="Horizontal">
+                        <!-- 期間 -->
+                        <Label Content="期間" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <DatePicker Name="datePickerEveryWeekStart" Margin="5,2,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDateFormat="Long" Width="120"/>
+                        <Label Content="～" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <DatePicker Name="datePickerEveryWeekEnd" Margin="5,2,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDateFormat="Long" Width="120"/>
+
+                        <!-- ここから下は非表示 -->
+                        <!-- 開始時刻（0時00分固定） -->
+                        <TextBox Name="textboxEveryWeekStartHour" Margin="5,3,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" MaxLength="2" Text="0" Visibility="Hidden"/>
+                        <Label Content=":" Margin="3,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden"/>
+                        <TextBox Name="textboxEveryWeekStartMinute" Margin="3,3,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" MaxLength="2" Text="00" Visibility="Hidden" />
+                        <!-- 終了時刻（23時59分固定） -->
+                        <TextBox Name="textboxEveryWeekEndHour" Margin="5,2,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" MaxLength="2" Text="23" Visibility="Hidden"/>
+                        <Label Content=":" Margin="2,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden"/>
+                        <TextBox Name="textboxEveryWeekEndMinute" Margin="3,2,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" MaxLength="2" Text="59" Visibility="Hidden"/>
+                        <!-- ここから上は非表示 -->
+                    </StackPanel>
+
+                    <!-- 実行予定１ -->
+                    <StackPanel Margin="10,30,0,0" Orientation="Horizontal">
+                        <CheckBox Name="checkBoxRumTimeEveryWeek1" Content="実行予定１" Margin="0,5,0,0" />
+                        <TextBox Name="textboxRunTimeEveryWeekHour1" Margin="5,2,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" IsEnabled="False" MaxLength="2" />
+                        <Label Content=":" Margin="3,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <TextBox Name="textboxRunTimeEveryWeekMinute1" Margin="3,2,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" IsEnabled="False" MaxLength="2" />
+                    </StackPanel>
+                    <!-- 実行予定２ -->
+                    <StackPanel Margin="10,10,0,0" Orientation="Horizontal">
+                        <CheckBox Name="checkBoxRumTimeEveryWeek2" Content="実行予定２" Margin="0,5,0,0" />
+                        <TextBox Name="textboxRunTimeEveryWeekHour2" Margin="5,2,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" IsEnabled="False" MaxLength="2" />
+                        <Label Content=":" Margin="3,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <TextBox Name="textboxRunTimeEveryWeekMinute2" Margin="3,2,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" IsEnabled="False" MaxLength="2" />
+                    </StackPanel>
+                    <!-- 実行予定３ -->
+                    <StackPanel Margin="10,10,0,0" Orientation="Horizontal">
+                        <CheckBox Name="checkBoxRumTimeEveryWeek3" Content="実行予定３" Margin="0,5,0,0" />
+                        <TextBox Name="textboxRunTimeEveryWeekHour3" Margin="5,2,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" IsEnabled="False" MaxLength="2" />
+                        <Label Content=":" Margin="3,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <TextBox Name="textboxRunTimeEveryWeekMinute3" Margin="3,2,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" IsEnabled="False" MaxLength="2" />
+                    </StackPanel>
+
+                    <!-- 実行曜日 -->
+                    <StackPanel Margin="5,15,0,0">
+                        <Label Content="対象曜日"></Label>
+                        <StackPanel Margin="10,5,0,0" Orientation="Horizontal">
+                            <CheckBox Name="checkBoxRumTimeEveryWeekSun" Content="日" Margin="0,0,0,0"/>
+                            <CheckBox Name="checkBoxRumTimeEveryWeekMon" Content="月" Margin="15,0,0,0"/>
+                            <CheckBox Name="checkBoxRumTimeEveryWeekTue" Content="火" Margin="15,0,0,0"/>
+                            <CheckBox Name="checkBoxRumTimeEveryWeekWed" Content="水" Margin="15,0,0,0"/>
+                            <CheckBox Name="checkBoxRumTimeEveryWeekThu" Content="木" Margin="15,0,0,0"/>
+                            <CheckBox Name="checkBoxRumTimeEveryWeekFri" Content="金" Margin="15,0,0,0"/>
+                            <CheckBox Name="checkBoxRumTimeEveryWeekSat" Content="土" Margin="15,0,0,0"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+            <TabItem Name="tabItemRunMinuteInterval" Header="分単位で実行">
+                <StackPanel Margin="10">
+                    <StackPanel Margin="10" Orientation="Horizontal">
+                        <!-- 期間 -->
+                        <Label Content="期間" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <DatePicker Name="datePickerMinuteIntervalStart" Margin="5,2,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDateFormat="Long" Width="120"/>
+                        <TextBox Name="textboxMinuteIntervalStartHour" Margin="5,3,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" MaxLength="2" />
+                        <Label Content=":" Margin="3,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <TextBox Name="textboxMinuteIntervalStartMinute" Margin="3,3,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" MaxLength="2" />
+
+                        <Label Content="～" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    </StackPanel>
+                    <StackPanel Margin="10,0,0,0" Orientation="Horizontal">
+                        <DatePicker Name="datePickerMinuteIntervalEnd" Margin="39,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" SelectedDateFormat="Long" Width="120"/>
+                        <TextBox Name="textboxMinuteIntervalEndHour" Margin="5,2,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" MaxLength="2" />
+                        <Label Content=":" Margin="2,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <TextBox Name="textboxMinuteIntervalEndMinute" Margin="3,2,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" MaxLength="2" />
+                    </StackPanel>
+                    <!-- 繰り返し間隔 -->
+                    <StackPanel Margin="10,15,0,0" Orientation="Horizontal">
+                        <Label Content="繰り返し間隔" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <TextBox Name="textboxMinuteInterval" Margin="5,3,0,0" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" MaxLength="5" />
+                        <Label Content="分ごとに実行" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

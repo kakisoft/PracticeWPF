@@ -15,6 +15,14 @@
             <Setter Property="VerticalAlignment" Value="Center"></Setter>
             <Setter Property="HorizontalAlignment" Value="Center"></Setter>
         </Style>
+        <!-- 日付(yyyy/MM/dd) -->
+        <Style TargetType="DatePicker" x:Key="staticInputDatePicker2">
+            <Setter Property="Width" Value="120"></Setter>
+            <Setter Property="IsTodayHighlighted" Value="True"></Setter>
+            <Setter Property="SelectedDateFormat" Value="Long"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        </Style>
     </Window.Resources>
 
     <Grid>
@@ -284,7 +292,7 @@
                            ツリービュー
                 ===================================
                 -->
-                <StackPanel Orientation="Horizontal" Height="200" VerticalAlignment="Top">
+                <StackPanel Orientation="Horizontal" Height="220" VerticalAlignment="Top">
                     <!-- TreeView -->
                     <TreeView Width="150">
                         <TreeViewItem Header="Item1">
@@ -344,7 +352,7 @@
                     </TreeView>
                     <!--
                     ===================================
-                           
+                                 Slider
                     ===================================
                     -->
                     <StackPanel Margin="5" Width="100" Height="50" VerticalAlignment="Top">
@@ -362,6 +370,40 @@
                                 Orientation="Vertical"/>
                         <TextBlock Text="{Binding Value, ElementName=slider2}" />
                     </StackPanel>
+
+
+                    <!--
+                    ===================================
+                             別ウィンドウを開く
+                    ===================================
+                    -->
+                    <StackPanel x:Name="subConfigParametersPanel">
+                        <StackPanel Margin="5" Width="Auto" Height="Auto" VerticalAlignment="Top">
+                            <Button x:Name="openSubWindowButton" Content="別ウィンドウを開く" Margin="10,10,10,5"/>
+                        </StackPanel>
+                        <StackPanel Margin="5" Width="Auto" Height="Auto" VerticalAlignment="Top">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="param1" VerticalAlignment="Center" Height="Auto" Margin="0,2"/>
+                                <TextBox x:Name="subParam1textBox" Text="{Binding StringParam1}" HorizontalAlignment="Center" Width="100" VerticalContentAlignment="Center" Height="auto" Margin="0,2"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="param2" VerticalAlignment="Center" Height="Auto" Margin="0,2"/>
+                                <TextBox x:Name="subParam2textBox" Text="{Binding StringParam2}" HorizontalAlignment="Center" Width="100" VerticalContentAlignment="Center" Height="auto" Margin="0,2"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="param3" VerticalAlignment="Center" Height="Auto" Margin="0,2"/>
+                                <TextBox x:Name="subParam3textBox" Text="{Binding StringParam3}" HorizontalAlignment="Center" Width="100" VerticalContentAlignment="Center" Height="auto" Margin="0,2" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"  Grid.Row="1" Grid.Column="2" >
+                                <DatePicker SelectedDate="{Binding DateTimeParam1}" Style="{StaticResource ResourceKey=staticInputDatePicker2}" />
+                                <Label Content="～"/>
+                                <DatePicker SelectedDate="{Binding DateTimeParam2}" Style="{StaticResource ResourceKey=staticInputDatePicker2}"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Margin="5" Height="Auto" VerticalAlignment="Top" HorizontalAlignment="Left">
+                            <Button x:Name="resetSubWindowsParametersButton" Content="クリア" Margin="10,10,10,5" Padding="10,0"/>
+                        </StackPanel>
+                    </StackPanel>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Height="150" Margin="0,10,0,0">
@@ -371,6 +413,18 @@
                     ===================================
                     -->
                     <TabControl>
+                        <TabItem Header="TabItem1">
+                            <TextBlock Text="TabItem1 Content" />
+                        </TabItem>
+                        <TabItem Header="TabItem2">
+                            <TextBlock Text="TabItem2 Content" />
+                        </TabItem>
+                        <TabItem Header="TabItem3">
+                            <TextBlock Text="TabItem3 Content" />
+                        </TabItem>
+                    </TabControl>
+
+                    <TabControl TabStripPlacement="Left">
                         <TabItem Header="TabItem1">
                             <TextBlock Text="TabItem1 Content" />
                         </TabItem>
