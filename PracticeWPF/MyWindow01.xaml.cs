@@ -141,6 +141,8 @@ namespace PracticeWPF
             saveUserConfig_button.Click += (sender, e) => SaveUserConfig();
 
 
+            showSelectedpositionButton.Click += (sender, e) => ShowSelectedposition();
+
             openSubWindowButton.Click += (sender, e) => OpenSubWindow();
             resetSubWindowsParametersButton.Click += (sender, e) => ClearBindParameters();
         }
@@ -241,6 +243,32 @@ namespace PracticeWPF
                         + "selectedItem　：　"   + selectedItem.Name        + System.Environment.NewLine
                         + "selectedItem　：　"   + selectedItem.Age         + System.Environment.NewLine
                         ;
+
+                MessageBox.Show(message);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        #endregion
+
+        #region コンボボックス２
+        private void ShowSelectedposition()
+        {
+            try
+            {
+                Position selectedItem = (Position)positionComboBox.SelectedItem;
+
+                if (selectedItem == null) return;
+
+                string message = String.Empty;
+
+                message += "Id　：" + selectedItem.Id   + System.Environment.NewLine
+                        +  "Name：" + selectedItem.Name + System.Environment.NewLine
+                        ;
+
 
                 MessageBox.Show(message);
 

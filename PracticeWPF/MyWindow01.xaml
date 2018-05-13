@@ -403,7 +403,7 @@
                                  ComboBox
                     ===================================
                     -->
-                    <StackPanel Margin="5" Width="150" Height="50" VerticalAlignment="Top">
+                    <StackPanel Margin="5" Width="150" Height="60" VerticalAlignment="Top">
                         <StackPanel Orientation="Horizontal">
                             <Label Content="役職" Width="50"/>
                             <ComboBox x:Name="positionComboBox" ItemsSource="{Binding}" 
@@ -412,9 +412,7 @@
                                       SelectedValuePath="Id" 
                                       />
                         </StackPanel>
-                        
-
-
+                        <Button x:Name="showSelectedpositionButton" Content="表示" Margin="10,10"/>
                     </StackPanel>
                 </StackPanel>
 
