@@ -21,7 +21,7 @@ namespace PracticeWPF
         #endregion
 
         #region バインディングデータ定義
-        SubConfigParameters subConfigParametersCluster = new SubConfigParameters();
+        public SubConfigParameters subConfigParametersCluster = new SubConfigParameters();
 
         public class SubConfigParameters : BindableBase
         {
@@ -283,25 +283,17 @@ namespace PracticeWPF
             //openSubWindowButton.Click += (sender, e) => new SubWindow01().ShowDialog();
             //openSubWindowButton.Click += (sender, e) => new SubWindow01().Show();
 
+            try
+            {
+                var _subWindow01 = new SubWindow01(subConfigParametersCluster);
 
-            ////var conditionJanruCode = (MstJanru)ComboBoxJanruCode.SelectedItem;
+                _subWindow01.ShowDialog();
 
-            ////try
-            ////{
-            ////    var mstJanruListWindow = new JanruListWindow(true, true, false);
-            ////    mstJanruListWindow.ShowDialog();
-
-            ////    if (mstJanruListWindow.SelectedMstJanru != null)
-            ////    {
-            ////        conditionJanruCode = mstJanruListWindow.SelectedMstJanru;
-            ////    }
-            ////}
-            ////catch (Exception ex)
-            ////{
-            ////    MessageBox.Show(ex.Message);
-            ////}
-
-            //InitializeComboBoxJanruList(conditionJanruCode.JanruCode);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         #endregion
     }

@@ -9,18 +9,29 @@
     <Grid>
         <TabControl Name="tabRunTime" TabStripPlacement="Left">
             <TabItem Name="subItems01" Header="subItems01">
-                <StackPanel Margin="5" Width="Auto" Height="Auto" VerticalAlignment="Top">
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="param1" VerticalAlignment="Center" Height="Auto" Margin="0,2"/>
-                        <TextBox x:Name="subParam1textBox" Text="" HorizontalAlignment="Center" Width="100" VerticalContentAlignment="Center" Height="auto" Margin="0,2"/>
+                <StackPanel x:Name="subConfigParametersPanel" Margin="5" Width="Auto" Height="Auto" VerticalAlignment="Top">
+                    <StackPanel Margin="5" Width="Auto" Height="Auto" VerticalAlignment="Top">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="param1" VerticalAlignment="Center" Height="Auto" Margin="0,2"/>
+                            <TextBox x:Name="subParam1textBox" Text="{Binding StringParam1}" HorizontalAlignment="Center" Width="100" VerticalContentAlignment="Center" Height="auto" Margin="0,2"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="param2" VerticalAlignment="Center" Height="Auto" Margin="0,2"/>
+                            <TextBox x:Name="subParam2textBox" Text="{Binding StringParam2}" HorizontalAlignment="Center" Width="100" VerticalContentAlignment="Center" Height="auto" Margin="0,2"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="param3" VerticalAlignment="Center" Height="Auto" Margin="0,2"/>
+                            <TextBox x:Name="subParam3textBox" Text="{Binding StringParam3}" HorizontalAlignment="Center" Width="100" VerticalContentAlignment="Center" Height="auto" Margin="0,2" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"  Grid.Row="1" Grid.Column="2" >
+                            <DatePicker SelectedDate="{Binding DateTimeParam1}" Style="{StaticResource ResourceKey=staticAppInputDatePicker}" />
+                            <Label Content="～"/>
+                            <DatePicker SelectedDate="{Binding DateTimeParam2}" Style="{StaticResource ResourceKey=staticAppInputDatePicker}"/>
+                        </StackPanel>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="param2" VerticalAlignment="Center" Height="Auto" Margin="0,2"/>
-                        <TextBox x:Name="subParam2textBox" Text="" HorizontalAlignment="Center" Width="100" VerticalContentAlignment="Center" Height="auto" Margin="0,2"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="param3" VerticalAlignment="Center" Height="Auto" Margin="0,2"/>
-                        <TextBox x:Name="subParam3textBox" Text="" HorizontalAlignment="Center" Width="100" VerticalContentAlignment="Center" Height="auto" Margin="0,2"/>
+                    <StackPanel Margin="5" Height="Auto" VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal">
+                        <Button x:Name="resetSubWindowsParametersButton" Content="クリア" Margin="10,10,10,5" Padding="10,0"/>
+                        <Button x:Name="closeSubWindowsParametersButton" Content="閉じる" Margin="10,10,10,5" Padding="10,0"/>
                     </StackPanel>
                 </StackPanel>
             </TabItem>

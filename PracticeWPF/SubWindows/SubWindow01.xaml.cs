@@ -19,23 +19,49 @@ namespace PracticeWPF.SubWindows
     /// </summary>
     public partial class SubWindow01 : Window
     {
+        public MyWindow01.SubConfigParameters subConfigParametersCluster = new MyWindow01.SubConfigParameters();
+
+        #region バインディング設定
+        private void SetBindConfig()
+        {
+            subConfigParametersPanel.DataContext = subConfigParametersCluster;
+        }
+        private void ClearBindParameters()
+        {
+            subConfigParametersCluster.StringParam1 = "";
+            subConfigParametersCluster.StringParam2 = "";
+            subConfigParametersCluster.StringParam3 = "";
+            subConfigParametersCluster.DateTimeParam1 = DateTime.Today;
+            subConfigParametersCluster.DateTimeParam2 = null;
+        }
+        #endregion
+
         #region 初期化
         public SubWindow01()
         {
             InitializeComponent();
 
             InitializeThisWindowsParameters();
-            AddMyEvent();
+        }
+
+        public SubWindow01(MyWindow01.SubConfigParameters subConfigParametersCluster)
+        {
+            InitializeComponent();
+
+            this.subConfigParametersCluster = subConfigParametersCluster;
+            InitializeThisWindowsParameters();
         }
 
         private void InitializeThisWindowsParameters()
         {
-
+            AddThisWindowsEvent();
+            SetBindConfig();
         }
 
-        private void AddMyEvent()
+        private void AddThisWindowsEvent()
         {
-            //buttonCreate.Click += (sender, e) => buttonCreate_Click();
+            resetSubWindowsParametersButton.Click += (sender, e) => ClearBindParameters();
+            //closeSubWindowsParametersButton.Click += (sender, e) => ClearBindParameters();
         }
         #endregion
 
