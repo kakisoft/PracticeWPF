@@ -1,6 +1,7 @@
 ﻿using PracticeWPF.Common;
 using PracticeWPF.SubWindows;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 
@@ -12,11 +13,34 @@ namespace PracticeWPF
     public partial class MyWindow01 : Window
     {
 
-        #region データ定義
+        #region データ定義１
         private class Person
         {
+            public int Id { get; set; }
             public string Name { get; set; }
             public int Age { get; set; }
+            public int position_id { get; set; }
+        }
+        #endregion
+
+        #region データ定義２
+        List<Position> positionList = new List<Position>();
+
+        private class Position
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public bool IsDeleted { get; set; }
+        }
+
+        private void SetPositionCode()
+        {
+            positionList = new List<Position>();
+            positionList.Add(new Position { Id = 0, Name = "（役職なし）", IsDeleted = false });
+            positionList.Add(new Position { Id = 1, Name = "主任"        , IsDeleted = false });
+            positionList.Add(new Position { Id = 2, Name = "課長"        , IsDeleted = false });
+            positionList.Add(new Position { Id = 3, Name = "部長"        , IsDeleted = false });
+            positionList.Add(new Position { Id = 4, Name = "神"          , IsDeleted = true  });
         }
         #endregion
 
@@ -67,6 +91,9 @@ namespace PracticeWPF
         private void SetBindConfig()
         {
             subConfigParametersPanel.DataContext = subConfigParametersCluster;
+
+            //positionComboBox.ItemsSource = positionList;
+            positionComboBox.ItemsSource = positionList.Where(x=> x.IsDeleted == false);
         }
         private void ClearBindParameters()
         {
@@ -95,12 +122,15 @@ namespace PracticeWPF
             SetThisWindowsInitializeParameter();
             SetBindConfig();
             AddThisWindowsEvent();
+
+            SetDefaultValue();
         }
 
         private void SetThisWindowsInitializeParameter()
         {
             SetMyComboboxItems();
             DispAppConfigParameters();
+            SetPositionCode();
         }
 
         private void AddThisWindowsEvent()
@@ -113,6 +143,13 @@ namespace PracticeWPF
 
             openSubWindowButton.Click += (sender, e) => OpenSubWindow();
             resetSubWindowsParametersButton.Click += (sender, e) => ClearBindParameters();
+        }
+
+        private void SetDefaultValue()
+        {
+            //positionComboBox.SelectedValue = _selectedValue ?? 0;
+            positionComboBox.SelectedValue = 0;
+
         }
         #endregion
 
