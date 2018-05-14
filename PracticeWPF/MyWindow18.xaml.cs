@@ -211,10 +211,6 @@ namespace PracticeWPF
         }
         #endregion
 
-
-
-
-
         #region 特定条件の Count
         private void button06_Click_addedEvent()
         {
