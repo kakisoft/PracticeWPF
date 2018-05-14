@@ -44,6 +44,25 @@ namespace PracticeWPF
         }
         #endregion
 
+        #region データ定義３
+        public class HikitoriTxZasekiForDisp
+        {
+            public string DispText { get; set; }
+            public long Price { get; set; }
+            public string PriceText
+            {
+                get
+                {
+                    string _priceText = String.Empty;
+
+                    _priceText = Price.ToString("C");
+
+                    return _priceText;
+                }
+            }
+        }
+        #endregion
+
         #region バインディングデータ定義
         public SubConfigParameters subConfigParametersCluster = new SubConfigParameters();
 
