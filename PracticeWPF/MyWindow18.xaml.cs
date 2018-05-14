@@ -74,6 +74,7 @@ namespace PracticeWPF
             myButton03.Click += (sender, e) => button03_Click_addedEvent();
             myButton04.Click += (sender, e) => button04_Click_addedEvent();
             myButton05.Click += (sender, e) => button05_Click_addedEvent();
+            myButton06.Click += (sender, e) => button06_Click_addedEvent();
         }
         #endregion
 
@@ -209,5 +210,25 @@ namespace PracticeWPF
 
         }
         #endregion
+
+
+
+
+
+        #region 特定条件の Count
+        private void button06_Click_addedEvent()
+        {
+            //--------------------
+            //  特定条件の Count
+            //--------------------
+            if (_employee
+                    .Where(x => x.IsMarried).ToList()
+                    .Count == 0)
+            {
+                return;
+            }
+        }
+        #endregion
+
     }
 }
