@@ -44,6 +44,24 @@ namespace PracticeWPF
         }
         #endregion
 
+        #region 定義情報２
+        List<ParentClass> parentList = new List<ParentClass>();
+
+        public class ParentClass
+        {
+            public int ParentId { get; set; }
+            public string ParentName { get; set; }
+
+            public List<ChildClass> ChildList { get; set; }
+        }
+
+        public class ChildClass
+        {
+            public int ChildId { get; set; }
+            public string ChildName { get; set; }
+        }
+        #endregion
+
         #region 初期化
         public MyWindow18()
         {
@@ -75,6 +93,7 @@ namespace PracticeWPF
             myButton04.Click += (sender, e) => button04_Click_addedEvent();
             myButton05.Click += (sender, e) => button05_Click_addedEvent();
             myButton06.Click += (sender, e) => button06_Click_addedEvent();
+            myButton07.Click += (sender, e) => button07_Click_addedEvent();
         }
         #endregion
 
@@ -156,7 +175,7 @@ namespace PracticeWPF
                 }
                 Console.WriteLine("---------------------");
             }
-        }
+            }
         #endregion
 
         #region group by した内容を、カンマ区切りで取得
@@ -223,6 +242,39 @@ namespace PracticeWPF
             {
                 return;
             }
+        }
+        #endregion
+
+
+
+
+
+        #region 子リストを含むリスト
+        private void button07_Click_addedEvent()
+        {
+            parentList = new List<ParentClass>();
+
+            var pel1 = new ParentClass();
+            pel1.ParentId = 1;
+            pel1.ChildList = new List<ChildClass>();
+            pel1.ChildList.Add(new ChildClass { ChildId = 1, ChildName = "c1"});
+            pel1.ChildList.Add(new ChildClass { ChildId = 2, ChildName = "c2" });
+            parentList.Add(pel1);
+
+
+            var pel2 = new ParentClass();
+            pel2.ParentId = 2;
+            pel2.ChildList = new List<ChildClass>();
+            pel2.ChildList.Add(new ChildClass { ChildId = 2, ChildName = "c3" });
+            pel2.ChildList.Add(new ChildClass { ChildId = 3, ChildName = "c4" });
+            pel2.ChildList.Add(new ChildClass { ChildId = 4, ChildName = "c5" });
+            parentList.Add(pel2);
+
+
+
+            int childElementCount = parentList.Sum(x => x.ChildList.ToList().Count);
+
+            Console.WriteLine(childElementCount);
         }
         #endregion
 

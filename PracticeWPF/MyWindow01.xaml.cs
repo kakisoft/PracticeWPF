@@ -131,7 +131,7 @@ namespace PracticeWPF
             var date1 = (Components.MyUserControl01)dateTypeUserControl01.Content;
             //var setData1 = date1.GetDate();
 
-        }
+        }   
         #endregion
 
         #region 初期処理
