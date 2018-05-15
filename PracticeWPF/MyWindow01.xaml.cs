@@ -121,6 +121,16 @@ namespace PracticeWPF
             subConfigParametersCluster.StringParam3 = "";
             subConfigParametersCluster.DateTimeParam1 = DateTime.Today;
             subConfigParametersCluster.DateTimeParam2 = null;
+
+
+            dateTypeUserControl01.Content = new Components.MyUserControl01();
+            //dateTypeUserControl01.Content = new Components.MyUserControl01(targetParam1);
+
+
+            //取得
+            var date1 = (Components.MyUserControl01)dateTypeUserControl01.Content;
+            //var setData1 = date1.GetDate();
+
         }
         #endregion
 
