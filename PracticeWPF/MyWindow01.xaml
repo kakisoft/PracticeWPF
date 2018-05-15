@@ -485,7 +485,6 @@
                         </TabItem>
                     </TabControl>
 
-
                     <!--
                     ===================================
                                  Canvas
@@ -509,6 +508,57 @@
                     </StackPanel>
 
                 </StackPanel>
+
+                
+                <StackPanel Orientation="Horizontal" Height="150" Margin="0,10,0,0">
+                    <!--
+                    ===================================
+                                   Expander
+                    ===================================
+                    -->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Expander ExpandDirection="Right" Grid.Column="0">
+                            <StackPanel Background="#FFFDFFDC">
+                                <Button DockPanel.Dock="Top" Margin="5,2,5,2" Width="90">Command A</Button>
+                                <Button DockPanel.Dock="Top" Margin="5,2,5,2" Width="90">Command B</Button>
+                                <Button DockPanel.Dock="Top" Margin="5,2,5,2" Width="90">Command C</Button>
+                            </StackPanel>
+                        </Expander>
+
+                        <Grid Grid.Column="1" Margin="0,0,0,0">
+                            <TextBlock Height="62" Margin="6,30,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"
+                                       TextWrapping="Wrap" Width="200"
+                                       Text="TextBlock,CheckBoxは、Expanderの動きを確認するために配置しています。" />
+
+                            <TextBlock Height="23" Margin="6,90,0,0" Name="button1" VerticalAlignment="Top" HorizontalAlignment="Left"
+                                       Width="75">TextBlock</TextBlock>
+
+                            <CheckBox Height="16" HorizontalAlignment="Left" Margin="6,115,0,0" Name="checkBox1"
+                                      VerticalAlignment="Top" Width="120">CheckBox</CheckBox>
+
+                            <Expander Header="Expanderとは" ExpandDirection="Down" Height="200" Margin="0,6,6,0"
+                                      Name="expander1" VerticalAlignment="Top" HorizontalAlignment="Right" Width="130">
+
+                                <Border BorderBrush="#FF03334D" >
+                                <TextBlock Text="Expander コントロールとは、ウィンドウに似た、ヘッダーを持つ展開可能な領域内にコンテンツを表示するための手段です。"
+                                           Background="Snow"
+                                           TextWrapping="Wrap"  />
+
+                                </Border>
+                            </Expander>
+                        </Grid>
+                    </Grid>
+
+
+
+                </StackPanel>
+
+
             </StackPanel>
         </DockPanel>
 
