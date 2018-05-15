@@ -513,7 +513,7 @@
                 <StackPanel Orientation="Horizontal" Height="150" Margin="0,10,0,0">
                     <!--
                     ===================================
-                                   Expander
+                                 Expander
                     ===================================
                     -->
                     <Grid>
