@@ -62,5 +62,25 @@
         <Button x:Name="editButton05"  Content="編集" HorizontalAlignment="Left" Margin="589,329,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="edit2Button05" Content="編集2" HorizontalAlignment="Left" Margin="672,329,0,0" VerticalAlignment="Top" Width="75"/>
 
+        <!-- グリッド５（列幅を比率で設定） -->
+        <DataGrid
+            Margin="749,408,90,51" 
+            x:Name="myDataGrid06"
+            ItemsSource="{Binding}"
+            AutoGenerateColumns="False" 
+            CanUserAddRows="False"
+            IsReadOnly="True" 
+            GridLinesVisibility="None" 
+            RowHeaderWidth="10"
+            HeadersVisibility="All"
+            >
+
+            <!--列-->
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="列１" Width="3*" Binding="{Binding DispText1}" />
+                <DataGridTextColumn Header="列２" Width="1*" Binding="{Binding DispText2}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
     </Grid>
 </Window>
