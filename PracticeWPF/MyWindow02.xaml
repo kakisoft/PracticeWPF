@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticeWPF"
         mc:Ignorable="d"
-        Title="MyWindow02" Height="600" Width="800">
+        Title="MyWindow02" Height="600" Width="950"
+        Top="50" 
+        >
     <Window.Resources>
         <Style TargetType="ToggleButton" x:Key="ToggleStyleButton02"  BasedOn="{StaticResource {x:Type ToggleButton}}">
             <Setter Property="Template">
@@ -224,7 +226,7 @@
                ３行目に配置した DockPanel
             ////////////////////////////////
             -->
-            <DockPanel DockPanel.Dock="Top" Height="130" VerticalAlignment="Top">
+            <DockPanel DockPanel.Dock="Top" Height="160" VerticalAlignment="Top">
                 <!--
                 ===================================
                               ListView
@@ -280,9 +282,9 @@
                 </StackPanel>
 
                 <!--
-                ===================================
-                  ListView（チェックボックス付き）
-                ===================================
+                ======================================
+                  ListView（特定条件にて背景色を変更）
+                ======================================
                 -->
                 <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal">
                     <ListView x:Name="myListView04" Width="200">
@@ -304,6 +306,62 @@
 
                                 <GridViewColumn Header="DispText" DisplayMemberBinding="{Binding SalesStatus}"   Width="0" />
                                 <GridViewColumn Header="DispText" DisplayMemberBinding="{Binding PaymentStatus}" Width="0" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </StackPanel>
+
+                <!--
+                ======================================
+                     ListView（特定のセルを右寄せ）
+                ======================================
+                -->
+                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal">
+                    <ListView x:Name="myListView05" ItemsSource="{Binding}">
+
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+
+                        <ListView.View>
+                            <GridView>
+                                <GridView.ColumnHeaderContainerStyle>
+                                    <Style TargetType="GridViewColumnHeader">
+                                        <Setter Property="Height" Value="50" />
+                                    </Style>
+                                </GridView.ColumnHeaderContainerStyle>
+
+                                <GridView.Columns>
+                                    <GridViewColumn Width="100" Header="Id" >
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock  TextAlignment="Left" 
+                                        Text="{Binding Id}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                    <GridViewColumn Width="100" Header="商品名">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock  TextAlignment="Left" 
+                                        Text="{Binding Name}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                    <GridViewColumn Width="100" Header="値段">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock  TextAlignment="Right" 
+                                        Text="{Binding PriceText}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                </GridView.Columns>
                             </GridView>
                         </ListView.View>
                     </ListView>

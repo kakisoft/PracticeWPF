@@ -37,6 +37,42 @@ namespace PracticeWPF
         }
         #endregion
 
+        #region データ定義・パラメータ設定
+        List<Product> personList = new List<Product>();
+        private class Product
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public long Price { get; set; }
+            public string PriceText
+            {
+                get
+                {
+                    string _priceText = String.Empty;
+
+                    if (Price != 0)
+                    {
+                        _priceText = Price.ToString("C");
+                    }
+
+                    return _priceText;
+                }
+            }
+        }
+
+        private void SetThisWindowsParameters()
+        {
+            personList = new List<Product>();
+            personList.Add(new Product { Id = 1, Name = "product01", Price = 100 });
+            personList.Add(new Product { Id = 2, Name = "product02", Price = 20000 });
+            personList.Add(new Product { Id = 3, Name = "product03", Price = 300000 });
+            personList.Add(new Product { Id = 4, Name = "product04", Price = 4000000 });
+
+
+            myListView05.ItemsSource = null;
+            myListView05.ItemsSource = personList;
+        }
+        #endregion
 
         #region バインディング用のデータ
         private MyData _obj;
@@ -48,7 +84,7 @@ namespace PracticeWPF
         }
         #endregion
 
-        #region イニシャライズ
+        #region 初期化
         public MyWindow02()
         {
             InitializeComponent();
@@ -56,6 +92,7 @@ namespace PracticeWPF
             //バインディング
             SetBindingData();
 
+            SetThisWindowsParameters();
             SetThisWindowsParameters2();
             SetThisWindowsParameters3();
             SetThisWindowsEvent3();
@@ -63,7 +100,6 @@ namespace PracticeWPF
             SetThisWindowsParameters4();
         }
         #endregion
-
 
         #region リストビューにアイテムを追加
         public class TestProperty
