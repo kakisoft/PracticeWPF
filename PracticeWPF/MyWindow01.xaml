@@ -507,6 +507,47 @@
                         </Canvas>
                     </StackPanel>
 
+
+                    <!--
+                    ===================================
+                                 Canvas
+                    ===================================
+                    -->
+                    <StackPanel Width="300" Height="130">
+                        <UniformGrid Columns="3">
+
+                            <Grid>
+                                <Border BorderBrush="Gray" BorderThickness="1" >
+
+                                    <!--１．特定の大きさを指定する場合-->
+                                    <Button Content="指定値" Width="80" Height="50"/>
+                                </Border>
+                            </Grid>
+
+                            <Grid>
+                                <Border BorderBrush="Gray" BorderThickness="1" >
+
+                                    <!--２．親要素のサイズまで拡張する-->
+                                    <Button Content="親サイズにフィット"
+                        HorizontalAlignment="Stretch" 
+                        VerticalAlignment="Stretch" />
+                                </Border>
+                            </Grid>
+
+                            <Grid>
+                                <Border BorderBrush="Gray" BorderThickness="1" >
+
+                                    <!--３．子要素のサイズまで縮小する-->
+                                    <Button Content="中身に&#10;フィット" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" />
+                                </Border>
+                            </Grid>
+
+                        </UniformGrid>
+
+                    </StackPanel>
+
                 </StackPanel>
 
                 

@@ -338,7 +338,7 @@
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <TextBlock  TextAlignment="Left" 
-                                        Text="{Binding Id}"/>
+                                                            Text="{Binding Id}"/>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
@@ -347,7 +347,7 @@
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <TextBlock  TextAlignment="Left" 
-                                        Text="{Binding Name}"/>
+                                                            Text="{Binding Name}"/>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
@@ -356,7 +356,7 @@
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <TextBlock  TextAlignment="Right" 
-                                        Text="{Binding PriceText}"/>
+                                                            Text="{Binding PriceText}"/>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
