@@ -291,7 +291,7 @@
                         <ListView.ItemContainerStyle>
                             <Style TargetType="{x:Type ListViewItem}">
                                 <Style.Triggers>
-                                    <DataTrigger Binding="{Binding IsChecked}" Value="True">
+                                    <DataTrigger Binding="{Binding IsChecked}" Value="True"> <!-- ※プロパティを、メソッドと町が言えないようにしよう！ -->
                                         <Setter Property="BorderBrush" Value="Red"/>
                                         <Setter Property="Background" Value="#FFF9C5C5"/>
                                     </DataTrigger>
