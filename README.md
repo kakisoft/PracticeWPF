@@ -28,7 +28,7 @@ WPF練習用
  * 23：XMLシリアライズ・デシリアライズ
  * 24：JSONシリアライズ・デシリアライズ
  * 25：郵便番号検索API
- * 26：GIO API" HorizontalAlignment=
+ * 26：GIO API
  * 31：ReactivePropertyを使った双方向バインド
  * 32：ファイルエクスプローラ・印刷
  * 33：Dictionaryをソースにした GridやListView
