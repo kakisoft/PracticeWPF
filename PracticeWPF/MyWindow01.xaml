@@ -348,10 +348,14 @@
                                  Slider
                     ===================================
                     -->
-                    <StackPanel Margin="5" Width="150" Height="200" VerticalAlignment="Top">
+                    <StackPanel Margin="5" Width="200" Height="200" VerticalAlignment="Top">
                         <Slider x:Name="slider1" Minimum="-20" Maximum="20" Value="-10" />
                         <TextBlock Text="{Binding Value, ElementName=slider1}" />
-                        <Button x:Name="showSeatListButton" Content="Seat" Margin="10,10,10,5" Padding="10,0"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="showSeatListButton01" Content="Seat" Margin="10,10,10,5" Padding="10,0"/>
+                            <Button x:Name="showSeatListButton02" Content="Seat" Margin="10,10,10,5" Padding="10,0"/>
+                        </StackPanel>
+                        
                         <ScrollViewer 
                             HorizontalAlignment="Stretch"  
                             VerticalAlignment="Stretch"
@@ -407,7 +411,7 @@
                         </StackPanel>
                     </StackPanel>
 
-                    <StackPanel Margin="5" Width="250" Height="100" VerticalAlignment="Top">
+                    <StackPanel Margin="5" Width="200" Height="100" VerticalAlignment="Top">
                         <!--
                         ===================================
                                      ComboBox

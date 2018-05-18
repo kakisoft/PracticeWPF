@@ -162,7 +162,6 @@ namespace PracticeWPF
             SetMyComboboxItems();
             DispAppConfigParameters();
             SetPositionCode();
-            SetSeatList();
         }
 
         private void AddThisWindowsEvent()
@@ -178,7 +177,8 @@ namespace PracticeWPF
             openSubWindowButton.Click += (sender, e) => OpenSubWindow();
             resetSubWindowsParametersButton.Click += (sender, e) => ClearBindParameters();
 
-            showSeatListButton.Click += (sender, e) => ShowSeatList();
+            showSeatListButton01.Click += (sender, e) => ShowSeatListFromButton01();
+            showSeatListButton02.Click += (sender, e) => ShowSeatListFromButton02();
         }
 
         private void SetDefaultValue()
@@ -430,7 +430,7 @@ namespace PracticeWPF
         private static class ManageDispSeatSwitchKey
         {
             public static long AxisColumnNo { get; set; }
-            private static long currentColumnNo = -1;
+            //private static long currentColumnNo = -1;
 
             private static long seatType;
             private static long salesType;
@@ -451,7 +451,7 @@ namespace PracticeWPF
             public static void SetManageParameters(Seats _seat)
             {
                 //変更キーが異なっていた場合、基準とする値を変更する。
-                if (IsSwitchKeySame(_seat) == true)
+                if (IsSwitchKeyChanged(_seat) == true)
                 {
                     AxisColumnNo = _seat.ColumnNo;
                 }
@@ -460,24 +460,21 @@ namespace PracticeWPF
                 salesType = _seat.SalesType;
                 floor     = _seat.Floor;
                 rowNo     = _seat.RowNo;
-                currentColumnNo = _seat.ColumnNo;
+                columnNo = _seat.ColumnNo;
             }
 
-            public static bool IsSwitchKeySame(Seats _seat)
+            public static bool IsSwitchKeyChanged(Seats _seat)
             {
-                if (seatType  != _seat.SalesType) return false;
-                if (salesType != _seat.SalesType) return false;
-                if (floor     != _seat.Floor)     return false;
-                if (rowNo     != _seat.RowNo)     return false;
-                if (columnNo + 1 != _seat.ColumnNo) return false; //連番となっているか
+                if (seatType  != _seat.SalesType) return true;
+                if (salesType != _seat.SalesType) return true;
+                if (floor     != _seat.Floor)     return true;
+                if (rowNo     != _seat.RowNo)     return true;
+                if (columnNo + 1 != _seat.ColumnNo) return true; //連番となっているか
 
-                return true;
+                return false;
             }
 
             //-----( 表示用 )-----
-            //public static string FloorText { get { return floor + "階"; } }
-            //public static string RowNoText { get { return rowNo + "列"; } }
-            //public static string ColumnNoText { get { return currentColumnNo + "番"; } }
             public static string DispText
             {
                 get
@@ -490,13 +487,13 @@ namespace PracticeWPF
                     ;
 
 
-                    if (currentColumnNo == AxisColumnNo)
+                    if (columnNo == AxisColumnNo)
                     {
-                        _dispText += "　" + currentColumnNo + "番";
+                        _dispText += "　" + columnNo + "番";
                     }
                     else
                     {
-                        _dispText += "　" + AxisColumnNo + "～" + currentColumnNo + "番";
+                        _dispText += "　" + AxisColumnNo + "～" + columnNo + "番";
                     }
 
                     return _dispText;
@@ -505,17 +502,7 @@ namespace PracticeWPF
 
         }
 
-
-
-
-
-
-
-
-
-
-
-        private void SetSeatList()
+        private void SetSeatList01()
         {
             SeatList = new List<Seats>();
             //Floor 1：Row 1
@@ -548,16 +535,21 @@ namespace PracticeWPF
             SeatList.Add(new Seats { Id = 99, Floor = 99, RowNo = 99, ColumnNo = 99 });
         }
 
+        private void SetSeatList02()
+        {
+            SeatList = new List<Seats>();
+            //Floor 1：Row 1
+            SeatList.Add(new Seats { Id = 0, Floor = 1, RowNo = 1, ColumnNo = 1 });
+            SeatList.Add(new Seats { Id = 1, Floor = 1, RowNo = 1, ColumnNo = 2 });
+            //SeatList.Add(new Seats { Id = 2, Floor = 1, RowNo = 1, ColumnNo = 3 });
+        }
+
         private void ShowSeatList()
         {
             try
             {
                 var dispTextList = new List<string>();
                 string dispTextElement = String.Empty;
-                //string dispTextBreakKey = String.Empty;
-
-                String dispText = String.Empty;
-
 
 
                 ManageDispSeatSwitchKey.ResetManageParameters();
@@ -566,13 +558,11 @@ namespace PracticeWPF
                     ManageDispSeatSwitchKey.SetManageParameters(SeatList[i]);
 
                     //最後の要素もしくは、次の要素と比較して SwitchKeyが異なっていた場合、出力する。
-                    if (i == SeatList.Count -1 || (ManageDispSeatSwitchKey.IsSwitchKeySame(SeatList[i+1]) == false))
+                    if (i == SeatList.Count - 1 || (ManageDispSeatSwitchKey.IsSwitchKeyChanged(SeatList[i + 1]) == true))
                     {
                         dispTextList.Add(ManageDispSeatSwitchKey.DispText);
                     }
                 }
-
-
 
 
                 seatListView.ItemsSource = null;
@@ -585,7 +575,16 @@ namespace PracticeWPF
             }
         }
 
-
+        private void ShowSeatListFromButton01()
+        {
+            SetSeatList01();
+            ShowSeatList();
+        }
+        private void ShowSeatListFromButton02()
+        {
+            SetSeatList02();
+            ShowSeatList();
+        }
         #endregion
     }
 }
