@@ -245,10 +245,6 @@ namespace PracticeWPF
         }
         #endregion
 
-
-
-
-
         #region 子リストを含むリスト
         private void button07_Click_addedEvent()
         {
