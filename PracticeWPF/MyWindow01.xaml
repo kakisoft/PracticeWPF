@@ -348,9 +348,18 @@
                                  Slider
                     ===================================
                     -->
-                    <StackPanel Margin="5" Width="100" Height="50" VerticalAlignment="Top">
+                    <StackPanel Margin="5" Width="150" Height="200" VerticalAlignment="Top">
                         <Slider x:Name="slider1" Minimum="-20" Maximum="20" Value="-10" />
                         <TextBlock Text="{Binding Value, ElementName=slider1}" />
+                        <Button x:Name="showSeatListButton" Content="Seat" Margin="10,10,10,5" Padding="10,0"/>
+                        <ScrollViewer 
+                            HorizontalAlignment="Stretch"  
+                            VerticalAlignment="Stretch"
+                            Height="130"
+                            >
+                            <ListView x:Name="seatListView" >
+                            </ListView>
+                        </ScrollViewer>
                     </StackPanel>
 
                     <StackPanel Margin="5" Orientation="Horizontal" >
@@ -529,8 +538,8 @@
 
                                     <!--２．親要素のサイズまで拡張する-->
                                     <Button Content="親サイズにフィット"
-                        HorizontalAlignment="Stretch" 
-                        VerticalAlignment="Stretch" />
+                                            HorizontalAlignment="Stretch" 
+                                            VerticalAlignment="Stretch" />
                                 </Border>
                             </Grid>
 

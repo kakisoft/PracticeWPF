@@ -45,8 +45,10 @@ namespace PracticeWPF
         #endregion
 
         #region データ定義３
-        public class HikitoriTxZasekiForDisp
+        public class Product
         {
+            public long Id { get; set; }
+            public string ProductName { get; set; }
             public string DispText { get; set; }
             public long Price { get; set; }
             public string PriceText
@@ -160,6 +162,7 @@ namespace PracticeWPF
             SetMyComboboxItems();
             DispAppConfigParameters();
             SetPositionCode();
+            SetSeatList();
         }
 
         private void AddThisWindowsEvent()
@@ -174,6 +177,8 @@ namespace PracticeWPF
 
             openSubWindowButton.Click += (sender, e) => OpenSubWindow();
             resetSubWindowsParametersButton.Click += (sender, e) => ClearBindParameters();
+
+            showSeatListButton.Click += (sender, e) => ShowSeatList();
         }
 
         private void SetDefaultValue()
@@ -389,6 +394,198 @@ namespace PracticeWPF
                 MessageBox.Show(ex.Message);
             }
         }
+        #endregion
+
+        #region 何かの順番を変則的に表示する
+        List<Seats> SeatList = new List<Seats>();
+        //JsonだとNextという便利な構文が使えるみたいだね・・・
+        public class Seats
+        {
+            public long Id         { get; set; }
+            public long SeatType   { get; set; }
+            public long SalesType  { get; set; }
+            public long Floor      { get; set; }
+            public long RowNo      { get; set; }
+            public long ColumnNo   { get; set; }
+            public long SequenceNo { get; set; }
+            public long Price      { get; set; }
+
+            //-----( 表示用 )-----
+            public string FloorText    { get { return Floor    + "階"; } }
+            public string RowNoText    { get { return RowNo    + "列"; } }
+            public string ColumnNoText { get { return ColumnNo + "番"; } }
+            public string PriceText
+            {
+                get
+                {
+                    string _priceText = String.Empty;
+
+                    _priceText = Price.ToString("C");
+
+                    return _priceText;
+                }
+            }
+        }
+
+        private static class ManageDispSeatSwitchKey
+        {
+            public static long AxisColumnNo { get; set; }
+            private static long currentColumnNo = -1;
+
+            private static long seatType;
+            private static long salesType;
+            private static long floor;
+            private static long rowNo;
+            private static long columnNo;
+
+            public static void ResetManageParameters()
+            {
+                //DB上に存在しえない値を初期値として設定
+                seatType = -1;
+                salesType = -1;
+                floor     = -1;
+                rowNo     = -1;
+                columnNo  = -1;
+            }
+
+            public static void SetManageParameters(Seats _seat)
+            {
+                //変更キーが異なっていた場合、基準とする値を変更する。
+                if (IsSwitchKeySame(_seat) == true)
+                {
+                    AxisColumnNo = _seat.ColumnNo;
+                }
+
+                seatType = _seat.SeatType;
+                salesType = _seat.SalesType;
+                floor     = _seat.Floor;
+                rowNo     = _seat.RowNo;
+                currentColumnNo = _seat.ColumnNo;
+            }
+
+            public static bool IsSwitchKeySame(Seats _seat)
+            {
+                if (seatType  != _seat.SalesType) return false;
+                if (salesType != _seat.SalesType) return false;
+                if (floor     != _seat.Floor)     return false;
+                if (rowNo     != _seat.RowNo)     return false;
+                if (columnNo + 1 != _seat.ColumnNo) return false; //連番となっているか
+
+                return true;
+            }
+
+            //-----( 表示用 )-----
+            //public static string FloorText { get { return floor + "階"; } }
+            //public static string RowNoText { get { return rowNo + "列"; } }
+            //public static string ColumnNoText { get { return currentColumnNo + "番"; } }
+            public static string DispText
+            {
+                get
+                {
+                    string _dispText = String.Empty;
+
+                    _dispText = ""
+                                +        floor + "階"
+                                + "　" + rowNo + "列"
+                    ;
+
+
+                    if (currentColumnNo == AxisColumnNo)
+                    {
+                        _dispText += "　" + currentColumnNo + "番";
+                    }
+                    else
+                    {
+                        _dispText += "　" + AxisColumnNo + "～" + currentColumnNo + "番";
+                    }
+
+                    return _dispText;
+                }
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+        private void SetSeatList()
+        {
+            SeatList = new List<Seats>();
+            //Floor 1：Row 1
+            SeatList.Add(new Seats { Id = 0, Floor = 1, RowNo = 1, ColumnNo = 1 });
+            SeatList.Add(new Seats { Id = 1, Floor = 1, RowNo = 1, ColumnNo = 2 });
+            SeatList.Add(new Seats { Id = 2, Floor = 1, RowNo = 1, ColumnNo = 3 });
+
+            SeatList.Add(new Seats { Id = 3, Floor = 1, RowNo = 1, ColumnNo = 5 });
+
+            SeatList.Add(new Seats { Id = 4, Floor = 1, RowNo = 1, ColumnNo = 7 });
+            SeatList.Add(new Seats { Id = 5, Floor = 1, RowNo = 1, ColumnNo = 8 });
+
+            SeatList.Add(new Seats { Id = 6, Floor = 1, RowNo = 1, ColumnNo = 15 });
+
+            //Floor 1：Row 2
+            SeatList.Add(new Seats { Id = 7, Floor = 1, RowNo = 2, ColumnNo = 16 });
+
+            SeatList.Add(new Seats { Id = 8, Floor = 1, RowNo = 2, ColumnNo = 17 });
+            SeatList.Add(new Seats { Id = 9, Floor = 1, RowNo = 2, ColumnNo = 18 });
+
+            //Floor 2：Row 1
+            SeatList.Add(new Seats { Id = 10, Floor = 2, RowNo = 1, ColumnNo = 1 });
+            SeatList.Add(new Seats { Id = 11, Floor = 2, RowNo = 1, ColumnNo = 2 });
+
+            //Floor 3～：Row 1
+            SeatList.Add(new Seats { Id = 12, Floor = 3, RowNo = 1, ColumnNo = 2 });
+            SeatList.Add(new Seats { Id = 13, Floor = 4, RowNo = 1, ColumnNo = 2 });
+
+            //Last Floor
+            SeatList.Add(new Seats { Id = 99, Floor = 99, RowNo = 99, ColumnNo = 99 });
+        }
+
+        private void ShowSeatList()
+        {
+            try
+            {
+                var dispTextList = new List<string>();
+                string dispTextElement = String.Empty;
+                //string dispTextBreakKey = String.Empty;
+
+                String dispText = String.Empty;
+
+
+
+                ManageDispSeatSwitchKey.ResetManageParameters();
+                for (int i = 0; i < SeatList.Count; i++)
+                {
+                    ManageDispSeatSwitchKey.SetManageParameters(SeatList[i]);
+
+                    //最後の要素もしくは、次の要素と比較して SwitchKeyが異なっていた場合、出力する。
+                    if (i == SeatList.Count -1 || (ManageDispSeatSwitchKey.IsSwitchKeySame(SeatList[i+1]) == false))
+                    {
+                        dispTextList.Add(ManageDispSeatSwitchKey.DispText);
+                    }
+                }
+
+
+
+
+                seatListView.ItemsSource = null;
+                seatListView.ItemsSource = dispTextList;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
         #endregion
     }
 }
