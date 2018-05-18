@@ -410,6 +410,9 @@ namespace PracticeWPF
             public long SequenceNo { get; set; }
             public long Price      { get; set; }
 
+            public string SeatTypeName { get; set; }
+            public string SalesTypeName { get; set; }
+
             //-----( 表示用 )-----
             public string FloorText    { get { return Floor    + "階"; } }
             public string RowNoText    { get { return RowNo    + "列"; } }
@@ -430,22 +433,29 @@ namespace PracticeWPF
         private static class ManageDispSeatSwitchKey
         {
             public static long AxisColumnNo { get; set; }
-            //private static long currentColumnNo = -1;
 
-            private static long seatType;
-            private static long salesType;
-            private static long floor;
-            private static long rowNo;
-            private static long columnNo;
+            private static long SeatType;
+            private static long SalesType;
+            private static long Floor;
+            private static long RowNo;
+            private static long ColumnNo;
+            private static long Price;
+
+            private static string SalesTypeName;
+            private static string SeatTypeName;
 
             public static void ResetManageParameters()
             {
                 //DB上に存在しえない値を初期値として設定
-                seatType = -1;
-                salesType = -1;
-                floor     = -1;
-                rowNo     = -1;
-                columnNo  = -1;
+                SeatType  = -1;
+                SalesType = -1;
+                Floor     = -1;
+                RowNo     = -1;
+                ColumnNo  = -1;
+                Price     = -1;
+
+                SalesTypeName = "";
+                SeatTypeName = "";
             }
 
             public static void SetManageParameters(Seats _seat)
@@ -456,20 +466,24 @@ namespace PracticeWPF
                     AxisColumnNo = _seat.ColumnNo;
                 }
 
-                seatType = _seat.SeatType;
-                salesType = _seat.SalesType;
-                floor     = _seat.Floor;
-                rowNo     = _seat.RowNo;
-                columnNo = _seat.ColumnNo;
+                SeatType      = _seat.SeatType;
+                SalesType     = _seat.SalesType;
+                Floor         = _seat.Floor;
+                RowNo         = _seat.RowNo;
+                ColumnNo      = _seat.ColumnNo;
+                Price         = _seat.Price;
+                SalesTypeName = _seat.SalesTypeName;
+                SeatTypeName  = _seat.SeatTypeName;
+
             }
 
             public static bool IsSwitchKeyChanged(Seats _seat)
             {
-                if (seatType  != _seat.SalesType) return true;
-                if (salesType != _seat.SalesType) return true;
-                if (floor     != _seat.Floor)     return true;
-                if (rowNo     != _seat.RowNo)     return true;
-                if (columnNo + 1 != _seat.ColumnNo) return true; //連番となっているか
+                if (SeatType  != _seat.SalesType) return true;
+                if (SalesType != _seat.SalesType) return true;
+                if (Floor     != _seat.Floor)     return true;
+                if (RowNo     != _seat.RowNo)     return true;
+                if (ColumnNo + 1 != _seat.ColumnNo) return true; //連番となっているか
 
                 return false;
             }
@@ -481,24 +495,53 @@ namespace PracticeWPF
                 {
                     string _dispText = String.Empty;
 
+                    //階・列
                     _dispText = ""
-                                +        floor + "階"
-                                + "　" + rowNo + "列"
+                                +        Floor + "階"
+                                + "　" + RowNo + "列"
                     ;
 
-
-                    if (columnNo == AxisColumnNo)
+                    //番
+                    if (ColumnNo == AxisColumnNo)
                     {
-                        _dispText += "　" + columnNo + "番";
+                        _dispText += "　" + ColumnNo + "番";
                     }
                     else
                     {
-                        _dispText += "　" + AxisColumnNo + "～" + columnNo + "番";
+                        _dispText += "　" + AxisColumnNo + "～" + ColumnNo + "番";
                     }
+
+                    //座席タイプ
+                    _dispText += "　" + SalesTypeName;
+
+                    //販売形態
+                    _dispText += "　" + SeatTypeName;
+
+                    //数量
+                    _dispText += "　×" + ( (ColumnNo - AxisColumnNo) + 1);
+
+                    //値段
+                    _dispText += "　" + PriceText;
 
                     return _dispText;
                 }
             }
+
+            public static string PriceText
+            {
+                get
+                {
+                    string _priceText = String.Empty;
+                    long subTotalPrice;
+
+                    subTotalPrice = Price * ((ColumnNo - AxisColumnNo) + 1);
+
+                    _priceText = subTotalPrice.ToString("C");
+
+                    return _priceText;
+                }
+            }
+
 
         }
 
@@ -533,6 +576,18 @@ namespace PracticeWPF
 
             //Last Floor
             SeatList.Add(new Seats { Id = 99, Floor = 99, RowNo = 99, ColumnNo = 99 });
+
+
+            foreach (var item in SeatList)
+            {
+                item.SeatType = 1;
+                item.SeatTypeName = "S席";
+
+                item.SalesType = 1;
+                item.SalesTypeName = "定価";
+
+                item.Price = 8000;
+            }
         }
 
         private void SetSeatList02()
@@ -541,7 +596,22 @@ namespace PracticeWPF
             //Floor 1：Row 1
             SeatList.Add(new Seats { Id = 0, Floor = 1, RowNo = 1, ColumnNo = 1 });
             SeatList.Add(new Seats { Id = 1, Floor = 1, RowNo = 1, ColumnNo = 2 });
-            //SeatList.Add(new Seats { Id = 2, Floor = 1, RowNo = 1, ColumnNo = 3 });
+            SeatList.Add(new Seats { Id = 2, Floor = 1, RowNo = 1, ColumnNo = 3 });
+            SeatList.Add(new Seats { Id = 3, Floor = 1, RowNo = 1, ColumnNo = 4 });
+            SeatList.Add(new Seats { Id = 4, Floor = 1, RowNo = 1, ColumnNo = 5 });
+
+
+            foreach (var item in SeatList)
+            {
+                item.SeatType = 2;
+                item.SeatTypeName = "A席";
+
+                item.SalesType = 2;
+                item.SalesTypeName = "前売り券";
+
+                item.Price = 5000;
+            }
+
         }
 
         private void ShowSeatList()

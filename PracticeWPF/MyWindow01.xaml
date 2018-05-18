@@ -38,9 +38,10 @@
         ===================================
                     メニュー
         ===================================
-        -->        
+        -->
         <Menu>
-            <MenuItem Header="ファイル(_F)" ><!-- Altキーをつけてのショートカット -->
+            <MenuItem Header="ファイル(_F)" >
+                <!-- Altキーをつけてのショートカット -->
                 <MenuItem Header="サブメニュー１"/>
                 <MenuItem Header="サブメニュー２"/>
             </MenuItem>
@@ -287,7 +288,7 @@
                 -->
                 <StackPanel Orientation="Horizontal" Height="220" VerticalAlignment="Top">
                     <!-- TreeView -->
-                    <TreeView Width="150">
+                    <TreeView Width="130">
                         <TreeViewItem Header="Item1">
                             <TreeViewItem Header="Item1-1">
                                 <TreeViewItem Header="Item1-1-1" />
@@ -348,22 +349,9 @@
                                  Slider
                     ===================================
                     -->
-                    <StackPanel Margin="5" Width="200" Height="200" VerticalAlignment="Top">
+                    <StackPanel Margin="5" Width="150" Height="200" VerticalAlignment="Top">
                         <Slider x:Name="slider1" Minimum="-20" Maximum="20" Value="-10" />
                         <TextBlock Text="{Binding Value, ElementName=slider1}" />
-                        <StackPanel Orientation="Horizontal">
-                            <Button x:Name="showSeatListButton01" Content="Seat" Margin="10,10,10,5" Padding="10,0"/>
-                            <Button x:Name="showSeatListButton02" Content="Seat" Margin="10,10,10,5" Padding="10,0"/>
-                        </StackPanel>
-                        
-                        <ScrollViewer 
-                            HorizontalAlignment="Stretch"  
-                            VerticalAlignment="Stretch"
-                            Height="130"
-                            >
-                            <ListView x:Name="seatListView" >
-                            </ListView>
-                        </ScrollViewer>
                     </StackPanel>
 
                     <StackPanel Margin="5" Orientation="Horizontal" >
@@ -411,7 +399,7 @@
                         </StackPanel>
                     </StackPanel>
 
-                    <StackPanel Margin="5" Width="200" Height="100" VerticalAlignment="Top">
+                    <StackPanel Margin="5" Width="190" Height="100" VerticalAlignment="Top">
                         <!--
                         ===================================
                                      ComboBox
@@ -552,8 +540,8 @@
 
                                     <!--３．子要素のサイズまで縮小する-->
                                     <Button Content="中身に&#10;フィット" 
-                        HorizontalAlignment="Center" 
-                        VerticalAlignment="Center" />
+                                            HorizontalAlignment="Center" 
+                                            VerticalAlignment="Center" />
                                 </Border>
                             </Grid>
 
@@ -563,53 +551,80 @@
 
                 </StackPanel>
 
-                
-                <StackPanel Orientation="Horizontal" Height="150" Margin="0,10,0,0">
-                    <!--
-                    ===================================
-                                 Expander
-                    ===================================
-                    -->
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal">
 
-                        <Expander ExpandDirection="Right" Grid.Column="0">
-                            <StackPanel Background="#FFFDFFDC">
-                                <Button DockPanel.Dock="Top" Margin="5,2,5,2" Width="90">Command A</Button>
-                                <Button DockPanel.Dock="Top" Margin="5,2,5,2" Width="90">Command B</Button>
-                                <Button DockPanel.Dock="Top" Margin="5,2,5,2" Width="90">Command C</Button>
-                            </StackPanel>
-                        </Expander>
+                    <StackPanel Orientation="Horizontal" Height="150" Margin="0,10,0,0">
+                        <!--
+                        ===================================
+                                     Expander
+                        ===================================
+                        -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
 
-                        <Grid Grid.Column="1" Margin="0,0,0,0">
-                            <TextBlock Height="62" Margin="6,30,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"
+                            <Expander ExpandDirection="Right" Grid.Column="0">
+                                <StackPanel Background="#FFFDFFDC">
+                                    <Button DockPanel.Dock="Top" Margin="5,2,5,2" Width="90">Command A</Button>
+                                    <Button DockPanel.Dock="Top" Margin="5,2,5,2" Width="90">Command B</Button>
+                                    <Button DockPanel.Dock="Top" Margin="5,2,5,2" Width="90">Command C</Button>
+                                </StackPanel>
+                            </Expander>
+
+                            <Grid Grid.Column="1" Margin="0,0,0,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="4*"/>
+                                    <RowDefinition Height="3*"/>
+                                    <RowDefinition Height="43*"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Height="62" Margin="6,9,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"
                                        TextWrapping="Wrap" Width="200"
-                                       Text="TextBlock,CheckBoxは、Expanderの動きを確認するために配置しています。" />
+                                       Text="TextBlock,CheckBoxは、Expanderの動きを確認するために配置しています。" Grid.Row="2" />
 
-                            <TextBlock Height="23" Margin="6,90,0,0" Name="button1" VerticalAlignment="Top" HorizontalAlignment="Left"
-                                       Width="75">TextBlock</TextBlock>
+                                <TextBlock Height="23" Margin="6,69,0,0" Name="button1" VerticalAlignment="Top" HorizontalAlignment="Left"
+                                       Width="75" Grid.Row="2">TextBlock</TextBlock>
 
-                            <CheckBox Height="16" HorizontalAlignment="Left" Margin="6,115,0,0" Name="checkBox1"
-                                      VerticalAlignment="Top" Width="120">CheckBox</CheckBox>
+                                <CheckBox Height="16" HorizontalAlignment="Left" Margin="6,94,0,0" Name="checkBox1"
+                                      VerticalAlignment="Top" Width="120" Grid.Row="2">CheckBox</CheckBox>
 
-                            <Expander Header="Expanderとは" ExpandDirection="Down" Height="200" Margin="0,6,6,0"
-                                      Name="expander1" VerticalAlignment="Top" HorizontalAlignment="Right" Width="130">
+                                <Expander Header="Expanderとは" ExpandDirection="Down" Height="200" Margin="0,6,6,-56"
+                                      Name="expander1" VerticalAlignment="Top" HorizontalAlignment="Right" Width="130" Grid.RowSpan="3">
 
-                                <Border BorderBrush="#FF03334D" >
-                                <TextBlock Text="Expander コントロールとは、ウィンドウに似た、ヘッダーを持つ展開可能な領域内にコンテンツを表示するための手段です。"
+                                    <Border BorderBrush="#FF03334D" >
+                                        <TextBlock Text="Expander コントロールとは、ウィンドウに似た、ヘッダーを持つ展開可能な領域内にコンテンツを表示するための手段です。"
                                            Background="Snow"
                                            TextWrapping="Wrap"  />
 
-                                </Border>
-                            </Expander>
+                                    </Border>
+                                </Expander>
+                            </Grid>
                         </Grid>
-                    </Grid>
+                    </StackPanel>
 
+                    <StackPanel>
+                        <!--
+                        ===================================
+                                     Slider
+                        ===================================
+                        -->
+                        <StackPanel Margin="5" Width="300" Height="200" VerticalAlignment="Top">
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="showSeatListButton01" Content="Seat" Margin="10,10,10,5" Padding="10,0"/>
+                                <Button x:Name="showSeatListButton02" Content="Seat" Margin="10,10,10,5" Padding="10,0"/>
+                            </StackPanel>
 
-
+                            <ScrollViewer 
+                            HorizontalAlignment="Stretch"  
+                            VerticalAlignment="Stretch"
+                            Height="130"
+                            >
+                                <ListView x:Name="seatListView" >
+                                </ListView>
+                            </ScrollViewer>
+                        </StackPanel>
+                    </StackPanel>
                 </StackPanel>
 
 
