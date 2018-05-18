@@ -613,6 +613,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <Button x:Name="showSeatListButton01" Content="Seat" Margin="10,10,10,5" Padding="10,0"/>
                                 <Button x:Name="showSeatListButton02" Content="Seat" Margin="10,10,10,5" Padding="10,0"/>
+                                <Button x:Name="showSeatListButton03" Content="Seat" Margin="10,10,10,5" Padding="10,0"/>
                             </StackPanel>
 
                             <ScrollViewer 

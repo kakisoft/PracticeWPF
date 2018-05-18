@@ -179,6 +179,7 @@ namespace PracticeWPF
 
             showSeatListButton01.Click += (sender, e) => ShowSeatListFromButton01();
             showSeatListButton02.Click += (sender, e) => ShowSeatListFromButton02();
+            showSeatListButton03.Click += (sender, e) => ShowSeatListFromButton03();
         }
 
         private void SetDefaultValue()
@@ -432,7 +433,7 @@ namespace PracticeWPF
 
         private static class ManageDispSeatSwitchKey
         {
-            public static long AxisColumnNo { get; set; }
+            private static long AxisColumnNo { get; set; }
 
             private static long SeatType;
             private static long SalesType;
@@ -460,7 +461,7 @@ namespace PracticeWPF
 
             public static void SetManageParameters(Seats _seat)
             {
-                //変更キーが異なっていた場合、基準とする値を変更する。
+                //変更キーが異なっていた場合、表示時の起点とする値を変更する。
                 if (IsSwitchKeyChanged(_seat) == true)
                 {
                     AxisColumnNo = _seat.ColumnNo;
@@ -472,14 +473,13 @@ namespace PracticeWPF
                 RowNo         = _seat.RowNo;
                 ColumnNo      = _seat.ColumnNo;
                 Price         = _seat.Price;
-                SalesTypeName = _seat.SalesTypeName;
                 SeatTypeName  = _seat.SeatTypeName;
-
+                SalesTypeName = _seat.SalesTypeName;
             }
 
             public static bool IsSwitchKeyChanged(Seats _seat)
             {
-                if (SeatType  != _seat.SalesType) return true;
+                if (SeatType  != _seat.SeatType)  return true;
                 if (SalesType != _seat.SalesType) return true;
                 if (Floor     != _seat.Floor)     return true;
                 if (RowNo     != _seat.RowNo)     return true;
@@ -512,10 +512,10 @@ namespace PracticeWPF
                     }
 
                     //座席タイプ
-                    _dispText += "　" + SalesTypeName;
+                    _dispText += "　" + SeatTypeName;
 
                     //販売形態
-                    _dispText += "　" + SeatTypeName;
+                    _dispText += "　" + SalesTypeName;
 
                     //数量
                     _dispText += "　×" + ( (ColumnNo - AxisColumnNo) + 1);
@@ -541,8 +541,6 @@ namespace PracticeWPF
                     return _priceText;
                 }
             }
-
-
         }
 
         private void SetSeatList01()
@@ -614,6 +612,18 @@ namespace PracticeWPF
 
         }
 
+        private void SetSeatList03()
+        {
+            SeatList = new List<Seats>();
+            //Floor 1：Row 1
+            SeatList.Add(new Seats { Id = 0, SeatType = 1, SeatTypeName = "S席", SalesType = 1, SalesTypeName = "定価", Price = 8000, Floor = 1, RowNo = 1, ColumnNo = 1 });
+            SeatList.Add(new Seats { Id = 0, SeatType = 1, SeatTypeName = "S席", SalesType = 1, SalesTypeName = "定価", Price = 8000, Floor = 1, RowNo = 1, ColumnNo = 2 });
+            SeatList.Add(new Seats { Id = 0, SeatType = 2, SeatTypeName = "A席", SalesType = 1, SalesTypeName = "定価", Price = 7000, Floor = 1, RowNo = 1, ColumnNo = 3 });
+            SeatList.Add(new Seats { Id = 0, SeatType = 2, SeatTypeName = "A席", SalesType = 1, SalesTypeName = "定価", Price = 7000, Floor = 1, RowNo = 1, ColumnNo = 4 });
+            SeatList.Add(new Seats { Id = 0, SeatType = 2, SeatTypeName = "A席", SalesType = 2, SalesTypeName = "前売", Price = 6000, Floor = 1, RowNo = 1, ColumnNo = 5 });
+            SeatList.Add(new Seats { Id = 0, SeatType = 2, SeatTypeName = "A席", SalesType = 2, SalesTypeName = "前売", Price = 6000, Floor = 1, RowNo = 1, ColumnNo = 6 });
+        }
+
         private void ShowSeatList()
         {
             try
@@ -653,6 +663,11 @@ namespace PracticeWPF
         private void ShowSeatListFromButton02()
         {
             SetSeatList02();
+            ShowSeatList();
+        }
+        private void ShowSeatListFromButton03()
+        {
+            SetSeatList03();
             ShowSeatList();
         }
         #endregion
