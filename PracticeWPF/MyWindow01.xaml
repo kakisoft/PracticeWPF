@@ -354,7 +354,7 @@
                         <TextBlock Text="{Binding Value, ElementName=slider1}" />
                     </StackPanel>
 
-                    <StackPanel Margin="5" Orientation="Horizontal" >
+                    <StackPanel Margin="5" Orientation="Horizontal" Width="40">
                         <Slider x:Name="slider2"
                                 Minimum="10"
                                 Maximum="100" 
@@ -611,9 +611,9 @@
                         -->
                         <StackPanel Margin="5" Width="300" Height="200" VerticalAlignment="Top">
                             <StackPanel Orientation="Horizontal">
-                                <Button x:Name="showSeatListButton01" Content="Seat" Margin="10,10,10,5" Padding="10,0"/>
-                                <Button x:Name="showSeatListButton02" Content="Seat" Margin="10,10,10,5" Padding="10,0"/>
-                                <Button x:Name="showSeatListButton03" Content="Seat" Margin="10,10,10,5" Padding="10,0"/>
+                                <Button x:Name="showSeatListButton01" Content="Seat1" Margin="10,10,10,5" Padding="10,0"/>
+                                <Button x:Name="showSeatListButton02" Content="Seat2" Margin="10,10,10,5" Padding="10,0"/>
+                                <Button x:Name="showSeatListButton03" Content="Seat3" Margin="10,10,10,5" Padding="10,0"/>
                             </StackPanel>
 
                             <ScrollViewer 
