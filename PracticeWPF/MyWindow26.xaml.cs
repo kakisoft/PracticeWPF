@@ -125,7 +125,7 @@ namespace PracticeWPF
             if (selectedItem == null) return;
 
             requestTypeURLCluster.DispText = selectedItem.URL;
-
+            ClearDiscriptionArea();
         }
         #endregion
 
@@ -239,6 +239,13 @@ namespace PracticeWPF
         }
         #endregion
 
+        #region 表示領域をクリア
+        private void ClearDiscriptionArea()
+        {
+            var dummyList = new List<string>();
+            myListView01.ItemsSource = dummyList;
+        }
+        #endregion
 
         //*******************************************//
         #region バンディング用ベースクラス
