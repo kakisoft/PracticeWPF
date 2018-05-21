@@ -54,6 +54,12 @@
             <Setter Property="BorderThickness"            Value="0,0,0,0"></Setter>
         </Style>
 
+        <!-- Buttonリソース -->
+        <Style TargetType="Button" x:Key="ExecuteButton_Normal">
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Padding" Value="20,0"></Setter>
+        </Style>
+
     </Window.Resources>
     <Grid>
         <!--
@@ -74,13 +80,13 @@
         <!-- ベースURL -->
         <StackPanel Grid.Row="0" Grid.Column="0" Style="{StaticResource ResourceKey=StaticResources_StackPanel01}">
             <Label Style="{StaticResource ResourceKey=StaticResources_Label01}">ベースURL</Label>
-            <TextBox x:Name="myTextBox01" Style="{StaticResource ResourceKey=StaticResources_TextBox01}" Text="{Binding DispText}"></TextBox>
+            <TextBox x:Name="baseURL" Style="{StaticResource ResourceKey=StaticResources_TextBox01}" Text="{Binding DispText}"></TextBox>
         </StackPanel>
 
         <!-- リクエストタイプ -->
         <StackPanel Grid.Row="1" Grid.Column="0" Style="{StaticResource ResourceKey=StaticResources_StackPanel01}">
             <Label Style="{StaticResource ResourceKey=StaticResources_Label01}">タイプ</Label>
-            <ComboBox x:Name="myComboBox02" Width="200" Height="30" >
+            <ComboBox x:Name="apiType" Width="200" Height="30" >
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
@@ -90,16 +96,32 @@
                 </ComboBox.ItemTemplate>
             </ComboBox>
 
-            <TextBox x:Name="myTextBox02" Style="{StaticResource ResourceKey=StaticResources_TextBox01}" Text="{Binding DispText}"></TextBox>
+            <TextBox x:Name="apiText" Style="{StaticResource ResourceKey=StaticResources_TextBox01}" Text="{Binding DispText}"></TextBox>
+        </StackPanel>
+
+        <!-- サブメニュー -->
+        <StackPanel Grid.Row="2" Grid.Column="0" Style="{StaticResource ResourceKey=StaticResources_StackPanel01}">
+            <Label Style="{StaticResource ResourceKey=StaticResources_Label01}">サブメニュー</Label>
+            <ComboBox x:Name="subMenu01" Width="200" Height="30" >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Label Content="{Binding Summary}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <TextBox x:Name="myTextBox03" Style="{StaticResource ResourceKey=StaticResources_TextBox01}" Text="{Binding DispText}"></TextBox>
         </StackPanel>
 
         <!-- ボタン -->
-        <StackPanel Grid.Row="2" Grid.Column="0" Style="{StaticResource ResourceKey=StaticResources_StackPanel01}">
-            <Button x:Name="myButton01"  Content="geoapi" Height="30"/>
+        <StackPanel Grid.Row="3" Grid.Column="0" Style="{StaticResource ResourceKey=StaticResources_StackPanel01}">
+            <Button x:Name="myButton01"  Content="実行" Height="30" Style="{StaticResource ResourceKey=ExecuteButton_Normal}"/>
         </StackPanel>
 
         <!-- グリッド -->
-        <ListView x:Name="myListView01" Grid.Row="3" Grid.Column="0" />
+        <ListView x:Name="myListView01" Grid.Row="4" Grid.Column="0" />
         
 <!--
         <DataGrid x:Name="myGrid01" Grid.Row="3" Grid.Column="0" IsReadOnly="True" />

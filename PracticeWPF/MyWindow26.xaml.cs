@@ -54,7 +54,7 @@ namespace PracticeWPF
             RequestTypeList.Add(new RequestType { Id = (int)RequestTypeId.Area        , Summary = "エリア情報取得 API"　 , URL = "http://geoapi.heartrails.com/api/json?method=getAreas" });
             RequestTypeList.Add(new RequestType { Id = (int)RequestTypeId.Prefecture  , Summary = "都道府県情報取得 API" , URL = "http://geoapi.heartrails.com/api/json?method=getPrefectures" });
             RequestTypeList.Add(new RequestType { Id = (int)RequestTypeId.Municipality, Summary = "市区町村情報取得 API" , URL = "http://geoapi.heartrails.com/api/json?method=getCities" });
-            myComboBox02.ItemsSource = RequestTypeList;
+            apiType.ItemsSource = RequestTypeList;
         }
         #endregion
 
@@ -97,7 +97,7 @@ namespace PracticeWPF
             //myButton04.Click += (sender, e) => MyButton04_Click();
             //myButton05.Click += (sender, e) => MyButton05_Click();
 
-            myComboBox02.SelectionChanged += (sender, e) => SetSelectedRequestType();
+            apiType.SelectionChanged += (sender, e) => SetSelectedRequestType();
         }
         private void SetThisConstParameters()
         {
@@ -105,14 +105,14 @@ namespace PracticeWPF
         }
         private void SetBindConfig()
         {
-            myTextBox01.DataContext = baseURLCluster;
-            myTextBox02.DataContext = requestTypeURLCluster;
+            baseURL.DataContext = baseURLCluster;
+            apiText.DataContext = requestTypeURLCluster;
         }
         private void SetInitializeParameter()
         {
             baseURLCluster.DispText = BASE_URL;
 
-            myComboBox02.SelectedIndex = 0;
+            apiType.SelectedIndex = 0;
         }
 
         #endregion
@@ -120,7 +120,7 @@ namespace PracticeWPF
         #region リクエストタイプを設定
         private void SetSelectedRequestType()
         {
-            selectedItem = (RequestType)myComboBox02.SelectedItem;
+            selectedItem = (RequestType)apiType.SelectedItem;
 
             if (selectedItem == null) return;
 
