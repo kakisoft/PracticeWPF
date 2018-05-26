@@ -180,6 +180,8 @@ namespace PracticeWPF
             showSeatListButton01.Click += (sender, e) => ShowSeatListFromButton01();
             showSeatListButton02.Click += (sender, e) => ShowSeatListFromButton02();
             showSeatListButton03.Click += (sender, e) => ShowSeatListFromButton03();
+
+            forEach01.Click += (sender, e) => ForEach01Button_Click();
         }
 
         private void SetDefaultValue()
@@ -669,6 +671,21 @@ namespace PracticeWPF
         {
             SetSeatList03();
             ShowSeatList();
+        }
+        #endregion
+
+        #region foreachでループのindexを取得
+        private void ForEach01Button_Click()
+        {
+            // テスト用配列
+            var array = new[] { "aaa", "bbb", "ccc" };
+
+            // Selectメソッドで値をインデックスのペアを作ってそれをforeachでまわす
+            foreach (var item in array.Select((v, i) => new { v, i }))
+            {
+                // 匿名型から値とインデックスを取り出して使える
+                Console.WriteLine("value = {0}, index = {1}", item.v, item.i);
+            }
         }
         #endregion
     }
