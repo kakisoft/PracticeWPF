@@ -61,6 +61,7 @@
         <Button Content="MyWindow24" HorizontalAlignment="Left" Height="35" Margin="438,390,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow24button" />
         <Button Content="MyWindow25" HorizontalAlignment="Left" Height="35" Margin="438,430,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow25button" />
         <Button Content="MyWindow26" HorizontalAlignment="Left" Height="35" Margin="438,473,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow26button" />
+        <Button Content="MyWindow27" HorizontalAlignment="Left" Height="35" Margin="438,514,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow27button" />
 
         <Button Content="MyWindow31" HorizontalAlignment="Left" Height="35" Margin="843,60,0,0"  VerticalAlignment="Top" Width="90" x:Name="MyWindow31button" />
         <Button Content="MyWindow32" HorizontalAlignment="Left" Height="35" Margin="843,101,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow32button" />
@@ -69,7 +70,7 @@
         <Button Content="MyWindow35" HorizontalAlignment="Left" Height="35" Margin="843,224,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow35button" />
         <Button Content="MyWindow36" HorizontalAlignment="Left" Height="35" Margin="843,265,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow36button" />
 
-        <DataGrid HorizontalAlignment="Left" Height="81" Margin="650,567,0,0" VerticalAlignment="Top" Width="185">
+        <DataGrid HorizontalAlignment="Left" Height="81" Margin="707,573,0,0" VerticalAlignment="Top" Width="185">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="シンプルなグリッド"/>
                 <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" />
@@ -105,6 +106,7 @@
         <Label Content="24：JSONシリアライズ・デシリアライズ" HorizontalAlignment="Left" Margin="538,395,0,0" VerticalAlignment="Top"/>
         <Label Content="25：郵便番号検索API" HorizontalAlignment="Left" Margin="538,435,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
         <Label Content="26：GIO API" HorizontalAlignment="Left" Margin="538,478,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
+        <Label Content="27：お天気 API" HorizontalAlignment="Left" Margin="538,519,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
 
         <Label Content="31：ReactivePropertyを使った双方向バインド" HorizontalAlignment="Left" Margin="938,65,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
         <Label Content="32：ファイルエクスプローラ・印刷" HorizontalAlignment="Left" Margin="938,106,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
