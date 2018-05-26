@@ -29,7 +29,7 @@ namespace PracticeWPF
         {
             InitializeComponent();
 
-            this.DataContext = new MainWindowViewModel();
+            this.DataContext = new MainWindowViewModelSample();
         }
     }
 }

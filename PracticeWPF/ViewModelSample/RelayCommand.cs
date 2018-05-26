@@ -14,7 +14,7 @@ namespace PracticeWPF.ViewModelSample
     /// <see cref="RaiseCanExecuteChanged"/> は、次の場合は必ず呼び出す必要があります。
     /// <see cref="CanExecute"/> は、別の値を返すことが予期されます。
     /// </summary>
-    public class RelayCommand : ICommand
+    public class RelayCommandSanple : ICommand
     {
         private readonly Action _execute;
         private readonly Func<bool> _canExecute;
@@ -28,7 +28,7 @@ namespace PracticeWPF.ViewModelSample
         /// 常に実行可能な新しいコマンドを作成します。
         /// </summary>
         /// <param name="execute">実行ロジック。</param>
-        public RelayCommand(Action execute)
+        public RelayCommandSanple(Action execute)
             : this(execute, null)
         {
         }
@@ -38,7 +38,7 @@ namespace PracticeWPF.ViewModelSample
         /// </summary>
         /// <param name="execute">実行ロジック。</param>
         /// <param name="canExecute">実行ステータス ロジック。</param>
-        public RelayCommand(Action execute, Func<bool> canExecute)
+        public RelayCommandSanple(Action execute, Func<bool> canExecute)
         {
             if (execute == null)
                 throw new ArgumentNullException("execute");
@@ -47,7 +47,7 @@ namespace PracticeWPF.ViewModelSample
         }
 
         /// <summary>
-        /// 現在の状態でこの <see cref="RelayCommand"/> が実行できるかどうかを判定します。
+        /// 現在の状態でこの <see cref="RelayCommandSanple"/> が実行できるかどうかを判定します。
         /// </summary>
         /// <param name="parameter">
         /// コマンドによって使用されるデータ。コマンドが、データの引き渡しを必要としない場合、このオブジェクトを null に設定できます。
@@ -59,7 +59,7 @@ namespace PracticeWPF.ViewModelSample
         }
 
         /// <summary>
-        /// 現在のコマンド ターゲットに対して <see cref="RelayCommand"/> を実行します。
+        /// 現在のコマンド ターゲットに対して <see cref="RelayCommandSanple"/> を実行します。
         /// </summary>
         /// <param name="parameter">
         /// コマンドによって使用されるデータ。コマンドが、データの引き渡しを必要としない場合、このオブジェクトを null に設定できます。
@@ -122,7 +122,7 @@ namespace PracticeWPF.ViewModelSample
         }
 
         /// <summary>
-        /// 現在の状態でこの <see cref="RelayCommand"/> が実行できるかどうかを判定します。
+        /// 現在の状態でこの <see cref="RelayCommandSanple"/> が実行できるかどうかを判定します。
         /// </summary>
         /// <param name="parameter">
         /// コマンドによって使用されるデータ。コマンドが、データの引き渡しを必要としない場合、このオブジェクトを null に設定できます。
@@ -134,7 +134,7 @@ namespace PracticeWPF.ViewModelSample
         }
 
         /// <summary>
-        /// 現在のコマンド ターゲットに対して <see cref="RelayCommand"/> を実行します。
+        /// 現在のコマンド ターゲットに対して <see cref="RelayCommandSanple"/> を実行します。
         /// </summary>
         /// <param name="parameter">
         /// コマンドによって使用されるデータ。コマンドが、データの引き渡しを必要としない場合、このオブジェクトを null に設定できます。
