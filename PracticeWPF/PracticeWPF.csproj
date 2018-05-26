@@ -134,9 +134,15 @@
     <Compile Include="MyWindow28.xaml.cs">
       <DependentUpon>MyWindow28.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MyWindow29.xaml.cs">
+      <DependentUpon>MyWindow29.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SubWindows\SubWindow01.xaml.cs">
       <DependentUpon>SubWindow01.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModelSample\BindableBase.cs" />
+    <Compile Include="ViewModelSample\MainWindowViewModel.cs" />
+    <Compile Include="ViewModelSample\RelayCommand.cs" />
     <Page Include="Components\MyUserControl01.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -274,6 +280,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyWindow28.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyWindow29.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
