@@ -153,14 +153,19 @@
     <Compile Include="MyWindow30.xaml.cs">
       <DependentUpon>MyWindow30.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MyWindow37.xaml.cs">
+      <DependentUpon>MyWindow37.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SubWindows\SubWindow01.xaml.cs">
       <DependentUpon>SubWindow01.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModelSample\BindableBaseSample01.cs" />
-    <Compile Include="ViewModelSample\CalcViewModel.cs" />
-    <Compile Include="ViewModelSample\Customer.cs" />
-    <Compile Include="ViewModelSample\MainWindowViewModelSample01.cs" />
-    <Compile Include="ViewModelSample\RelayCommandSanple01.cs" />
+    <Compile Include="ViewModelSample01\BindableBaseSample01.cs" />
+    <Compile Include="ViewModelSample01\CalcViewModel.cs" />
+    <Compile Include="ViewModelSample02\Customer.cs" />
+    <Compile Include="ViewModelSample01\MainWindowViewModelSample01.cs" />
+    <Compile Include="ViewModelSample01\RelayCommandSanple01.cs" />
+    <Compile Include="ViewModelSample02\RelayCommandSample02.cs" />
+    <Compile Include="ViewModelSample02\ViewModelBaseSample02.cs" />
     <Page Include="Components\MyUserControl01.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -330,6 +335,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyWindow36.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyWindow37.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

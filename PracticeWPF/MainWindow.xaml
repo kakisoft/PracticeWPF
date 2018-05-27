@@ -72,6 +72,7 @@
         <Button Content="MyWindow34" HorizontalAlignment="Left" Height="35" Margin="843,182,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow34button" />
         <Button Content="MyWindow35" HorizontalAlignment="Left" Height="35" Margin="843,224,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow35button" />
         <Button Content="MyWindow36" HorizontalAlignment="Left" Height="35" Margin="843,265,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow36button" />
+        <Button Content="MyWindow37" HorizontalAlignment="Left" Height="35" Margin="843,307,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow37button" />
 
         <DataGrid HorizontalAlignment="Left" Height="81" Margin="808,570,0,0" VerticalAlignment="Top" Width="185">
             <DataGrid.Columns>
@@ -120,6 +121,7 @@
         <Label Content="34：Page、NavigationService" HorizontalAlignment="Left" Margin="938,187,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
         <Label Content="35：特殊記号（@とか）" HorizontalAlignment="Left" Margin="938,230,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
         <Label Content="36：SQLite １" HorizontalAlignment="Left" Margin="938,270,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
+        <Label Content="37：MVVM" HorizontalAlignment="Left" Margin="938,312,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
 
     </Grid>
 </Window>
