@@ -7,7 +7,7 @@ namespace PracticeWPF.ViewModelSample
     /// <summary>
     /// モデルを簡略化するための <see cref="INotifyPropertyChanged"/> の実装。
     /// </summary>
-    class BindableBaseSample
+    class BindableBaseSample01
     {
         /// <summary>
         /// プロパティの変更を通知するためのマルチキャスト イベント。

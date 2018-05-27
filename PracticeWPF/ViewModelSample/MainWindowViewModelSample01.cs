@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PracticeWPF.ViewModelSample
 {
-    class MainWindowViewModelSample : BindableBaseSample
+    class MainWindowViewModelSample01 : BindableBaseSample01
     {
         private string message;
 
@@ -17,10 +17,10 @@ namespace PracticeWPF.ViewModelSample
         }
 
         #region コマンドの実装
-        private RelayCommandSanple changeMessageCommand;
-        public RelayCommandSanple ChangeMessageCommand
+        private RelayCommandSanple01 changeMessageCommand;
+        public RelayCommandSanple01 ChangeMessageCommand
         {
-            get { return changeMessageCommand = changeMessageCommand ?? new RelayCommandSanple(ChangeMessage); }
+            get { return changeMessageCommand = changeMessageCommand ?? new RelayCommandSanple01(ChangeMessage); }
         }
 
         private void ChangeMessage()
@@ -30,7 +30,7 @@ namespace PracticeWPF.ViewModelSample
         #endregion
 
 
-        public MainWindowViewModelSample()
+        public MainWindowViewModelSample01()
         {
             this.Message = "初期値です。";
         }

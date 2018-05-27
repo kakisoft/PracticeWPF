@@ -64,6 +64,7 @@
         <Button Content="MyWindow27" HorizontalAlignment="Left" Height="36" Margin="440,490,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow27button" />
         <Button Content="MyWindow28" HorizontalAlignment="Left" Height="34" Margin="440,530,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow28button" />
         <Button Content="MyWindow29" HorizontalAlignment="Left" Height="34" Margin="440,570,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow29button" />
+        <Button Content="MyWindow30" HorizontalAlignment="Left" Height="34" Margin="440,610,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow30button" />
 
         <Button Content="MyWindow31" HorizontalAlignment="Left" Height="35" Margin="843,60,0,0"  VerticalAlignment="Top" Width="90" x:Name="MyWindow31button" />
         <Button Content="MyWindow32" HorizontalAlignment="Left" Height="35" Margin="843,101,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow32button" />
@@ -111,6 +112,7 @@
         <Label Content="27：お天気 API" HorizontalAlignment="Left" Margin="540,495,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
         <Label Content="28：Enum の色々な使い方" HorizontalAlignment="Left" Margin="540,534,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
         <Label Content="29：RelayCommand" HorizontalAlignment="Left" Margin="540,574,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
+        <Label Content="30：Prism" HorizontalAlignment="Left" Margin="540,614,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
 
         <Label Content="31：ReactivePropertyを使った双方向バインド" HorizontalAlignment="Left" Margin="938,65,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
         <Label Content="32：ファイルエクスプローラ・印刷" HorizontalAlignment="Left" Margin="938,106,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
