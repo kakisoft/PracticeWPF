@@ -432,7 +432,8 @@
                         -->
                         <StackPanel Margin="0,10,0,0">
                             <StackPanel Orientation="Horizontal">
-                                <Button x:Name="forEach01" Content="forEach01"/>
+                                <Button x:Name="forEach01"  Content="forEach01"  />
+                                <Button x:Name="Dictionary" Content="Dictionary" />
                             </StackPanel>
                             
                         </StackPanel>
