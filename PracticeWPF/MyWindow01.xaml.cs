@@ -404,12 +404,14 @@ namespace PracticeWPF
         #endregion
 
         #region 何かの順番を変則的に表示する
+        // 表示例：『S席　3塁側　１階１列１番 ～２番　定価(\5,000)×２』
         List<Seats> SeatList = new List<Seats>();
         //JsonだとNextという便利な構文が使えるみたいだね・・・
         public class Seats
         {
             public long Id         { get; set; }
             public long SeatType   { get; set; }
+            public long BlockCode  { get; set; }
             public long SalesType  { get; set; }
             public long Floor      { get; set; }
             public long RowNo      { get; set; }
@@ -417,7 +419,8 @@ namespace PracticeWPF
             public long SequenceNo { get; set; }
             public long Price      { get; set; }
 
-            public string SeatTypeName { get; set; }
+            public string SeatTypeName  { get; set; }
+            public string BlockCodeName { get; set; }
             public string SalesTypeName { get; set; }
 
             //-----( 表示用 )-----
@@ -442,6 +445,7 @@ namespace PracticeWPF
             private static long AxisColumnNo { get; set; }
 
             private static long SeatType;
+            private static long BlockCode;
             private static long SalesType;
             private static long Floor;
             private static long RowNo;
@@ -449,12 +453,14 @@ namespace PracticeWPF
             private static long Price;
 
             private static string SalesTypeName;
+            private static string BlockCodeName;
             private static string SeatTypeName;
 
             public static void ResetManageParameters()
             {
                 //DB上に存在しえない値を初期値として設定
                 SeatType  = -1;
+                BlockCode = -1;
                 SalesType = -1;
                 Floor     = -1;
                 RowNo     = -1;
@@ -474,6 +480,7 @@ namespace PracticeWPF
                 }
 
                 SeatType      = _seat.SeatType;
+                BlockCode     = _seat.BlockCode;
                 SalesType     = _seat.SalesType;
                 Floor         = _seat.Floor;
                 RowNo         = _seat.RowNo;
@@ -486,6 +493,7 @@ namespace PracticeWPF
             public static bool IsSwitchKeyChanged(Seats _seat)
             {
                 if (SeatType  != _seat.SeatType)  return true;
+                if (BlockCode != _seat.BlockCode) return true;
                 if (SalesType != _seat.SalesType) return true;
                 if (Floor     != _seat.Floor)     return true;
                 if (RowNo     != _seat.RowNo)     return true;
@@ -500,6 +508,12 @@ namespace PracticeWPF
                 get
                 {
                     string _dispText = String.Empty;
+
+                    //座席タイプ
+                    _dispText += "　" + SeatTypeName;
+
+                    //ブロック名
+                    _dispText += "　" + BlockCodeName;
 
                     //階・列
                     _dispText = ""
@@ -516,9 +530,6 @@ namespace PracticeWPF
                     {
                         _dispText += "　" + AxisColumnNo + "～" + ColumnNo + "番";
                     }
-
-                    //座席タイプ
-                    _dispText += "　" + SeatTypeName;
 
                     //販売形態
                     _dispText += "　" + SalesTypeName;
