@@ -162,6 +162,7 @@ namespace PracticeWPF
             SetMyComboboxItems();
             DispAppConfigParameters();
             SetPositionCode();
+            SetDctionaryParameters();
         }
 
         private void AddThisWindowsEvent()
@@ -182,6 +183,9 @@ namespace PracticeWPF
             showSeatListButton03.Click += (sender, e) => ShowSeatListFromButton03();
 
             forEach01.Click += (sender, e) => ForEach01Button_Click();
+            Dictionary01.Click += (sender, e) => Dictionary01Button_Click();
+            Dictionary02.Click += (sender, e) => Dictionary02Button_Click();
+            Dictionary03.Click += (sender, e) => Dictionary03Button_Click();
         }
 
         private void SetDefaultValue()
@@ -687,6 +691,303 @@ namespace PracticeWPF
                 Console.WriteLine("value = {0}, index = {1}", item.v, item.i);
             }
         }
+        #endregion
+
+        #region Dictionaryの色々な使い方
+
+        #region ＿【Dict】データ定義１
+        /// 【参考】
+        /// http://mocotan.hatenablog.com/entry/2017/10/31/064738
+        /// 
+        /// 1.まずGetHashCodeメソッドで、ハッシュ値が同じかを調べる
+        /// 2.ハッシュ値が同じときは、Equalsメソッドでオブジェクトの同値性を調べる
+        /// 1と2が同じだったら、同じと判断する。
+        Dictionary<Employee, EmployeeDispContent> employeeDctionary = new Dictionary<Employee, EmployeeDispContent>();
+
+        private class Employee
+        {
+            public string Name { get; set; }
+            public int Age { get; set; }
+            public int Position { get; set; }
+            public string Note { get; set; }
+
+            //public Employee(string name, int age, int position)
+            //{
+            //    this.Name = name;
+            //    this.Age = age;
+            //    this.Position = position;
+            //}
+
+
+            //パっと見、別に無くてもいいんじゃね？と思えるが、使用上 Equals を実行させるために必要。高速化のため、らしい。
+            public override int GetHashCode()
+            {
+                int _hashCode;
+
+                _hashCode = Name.GetHashCode()
+                           + Age.GetHashCode()
+                           + Position.GetHashCode()
+                ;
+
+                return _hashCode;
+            }
+
+
+            public override bool Equals(object obj)
+            {
+                //キャストできない場合、一致しないと判定する。
+                var compareObject = obj as Employee;
+                if (compareObject == null)
+                {
+                    return false;
+                }
+
+                // 何が同じときに、「同じ」と判断してほしいかを記述する。
+                bool isSame;
+
+                isSame = this.Name == compareObject.Name
+                        && this.Age == compareObject.Age
+                        && this.Position == compareObject.Position
+                ;
+
+
+                return isSame;
+            }
+
+        }
+
+        private class EmployeeDispContent
+        {
+            public string No { get; set; }
+            public string ContentForDisplay { get; set; }
+        }
+        #endregion
+
+        #region ＿【Dict】データ定義情報２（IEquatableを使う場合）
+        Dictionary<User, UserDispContent> userDctionary = new Dictionary<User, UserDispContent>();
+
+        private class User : IEquatable<User>
+        {
+            public string Name { get; set; }
+            public int Age { get; set; }
+            public int Position { get; set; }
+            public string Note { get; set; }
+
+
+            public bool Equals(User compareObject)
+            {
+                bool isSame;
+
+                isSame = this.Name == compareObject.Name
+                        && this.Age == compareObject.Age
+                        && this.Position == compareObject.Position
+                ;
+
+                return isSame;
+            }
+
+
+            //パっと見、別に無くてもいいんじゃね？と思えるが、使用上 Equals を実行させるために必要。高速化のため、らしい。
+            public override int GetHashCode()
+            {
+                //int _hashCode;
+
+                //_hashCode = Name.GetHashCode()
+                //           + Age.GetHashCode()
+                //           + Position.GetHashCode()
+                //;
+
+                return 0;
+            }
+
+        }
+
+        private class UserDispContent
+        {
+            public string No { get; set; }
+            public string ContentForDisplay { get; set; }
+        }
+        #endregion
+
+        #region ＿【Dict】パラメータセット
+        private void SetDctionaryParameters()
+        {
+            //-----< hashで判定するパターン >-----
+            var iniElKey01 = new Employee { Name = "Oda", Age = 35, Position = 1 };
+            var iniElVal01 = new EmployeeDispContent { No = "1", ContentForDisplay = "1番" };
+            employeeDctionary.Add(iniElKey01, iniElVal01);
+
+            var iniElKey02 = new Employee { Name = "Toyotomi", Age = 28, Position = 2 };
+            var iniElVal02 = new EmployeeDispContent { No = "2", ContentForDisplay = "2番" };
+            employeeDctionary.Add(iniElKey02, iniElVal02);
+
+            var iniElKey03 = new Employee { Name = "Tokugawa", Age = 42, Position = 3 };
+            var iniElVal03 = new EmployeeDispContent { No = "3", ContentForDisplay = "3番" };
+            employeeDctionary.Add(iniElKey03, iniElVal03);
+
+
+
+            //-----< IEquatableで判定するパターン >-----
+            var iniElKeyA = new User { Name = "Oda", Age = 35, Position = 1 };
+            var iniElValA = new UserDispContent { No = "1", ContentForDisplay = "1番" };
+            userDctionary.Add(iniElKeyA, iniElValA);
+
+            var iniElKeyB = new User { Name = "Toyotomi", Age = 28, Position = 2 };
+            var iniElValB = new UserDispContent { No = "2", ContentForDisplay = "2番" };
+            userDctionary.Add(iniElKeyB, iniElValB);
+
+            var iniElKeyC = new User { Name = "Tokugawa", Age = 42, Position = 3 };
+            var iniElValC = new UserDispContent { No = "3", ContentForDisplay = "3番" };
+            userDctionary.Add(iniElKeyC, iniElValC);
+        }
+        #endregion
+
+        #region ＿【Dict】Dictionaryの基本的な使い方
+        private void Dictionary01Button_Click()
+        {
+            //------------
+            // Dictionary  
+            //------------
+            Dictionary<string, int> registrants = new Dictionary<string, int>() {
+              {"yamada", 50},
+              {"tanaka", 80},
+            };
+
+            //追加
+            registrants.Add("ishikawa", 40);
+
+            //キーから取得
+            var valueFromKey = registrants["tanaka"];
+            Console.WriteLine(valueFromKey); // 80
+
+            //値の変更
+            registrants["yamada"] = 60;
+
+            //ループ１
+            foreach (KeyValuePair<string, int> registrant in registrants)
+            {
+                Console.WriteLine($"{registrant.Key}: {registrant.Value}");
+            }
+
+            //ループ２
+            foreach (var item in registrants)
+            {
+                Console.WriteLine(item.Key);
+                Console.WriteLine(item.Value);
+            }
+
+
+            //キーを含んでいるかチェック
+            if (registrants.ContainsKey("kobayashi"))
+            {
+                Console.WriteLine("kobayashi is Contained.");
+            }
+            else
+            {
+                Console.WriteLine("kobayashi is not Contained.");
+            }
+        }
+        #endregion
+
+        #region ＿【Dict】キーがClassのDictionary
+        private void Dictionary02Button_Click()
+        {
+            var tmpElement01 = new Employee { Name = "Oda", Age = 35, Position = 1 };        //キーに含まれている要素
+            var tmpElement02 = new Employee { Name = "minamoto", Age = 200, Position = 99 }; //キーに含まれていない要素
+
+
+            //存在する要素
+            if (employeeDctionary.ContainsKey(tmpElement01))
+            {
+                Console.WriteLine("tmpElement01 is Contained.");
+            }
+            else
+            {
+                Console.WriteLine("tmpElement01 is not Contained.");
+            }
+
+
+            //存在しない要素
+            if (employeeDctionary.ContainsKey(tmpElement02))
+            {
+                Console.WriteLine("tmpElement02 is Contained.");
+            }
+            else
+            {
+                Console.WriteLine("tmpElement02 is not Contained.");
+            }
+
+
+
+            var tmpElement03 = new Employee { Name = "Oda", Age = 999, Position = 999 };      //Nameだけ一致
+            var tmpElement04 = new Employee { Name = "Oda", Age = 35, Position = 999 };      //Name と Ageだけ一致
+            var tmpElement05 = new Employee { Name = "nooooo", Age = 35, Position = 1 };        //Age と Position だけ一致
+
+            //tmpElement03
+            if (employeeDctionary.ContainsKey(tmpElement03))
+            {
+                Console.WriteLine("tmpElement03 is Contained.");
+            }
+            else
+            {
+                Console.WriteLine("tmpElement03 is not Contained.");
+            }
+
+            //tmpElement04
+            if (employeeDctionary.ContainsKey(tmpElement04))
+            {
+                Console.WriteLine("tmpElement04 is Contained.");
+            }
+            else
+            {
+                Console.WriteLine("tmpElement04 is not Contained.");
+            }
+
+            //tmpElement05
+            if (employeeDctionary.ContainsKey(tmpElement05))
+            {
+                Console.WriteLine("tmpElement05 is Contained.");
+            }
+            else
+            {
+                Console.WriteLine("tmpElement05 is not Contained.");
+            }
+
+        }
+        #endregion
+
+        #region ＿【Dict】IEquatableでの比較
+        private void Dictionary03Button_Click()
+        {
+            var tmpElement01 = new User { Name = "Oda", Age = 35, Position = 1 };        //キーに含まれている要素
+            var tmpElement02 = new User { Name = "minamoto", Age = 200, Position = 99 }; //キーに含まれていない要素
+
+
+            //存在する要素
+            if (userDctionary.ContainsKey(tmpElement01))
+            {
+                Console.WriteLine("tmpElement01 is Contained.");
+            }
+            else
+            {
+                Console.WriteLine("tmpElement01 is not Contained.");
+            }
+
+
+            //存在しない要素
+            if (userDctionary.ContainsKey(tmpElement02))
+            {
+                Console.WriteLine("tmpElement02 is Contained.");
+            }
+            else
+            {
+                Console.WriteLine("tmpElement02 is not Contained.");
+            }
+
+        }
+        #endregion
+
+
         #endregion
     }
 }
