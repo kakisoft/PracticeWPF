@@ -94,6 +94,7 @@ namespace PracticeWPF
             myButton05.Click += (sender, e) => button05_Click_addedEvent();
             myButton06.Click += (sender, e) => button06_Click_addedEvent();
             myButton07.Click += (sender, e) => button07_Click_addedEvent();
+            myButton08.Click += (sender, e) => button08_Click_addedEvent();
         }
         #endregion
 
@@ -271,6 +272,15 @@ namespace PracticeWPF
             int childElementCount = parentList.Sum(x => x.ChildList.ToList().Count);
 
             Console.WriteLine(childElementCount);
+        }
+        #endregion
+
+        #region 条件を指定してListから削除
+        private void button08_Click_addedEvent()
+        {
+            _employee.RemoveAll(x => x.Age == 20);
+
+            _employee.RemoveAll(x => x.IsMarried == false);
         }
         #endregion
 
