@@ -28,9 +28,12 @@ namespace PracticeWPF
 
         private class Position
         {
+            public const string SELECTED_MARK = "●";
+            public const string UNSELECTED_MARK = "";
+
             public int Id { get; set; }
             public string Name { get; set; }
-            public bool IsDeleted { get; set; }
+            public bool IsDeleted { get; set; } = false;
         }
 
         private void SetPositionCode()
@@ -108,7 +111,7 @@ namespace PracticeWPF
         }
         #endregion
 
-        #region バインディング設定
+        #region バインディング設定・ユーザコントロールとのバインディング設定
         private void SetBindConfig()
         {
             subConfigParametersPanel.DataContext = subConfigParametersCluster;
