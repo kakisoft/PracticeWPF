@@ -186,6 +186,7 @@ namespace PracticeWPF
             showSeatListButton03.Click += (sender, e) => ShowSeatListFromButton03();
 
             forEach01.Click += (sender, e) => ForEach01Button_Click();
+            toList01.Click += (sender, e)  => ToList01Button_Click();
             Dictionary01.Click += (sender, e) => Dictionary01Button_Click();
             Dictionary02.Click += (sender, e) => Dictionary02Button_Click();
             Dictionary03.Click += (sender, e) => Dictionary03Button_Click();
@@ -704,6 +705,29 @@ namespace PracticeWPF
                 // 匿名型から値とインデックスを取り出して使える
                 Console.WriteLine("value = {0}, index = {1}", item.v, item.i);
             }
+        }
+        #endregion
+
+        #region toList01(破壊的)
+        private void ToList01Button_Click()
+        {
+            //あれ？ 元のListも内容が変わっていたような・・・
+            positionList
+                .Where(x => x.IsDeleted == false)
+                .ToList();
+
+
+            //左辺には、フィルタリングかけた内容が格納される。
+            var a1 = positionList
+                .Where(x => x.IsDeleted == false)
+                .ToList();
+
+
+            //件数変わらず。
+            var a2 = positionList
+                .Select(x => x.IsDeleted == false)
+                .ToList();
+
         }
         #endregion
 

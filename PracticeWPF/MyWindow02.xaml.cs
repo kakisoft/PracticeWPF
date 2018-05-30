@@ -293,7 +293,7 @@ namespace PracticeWPF
 
 
             //グリッドの内容も変更される。
-            textList[0].DispText = "nn";
+            //textList[0].DispText = "nn";
         }
 
         private void deleteListView01_Click(object sender, RoutedEventArgs e)
