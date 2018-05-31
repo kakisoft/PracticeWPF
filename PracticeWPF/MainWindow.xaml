@@ -120,8 +120,8 @@
         <Label Content="33：Dictionaryをソースにした GridやListView" HorizontalAlignment="Left" Margin="938,146,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
         <Label Content="34：Page、NavigationService" HorizontalAlignment="Left" Margin="938,187,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
         <Label Content="35：特殊記号（@とか）" HorizontalAlignment="Left" Margin="938,230,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
-        <Label Content="36：SQLite １" HorizontalAlignment="Left" Margin="938,270,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
-        <Label Content="37：MVVM" HorizontalAlignment="Left" Margin="938,312,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
+        <Label Content="36：SQLite －１－" HorizontalAlignment="Left" Margin="938,270,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
+        <Label Content="37：MVVM －１－" HorizontalAlignment="Left" Margin="938,312,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
 
     </Grid>
 </Window>
