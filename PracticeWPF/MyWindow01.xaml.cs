@@ -3,6 +3,7 @@ using PracticeWPF.SubWindows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
 
 namespace PracticeWPF
@@ -187,6 +188,8 @@ namespace PracticeWPF
 
             forEach01.Click += (sender, e) => ForEach01Button_Click();
             toList01.Click += (sender, e)  => ToList01Button_Click();
+            dateFormat01.Click += (sender, e) => DateFormat01Button_Click();
+
             Dictionary01.Click += (sender, e) => Dictionary01Button_Click();
             Dictionary02.Click += (sender, e) => Dictionary02Button_Click();
             Dictionary03.Click += (sender, e) => Dictionary03Button_Click();
@@ -1026,6 +1029,107 @@ namespace PracticeWPF
         #endregion
 
 
+        #endregion
+
+        #region DateFormat
+        //https://kuroeveryday.blogspot.com/2014/03/padding.html
+        private void DateFormat01Button_Click()
+        {
+            try
+            {
+                //  2018/03/23 04:14:39
+                Console.WriteLine(String.Format("{0:yyyy/MM/dd hh:mm:ss}", DateTime.Now));
+
+                //  2018/03/23 (金) 16:14:44
+                DateTime dtNow = DateTime.Now;
+                string stPrompt1 = dtNow.ToString("yyyy/MM/dd (ddd) HH:mm:ss");
+                Console.WriteLine(stPrompt1);
+
+                //  2018年03月23日 (金曜日) 午後 04時14分44秒
+                string stPrompt2 = dtNow.ToString("yyyy年MM月dd日 (dddd) tt hh時mm分ss秒");
+                Console.WriteLine(stPrompt2);
+
+                //  2018年3月23日 (金)
+                string stPrompt3 = dtNow.ToString("yyyy年M月d日 (ddd)");
+                Console.WriteLine(stPrompt3);
+
+                //  2017/02/16 12:15:12
+                string sa1 = "2017/2/16 12:15:12";
+                DateTime dt1 = DateTime.Parse(sa1);
+                Console.WriteLine(dt1);
+
+                //  2018/02/16 0:00:00
+                string sa2 = "2018/2/16";
+                DateTime dt2 = DateTime.Parse(sa2);
+                Console.WriteLine(dt2);
+
+                // エラー
+                //string s3 = "201802016";
+                //DateTime dt3 = DateTime.Parse(s3);
+                //Console.WriteLine(dt3);
+
+                // あいうえおカキクケコｻｼｽｾｿnaninuneno１２３４５６７８９０
+                string sb1 = "あいうえおカキクケコｻｼｽｾｿnaninuneno1234567890";
+                var sbx1 = Regex.Replace(sb1, "[0-9]", p => ((char)(p.Value[0] - '0' + '０')).ToString());
+                Console.WriteLine(sbx1);
+
+                //  ２０１８/０３/２３
+                string sb2 = "2018/03/23";
+                var sbx2 = Regex.Replace(sb2, "[0-9]", p => ((char)(p.Value[0] - '0' + '０')).ToString());
+                Console.WriteLine(sbx2);
+
+                // "20180621" → "２０１８年６月１日 (金)"
+                string date1 = "20180601";
+                string date2 = date1.Substring(0, 4) + "/" + date1.Substring(4, 2) + "/" + date1.Substring(6, 2);
+                DateTime date3 = DateTime.Parse(date2);
+                string date4 = date3.ToString("yyyy年M月d日 (ddd)");
+                string date5 = Regex.Replace(date4, "[0-9]", p => ((char)(p.Value[0] - '0' + '０')).ToString());
+
+                Console.WriteLine(date5);
+
+
+                //===================================
+                //
+                //===================================
+                // 日付：出力用フォーマットに変換（例：20180621 → "２０１８年６月１日 (金)" ）
+                int df1 = 20180621;
+                string df2 = df1.ToString();
+                string df3 = df2.Substring(0, 4) + "/" + df2.Substring(4, 2) + "/" + df2.Substring(6, 2);
+                DateTime df4 = DateTime.Parse(df3);
+                string df5_1 = df4.ToString("yyyy年");
+                string df5_2 = df4.ToString("M月").PadLeft(3, '　');
+                string df5_3 = df4.ToString("d日").PadLeft(3, '　');
+                string df5_4 = df4.ToString(" (ddd)");
+                string df5 = df5_1 + df5_2 + df5_3 + df5_4;
+                string df6 = Regex.Replace(df5, "[0-9]", p => ((char)(p.Value[0] - '0' + '０')).ToString());
+                Console.WriteLine(df6);
+
+
+                // 開場時間：出力用フォーマットに変換（例：930 → "９：３０" ）
+                int otf1 = 930;
+                string otf2 = otf1.ToString().PadLeft(4, '0');
+                string otf3 = otf2.Substring(0, 2) + ":" + otf2.Substring(2, 2);
+                DateTime otf4 = DateTime.Parse(DateTime.Now.ToString("yyyy/MM/dd " + otf3));
+                string otf5 = otf4.ToString("H：mm").PadLeft(5, '　');
+                string otf6 = Regex.Replace(otf5, "[0-9]", p => ((char)(p.Value[0] - '0' + '０')).ToString());
+                Console.WriteLine(otf6);
+
+
+                // 公演時間：出力用フォーマットに変換（例：1030 → "１０：００" ）
+                int ktf1 = 1000;
+                string ktf2 = ktf1.ToString().PadLeft(4, '0');
+                string ktf3 = ktf2.Substring(0, 2) + ":" + ktf2.Substring(2, 2);
+                DateTime ktf4 = DateTime.Parse(DateTime.Now.ToString("yyyy/MM/dd " + ktf3));
+                string ktf5 = ktf4.ToString("H：mm");
+                string ktf6 = Regex.Replace(ktf5, "[0-9]", p => ((char)(p.Value[0] - '0' + '０')).ToString());
+                Console.WriteLine(ktf6);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         #endregion
     }
 }

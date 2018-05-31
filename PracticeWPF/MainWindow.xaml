@@ -93,6 +93,7 @@
         <Label Content="07：リスト要素のデータとのバインディング２" HorizontalAlignment="Left" Margin="132,298,0,0" VerticalAlignment="Top"/>
         <Label Content="08：チェックボックスとのバインディング" HorizontalAlignment="Left" Margin="132,338,0,0" VerticalAlignment="Top"/>
         <Label Content="09：チェックボックスとの双方向バインディング（応用）" HorizontalAlignment="Left" Margin="132,378,0,0" VerticalAlignment="Top"/>
+ 
         <Label Content="10：ボタン内での改行（ContextにTextBlockを格納）" HorizontalAlignment="Left" Margin="132,416,0,0" VerticalAlignment="Top"/>
         <Label Content="11：非同期制御" HorizontalAlignment="Left" Margin="132,460,0,0" VerticalAlignment="Top"/>
         <Label Content="12：コントロールを動的に配置、および選択パラメータを取得" HorizontalAlignment="Left" Margin="132,500,0,0" VerticalAlignment="Top"/>
@@ -103,6 +104,7 @@
         <Label Content="17：デリゲート・イベント" HorizontalAlignment="Left" Margin="534,98,0,0" VerticalAlignment="Top"/>
         <Label Content="18：LINQ" HorizontalAlignment="Left" Margin="536,138,0,0" VerticalAlignment="Top"/>
         <Label Content="19：Gridの指定位置に要素を追加" HorizontalAlignment="Left" Margin="538,178,0,0" VerticalAlignment="Top"/>
+
         <Label Content="20：超簡単な async/await" HorizontalAlignment="Left" Margin="538,215,0,0" VerticalAlignment="Top"/>
         <Label Content="21：全角・半角の変換、カレントディレクト、リソース取得" HorizontalAlignment="Left" Margin="538,254,0,0" VerticalAlignment="Top"/>
         <Label Content="22：typeof・nameof・GUID・キャスト" HorizontalAlignment="Left" Margin="540,298,0,0" VerticalAlignment="Top"/>

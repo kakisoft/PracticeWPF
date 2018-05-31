@@ -6,7 +6,18 @@
         xmlns:local="clr-namespace:PracticeWPF"
         xmlns:components="clr-namespace:PracticeWPF.Components"
         mc:Ignorable="d"
-        Title="MyWindow01" Height="728" Width="1366" Loaded="Window_Loaded" Background="#FFEDE5F7" ResizeMode="CanResizeWithGrip" IsHitTestVisible="True" Top="0" Left="0" Closing="Window_Closing" SizeChanged="window_SizeChanged">
+        Title="MyWindow01" 
+        Height="728" 
+        Width="1366" 
+        Loaded="Window_Loaded" 
+        Background="#FFEDE5F7" 
+        ResizeMode="CanResizeWithGrip" 
+        IsHitTestVisible="True" 
+        Top="0" 
+        Left="0" 
+        Closing="Window_Closing" 
+        SizeChanged="window_SizeChanged"
+        >
     <Window.Resources>
         <!-- 日付 -->
         <Style TargetType="DatePicker" x:Key="staticInputDatePicker">
@@ -399,7 +410,7 @@
                         </StackPanel>
                     </StackPanel>
 
-                    <StackPanel Margin="5" Width="250" Height="200" VerticalAlignment="Top">
+                    <StackPanel Margin="5" Width="270" Height="200" VerticalAlignment="Top">
                         <!--
                         ===================================
                                      ComboBox
@@ -432,8 +443,9 @@
                         -->
                         <StackPanel Margin="0,10,0,0">
                             <StackPanel Orientation="Horizontal">
-                                <Button x:Name="forEach01"  Content="forEach01"  Margin="0,0,10,0"/>
-                                <Button x:Name="toList01"  Content="toList01(破壊的)"  Margin="0,0,10,0"/>
+                                <Button x:Name="forEach01"     Content="forEach01"           Margin="0,0,10,0"/>
+                                <Button x:Name="toList01"      Content="toList01(破壊的？)"  Margin="0,0,10,0"/>
+                                <Button x:Name="dateFormat01"  Content="dateFormat01"        Margin="0,0,10,0"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                                 <Button x:Name="Dictionary01" Content="Dictionary01" Margin="0,0,10,0"/>
