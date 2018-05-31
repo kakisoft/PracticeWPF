@@ -95,6 +95,7 @@ namespace PracticeWPF
             myButton06.Click += (sender, e) => button06_Click_addedEvent();
             myButton07.Click += (sender, e) => button07_Click_addedEvent();
             myButton08.Click += (sender, e) => button08_Click_addedEvent();
+            myButton09.Click += (sender, e) => button09_Click_addedEvent();
         }
         #endregion
 
@@ -284,5 +285,15 @@ namespace PracticeWPF
         }
         #endregion
 
+        #region foreachの受け側に型を設定
+        private void button09_Click_addedEvent()
+        {
+            //「var」にカーソルを合わせ、「Ctrl + .」で、インテリセンスが効く。
+            foreach (IGrouping<int, Employee> item in _employee.GroupBy(x => x.Position))
+            {
+                Console.WriteLine(item.Key);
+            }
+        }
+        #endregion
     }
 }
