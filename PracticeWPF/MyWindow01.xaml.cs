@@ -1104,6 +1104,7 @@ namespace PracticeWPF
                 string df5_4 = df4.ToString(" (ddd)");
                 string df5 = df5_1 + df5_2 + df5_3 + df5_4;
                 string df6 = Regex.Replace(df5, "[0-9]", p => ((char)(p.Value[0] - '0' + '０')).ToString());
+
                 Console.WriteLine(df6);
 
 
@@ -1114,6 +1115,7 @@ namespace PracticeWPF
                 DateTime otf4 = DateTime.Parse(DateTime.Now.ToString("yyyy/MM/dd " + otf3));
                 string otf5 = otf4.ToString("H：mm").PadLeft(5, '　');
                 string otf6 = Regex.Replace(otf5, "[0-9]", p => ((char)(p.Value[0] - '0' + '０')).ToString());
+
                 Console.WriteLine(otf6);
 
 
@@ -1124,6 +1126,7 @@ namespace PracticeWPF
                 DateTime ktf4 = DateTime.Parse(DateTime.Now.ToString("yyyy/MM/dd " + ktf3));
                 string ktf5 = ktf4.ToString("H：mm");
                 string ktf6 = Regex.Replace(ktf5, "[0-9]", p => ((char)(p.Value[0] - '0' + '０')).ToString());
+
                 Console.WriteLine(ktf6);
 
             }
