@@ -29,10 +29,15 @@ WPF練習用
  * 24：JSONシリアライズ・デシリアライズ
  * 25：郵便番号検索API
  * 26：GIO API
+ * 27：お天気 API
+ * 28：Enum の色々な使い方
+ * 29：RelayCommand
+ * 30：Prism 
  * 31：ReactivePropertyを使った双方向バインド
  * 32：ファイルエクスプローラ・印刷
  * 33：Dictionaryをソースにした GridやListView
  * 34：Page、NavigationService
  * 35：特殊記号（@とか）
- * 36：SQLite
+ * 36：SQLite －１－
+ * 37：MVVM －１－
 
