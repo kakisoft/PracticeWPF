@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PracticeWPF.ViewModelSample03;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -117,6 +118,11 @@ namespace PracticeWPF
 
         private void SetScreenTransitionBottonEvent()
         {
+            MVVM_SingleFileStyle01.Click += (sender, e) => new SingleFileStyle01().ShowDialog();
+            MVVM_SingleFileStyle02.Click += (sender, e) => new SingleFileStyle02().ShowDialog();
+
+
+
             MyWindow14button.Click += (sender, e) => new MyWindow14().ShowDialog();
             MyWindow15button.Click += (sender, e) => new MyWindow15().ShowDialog();
             MyWindow16button.Click += (sender, e) => new MyWindow16().ShowDialog();

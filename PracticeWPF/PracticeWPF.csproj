@@ -169,6 +169,12 @@
     <Compile Include="ViewModelSample01\RelayCommandSanple01.cs" />
     <Compile Include="ViewModelSample02\RelayCommandSample02.cs" />
     <Compile Include="ViewModelSample02\ViewModelBaseSample02.cs" />
+    <Compile Include="ViewModelSample03\SingleFileStyle01.xaml.cs">
+      <DependentUpon>SingleFileStyle01.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModelSample03\SingleFileStyle02.xaml.cs">
+      <DependentUpon>SingleFileStyle02.xaml</DependentUpon>
+    </Compile>
     <Page Include="Components\MyUserControl01.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -350,6 +356,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SubWindows\SubWindow01.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModelSample03\SingleFileStyle01.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModelSample03\SingleFileStyle02.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
