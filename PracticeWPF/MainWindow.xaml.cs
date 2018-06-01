@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace PracticeWPF
 {
@@ -80,9 +81,17 @@ namespace PracticeWPF
         {
             try
             {
+                //呼び出し元の画面を非表示
+                //((MainWindow)((Button)sender).DataContext).Visibility = Visibility.Hidden;
+
+
                 var myWindow02 = new MyWindow02();
                 //myWindow02.Show();
                 myWindow02.ShowDialog(); //別ウィンドウが閉じるまで、呼び出し元は非アクティブ
+
+
+                //呼び出し元の画面を表示
+                //((MainWindow)((Button)sender).DataContext).Visibility = Visibility.Visible;
             }
             catch (Exception ex)
             {
