@@ -1,6 +1,7 @@
 ﻿using PracticeWPF.Common;
 using PracticeWPF.SubWindows;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -49,7 +50,7 @@ namespace PracticeWPF
         #endregion
 
         #region データ定義３
-        public class Product
+        private class Product
         {
             public long Id { get; set; }
             public string ProductName { get; set; }
@@ -193,6 +194,8 @@ namespace PracticeWPF
             Dictionary01.Click += (sender, e) => Dictionary01Button_Click();
             Dictionary02.Click += (sender, e) => Dictionary02Button_Click();
             Dictionary03.Click += (sender, e) => Dictionary03Button_Click();
+
+            DeepCopy01.Click += (sender, e) => DeepCopy01Button_Click();
         }
 
         private void SetDefaultValue()
@@ -1134,6 +1137,56 @@ namespace PracticeWPF
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        #endregion
+
+        #region DeepCopy01
+        //http://note.websmil.com/csharp/c-class%E3%82%92%E3%82%B3%E3%83%94%E3%83%BC%E3%81%99%E3%82%8B
+        public class Ticket : ICloneable
+        {
+            public long Id { get; set; }
+            public string Name { get; set; }
+
+            public object Clone() //必須。ICloneableのMemberwiseClone();にてコピーを行う
+            {
+                return MemberwiseClone();
+            }
+        }
+
+        class CS : ICloneable
+        {
+            private int x = 100;
+            public ArrayList list = new ArrayList();         //参照型
+            public int GetX()
+            {
+                return x;
+            }
+
+            public object Clone()                            // シャローコピーになります。
+            {
+                return MemberwiseClone();
+            }
+
+            public CS ShallowCopy()                          //シャローコピー
+            {
+                return (CS)this.Clone();
+            }
+
+            public CS DeepCopy()                             //ディープコピー
+            {
+                CS obj = (CS)this.Clone();
+                obj.list = (ArrayList)this.list.Clone();       //参照型は全てインスタンスをコピーする
+                return (CS)Clone();
+            }
+        }
+
+        private void DeepCopy01Button_Click()
+        {
+            Ticket _original = new Ticket{ Id=1, Name="Free"};
+
+
+            Ticket _copy = (Ticket)_original.Clone();
+
         }
         #endregion
     }
