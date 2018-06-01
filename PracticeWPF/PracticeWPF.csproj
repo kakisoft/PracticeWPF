@@ -156,6 +156,9 @@
     <Compile Include="MyWindow37.xaml.cs">
       <DependentUpon>MyWindow37.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MyWindow38.xaml.cs">
+      <DependentUpon>MyWindow38.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SubWindows\SubWindow01.xaml.cs">
       <DependentUpon>SubWindow01.xaml</DependentUpon>
     </Compile>
@@ -339,6 +342,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MyWindow37.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyWindow38.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

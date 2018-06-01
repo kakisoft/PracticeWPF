@@ -1,0 +1,24 @@
+﻿<Window x:Class="PracticeWPF.MyWindow38"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PracticeWPF"
+        mc:Ignorable="d"
+        Title="MyWindow38" Height="450" Width="800">
+    <Grid>
+        <Button 
+            Content="OK" 
+            Command="{Binding OKCommand}" 
+            Width="50" 
+            Height="50" Margin="33,24,709,345" 
+            />
+
+        <Button 
+            Content="NG" 
+            Command="{Binding NGCommand}" 
+            Width="50" 
+            Height="50" Margin="122,24,620,345" 
+            />
+    </Grid>
+</Window>
