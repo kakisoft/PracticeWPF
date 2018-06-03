@@ -94,36 +94,23 @@ namespace PracticeWPF.ViewModelSample03
     {
         #region 定義情報
 
-        //public enum EN_FLG_YN
-        //{
-        //    [AliasName("Y")]
-        //    ARI,
-        //    [AliasName("N")]
-        //    NASHI
-        //}
+        private const int DEFAULT_PARAM01 = 0;
 
-
-
-
-        private const int INT_ZERO = 0;
-        /// <summary>
-        /// お知らせ情報
-        /// </summary>
-        private const string STR_OSIRASE = @"お知らせ情報";
-        /// <summary>
-        /// 失敗
-        /// </summary>
-        private const string REGISTRATION_ERROR = @"失敗";
-        /// <summary>
-        /// MSG01
-        /// </summary>
-        /// <remarks>システム担当者情報の保存に失敗しました。</remarks>
-        private const string STR_MSG_01 = @"{0}の{1}に{2}しました。";
-        /// <summary>
-        /// MSG0
-        /// </summary>
-        /// <remarks>システム担当者情報を保存しました。</remarks>
-        private const string STR_MSG_02 = @"{0}を{1}しました。";
+        private static class NOTIFICATION_CONTENT
+        {
+            public const string INFO = @"お知らせ情報";
+            public const string REGISTRATION_ERROR = @"失敗";
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <remarks>システム担当者情報の保存に失敗しました。</remarks>
+            public const string ERROR_MESSAGE01 = @"{0}の{1}に{2}しました。";
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <remarks>システム担当者情報を保存しました。</remarks>
+            public const string ERROR_MESSAGE02 = @"{0}を{1}しました。";
+        }
         #endregion
 
         #region property
@@ -147,6 +134,7 @@ namespace PracticeWPF.ViewModelSample03
                 base.notifyPropertyChanged(nameof(Title));
             }
         }
+
         /// <summary>
         /// タイトル
         /// </summary>
@@ -168,6 +156,7 @@ namespace PracticeWPF.ViewModelSample03
                 base.notifyPropertyChanged(nameof(Title));
             }
         }
+
         /// <summary>
         /// サブタイトル
         /// </summary>
@@ -189,6 +178,7 @@ namespace PracticeWPF.ViewModelSample03
                 base.notifyPropertyChanged(nameof(SubTitle));
             }
         }
+
         /// <summary>
         /// 適用期間
         /// </summary>
@@ -210,6 +200,7 @@ namespace PracticeWPF.ViewModelSample03
                 base.notifyPropertyChanged(nameof(PostingStartDate));
             }
         }
+
         /// <summary>
         /// 掲載時開始時
         /// </summary>
@@ -236,6 +227,7 @@ namespace PracticeWPF.ViewModelSample03
                 base.notifyPropertyChanged(nameof(PostingStartHour));
             }
         }
+
         /// <summary>
         /// 掲載時開始分
         /// </summary>
@@ -262,6 +254,7 @@ namespace PracticeWPF.ViewModelSample03
                 base.notifyPropertyChanged(nameof(PostingStartMinute));
             }
         }
+
         /// <summary>
         /// 掲載時 終了年月日
         /// </summary>
@@ -283,6 +276,7 @@ namespace PracticeWPF.ViewModelSample03
                 base.notifyPropertyChanged(nameof(PostingEndDate));
             }
         }
+
         /// <summary>
         /// 掲載時開始時
         /// </summary>
@@ -309,6 +303,7 @@ namespace PracticeWPF.ViewModelSample03
                 base.notifyPropertyChanged(nameof(PostingEndHour));
             }
         }
+
         /// <summary>
         /// 掲載時開始分
         /// </summary>
@@ -335,6 +330,7 @@ namespace PracticeWPF.ViewModelSample03
                 base.notifyPropertyChanged(nameof(PostingEndMinute));
             }
         }
+
         /// <summary>
         /// 内容
         /// </summary>
@@ -356,6 +352,7 @@ namespace PracticeWPF.ViewModelSample03
                 base.notifyPropertyChanged(nameof(Contents));
             }
         }
+
         /// <summary>
         /// 回数
         /// </summary>
@@ -441,7 +438,7 @@ namespace PracticeWPF.ViewModelSample03
         /// </summary>
         private void initialized()
         {
-            this.Id = INT_ZERO;
+            this.Id = DEFAULT_PARAM01;
             this.Title = string.Empty;
             this.SubTitle = string.Empty;
             this.Contents = string.Empty;
@@ -502,19 +499,19 @@ namespace PracticeWPF.ViewModelSample03
                 if (base.ModelClass.PostingStartDate != null)
                 {
                     DateTime dt = base.ModelClass.PostingStartDate.Value;
-                    dt = new DateTime(dt.Year, dt.Month, dt.Day, Convert.ToInt32(this._postingStartHour), Convert.ToInt32(this._postingStartMinute), INT_ZERO);
+                    dt = new DateTime(dt.Year, dt.Month, dt.Day, Convert.ToInt32(this._postingStartHour), Convert.ToInt32(this._postingStartMinute), DEFAULT_PARAM01);
                     base.ModelClass.PostingStartDate = dt;
                 }
 
                 if (base.ModelClass.PostingEndDate != null)
                 {
                     DateTime dt = base.ModelClass.PostingEndDate.Value;
-                    dt = new DateTime(dt.Year, dt.Month, dt.Day, Convert.ToInt32(this._postingEndHour), Convert.ToInt32(this._postingEndMinute), INT_ZERO);
+                    dt = new DateTime(dt.Year, dt.Month, dt.Day, Convert.ToInt32(this._postingEndHour), Convert.ToInt32(this._postingEndMinute), DEFAULT_PARAM01);
                     base.ModelClass.PostingEndDate = dt;
                 }
 
-                MessageBox.Show(string.Format(STR_MSG_01, STR_OSIRASE, "保存", REGISTRATION_ERROR));
-                MessageBox.Show(string.Format(STR_MSG_02, STR_OSIRASE, "保存"));
+                MessageBox.Show(string.Format(NOTIFICATION_CONTENT.ERROR_MESSAGE01, NOTIFICATION_CONTENT.INFO, "保存", NOTIFICATION_CONTENT.REGISTRATION_ERROR));
+                MessageBox.Show(string.Format(NOTIFICATION_CONTENT.ERROR_MESSAGE02, NOTIFICATION_CONTENT.INFO, "保存"));
 
 
                 ((Window)parameter).Close();
