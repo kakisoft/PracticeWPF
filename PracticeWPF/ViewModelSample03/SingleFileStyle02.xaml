@@ -5,8 +5,203 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticeWPF.ViewModelSample03"
         mc:Ignorable="d"
-        Title="SingleFileStyle02" Height="450" Width="800">
+        Title="SingleFileStyle02"
+        Height="300" 
+        Width="700"
+        ResizeMode="CanMinimize"
+        Name="Window"
+        >
+    <Window.Resources>
+        <ControlTemplate x:Key="ErrorTemplate">
+            <DockPanel>
+                <ItemsControl DockPanel.Dock="Right" Margin="5,0"
+                              ItemsSource="{Binding ElementName=adornedElement, Path=AdornedElement.(Validation.Errors)}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding ErrorContent}" Foreground="Red"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <Border BorderBrush="Red" BorderThickness="1"
+                        Width="{Binding ElementName=adornedElement,  Path=ActualWidth}"
+                        Height="{Binding ElementName=adornedElement, Path=ActualHeight}">
+                    <AdornedElementPlaceholder Name="adornedElement"/>
+                </Border>
+            </DockPanel>
+        </ControlTemplate>
+    </Window.Resources>
+
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*"  MinWidth="670"/>
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="197" />
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+
+
+        <!-- 入力項目 -->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="5*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="23"/>
+                <RowDefinition Height="5" />
+                <RowDefinition Height="23"/>
+                <RowDefinition Height="5" />
+                <RowDefinition Height="23"/>
+                <RowDefinition Height="5" />
+                <RowDefinition Height="23"/>
+                <RowDefinition Height="62"/>
+                <RowDefinition Height="5" />
+                <RowDefinition Height="23"/>
+            </Grid.RowDefinitions>
+
+            <!--タイトル-->
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="タイトル"/>
+            <TextBox 
+                Grid.Row="0" Grid.Column="2" 
+                InputMethod.PreferredImeState="On" 
+                InputMethod.PreferredImeConversionMode="FullShape,Native"
+                Validation.ErrorTemplate="{StaticResource ResourceKey=ErrorTemplate}"
+                Text="{Binding Path=Title, UpdateSourceTrigger=PropertyChanged}"
+                Width="255" 
+                HorizontalAlignment="Left" x:Name="TieleTextBox"
+                />
+
+            <!--サブタイトル-->
+            <TextBlock 
+                Grid.Row="2" Grid.Column="0" 
+                Text="サブタイトル"/>
+            <TextBox   Grid.Row="2" Grid.Column="2"
+                        InputMethod.PreferredImeState="On"
+                        InputMethod.PreferredImeConversionMode="FullShape,Native"
+                        Validation.ErrorTemplate="{StaticResource ResourceKey=ErrorTemplate}"
+                        Text="{Binding Path=SubTitle, UpdateSourceTrigger=PropertyChanged}"
+                        Width="255" HorizontalAlignment="Left"/>
+
+            <!--適用期間-->
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="適用期間" />
+            <Grid Grid.Row="4" Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"  />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="5*"  />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="23"/>
+                </Grid.RowDefinitions>
+
+                <!--開始日-->
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" >
+                        <DatePicker 
+                            InputMethod.PreferredImeState="On"
+                            InputMethod.PreferredImeConversionMode="Alphanumeric"
+                            SelectedDate="{Binding Path=_time_stamp_begin}" />
+                        <TextBox
+                            InputMethod.PreferredImeState="On"
+                            InputMethod.PreferredImeConversionMode="Alphanumeric"
+                            Validation.ErrorTemplate="{StaticResource ResourceKey=ErrorTemplate}"
+                            Text="{Binding Path=_time_stamp_hour_begin, UpdateSourceTrigger=PropertyChanged}" 
+                            MaxLength="2" />
+                        <TextBlock Text=":" />
+                        <TextBox 
+                            InputMethod.PreferredImeState="On"
+                            InputMethod.PreferredImeConversionMode="Alphanumeric"
+                            Validation.ErrorTemplate="{StaticResource ResourceKey=ErrorTemplate}"
+                            Text="{Binding Path=_time_stamp_minute_begin, UpdateSourceTrigger=PropertyChanged}"
+                            MaxLength="2" />
+                    </StackPanel>
+                </Grid>
+
+                <!-- ～ -->
+                <TextBlock Grid.Row="0" Grid.Column="1" 
+                                        Text="～" HorizontalAlignment="Left" />
+
+                <!-- 終了日 -->
+                <Grid Grid.Row="0" Grid.Column="2">
+                    <StackPanel Orientation="Horizontal">
+                        <DatePicker
+                            InputMethod.PreferredImeState="On"
+                            InputMethod.PreferredImeConversionMode="Alphanumeric"
+                            SelectedDate="{Binding Path=_time_stamp_end}" />
+                        <TextBox 
+                            Width="Auto"
+                            InputMethod.PreferredImeState="On"
+                            InputMethod.PreferredImeConversionMode="Alphanumeric"
+                            Validation.ErrorTemplate="{StaticResource ResourceKey=ErrorTemplate}"
+                            Text="{Binding Path=_time_stamp_hour_end, UpdateSourceTrigger=PropertyChanged}"
+                            MaxLength="2" />
+                        <TextBlock Text=":"/>
+                        <TextBox 
+                            Width="Auto"
+                            InputMethod.PreferredImeState="On"
+                            InputMethod.PreferredImeConversionMode="Alphanumeric"
+                            Validation.ErrorTemplate="{StaticResource ResourceKey=ErrorTemplate}"
+                            Text="{Binding Path=_time_stamp_minute_end, UpdateSourceTrigger=PropertyChanged}"
+                            MaxLength="2" />
+                    </StackPanel>
+                </Grid>
+            </Grid>
+
+            <!--　内容　-->
+            <TextBlock Grid.Row="6" Grid.Column="0" Text="内容" />
+            <TextBox   Grid.Row="6" Grid.Column="2" Grid.RowSpan="2"
+                       TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Top" AcceptsReturn="True"
+                       InputMethod.PreferredImeState="On"
+                       InputMethod.PreferredImeConversionMode="FullShape,Native"
+                       Validation.ErrorTemplate="{StaticResource ResourceKey=ErrorTemplate}"
+                       Text="{Binding Path=Contents, UpdateSourceTrigger=PropertyChanged}"
+                       Width="255" Height="85" HorizontalAlignment="Left"/>
+
+            <!--通知回数-->
+            <TextBlock Grid.Row="9" Grid.Column="0" Text="通知回数" />
+            <TextBox   Grid.Row="9" Grid.Column="2"
+                       TextAlignment="Right"
+                       InputMethod.PreferredImeState="On"
+                       InputMethod.PreferredImeConversionMode="Alphanumeric"
+                       Text="{Binding Path=NumberOfNotifications, UpdateSourceTrigger=PropertyChanged}"
+                       Width="255" HorizontalAlignment="Left"/>
+        </Grid>
+
+        <!-- ボーダー -->
+        <Border Grid.Row="2" Grid.Column="1"
+                BorderBrush="Gray" BorderThickness="1" Height="1" VerticalAlignment="Center"/>
+
+        <!-- ボタン -->
+        <Grid Grid.Row="3" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="*"   />
+                <ColumnDefinition Width="75"  />
+                <ColumnDefinition Width="16"  />
+                <ColumnDefinition Width="75"  />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Button  Grid.Row="0" Grid.Column="2"
+                     Content="登録" 
+                     Command="{Binding Path=SaveCommand}" 
+                     CommandParameter="{Binding ElementName=Window}" 
+                     />
+
+            <!--<Button  Grid.Row="0" Grid.Column="4"
+                     x:Name="ButtonCancel" Content="キャンセル" Click="ButtonCancel_Click" />-->
+
+        </Grid>
     </Grid>
 </Window>

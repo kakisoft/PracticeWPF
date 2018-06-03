@@ -22,6 +22,7 @@
     <Grid>
         <Button x:Name="myButton01" Content="－１－" HorizontalAlignment="Left" Margin="32,19,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="myButton02" Content="－２－" HorizontalAlignment="Left" Margin="129,19,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="myButton03" Content="－３－" HorizontalAlignment="Left" Margin="221,19,0,0" VerticalAlignment="Top" Width="75"/>
 
 
         <ComboBox x:Name="comb_color" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource ColorEnumKey}}"

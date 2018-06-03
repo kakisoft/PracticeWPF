@@ -36,6 +36,14 @@ namespace PracticeWPF
     /// </summary>
     public partial class MyWindow28 : Window
     {
+        #region static classでそれっぽく使う方法も、いいかもしんない。
+        private static class PAYMENT_METHOD
+        {
+            public const string CASH   = "現金";
+            public const string CREDIT = "クレジット";
+        }
+        #endregion
+
         #region 定義情報１
         public enum Season
         {
@@ -88,6 +96,7 @@ namespace PracticeWPF
         {
             myButton01.Click += (sender, e) => MyButton01_Click();
             myButton02.Click += (sender, e) => MyButton02_Click();
+            myButton03.Click += (sender, e) => MyButton03_Click();
         }
         #endregion
 
@@ -109,6 +118,14 @@ namespace PracticeWPF
             {
                 Console.WriteLine(r);
             }
+        }
+        #endregion
+
+        #region static classでそれっぽく使う
+        private void MyButton03_Click()
+        {
+            Console.WriteLine(PAYMENT_METHOD.CASH);
+            Console.WriteLine(PAYMENT_METHOD.CREDIT);
         }
         #endregion
 
