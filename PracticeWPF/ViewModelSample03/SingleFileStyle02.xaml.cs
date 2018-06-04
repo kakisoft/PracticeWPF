@@ -562,10 +562,10 @@ namespace PracticeWPF.ViewModelSample03
         /// <summary>
         /// 初期化時
         /// </summary>
-        /// <param name="val_clsModel">対象モデル</param>
-        public ViewModelBase(cls val_clsModel)
+        /// <param name="modelClass">対象モデル</param>
+        public ViewModelBase(cls modelClass)
         {
-            this._modelClass = val_clsModel;
+            this._modelClass = modelClass;
         }
         #endregion constructor
 
