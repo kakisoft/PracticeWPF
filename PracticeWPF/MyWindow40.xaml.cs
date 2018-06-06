@@ -15,13 +15,64 @@ using System.Windows.Shapes;
 namespace PracticeWPF
 {
     /// <summary>
-    /// MyWindow40.xaml の相互作用ロジック
+    /// Action・Func
     /// </summary>
     public partial class MyWindow40 : Window
     {
+        #region 初期化
         public MyWindow40()
         {
             InitializeComponent();
+
+            InitializeThisWindowsParameters();
+            AddMyEvent();
         }
+
+        private void InitializeThisWindowsParameters()
+        {
+
+        }
+
+        private void AddMyEvent()
+        {
+            myButton01.Click += (sender, e) => MyButton01_Click();
+            myButton02.Click += (sender, e) => MyButton02_Click();
+        }
+        #endregion
+
+        #region －１－
+        private void MyButton01_Click()
+        {
+            ActionSample01(this.ArgMethod01);
+        }
+
+        private void ArgMethod01()
+        {
+            MessageBox.Show("message!");
+        }
+
+
+        private void ActionSample01(Action execute)
+        {
+            execute();
+        }
+        #endregion
+
+        #region －２－
+        private void MyButton02_Click()
+        {
+            ActionSample02(this.ArgMethod02, 1);
+        }
+
+        private void ArgMethod02(int i)
+        {
+            MessageBox.Show("message!  ：" + i);
+        }
+
+        private void ActionSample02(Action<int> execute, int i)
+        {
+            execute(i);
+        }
+        #endregion
     }
 }
