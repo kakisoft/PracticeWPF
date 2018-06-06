@@ -79,6 +79,7 @@
         <Button Content="MyWindow37" HorizontalAlignment="Left" Height="35" Margin="843,307,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow37button" />
         <Button Content="MyWindow38" HorizontalAlignment="Left" Height="35" Margin="843,347,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow38button" />
         <Button Content="MyWindow39" HorizontalAlignment="Left" Height="35" Margin="843,387,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow39button" />
+        <Button Content="MyWindow40" HorizontalAlignment="Left" Height="35" Margin="843,427,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow40button" />
 
         <DataGrid HorizontalAlignment="Left" Height="81" Margin="808,570,0,0" VerticalAlignment="Top" Width="185">
             <DataGrid.Columns>
@@ -132,6 +133,7 @@
         <Label Content="37：MVVM －１－" HorizontalAlignment="Left" Margin="938,312,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
         <Label Content="38：ICommand －１－" HorizontalAlignment="Left" Margin="938,352,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
         <Label Content="39：ICommand －２－" HorizontalAlignment="Left" Margin="938,392,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
+        <Label Content="40：Action・Func" HorizontalAlignment="Left" Margin="938,432,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
 
     </Grid>
 </Window>
