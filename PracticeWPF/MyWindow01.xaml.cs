@@ -196,6 +196,7 @@ namespace PracticeWPF
             Dictionary03.Click += (sender, e) => Dictionary03Button_Click();
 
             DeepCopy01.Click += (sender, e) => DeepCopy01Button_Click();
+            Generic01.Click += (sender, e)  => Generic01Button_Click();
         }
 
         private void SetDefaultValue()
@@ -1140,7 +1141,7 @@ namespace PracticeWPF
         }
         #endregion
 
-        #region DeepCopy01
+        #region ディープコピー
         //http://note.websmil.com/csharp/c-class%E3%82%92%E3%82%B3%E3%83%94%E3%83%BC%E3%81%99%E3%82%8B
         public class Ticket : ICloneable
         {
@@ -1188,6 +1189,61 @@ namespace PracticeWPF
             Ticket _copy = (Ticket)_original.Clone();
 
         }
+        #endregion
+
+        #region  ジェネリック
+        /// <summary>
+        /// 【参考サイト】
+        /// http://ufcpp.net/study/csharp/sp2_generics.html
+        /// </summary>
+        private void Generic01Button_Click()
+        {
+            int n1 = Max<int>(5, 10);   // int 版の Max を明示的に呼び出し
+            int n2 = Max(5, 10);        // int 版の Max が自動的に生成される
+            double x = Max(5.0, 10.0);    // double 版の Max が自動的に生成される
+            string s = Max("abc", "cat"); // string 版の Max (辞書式順序で比較)
+        }
+        int Max(int x, int y)
+        {
+            return x > y ? x : y;
+        }
+
+        double Max(double x, double y)
+        {
+            return x > y ? x : y;
+        }
+
+
+        public static Type Max<Type>(Type a, Type b)
+            where Type : IComparable
+        {
+            return a.CompareTo(b) > 0 ? a : b;
+        }
+
+        class StackInt
+        {
+            int[] buf;
+            int top;
+            public StackInt(int max) { this.buf = new int[max]; this.top = 0; }
+            public void Push(int val) { this.buf[this.top++] = val; }
+            public int Pop() { return this.buf[--this.top]; }
+            public int Size { get { return this.top; } }
+            public int MaxSize { get { return this.buf.Length; } }
+        }
+
+
+        // generics 版スタッククラス
+        class Stack<Type>
+        {
+            Type[] buf;
+            int top;
+            public Stack(int max) { this.buf = new Type[max]; this.top = 0; }
+            public void Push(Type val) { this.buf[this.top++] = val; }
+            public Type Pop() { return this.buf[--this.top]; }
+            public int Size { get { return this.top; } }
+            public int MaxSize { get { return this.buf.Length; } }
+        }
+
         #endregion
     }
 }
