@@ -61,7 +61,7 @@ namespace PracticeWPF
         #region －２－
         private void MyButton02_Click()
         {
-            ActionSample02(this.ArgMethod02, 1);  //引数が必要なメソッドも、渡し方は同様。
+            ActionSample02(this.ArgMethod02, 1);  //引数が必要なメソッドでも、渡し方は同様。
         }
 
         private void ArgMethod02(int i)
