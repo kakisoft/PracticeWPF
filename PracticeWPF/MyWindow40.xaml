@@ -7,8 +7,9 @@
         mc:Ignorable="d"
         Title="MyWindow40" Height="450" Width="800">
     <Grid>
-        <Button x:Name="myButton01" Content="－１－" HorizontalAlignment="Left" Margin="51,30,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="myButton02" Content="－２－" HorizontalAlignment="Left" Margin="150,30,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="myButton01" Content="－ Action １－" HorizontalAlignment="Left" Margin="51,30,0,0" VerticalAlignment="Top" Width="99"/>
+        <Button x:Name="myButton02" Content="－ Action ２－" HorizontalAlignment="Left" Margin="51,67,0,0" VerticalAlignment="Top" Width="99"/>
+        <Button x:Name="myButton03" Content="－ Func １－" HorizontalAlignment="Left" Margin="51,101,0,0" VerticalAlignment="Top" Width="99" RenderTransformOrigin="1.413,0.6"/>
 
     </Grid>
 </Window>

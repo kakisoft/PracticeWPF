@@ -37,10 +37,11 @@ namespace PracticeWPF
         {
             myButton01.Click += (sender, e) => MyButton01_Click();
             myButton02.Click += (sender, e) => MyButton02_Click();
+            myButton03.Click += (sender, e) => MyButton03_Click();
         }
         #endregion
 
-        #region －１－
+        #region － Action １－
         private void MyButton01_Click()
         {
             ActionSample01(this.ArgMethod01);
@@ -58,7 +59,7 @@ namespace PracticeWPF
         }
         #endregion
 
-        #region －２－
+        #region － Action ２－
         private void MyButton02_Click()
         {
             ActionSample02(this.ArgMethod02, 1);  //引数が必要なメソッドでも、渡し方は同様。
@@ -72,6 +73,42 @@ namespace PracticeWPF
         private void ActionSample02(Action<int> execute, int i)
         {
             execute(i);
+        }
+        #endregion
+
+        #region － Func １－
+        //Func<T, TResult> デリゲート
+        //
+        //Encapsulates a method that has one parameter and returns a value of the type specified by the TResult paramete
+        //1 つのパラメーターを受け取って TResult パラメーターに指定された型の値を返すメソッドをカプセル化します。
+        private void MyButton03_Click()
+        {
+            //戻り値がboolのFuncをラムダで生成
+            Func<bool> func01 = () => {
+                MessageBox.Show("execute func01");  //この時点では実行されない
+                return true;
+            };
+
+
+            //この時点で実行される
+            func01.Invoke();
+
+
+
+            Func<string, int, bool> func02 = (name, age) => {  // Func<> 最後に指定した型が、戻り値になる(TResult)
+                MessageBox.Show("name:" + name + "   age:" + age);
+                return true;
+            };
+
+
+            func02.Invoke("yamada", 20);
+
+
+            Func<string, int> func03;
+            func03 = (aa) =>
+            {
+                return 0;
+            };
         }
         #endregion
     }
