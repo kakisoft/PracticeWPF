@@ -277,6 +277,16 @@ namespace PracticeWPF
 
                 Console.WriteLine(date5);
 
+
+
+
+
+                DateTime? dt = new DateTime();
+                int intDate;
+                intDate = dt.HasValue ? Convert.ToInt32(dt.Value.ToString("yyyyMMdd")) : 0;
+
+
+
             }
             catch (Exception ex)
             {
