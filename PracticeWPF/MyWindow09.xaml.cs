@@ -281,10 +281,10 @@ namespace PracticeWPF
 
 
 
+
                 DateTime? dt = new DateTime();
                 int intDate;
                 intDate = dt.HasValue ? Convert.ToInt32(dt.Value.ToString("yyyyMMdd")) : 0;
-
 
 
             }
