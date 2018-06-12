@@ -40,4 +40,8 @@ WPF練習用
  * 35：特殊記号（@とか）
  * 36：SQLite －１－
  * 37：MVVM －１－
+ * 38：ICommand －１－
+ * 39：ICommand －２－
+ * 40：Action・Func
+ * 41：XAMLからXAMLのバインディング
 
