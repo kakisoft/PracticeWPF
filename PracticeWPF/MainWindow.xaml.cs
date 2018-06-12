@@ -102,7 +102,13 @@ namespace PracticeWPF
 
         private void MyWindow03button_Click(object sender, RoutedEventArgs e)
         {
+            this.Visibility = Visibility.Hidden;
+
+
             new MyWindow03().ShowDialog();
+
+
+            this.Visibility = Visibility.Visible;
         }
 
         private void MyWindow04button_Click(object sender, RoutedEventArgs e) => new MyWindow04().ShowDialog();
