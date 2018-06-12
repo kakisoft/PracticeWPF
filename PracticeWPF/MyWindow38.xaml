@@ -10,15 +10,13 @@
         <Button 
             Content="OK" 
             Command="{Binding OKCommand}" 
-            Width="50" 
-            Height="50" Margin="33,24,709,345" 
+            RenderTransformOrigin="-4.32,-1.46" Margin="39,24,681,332"
             />
 
         <Button 
             Content="NG" 
             Command="{Binding NGCommand}" 
-            Width="50" 
-            Height="50" Margin="122,24,620,345" 
+            Margin="150,24,571,332"
             />
     </Grid>
 </Window>

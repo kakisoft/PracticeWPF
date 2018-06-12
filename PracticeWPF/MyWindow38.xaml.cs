@@ -25,8 +25,8 @@ namespace PracticeWPF
         public MyWindow38()
         {
             InitializeComponent();
-
-            this.DataContext = new CommandWindowViewModel();
+            
+            this.DataContext = new CommandWindowViewModel01();
         }
     }
 
@@ -39,7 +39,7 @@ namespace PracticeWPF
 
 
     // 外部から与えるデータ（＝ビューモデル）
-    public class CommandWindowViewModel
+    public class CommandWindowViewModel01
     {
         class RelayCommandOK : ICommand
         {
@@ -76,7 +76,7 @@ namespace PracticeWPF
         public ICommand OKCommand { get; private set; }
         public ICommand NGCommand { get; private set; }
 
-        public CommandWindowViewModel()
+        public CommandWindowViewModel01()
         {
             this.OKCommand = new RelayCommandOK();
             this.NGCommand = new RelayCommandNG();

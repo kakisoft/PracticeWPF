@@ -7,6 +7,17 @@
         mc:Ignorable="d"
         Title="MyWindow39" Height="450" Width="800">
     <Grid>
-        
+        <Button 
+            Content="OK" 
+            Command="{Binding OKCommand}" 
+            RenderTransformOrigin="-4.32,-1.46" 
+            Margin="39,24,681,332"
+            />
+
+        <Button 
+            Content="NG" 
+            Command="{Binding NGCommand}" 
+            Margin="150,24,571,332"
+            />      
     </Grid>
 </Window>

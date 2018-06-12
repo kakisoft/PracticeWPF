@@ -22,6 +22,63 @@ namespace PracticeWPF
         public MyWindow39()
         {
             InitializeComponent();
+
+
+            this.DataContext = new CommandWindowViewModel02();
         }
     }
+
+
+
+
+
+    // 外部から与えるデータ（＝ビューモデル）
+    public class CommandWindowViewModel02
+    {
+        public ICommand OKCommand { get; private set; }
+        public ICommand NGCommand { get; private set; }
+
+        public CommandWindowViewModel02()
+        {
+            this.OKCommand = new RelayCommandOK();
+            this.NGCommand = new RelayCommandNG();
+        }
+
+
+
+
+
+        class RelayCommandOK : ICommand
+        {
+            //CanExecuteメソッド： コマンドが実行可能な状態にあるかどうかを判定する。
+            public bool CanExecute(object parameter) { return true; }
+
+            //CanExecuteChangedイベント： INotifyPropertyChangedインターフェイスのPropertyChangedイベントと同様、コマンド実行の可否が変化したことを通知するためのイベント。
+            public event EventHandler CanExecuteChanged;
+
+            //Executeメソッド： コマンドを実行する。
+            public void Execute(object parameter)
+            {
+                MessageBox.Show("OK！");
+            }
+        }
+
+
+        class RelayCommandNG : ICommand
+        {
+            //CanExecuteメソッド： コマンドが実行可能な状態にあるかどうかを判定する。
+            public bool CanExecute(object parameter) { return true; }
+
+            //CanExecuteChangedイベント： INotifyPropertyChangedインターフェイスのPropertyChangedイベントと同様、コマンド実行の可否が変化したことを通知するためのイベント。
+            public event EventHandler CanExecuteChanged;
+
+            //Executeメソッド： コマンドを実行する。
+            public void Execute(object parameter)
+            {
+                MessageBox.Show("NG！");
+            }
+        }
+
+    }
+
 }
