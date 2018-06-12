@@ -138,6 +138,9 @@
     </ApplicationDefinition>
     <Compile Include="Common\BindableBaseClass.cs" />
     <Compile Include="Common\StaticExtensions.cs" />
+    <Compile Include="Components\CalendarWindow.xaml.cs">
+      <DependentUpon>CalendarWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Components\MyUserControl01.xaml.cs">
       <DependentUpon>MyUserControl01.xaml</DependentUpon>
     </Compile>
@@ -184,6 +187,10 @@
     <Compile Include="ViewModelSample03\SingleFileStyle02.xaml.cs">
       <DependentUpon>SingleFileStyle02.xaml</DependentUpon>
     </Compile>
+    <Page Include="Components\CalendarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Components\MyUserControl01.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
