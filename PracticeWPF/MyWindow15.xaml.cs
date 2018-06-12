@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace PracticeWPF
@@ -88,7 +89,6 @@ namespace PracticeWPF
         //}
         #endregion
 
-
         #region イニシャライズ
         public MyWindow15()
         {
@@ -129,7 +129,9 @@ namespace PracticeWPF
             editButton05.Click  += (sender, e) => EditGridData05();
             edit2Button05.Click += (sender, e) => Edit2GridData05();
             //myDataGrid05.SelectedCellsChanged  += (a, b) => MarkUpSelectedRowGrid05();
-            
+
+
+            dynamicColumnsButton.Click += (sender, e) => DynamicColumnsButton_Click();
         }
         #endregion
 
@@ -228,15 +230,6 @@ namespace PracticeWPF
 
         }
 
-        private void SetGridItemsSource03()
-        {
-            //  myDataGrid03_1.DataContext = userList03_1;
-            //myDataGrid03_2.DataContext = userList03_2;
-
-            //myDataGrid03_1.ItemsSource = userList03_1;
-            //myDataGrid03_1.ItemsSource = userList03_2;
-        }
-
         private void InitializeDataset03()
         {
             //==========< 3-1 >==========
@@ -272,7 +265,6 @@ namespace PracticeWPF
             userList03_2.Rows.Add("中西 光", "なかにし ひかる", "男", "55", "1959/2/22", "既婚", "福島県");
 
 
-            SetGridItemsSource03();
         }
         #endregion
 
@@ -374,6 +366,7 @@ namespace PracticeWPF
         }
         #endregion
 
+        #region イベント
         private void SelectionChanged_Grid05(object sender, SelectionChangedEventArgs e)
         {
             try
@@ -461,5 +454,50 @@ namespace PracticeWPF
         {
             Console.WriteLine("DataGrid_TouchDown");
         }
+        #endregion
+
+        #region DataGrid 動的表示１
+        /// <summary>
+        /// 【参考サイト】
+        /// https://qiita.com/WassyPG/items/ba65bb4c01d52b6399ef
+        /// </summary>
+        private void DynamicColumnsButton_Click()
+        {
+            // 水平スクロールバー
+            dynamicColumnsDataGrid.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
+            // 垂直スクロールバー
+            myDataGrid01.VerticalScrollBarVisibility = ScrollBarVisibility.Visible;
+
+
+            dynamicColumnsDataGrid.Columns.Clear();
+            dynamicColumnsDataGrid.Columns.Add(new DataGridTextColumn() { Header = "test_id", IsReadOnly = false, FontSize = 12, Binding = new Binding("test_id") });
+            dynamicColumnsDataGrid.Columns.Add(new DataGridTextColumn() { Header = "test_string", IsReadOnly = false, FontSize = 12, Binding = new Binding("test_string") });
+
+
+            //---------------------------
+            //  ここから先だけでもいい
+            //---------------------------
+            DataTable m_dt;
+
+            m_dt = new DataTable("DataGridTest");
+
+            m_dt.Columns.Add(new DataColumn("test_id", typeof(int)));// 数値
+            m_dt.Columns.Add(new DataColumn("test_string", typeof(string)));// 文字列
+
+            // サンプルデータ追加
+            DataRow newRowItem;
+            for (int i = 0; i < 5; i++)
+            {
+                newRowItem = m_dt.NewRow();
+                newRowItem["test_string"] = "test" + i.ToString();
+                newRowItem["test_id"] = i.ToString();
+                m_dt.Rows.Add(newRowItem);
+            }
+
+
+            dynamicColumnsDataGrid.DataContext = m_dt;
+        }
+        #endregion
+
     }
 }

@@ -26,7 +26,6 @@
         <Button x:Name="editButton03"  Content="編集" HorizontalAlignment="Left" Margin="964,23,0,0" VerticalAlignment="Top" Width="75"/>
 
         <!-- グリッド３-２ -->
-        <DataGrid x:Name="myDataGrid03_2" ItemsSource="{Binding}"  HorizontalAlignment="Left" Height="140" Margin="749,244,0,0" VerticalAlignment="Top" Width="301"/>
 
         <!-- グリッド４ -->
         <DataGrid Name="myDataGrid04" IsReadOnly="True"  HorizontalAlignment="Left" Height="96" Margin="26,357,0,0" VerticalAlignment="Top" Width="301"
@@ -64,7 +63,7 @@
 
         <!-- グリッド５（列幅を比率で設定） -->
         <DataGrid
-            Margin="749,408,90,51" 
+            Margin="762,226,77,233" 
             x:Name="myDataGrid06"
             ItemsSource="{Binding}"
             AutoGenerateColumns="False" 
@@ -81,6 +80,19 @@
                 <DataGridTextColumn Header="列２" Width="1*" Binding="{Binding DispText2}" />
             </DataGrid.Columns>
         </DataGrid>
+
+        <!-- 動的表示 -->
+        <Button x:Name="dynamicColumnsButton" Content="動的表示" HorizontalAlignment="Left" Margin="800,357,0,0" VerticalAlignment="Top" Width="182"/>
+        <DataGrid 
+            Name="dynamicColumnsDataGrid"
+            VerticalAlignment="Top" 
+            HorizontalAlignment="Left" 
+            Height="152" 
+            Width="266"
+            Margin="716,382,0,0" 
+            IsReadOnly="True"
+            ItemsSource="{Binding}"
+            />
 
     </Grid>
 </Window>
