@@ -8,15 +8,17 @@
         Title="MyWindow39" Height="450" Width="800">
     <Grid>
         <Button 
-            Content="OK" 
-            Command="{Binding OKCommand}" 
+            Content="登録" 
+            Command="{Binding Path=SaveCommand}" 
+            CommandParameter="{Binding ElementName=Window}"             
             RenderTransformOrigin="-4.32,-1.46" 
             Margin="39,24,681,332"
             />
 
         <Button 
-            Content="NG" 
-            Command="{Binding NGCommand}" 
+            Content="キャンセル" 
+            Command="{Binding Path=CancelCommand}" 
+            CommandParameter="{Binding ElementName=Window}" 
             Margin="150,24,571,332"
             />      
     </Grid>

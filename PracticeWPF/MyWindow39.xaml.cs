@@ -19,66 +19,140 @@ namespace PracticeWPF
     /// </summary>
     public partial class MyWindow39 : Window
     {
+        #region ******************************【   View    】******************************
+        /// <summary>
+        /// 対象ViewModel
+        /// </summary>
+        private VMNotice vm;
+
         public MyWindow39()
         {
             InitializeComponent();
 
-
-            this.DataContext = new CommandWindowViewModel02();
-        }
-    }
-
-
-
-
-
-    // 外部から与えるデータ（＝ビューモデル）
-    public class CommandWindowViewModel02
-    {
-        public ICommand OKCommand { get; private set; }
-        public ICommand NGCommand { get; private set; }
-
-        public CommandWindowViewModel02()
-        {
-            this.OKCommand = new RelayCommandOK();
-            this.NGCommand = new RelayCommandNG();
+            this.vm = new VMNotice();
+            this.DataContext = this.vm;
         }
 
-
-
-
-
-        class RelayCommandOK : ICommand
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="targetClass"></param>
+        public MyWindow39(Notice targetClass) : this()
         {
-            //CanExecuteメソッド： コマンドが実行可能な状態にあるかどうかを判定する。
-            public bool CanExecute(object parameter) { return true; }
 
-            //CanExecuteChangedイベント： INotifyPropertyChangedインターフェイスのPropertyChangedイベントと同様、コマンド実行の可否が変化したことを通知するためのイベント。
-            public event EventHandler CanExecuteChanged;
+        }
+        #endregion
 
-            //Executeメソッド： コマンドを実行する。
-            public void Execute(object parameter)
+
+
+
+
+
+        #region ******************************【   Model   】******************************
+        /// <summary>
+        /// 
+        /// </summary>
+        public class Notice
+        {
+            public long Id { get; set; }
+            public string Title { get; set; }
+            public string SubTitle { get; set; }
+            public DateTime? PostingStartDate { get; set; }
+            public DateTime? PostingEndDate { get; set; }
+            public string Contents { get; set; }
+            public int? NumberOfNotifications { get; set; }
+            public bool IsDeleted { get; set; }
+        }
+        #endregion
+
+
+
+
+
+
+
+        #region ******************************【 ViewModel 】******************************
+        public class VMNotice : ViewModelBase
+        {
+            private RelayCommand _saveCommand;
+            public RelayCommand SaveCommand
             {
-                MessageBox.Show("OK！");
+                get
+                {
+                    return this._saveCommand = this._saveCommand ?? new RelayCommand(this.SaveEnteredContent);
+                }
+            }
+
+            private RelayCommand _cancelCommand;
+            public RelayCommand CancelCommand
+            {
+                get
+                {
+                    return this._cancelCommand = this._cancelCommand ?? new RelayCommand(this.CancelInputContent);
+                }
+            }
+
+            private void SaveEnteredContent()
+            {
+                MessageBox.Show("保存");
+            }
+
+            private void CancelInputContent()
+            {
+                MessageBox.Show("キャンセル");
             }
         }
+        #endregion
 
 
-        class RelayCommandNG : ICommand
+
+
+
+
+        #region ■■■■■■■■■■■■■■■■■■■■【 ViewModelBase 】■■■■■■■■■■■■■■■■■■■■
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T">対象モデル as class</typeparam>
+        /// <remarks>
+        /// <para>https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/generics/constraints-on-type-parameters</para>
+        /// </remarks>
+        public class ViewModelBase
         {
-            //CanExecuteメソッド： コマンドが実行可能な状態にあるかどうかを判定する。
-            public bool CanExecute(object parameter) { return true; }
-
-            //CanExecuteChangedイベント： INotifyPropertyChangedインターフェイスのPropertyChangedイベントと同様、コマンド実行の可否が変化したことを通知するためのイベント。
-            public event EventHandler CanExecuteChanged;
-
-            //Executeメソッド： コマンドを実行する。
-            public void Execute(object parameter)
+            /// <summary>
+            /// 任意の型の引数を1つ受け付けるRelayCommand
+            /// </summary>
+            /// <typeparam name="T"></typeparam>
+            public class RelayCommand : ICommand
             {
-                MessageBox.Show("NG！");
+                private readonly Action _execute;
+                //private readonly Func<bool> _canExecute;
+
+                public event EventHandler CanExecuteChanged;
+
+                public RelayCommand(Action execute)
+                {
+                    // nullの場合、例外
+                    _execute = execute ?? throw new ArgumentNullException(nameof(execute));
+
+                    Console.WriteLine(nameof(execute));  // 常に「execute」。意味あるんかいな。
+                }
+
+                public bool CanExecute(object parameter)
+                {
+                    //return _canExecute == null ? true : _canExecute((T)parameter);
+                    return true;
+                }
+
+                public void Execute(object parameter)
+                {
+                    _execute();
+                }
+
             }
         }
-
+        #endregion ■■■■■■■■■■■■■■■■■■■■【 ViewModelBase 】■■■■■■■■■■■■■■■■■■■■
     }
+
 
 }
