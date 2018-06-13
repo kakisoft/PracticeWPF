@@ -363,6 +363,16 @@
                     <StackPanel Margin="5" Width="150" Height="200" VerticalAlignment="Top">
                         <Slider x:Name="slider1" Minimum="-20" Maximum="20" Value="-10" />
                         <TextBlock Text="{Binding Value, ElementName=slider1}" />
+
+                        <!-- TextBlockをカラフルに表現  -->
+                        <TextBlock  TextWrapping="Wrap" Margin="0,20">
+                            <Run Text="いろいろ指定できる" />
+                            <Hyperlink NavigateUri="http://www.bing.com">リンクできる</Hyperlink>
+                            <Run Foreground="Red" Text="色も付けれる" />
+                            <Run FontFamily="メイリオ" Text="フォントも変えれます" />
+                            <LineBreak />
+                            <Run Text="改行も入れることができます" />
+                        </TextBlock>
                     </StackPanel>
 
                     <StackPanel Margin="5" Orientation="Horizontal" Width="40">
