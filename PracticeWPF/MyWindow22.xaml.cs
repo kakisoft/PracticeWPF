@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -35,6 +36,7 @@ namespace PracticeWPF
             myButton02.Click += (sender, e) => MyButton02_Click();
             myButton03.Click += (sender, e) => MyButton03_Click();
             myButton04.Click += (sender, e) => MyButton04_Click();
+            myButton05.Click += (sender, e) => MyButton05_Click();
         }
         #endregion
 
@@ -221,5 +223,32 @@ namespace PracticeWPF
             }
         }
         #endregion
+
+        #region List
+        List<RadioButton> RadioButtonElementList = new List<RadioButton>();
+        List<CheckBox> CheckBoxElementList = new List<CheckBox>();
+        List<Button> ButtonElementList = new List<Button>();
+
+        List<ToggleButton> UpperRadioButtonElementList = new List<ToggleButton>();
+        List<FrameworkElement> UpperElementList = new List<FrameworkElement>();
+        List<UIElement> MostUpperElementList = new List<UIElement>();
+        private void MyButton05_Click()
+        {
+            //ToggleButton の Listには、RadioButtonとCheckBoxを格納できる
+            UpperRadioButtonElementList.Add(new RadioButton());
+            UpperRadioButtonElementList.Add(new CheckBox());
+
+
+            //FrameworkElement の Listには、ButtonやTextBoxも格納できる
+            UpperElementList.Add(new Button());
+            UpperElementList.Add(new TextBox());
+
+
+            //Elementなら、もう何でも
+            MostUpperElementList.Add(new Window());
+            MostUpperElementList.Add(new Page());
+
+        }
+        #endregion
     }
-    }
+}

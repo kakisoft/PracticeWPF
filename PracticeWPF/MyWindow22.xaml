@@ -7,10 +7,11 @@
         mc:Ignorable="d"
         Title="MyWindow22" Height="450" Width="800">
     <Grid>
-        <Button x:Name="myButton01"  Content="typeof" HorizontalAlignment="Left" Margin="119,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
-        <Button x:Name="myButton02"  Content="nameof" HorizontalAlignment="Left" Margin="251,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
-        <Button x:Name="myButton03"  Content="キャスト" HorizontalAlignment="Left" Margin="371,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
-        <Button x:Name="myButton04"  Content="ダウンキャスト" HorizontalAlignment="Left" Margin="484,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
+        <Button x:Name="myButton01"  Content="typeof" HorizontalAlignment="Left" Margin="89,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
+        <Button x:Name="myButton02"  Content="nameof" HorizontalAlignment="Left" Margin="221,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
+        <Button x:Name="myButton03"  Content="キャスト" HorizontalAlignment="Left" Margin="341,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
+        <Button x:Name="myButton04"  Content="ダウンキャスト" HorizontalAlignment="Left" Margin="454,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
+        <Button x:Name="myButton05"  Content="List" HorizontalAlignment="Left" Margin="573,36,0,0" VerticalAlignment="Top" Width="92" Height="40"/>
 
     </Grid>
 </Window>
