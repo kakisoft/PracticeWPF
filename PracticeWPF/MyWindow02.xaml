@@ -219,6 +219,29 @@
                     </StackPanel>
 
                 </StackPanel>
+
+
+                <!--
+                ===================================
+                    ListView(列サイズを横幅いっぱいに広げる)
+                ===================================
+                -->
+                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Orientation="Horizontal" Margin="20,0">
+                    <Button Name="ConcatText06" Content="ConcatText06"/>
+                    <ListView x:Name="myListView06" Width="300">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn
+                                    Header="DispContent" 
+                                    DisplayMemberBinding="{Binding DispContent}" 
+                                    Width="{Binding ActualWidth, ElementName=myListView06}"
+                                    />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                </StackPanel>
+
             </DockPanel>
 
             <!--

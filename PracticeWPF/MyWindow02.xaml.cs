@@ -98,6 +98,11 @@ namespace PracticeWPF
             SetThisWindowsEvent3();
 
             SetThisWindowsParameters4();
+
+
+            ConcatText06.Click += (sender, e) => ConcatText06_Click();
+            SetThisWindowsParameters6();
+
         }
         #endregion
 
@@ -408,6 +413,26 @@ namespace PracticeWPF
             textList4.Add(new TextTypeControl { Id = 4, DispText = "近畿", IsChecked = false });
 
             myListView04.ItemsSource = textList4;
+        }
+        #endregion
+
+        #region ListView6
+        private void SetThisWindowsParameters6()
+        {
+            //bidirectionalClassSet = new List<BidirectionalClass>();
+
+            //bidirectionalClassSet.Add(new BidirectionalClass { Id = 1, DispContent = "いち" });
+            //bidirectionalClassSet.Add(new BidirectionalClass { Id = 2, DispContent = "に" });
+            //bidirectionalClassSet.Add(new BidirectionalClass { Id = 3, DispContent = "さん" });
+
+
+            //myListView06.ItemsSource = null;
+            //myListView06.ItemsSource = bidirectionalClassSet;
+        }
+
+        private void ConcatText06_Click()
+        {
+            //bidirectionalClassSet[0].DispContent += "あ";
         }
         #endregion
 
