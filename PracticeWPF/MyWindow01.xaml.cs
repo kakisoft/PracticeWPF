@@ -1,4 +1,5 @@
 ﻿using PracticeWPF.Common;
+using PracticeWPF.Components;
 using PracticeWPF.SubWindows;
 using System;
 using System.Collections;
@@ -141,7 +142,7 @@ namespace PracticeWPF
         }   
         #endregion
 
-        #region 初期処理
+        #region イニシャライズ
         /// <summary>
         /// 初期処理
         /// </summary>
@@ -197,6 +198,9 @@ namespace PracticeWPF
 
             DeepCopy01.Click += (sender, e) => DeepCopy01Button_Click();
             Generic01.Click += (sender, e)  => Generic01Button_Click();
+
+
+            calendarCallButton01.Click += (sender, e) => CallExternalCalendar();
         }
 
         private void SetDefaultValue()
@@ -1244,6 +1248,31 @@ namespace PracticeWPF
             public int MaxSize { get { return this.buf.Length; } }
         }
 
+        #endregion
+
+        #region カレンダー（外部ウィンドウ）
+        private List<DateTime?> ExternalWindowsSpecifiedDates = new List<DateTime?>();
+        private List<DateTime?> SpecifiedDates = new List<DateTime?>();
+
+        private void CallExternalCalendar()
+        {
+            //-----( カレンダーウィンドウを開く )-----
+            CalendarWindow calendarWindow = new CalendarWindow(ExternalWindowsSpecifiedDates);
+            calendarWindow.ShowDialog();
+
+
+
+
+            foreach (var item in calendarWindow.SpecifiedDates)
+            {
+                var gettedItem = item;
+
+                if (SpecifiedDates.IndexOf(gettedItem) <= -1)  //登録済みであれば、新規に登録しない。
+                {
+                    SpecifiedDates.Add(gettedItem);
+                }
+            }
+        }
         #endregion
     }
 }

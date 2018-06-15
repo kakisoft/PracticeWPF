@@ -373,6 +373,13 @@
                             <LineBreak />
                             <Run Text="改行も入れることができます" />
                         </TextBlock>
+
+                        <!-- 外部カレンダー  -->
+                        <StackPanel Orientation="Horizontal">
+                            <Button    Name="calendarCallButton01"  Content="カレンダー"/>
+                            <TextBlock Text="-" VerticalAlignment="Stretch"/>
+                        </StackPanel>
+
                     </StackPanel>
 
                     <StackPanel Margin="5" Orientation="Horizontal" Width="40">
