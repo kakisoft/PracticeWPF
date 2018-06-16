@@ -24,6 +24,7 @@ namespace PracticeWPF
 
         public class Employee
         {
+            public int Id { get; set; }
             public string Name { get; set; }
             public int Age { get; set; }
             public int Position { get; set; }
@@ -73,16 +74,16 @@ namespace PracticeWPF
 
         private void SetParameters()
         {
-            _employee.Add(new Employee { Name = "Fukuzawa", Age = 35, IsMarried = true, Position = (int)PositionCode.hira });
-            _employee.Add(new Employee { Name = "Higuchi", Age = 28, IsMarried = true, Position = (int)PositionCode.hira });
-            _employee.Add(new Employee { Name = "Noda", Age = 42, IsMarried = false, Position = (int)PositionCode.hira });
-            _employee.Add(new Employee { Name = "Igawa", Age = 21, IsMarried = false, Position = (int)PositionCode.syunin });
-            _employee.Add(new Employee { Name = "Sawada", Age = 31, IsMarried = true, Position = (int)PositionCode.syunin });
-            _employee.Add(new Employee { Name = "yamaguchi", Age = 28, IsMarried = true, Position = (int)PositionCode.kacyou });
-            _employee.Add(new Employee { Name = "fujisawa", Age = 36, IsMarried = true, Position = (int)PositionCode.bucyou });
-            _employee.Add(new Employee { Name = "oda", Age = 20, IsMarried = false, Position = (int)PositionCode.hira });
-            _employee.Add(new Employee { Name = "oda", Age = 20, IsMarried = false, Position = (int)PositionCode.hira });
-            _employee.Add(new Employee { Name = "oda", Age = 20, IsMarried = false, Position = (int)PositionCode.hira });
+            _employee.Add(new Employee { Id = 1 , Name = "Fukuzawa", Age = 35, IsMarried = true, Position = (int)PositionCode.hira });
+            _employee.Add(new Employee { Id = 2 , Name = "Higuchi", Age = 28, IsMarried = true, Position = (int)PositionCode.hira });
+            _employee.Add(new Employee { Id = 3 , Name = "Noda", Age = 42, IsMarried = false, Position = (int)PositionCode.hira });
+            _employee.Add(new Employee { Id = 4 , Name = "Igawa", Age = 21, IsMarried = false, Position = (int)PositionCode.syunin });
+            _employee.Add(new Employee { Id = 5 , Name = "Sawada", Age = 31, IsMarried = true, Position = (int)PositionCode.syunin });
+            _employee.Add(new Employee { Id = 6 , Name = "yamaguchi", Age = 28, IsMarried = true, Position = (int)PositionCode.kacyou });
+            _employee.Add(new Employee { Id = 7 , Name = "fujisawa", Age = 36, IsMarried = true, Position = (int)PositionCode.bucyou });
+            _employee.Add(new Employee { Id = 8 , Name = "oda", Age = 20, IsMarried = false, Position = (int)PositionCode.hira });
+            _employee.Add(new Employee { Id = 9 , Name = "oda", Age = 20, IsMarried = false, Position = (int)PositionCode.hira });
+            _employee.Add(new Employee { Id = 10, Name = "oda", Age = 20, IsMarried = false, Position = (int)PositionCode.hira });
         }
 
         private void SetEvent()
@@ -96,6 +97,8 @@ namespace PracticeWPF
             myButton07.Click += (sender, e) => button07_Click_addedEvent();
             myButton08.Click += (sender, e) => button08_Click_addedEvent();
             myButton09.Click += (sender, e) => button09_Click_addedEvent();
+            myButton10.Click += (sender, e) => button10_Click_addedEvent();
+            myButton11.Click += (sender, e) => button11_Click_addedEvent();
         }
         #endregion
 
@@ -292,6 +295,60 @@ namespace PracticeWPF
             foreach (IGrouping<int, Employee> item in _employee.GroupBy(x => x.Position))
             {
                 Console.WriteLine(item.Key);
+            }
+        }
+        #endregion
+
+        #region First・Last・Single
+        private void button10_Click_addedEvent()
+        {
+            Employee firstElement = _employee.First();
+            Employee filteredFirstElement = _employee.First( x=> x.IsMarried == true); //条件を指定する場合、その条件に合致する最初の要素が返る
+
+
+            Employee lastElement  = _employee.Last();
+            Employee filteredLastElement = _employee.Last(x => x.IsMarried == true); //条件を指定する場合、その条件に合致する最後の要素が返る
+
+
+            try
+            {
+                Employee customerToChange = _employee.Single();
+
+            }
+            catch (Exception ex)
+            {
+                //throw;
+                Console.WriteLine(ex.Message);
+            }
+
+
+            Employee SelectedEmployee = new Employee { Id = 3 };
+            Employee employeeToChange = _employee.Single(x => x.Id == SelectedEmployee.Id); //シーケンスの唯一の要素を返す。候補が複数あると例外が発生する。
+
+        }
+        #endregion
+
+        #region OrderBy
+        private void button11_Click_addedEvent()
+        {
+            List<Employee> _tmp_employee01;
+            List<Employee> _tmp_employee02;
+
+            //Order
+            _tmp_employee01 = _employee
+                                 .Where(x => x.Weight <= 60)
+                                 .OrderByDescending(x => x.Age).ToList();
+
+
+            //複数条件でソート
+            _tmp_employee02 = _employee
+                                 .OrderBy(x => x.Age)
+                                 .ThenBy(x=> x.Position)
+                                 .ToList();
+
+            foreach (var item in _tmp_employee02)
+            {
+                Console.WriteLine("Age:" + item.Age + ",   Position:" + item.Position);
             }
         }
         #endregion
