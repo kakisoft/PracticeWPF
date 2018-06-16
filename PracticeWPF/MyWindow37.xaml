@@ -4,13 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticeWPF"
-        xmlns:viewModels="clr-namespace:PracticeWPF.ViewModelSample02;assembly=PracticeWPF.ViewModelSample02"        
+        xmlns:viewModels="clr-namespace:SimpleMVVM.ViewModel;assembly=SimpleMVVM.ViewModel"
         mc:Ignorable="d"
         Title="MyWindow37" Height="450" Width="800">
     <!--<Window.Resources>
         <viewModels:MainPageViewModel x:Key="ViewModel" />
-    </Window.Resources>-->
-    <!--<Grid DataContext="{Binding Source={StaticResource ViewModel}}">-->
+    </Window.Resources>
+    <Grid DataContext="{Binding Source={StaticResource ViewModel}}">-->
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
