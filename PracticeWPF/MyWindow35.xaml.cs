@@ -42,6 +42,7 @@ namespace PracticeWPF
             myButton02.Click += (sender, e) => MyButton02_Click();
             myButton03.Click += (sender, e) => MyButton03_Click();
             myButton04.Click += (sender, e) => MyButton04_Click();
+            myButton05.Click += (sender, e) => MyButton05_Click();
         }
         #endregion
 
@@ -116,5 +117,71 @@ namespace PracticeWPF
         }
         #endregion
 
+        #region IsNullOrWhiteSpace
+        private void MyButton05_Click()
+        {
+            string s1 = "";
+            if (String.IsNullOrWhiteSpace(s1))
+            {
+                Console.WriteLine("s1 is IsNullOrWhiteSpace");
+            }
+            else
+            {
+                Console.WriteLine("s1 is not IsNullOrWhiteSpace");
+            }
+
+
+
+
+            string s2 = "   "; //半角スペース
+            if (String.IsNullOrWhiteSpace(s2))
+            {
+                Console.WriteLine("s2 is IsNullOrWhiteSpace");
+            }
+            else
+            {
+                Console.WriteLine("s2 is not IsNullOrWhiteSpace");
+            }
+
+
+
+            string s3 = "　　"; //全角スペース
+            if (String.IsNullOrWhiteSpace(s3))
+            {
+                Console.WriteLine("s3 is IsNullOrWhiteSpace");
+            }
+            else
+            {
+                Console.WriteLine("s3 is not IsNullOrWhiteSpace");
+            }
+
+
+
+
+            string s4 = "  　  　  　"; //全角と半角が混ざったパターン
+            if (String.IsNullOrWhiteSpace(s4))
+            {
+                Console.WriteLine("s4 is IsNullOrWhiteSpace");
+            }
+            else
+            {
+                Console.WriteLine("s4 is not IsNullOrWhiteSpace");
+            }
+
+
+
+
+            string s5 = null;
+            if (String.IsNullOrWhiteSpace(s5))
+            {
+                Console.WriteLine("s5 is IsNullOrWhiteSpace");
+            }
+            else
+            {
+                Console.WriteLine("s5 is not IsNullOrWhiteSpace");
+            }
+
+        }
+        #endregion
     }
 }

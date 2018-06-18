@@ -18,6 +18,8 @@
 
         <Button x:Name="myButton04" Content="$  文字列補間" HorizontalAlignment="Left" Height="20" Margin="243,28,0,0" VerticalAlignment="Top" Width="89" RenderTransformOrigin="1.831,0.6"/>
 
+        <Button x:Name="myButton05" Content="IsNullOrWhiteSpace" HorizontalAlignment="Left" Height="20" Margin="243,71,0,0" VerticalAlignment="Top" Width="89" RenderTransformOrigin="1.831,0.6"/>
+
 
     </Grid>
 </Window>

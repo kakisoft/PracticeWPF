@@ -380,6 +380,21 @@
                             <TextBlock Text="-" VerticalAlignment="Stretch"/>
                         </StackPanel>
 
+                        <!-- 右クリックメニュー（ContextMenu）  -->
+                        <StackPanel Orientation="Horizontal">
+                            <Border Width="30" Height="30" Background="Aqua" >
+                                <Border.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="メニュー１"/>
+                                        <MenuItem Header="メニュー２"/>
+                                        <MenuItem Header="メニュー３"/>
+                                        <MenuItem Header="メニュー４"/>
+                                    </ContextMenu>
+                                </Border.ContextMenu>
+                            </Border>
+
+                        </StackPanel>
+
                     </StackPanel>
 
                     <StackPanel Margin="5" Orientation="Horizontal" Width="40">
