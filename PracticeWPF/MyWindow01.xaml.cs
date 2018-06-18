@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace PracticeWPF
 {
@@ -150,6 +151,8 @@ namespace PracticeWPF
         public MyWindow01()
         {
             InitializeComponent();
+
+            this.DataContext = this;
 
             InitializeThisWindowsParameters();
         }
@@ -1272,6 +1275,26 @@ namespace PracticeWPF
                     SpecifiedDates.Add(gettedItem);
                 }
             }
+        }
+        #endregion
+
+        #region 別ウィンドウを開き、元の画面は非表示
+        private void open01_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ((MyWindow01)((Button)sender).DataContext).Visibility = Visibility.Hidden;
+
+                MyWindow02 counterSalesWindow = new MyWindow02();
+                counterSalesWindow.ShowDialog();
+
+                ((MyWindow01)((Button)sender).DataContext).Visibility = Visibility.Visible;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
         #endregion
     }
