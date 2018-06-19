@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -114,7 +115,7 @@ namespace PracticeWPF.ViewModelSample03
                     return;
                 }
                 this._myText01 = value;
-                base.notifyPropertyChanged(nameof(this.MyText01));
+                base.OnPropertyChanged(nameof(this.MyText01));
             }
         }
 
@@ -188,16 +189,24 @@ namespace PracticeWPF.ViewModelSample03
         public class RelayCommand : ICommand
         {
             private readonly Action _execute;
-            //private readonly Func<bool> _canExecute;
+            private readonly Func<bool> _canExecute;
 
             public event EventHandler CanExecuteChanged;
 
-            public RelayCommand(Action execute)
+            public RelayCommand(Action execute) : this(execute, null)
             {
-                // nullの場合、例外
-                _execute = execute ?? throw new ArgumentNullException(nameof(execute));
 
-                Console.WriteLine(nameof(execute));  // 常に「execute」。意味あるんかいな。
+            }
+
+            public RelayCommand(Action execute, Func<bool> canExecute)
+            {
+                if (execute == null)
+                {
+                    throw new ArgumentNullException("canExecute is null - " + this.GetType());
+                }
+                this._execute = execute;
+                this._canExecute = canExecute;
+
             }
 
             public bool CanExecute(object parameter)
@@ -218,12 +227,11 @@ namespace PracticeWPF.ViewModelSample03
 
 
         public event PropertyChangedEventHandler PropertyChanged;
-        protected void notifyPropertyChanged(string info)
+        protected virtual void OnPropertyChanged([CallerMemberName] string name = null)
         {
-            if (this.PropertyChanged != null)
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(info));
-            }
+            if (PropertyChanged == null) return;
+
+            this.PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
 
     }
