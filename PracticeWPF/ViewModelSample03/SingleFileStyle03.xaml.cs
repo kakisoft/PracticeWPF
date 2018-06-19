@@ -1,54 +1,38 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Dynamic;
 using System.Linq;
-using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace PracticeWPF.ViewModelSample03
 {
-
     #region ******************************【   View    】******************************
     /// <summary>
-    /// MVVM SingleFileStyle02
+    /// SingleFileStyle03.xaml の相互作用ロジック
     /// </summary>
-    public partial class SingleFileStyle02 : Window
+    public partial class SingleFileStyle03 : Window
     {
-        /// <summary>
-        /// 対象ViewModel
-        /// </summary>
-        private VMNotice02 vm;
+        private VMNotice03 vm;
 
-
-        public SingleFileStyle02()
+        public SingleFileStyle03()
         {
             InitializeComponent();
 
-
-            //xaml内へ記述する事も可能
-            this.vm = new VMNotice02();
+            this.vm = new VMNotice03();
+            this.vm.WindowView = this;
             this.DataContext = this.vm;
-
-
-            TieleTextBox.Focus();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="targetClass"></param>
-        public SingleFileStyle02(Notice02 targetClass) : this()
-        {
-
         }
     }
     #endregion
-
-
 
 
 
@@ -56,7 +40,7 @@ namespace PracticeWPF.ViewModelSample03
     /// <summary>
     /// 
     /// </summary>
-    public class Notice02
+    public class Notice03
     {
         public long Id { get; set; }
         public string Title { get; set; }
@@ -72,10 +56,12 @@ namespace PracticeWPF.ViewModelSample03
 
 
 
-
     #region ******************************【 ViewModel 】******************************
-    public class VMNotice02 : ViewModelBase02
+    public class VMNotice03 : ViewModelBase03
     {
+        public Window WindowView { get; set; }
+
+
         private RelayCommand _saveCommand;
         public RelayCommand SaveCommand
         {
@@ -103,8 +89,83 @@ namespace PracticeWPF.ViewModelSample03
         {
             MessageBox.Show("キャンセル");
         }
+
+
+
+
+
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private string _myText01 = "初期値";
+        public string MyText01
+        {
+            get
+            {
+                return this._myText01;
+            }
+            set
+            {
+                if (this._myText01 == value)
+                {
+                    return;
+                }
+                this._myText01 = value;
+                base.notifyPropertyChanged(nameof(this.MyText01));
+            }
+        }
+
+
+        private RelayCommand _clearCommand;
+        public RelayCommand ClearCommand
+        {
+            get
+            {
+                return this._clearCommand = this._clearCommand ?? new RelayCommand(this.ClearInputContent);
+            }
+        }
+
+        private void ClearInputContent()
+        {
+            MyText01 = "";
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        private RelayCommand _closeCommand;
+        public RelayCommand CloseCommand
+        {
+            get
+            {
+                return this._closeCommand = this._closeCommand ?? new RelayCommand(this.CloseWindow);
+            }
+        }
+
+        private void CloseWindow()
+        {
+            WindowView.Close();
+        }
+
     }
     #endregion
+
+
 
 
 
@@ -118,7 +179,7 @@ namespace PracticeWPF.ViewModelSample03
     /// <remarks>
     /// <para>https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/generics/constraints-on-type-parameters</para>
     /// </remarks>
-    public class ViewModelBase02
+    public class ViewModelBase03 : INotifyPropertyChanged
     {
         /// <summary>
         /// 任意の型の引数を1つ受け付けるRelayCommand
@@ -135,6 +196,8 @@ namespace PracticeWPF.ViewModelSample03
             {
                 // nullの場合、例外
                 _execute = execute ?? throw new ArgumentNullException(nameof(execute));
+
+                Console.WriteLine(nameof(execute));  // 常に「execute」。意味あるんかいな。
             }
 
             public bool CanExecute(object parameter)
@@ -149,6 +212,20 @@ namespace PracticeWPF.ViewModelSample03
             }
 
         }
+
+
+
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void notifyPropertyChanged(string info)
+        {
+            if (this.PropertyChanged != null)
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(info));
+            }
+        }
+
     }
     #endregion ■■■■■■■■■■■■■■■■■■■■【 ViewModelBase 】■■■■■■■■■■■■■■■■■■■■
 
