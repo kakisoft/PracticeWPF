@@ -49,10 +49,12 @@ namespace PracticeWPF
 
             //型を取得する時に使用する
             System.Type type = typeof(int);
+            Console.WriteLine(type);  //出力結果：System.Int32
 
             //変数から取得
             int i = 0;
             System.Type type01 = i.GetType();
+            Console.WriteLine(type01);  //出力結果：System.Int32
 
             //
             Type t = typeof(MyWindow22);
