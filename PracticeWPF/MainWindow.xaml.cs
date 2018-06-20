@@ -159,6 +159,7 @@ namespace PracticeWPF
             MyWindow39button.Click += (sender, e) => new MyWindow39().ShowDialog();
             MyWindow40button.Click += (sender, e) => new MyWindow40().ShowDialog();
             MyWindow41button.Click += (sender, e) => new MyWindow41().ShowDialog();
+            MyWindow42button.Click += (sender, e) => new MyWindow42().ShowDialog();
         }
 
     }
