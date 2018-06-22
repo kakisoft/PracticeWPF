@@ -104,6 +104,12 @@ namespace PracticeWPF
             SetThisWindowsParameters6();
 
         }
+
+
+        public MyWindow02(string constTest01) : this()
+        {
+            // ↑ this() が先に実行される 
+        }
         #endregion
 
         #region リストビューにアイテムを追加
