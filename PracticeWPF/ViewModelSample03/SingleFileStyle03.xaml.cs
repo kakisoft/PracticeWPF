@@ -101,21 +101,27 @@ namespace PracticeWPF.ViewModelSample03
         /// <summary>
         /// 
         /// </summary>
-        private string _myText01 = "初期値";
-        public string MyText01
+        private string _myVmString01 = "初期値";
+        public string MyVmString01
         {
             get
             {
-                return this._myText01;
+                return this._myVmString01;
             }
             set
             {
-                if (this._myText01 == value)
+                if (this._myVmString01 == value)
                 {
                     return;
                 }
-                this._myText01 = value;
-                base.OnPropertyChanged(nameof(this.MyText01));
+                this._myVmString01 = value;
+                base.OnPropertyChanged(nameof(this.MyVmString01));
+
+
+                Console.WriteLine("=================================");
+                Console.WriteLine((nameof(this.MyVmString01)));    //MyVmString01
+                Console.WriteLine((nameof(this._myVmString01)));   //_myVmString01
+                Console.WriteLine("=================================");
             }
         }
 
@@ -131,7 +137,19 @@ namespace PracticeWPF.ViewModelSample03
 
         private void ClearInputContent()
         {
-            MyText01 = "";
+            //この書き方は良くない。setメソッドにて notifyPropertyChanged を実行しているため、値の変更がはいるたびに getが走る。
+            //（1000行のループがあれば、2000回の処理が走る）
+            //　「privateの変数に対して処理をし、最後に notifyPropertyChanged を走らせる」という記述にすると、負荷が少なくなる。
+            MyVmString01 = "";
+
+
+
+            for (int i = 0; i < 10; i++)
+            {
+                _myVmString01 += "x";
+            }
+            //MyVmString01 += "x";
+            base.OnPropertyChanged(nameof(this.MyVmString01));
         }
 
 

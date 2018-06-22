@@ -27,8 +27,10 @@
             <StackPanel Orientation="Horizontal">
                 <TextBox 
                     Style="{StaticResource ResourceKey=NormalTextBox}"
-                    Text="{Binding Path=MyText01, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                    Text="{Binding Path=MyString01, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                     />
+                <!-- 「UpdateSourceTrigger=PropertyChanged」が無いと、Viewを変更した時、Setプロパティがキックされない。 -->
+
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Height="50" VerticalAlignment="Top">
