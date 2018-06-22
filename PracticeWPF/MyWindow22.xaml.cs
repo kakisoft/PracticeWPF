@@ -37,6 +37,7 @@ namespace PracticeWPF
             myButton03.Click += (sender, e) => MyButton03_Click();
             myButton04.Click += (sender, e) => MyButton04_Click();
             myButton05.Click += (sender, e) => MyButton05_Click();
+            myButton06.Click += (sender, e) => MyButton06_Click();
         }
         #endregion
 
@@ -252,5 +253,45 @@ namespace PracticeWPF
 
         }
         #endregion
+
+        #region 仮想メソッド（virtual method）
+        class Parent01
+        {
+            //【 virtual 】
+            //子クラスで override されるのが前提のメソッドに付ける修飾子、という認識でいいのだろうか。
+            //abstract との違いは、直接コールもできる、という点。（ base.ParentMethodName() という感じで。）
+            public virtual void SampleVirtualMethod01()
+            {
+                Console.WriteLine("Parent01.SampleVirtualMethod01()");
+            }
+        }
+
+        class Child01 : Parent01
+        {
+            public override void SampleVirtualMethod01()
+            {
+                Console.WriteLine("Child01.SampleVirtualMethod01()");
+            }
+
+            public void CallParentsVirtualMethod01()
+            {
+                base.SampleVirtualMethod01();
+            }
+        }
+
+        private void MyButton06_Click()
+        {
+            Parent01 _parent01 = new Parent01();
+            _parent01.SampleVirtualMethod01();       // Parent01 の SampleVirtualMethod01 がコールされる。
+
+            Parent01 _inChildParent = new Child01();
+            _inChildParent.SampleVirtualMethod01();  // Child01 の SampleVirtualMethod01 がコールされる。
+
+            Child01 _chilc01 = new Child01();
+            _chilc01.SampleVirtualMethod01();        // Child01 の SampleVirtualMethod01 がコールされる。
+            _chilc01.CallParentsVirtualMethod01();   // Child01 の CallParentsVirtualMethod01 を経由して、Parent01 の SampleVirtualMethod01() がコールされる。
+        }
+        #endregion
+
     }
 }

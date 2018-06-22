@@ -84,7 +84,7 @@
         <Button Content="MyWindow41" HorizontalAlignment="Left" Height="35" Margin="843,467,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow41button" />
         <Button Content="MyWindow42" HorizontalAlignment="Left" Height="35" Margin="843,507,0,0" VerticalAlignment="Top" Width="90" x:Name="MyWindow42button" />
 
-        <DataGrid HorizontalAlignment="Left" Height="81" Margin="808,570,0,0" VerticalAlignment="Top" Width="185">
+        <DataGrid HorizontalAlignment="Left" Height="81" Margin="987,586,0,0" VerticalAlignment="Top" Width="185">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="シンプルなグリッド"/>
                 <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" />
@@ -117,7 +117,7 @@
 
         <Label Content="20：超簡単な async/await" HorizontalAlignment="Left" Margin="538,215,0,0" VerticalAlignment="Top"/>
         <Label Content="21：全角・半角の変換、カレントディレクト、リソース取得" HorizontalAlignment="Left" Margin="538,254,0,0" VerticalAlignment="Top"/>
-        <Label Content="22：typeof・nameof・GUID・キャスト" HorizontalAlignment="Left" Margin="540,298,0,0" VerticalAlignment="Top"/>
+        <Label Content="22：typeof・nameof・GUID・キャスト・継承・virtual" HorizontalAlignment="Left" Margin="540,298,0,0" VerticalAlignment="Top"/>
         <Label Content="23：XMLシリアライズ・デシリアライズ" HorizontalAlignment="Left" Margin="540,338,0,0" VerticalAlignment="Top"/>
         <Label Content="24：JSONシリアライズ・デシリアライズ" HorizontalAlignment="Left" Margin="540,378,0,0" VerticalAlignment="Top"/>
         <Label Content="25：郵便番号検索API" HorizontalAlignment="Left" Margin="540,415,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.457,2.192"/>
