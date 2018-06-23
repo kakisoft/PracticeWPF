@@ -43,6 +43,7 @@ namespace PracticeWPF
             myButton03.Click += (sender, e) => MyButton03_Click();
             myButton04.Click += (sender, e) => MyButton04_Click();
             myButton05.Click += (sender, e) => MyButton05_Click();
+            myButton06.Click += (sender, e) => MyButton06_Click();
         }
         #endregion
 
@@ -181,6 +182,24 @@ namespace PracticeWPF
                 Console.WriteLine("s5 is not IsNullOrWhiteSpace");
             }
 
+        }
+        #endregion
+
+
+        #region double.NaN
+        private void MyButton06_Click()
+        {
+            double a1 = 1;
+            a1 = double.NaN;
+
+            if (double.IsNaN(a1))
+            {
+                // 整数
+            }
+            else
+            {
+                // null, 0, 0D
+            }
         }
         #endregion
     }
