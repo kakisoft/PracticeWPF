@@ -127,6 +127,7 @@ namespace PracticeWPF
             MVVM_SingleFileStyle01.Click += (sender, e) => new SingleFileStyle01().ShowDialog();
             MVVM_SingleFileStyle02.Click += (sender, e) => new SingleFileStyle02().ShowDialog();
             MVVM_SingleFileStyle03.Click += (sender, e) => new SingleFileStyle03().ShowDialog();
+            MVVM_SingleFileStyle05.Click += (sender, e) => new SingleFileStyle05().ShowDialog();
 
 
 
