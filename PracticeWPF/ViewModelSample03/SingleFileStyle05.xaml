@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:PracticeWPF.ViewModelSample03"
         mc:Ignorable="d"
         Title="SingleFileStyle05" Height="450" Width="800"
+        Name="Window"
         >
     <Window.Resources>
         <!-- ボタン -->
