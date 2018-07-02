@@ -202,9 +202,6 @@ namespace PracticeWPF.ViewModelSample03
         }
         #endregion
 
-
-
-
         #region property - Observable
         public ObservableCollection<Notice05> NoticeSet { get; set; } = new ObservableCollection<Notice05>();
 
@@ -243,6 +240,22 @@ namespace PracticeWPF.ViewModelSample03
 
 
 
+        #endregion
+
+        #region OnCheckCommand
+        private RelayCommand _onCheckCommand;
+        public RelayCommand OnCheckCommand
+        {
+            get
+            {
+                return this._onCheckCommand = this._onCheckCommand ?? new RelayCommand(this.OnCheck);
+            }
+        }
+
+        private void OnCheck()
+        {
+            Console.WriteLine("Cause OnCheck");
+        }
         #endregion
     }
 

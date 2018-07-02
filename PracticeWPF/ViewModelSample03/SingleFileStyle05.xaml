@@ -126,6 +126,13 @@
                 </DataGrid>
             </StackPanel>
 
+            <StackPanel Orientation="Horizontal">
+                <CheckBox 
+                    Content="CheckBox01"
+                    Command="{Binding Path=OnCheckCommand}" 
+                    />
+            </StackPanel>
+
         </StackPanel>
 
     </Grid>
