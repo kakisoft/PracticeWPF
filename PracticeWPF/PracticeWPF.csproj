@@ -196,6 +196,9 @@
     <Compile Include="ViewModelSample03\SingleFileStyle05.xaml.cs">
       <DependentUpon>SingleFileStyle05.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModelSample03\SingleFileStyle06.xaml.cs">
+      <DependentUpon>SingleFileStyle06.xaml</DependentUpon>
+    </Compile>
     <Page Include="Components\CalendarWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -413,6 +416,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewModelSample03\SingleFileStyle05.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModelSample03\SingleFileStyle06.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
