@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 
 namespace PracticeWPF.ViewModelSample03
 {
+    #region ******************************【   View    】******************************
     /// <summary>
     /// SingleFileStyle05.xaml の相互作用ロジック
     /// </summary>
@@ -33,6 +34,9 @@ namespace PracticeWPF.ViewModelSample03
             this.DataContext = this.vm;
         }
     }
+    #endregion
+
+
 
 
     #region ******************************【   Model   】******************************

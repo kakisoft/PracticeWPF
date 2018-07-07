@@ -9,7 +9,58 @@
         Height="450" 
         Width="800"
         >
+    <Window.Resources>
+        <!-- ボタン -->
+        <Style TargetType="Button" x:Key="NormalButton">
+            <Setter Property="Padding" Value="10,0"     />
+            <Setter Property="Margin" Value="0,10,10,0" />
+            <Setter Property="Height" Value="40"        />
+            <Setter Property="Width"  Value="80"        />
+        </Style>
+
+        <!-- テキストボックス -->
+        <Style TargetType="TextBox" x:Key="NormalTextBox">
+            <Setter Property="Height" Value="40"  />
+            <Setter Property="Width"  Value="200" />
+        </Style>
+    </Window.Resources>
+
     <Grid>
-        
+        <StackPanel>
+
+            <StackPanel Orientation="Horizontal" Height="50" VerticalAlignment="Top">
+                <Button  
+                    Content="登録" 
+                    Style="{StaticResource ResourceKey=NormalButton}"
+                    Command="{Binding Path=SaveCommand}" 
+                    />
+
+                <Button
+                    Content="クリア" 
+                    Style="{StaticResource ResourceKey=NormalButton}"
+                    Command="{Binding Path=ClearCommand}" 
+                    />
+
+                <Button
+                    Content="閉じる" 
+                    Style="{StaticResource ResourceKey=NormalButton}"
+                    CommandParameter="{Binding ElementName=Window}" 
+                    Command="{Binding Path=CloseCommand}" 
+                    />
+            </StackPanel>
+
+            <StackPanel Name="myStackPanel01" Orientation="Horizontal" Height="50" VerticalAlignment="Top">
+            </StackPanel>
+            <StackPanel Name="myStackPanel02" Orientation="Horizontal" Height="50" VerticalAlignment="Top">
+            </StackPanel>
+
+
+
+
+
+
+        </StackPanel>
+
     </Grid>
+
 </Window>

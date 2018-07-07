@@ -23,6 +23,7 @@
             <Setter Property="Width"  Value="200" />
         </Style>
     </Window.Resources>
+
     <Grid>
         <StackPanel>
             <StackPanel Orientation="Horizontal">
