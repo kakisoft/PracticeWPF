@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -67,6 +68,31 @@ namespace PracticeWPF.ViewModelSample03
 
         public StackPanel MyStackPanel01 { get; set; }
         public StackPanel MyStackPanel02 { get; set; }
+
+        #region Title
+        const string TITLE_NAME = "View Title";
+
+        /// <summary>
+        /// Title
+        /// </summary>
+        private string _viewTitle = TITLE_NAME;
+        public string ViewTitle
+        {
+            get
+            {
+                return this._viewTitle;
+            }
+            set
+            {
+                if (this._viewTitle == value)
+                {
+                    return;
+                }
+                this._viewTitle = value;
+                base.OnPropertyChanged(nameof(this.ViewTitle));
+            }
+        }
+        #endregion
 
 
         #region SaveCommand
