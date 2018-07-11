@@ -82,7 +82,13 @@
         </DataGrid>
 
         <!-- 動的表示 -->
-        <Button x:Name="dynamicColumnsButton" Content="動的表示" HorizontalAlignment="Left" Margin="800,357,0,0" VerticalAlignment="Top" Width="182"/>
+        <Button 
+            x:Name="dynamicColumnsButton" 
+            Content="動的表示" 
+            HorizontalAlignment="Left" 
+            Margin="800,357,0,0" 
+            VerticalAlignment="Top" Width="182"
+            />
         <DataGrid 
             Name="dynamicColumnsDataGrid"
             VerticalAlignment="Top" 
