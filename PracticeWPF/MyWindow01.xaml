@@ -690,6 +690,37 @@
                             </ScrollViewer>
                         </StackPanel>
                     </StackPanel>
+
+                    <StackPanel>
+                        <!--
+                        ===================================
+                             Gridの要素を動的に変更
+                        ===================================
+                        -->
+                        <Button 
+                            Name="DynamicGridButton"
+                            Content="DynamicGridButton" 
+                            />
+                        <Button 
+                            Name="ClearDynamicGridButton"
+                            Content="ClearDynamicGrid" 
+                            />
+
+                        <ScrollViewer 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Top" 
+                            VerticalScrollBarVisibility="Visible"
+                            HorizontalScrollBarVisibility="Auto"
+                            Background="White"
+                            Width="150"
+                            >
+                            <Grid 
+                                Name="DynamicGrid"
+                                HorizontalAlignment="Left" 
+                                VerticalAlignment="Top" 
+                                />
+                        </ScrollViewer>
+                    </StackPanel>
                 </StackPanel>
 
 

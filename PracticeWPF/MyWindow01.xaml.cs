@@ -204,6 +204,9 @@ namespace PracticeWPF
 
 
             calendarCallButton01.Click += (sender, e) => CallExternalCalendar();
+
+            DynamicGridButton.Click += (sender, e) => DynamicGrid_Click();
+            ClearDynamicGridButton.Click += (sender, e) => ClearDynamicGridButton_Click();
         }
 
         private void SetDefaultValue()
@@ -1295,6 +1298,41 @@ namespace PracticeWPF
                 MessageBox.Show(ex.Message);
             }
 
+        }
+        #endregion
+
+        #region   Gridの要素を動的に変更
+        private void DynamicGrid_Click()
+        {
+            int NUMBER_OF_ROW    = 3;
+            int NUMBER_OF_COLUMN = 4;
+
+            int LENGTH_OF_ROW    = 30;
+            int LENGTH_OF_COLUMN = 30;
+
+
+            for (int i = 0; i < NUMBER_OF_ROW; i++)
+            {
+                for (int j = 0; j < NUMBER_OF_COLUMN; j++)
+                {
+                    DynamicGrid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(LENGTH_OF_ROW) });
+                    DynamicGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(LENGTH_OF_COLUMN) });
+
+                    Button c = new Button();
+                    c.Content = j + "-" + i;
+                    c.SetValue(Grid.RowProperty, j);
+                    c.SetValue(Grid.ColumnProperty, i);
+                    DynamicGrid.Children.Add(c);
+
+                }
+            }
+        }
+
+        private void ClearDynamicGridButton_Click()
+        {
+            DynamicGrid.RowDefinitions.Clear();
+            DynamicGrid.ColumnDefinitions.Clear();
+            DynamicGrid.Children.Clear();
         }
         #endregion
     }
