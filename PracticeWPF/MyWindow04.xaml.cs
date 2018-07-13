@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Reflection;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PracticeWPF
 {
@@ -49,7 +50,8 @@ namespace PracticeWPF
                 //  親要素の全プロパティをリストアップし、子に同じ値を設定
                 //---------------------
                 PropertyInfo[] propertyInfoinfoArray = value.GetType().GetProperties();  //プロパティをリストアップ
-                foreach (PropertyInfo item in propertyInfoinfoArray) //リストアップしたプロパティをループで回す
+                //foreach (PropertyInfo item in propertyInfoinfoArray) //リストアップしたプロパティをループで回す
+                foreach (PropertyInfo item in propertyInfoinfoArray.Where(x => !(x.SetMethod is null)))  //リストアップしたプロパティをループで回す（Setterを実装したプロパティのみを対象とする。）
                 {
                     var property = value.GetType().GetProperty(item.Name);  //プロパティを取得
                     property.SetValue(this, item.GetValue(value));          //子に親と同じ値をセット
