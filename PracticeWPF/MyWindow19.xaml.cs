@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace PracticeWPF
 {
@@ -22,6 +23,10 @@ namespace PracticeWPF
             b0_0.SetValue(Grid.RowProperty, 0);
             b0_0.SetValue(Grid.ColumnProperty, 0);
             myGrid01.Children.Add(b0_0);
+
+            //b0_0.Background = new SolidColorBrush(Color.FromArgb(255, 35, 142, 203));
+            //b0_0.Background = new SolidColorBrush();
+            b0_0.SetValue(BackgroundProperty, new SolidColorBrush());
 
             Button b0_2 = new Button();
             b0_2.Content = "0-2";
