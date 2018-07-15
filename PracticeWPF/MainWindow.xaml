@@ -37,7 +37,7 @@
         <Button Content="MVVM_SingleFileStyle02" HorizontalAlignment="Left" Height="19" Margin="363,3,0,0"   VerticalAlignment="Top" Width="145" x:Name="MVVM_SingleFileStyle02" />
         <Button Content="MVVM_SingleFileStyle03" HorizontalAlignment="Left" Height="19" Margin="520,3,0,0"   VerticalAlignment="Top" Width="145" x:Name="MVVM_SingleFileStyle03" />
         <Button Content="MVVM_SingleFileStyle05" HorizontalAlignment="Left" Height="19" Margin="679,3,0,0"   VerticalAlignment="Top" Width="145" x:Name="MVVM_SingleFileStyle05" />
-        <Button Content="MVVM_SingleFileStyle06" HorizontalAlignment="Left" Height="19" Margin="843,3,0,0"   VerticalAlignment="Top" Width="145" x:Name="MVVM_SingleFileStyle06" />
+        <Button Content="MVVM_SingleFileStyle06" HorizontalAlignment="Left" Height="19" Margin="829,3,0,0"   VerticalAlignment="Top" Width="145" x:Name="MVVM_SingleFileStyle06" />
 
 
 
