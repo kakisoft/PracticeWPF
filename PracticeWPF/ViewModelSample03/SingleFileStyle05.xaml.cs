@@ -261,8 +261,23 @@ namespace PracticeWPF.ViewModelSample03
             Console.WriteLine("Cause OnCheck");
         }
         #endregion
-    }
 
+        #region GridLeftDoubleClickCommand
+        private RelayCommand _gridLeftDoubleClickCommand;
+        public RelayCommand GridLeftDoubleClickCommand
+        {
+            get
+            {
+                return this._gridLeftDoubleClickCommand = this._gridLeftDoubleClickCommand ?? new RelayCommand(this.GridLeftDoubleClick);
+            }
+        }
+
+        private void GridLeftDoubleClick()
+        {
+            MessageBox.Show("Grid Duble Clicked");
+        }
+        #endregion
+    }
     #endregion
 
 

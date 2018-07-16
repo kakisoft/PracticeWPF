@@ -108,6 +108,14 @@
                     CanUserAddRows="False"
                     ItemsSource="{Binding Path=NoticeSet02, Mode=OneWay}"
                     >
+                    
+                    <DataGrid.InputBindings>
+                        <MouseBinding 
+                            Gesture="LeftDoubleClick"
+                            Command="{Binding Path=GridLeftDoubleClickCommand}"
+                            />
+                    </DataGrid.InputBindings>
+
                     <!--列-->
                     <DataGrid.Columns >
                         <DataGridTextColumn
