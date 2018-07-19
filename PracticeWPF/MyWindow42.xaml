@@ -7,7 +7,14 @@
         mc:Ignorable="d"
         Title="MyWindow42" Height="450" Width="800">
     <Grid>
-        <Button x:Name="myButton01" Content="CallerMemberName" HorizontalAlignment="Left" Margin="47,29,0,0" VerticalAlignment="Top" Width="149"/>
+        <Button 
+            x:Name="myButton01" 
+            Content="CallerMemberName" 
+            HorizontalAlignment="Left" 
+            Margin="47,29,0,0" 
+            VerticalAlignment="Top" 
+            Width="149"
+            />
 
     </Grid>
 </Window>
