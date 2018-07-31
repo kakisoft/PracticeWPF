@@ -69,7 +69,10 @@
             </Grid.RowDefinitions>
 
             <!--タイトル-->
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="タイトル"/>
+            <TextBlock 
+                Grid.Row="0" Grid.Column="0" 
+                Text="タイトル"
+                />
             <TextBox 
                 Grid.Row="0" Grid.Column="2" 
                 InputMethod.PreferredImeState="On" 
@@ -84,15 +87,20 @@
             <TextBlock 
                 Grid.Row="2" Grid.Column="0" 
                 Text="サブタイトル"/>
-            <TextBox   Grid.Row="2" Grid.Column="2"
-                        InputMethod.PreferredImeState="On"
-                        InputMethod.PreferredImeConversionMode="FullShape,Native"
-                        Validation.ErrorTemplate="{StaticResource ResourceKey=ErrorTemplate}"
-                        Text="{Binding Path=SubTitle, UpdateSourceTrigger=PropertyChanged}"
-                        Width="255" HorizontalAlignment="Left"/>
+            <TextBox   
+                Grid.Row="2" Grid.Column="2"
+                InputMethod.PreferredImeState="On"
+                InputMethod.PreferredImeConversionMode="FullShape,Native"
+                Validation.ErrorTemplate="{StaticResource ResourceKey=ErrorTemplate}"
+                Text="{Binding Path=SubTitle, UpdateSourceTrigger=PropertyChanged}"
+                Width="255" HorizontalAlignment="Left"
+                />
 
             <!--適用期間-->
-            <TextBlock Grid.Row="4" Grid.Column="0" Text="適用期間" />
+            <TextBlock 
+                Grid.Row="4" Grid.Column="0" 
+                Text="適用期間" 
+                />
             <Grid Grid.Row="4" Grid.Column="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="5*"  />
@@ -116,7 +124,9 @@
                             Validation.ErrorTemplate="{StaticResource ResourceKey=ErrorTemplate}"
                             Text="{Binding Path=_time_stamp_hour_begin, UpdateSourceTrigger=PropertyChanged}" 
                             MaxLength="2" />
-                        <TextBlock Text=":" />
+                        <TextBlock 
+                            Text=":" 
+                            />
                         <TextBox 
                             InputMethod.PreferredImeState="On"
                             InputMethod.PreferredImeConversionMode="Alphanumeric"
@@ -127,8 +137,10 @@
                 </Grid>
 
                 <!-- ～ -->
-                <TextBlock Grid.Row="0" Grid.Column="1" 
-                                        Text="～" HorizontalAlignment="Left" />
+                <TextBlock 
+                    Grid.Row="0" Grid.Column="1" 
+                    Text="～" HorizontalAlignment="Left" 
+                    />
 
                 <!-- 終了日 -->
                 <Grid Grid.Row="0" Grid.Column="2">
@@ -144,7 +156,9 @@
                             Validation.ErrorTemplate="{StaticResource ResourceKey=ErrorTemplate}"
                             Text="{Binding Path=_time_stamp_hour_end, UpdateSourceTrigger=PropertyChanged}"
                             MaxLength="2" />
-                        <TextBlock Text=":"/>
+                        <TextBlock 
+                            Text=":"
+                            />
                         <TextBox 
                             Width="Auto"
                             InputMethod.PreferredImeState="On"
@@ -157,28 +171,47 @@
             </Grid>
 
             <!--　内容　-->
-            <TextBlock Grid.Row="6" Grid.Column="0" Text="内容" />
-            <TextBox   Grid.Row="6" Grid.Column="2" Grid.RowSpan="2"
-                       TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Top" AcceptsReturn="True"
-                       InputMethod.PreferredImeState="On"
-                       InputMethod.PreferredImeConversionMode="FullShape,Native"
-                       Validation.ErrorTemplate="{StaticResource ResourceKey=ErrorTemplate}"
-                       Text="{Binding Path=Contents, UpdateSourceTrigger=PropertyChanged}"
-                       Width="255" Height="85" HorizontalAlignment="Left"/>
+            <TextBlock 
+                Grid.Row="6" Grid.Column="0" 
+                Text="内容" 
+                />
+            <TextBox   
+                Grid.Row="6" Grid.Column="2" 
+                Grid.RowSpan="2"
+                TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Top" AcceptsReturn="True"
+                InputMethod.PreferredImeState="On"
+                InputMethod.PreferredImeConversionMode="FullShape,Native"
+                Validation.ErrorTemplate="{StaticResource ResourceKey=ErrorTemplate}"
+                Text="{Binding Path=Contents, UpdateSourceTrigger=PropertyChanged}"
+                Width="255" 
+                Height="85" 
+                HorizontalAlignment="Left"
+                />
 
             <!--通知回数-->
-            <TextBlock Grid.Row="9" Grid.Column="0" Text="通知回数" />
-            <TextBox   Grid.Row="9" Grid.Column="2"
-                       TextAlignment="Right"
-                       InputMethod.PreferredImeState="On"
-                       InputMethod.PreferredImeConversionMode="Alphanumeric"
-                       Text="{Binding Path=NumberOfNotifications, UpdateSourceTrigger=PropertyChanged}"
-                       Width="255" HorizontalAlignment="Left"/>
+            <TextBlock 
+                Grid.Row="9" Grid.Column="0" 
+                Text="通知回数" 
+                />
+            <TextBox   
+                Grid.Row="9" Grid.Column="2"
+                TextAlignment="Right"
+                InputMethod.PreferredImeState="On"
+                InputMethod.PreferredImeConversionMode="Alphanumeric"
+                Text="{Binding Path=NumberOfNotifications, UpdateSourceTrigger=PropertyChanged}"
+                Width="255" 
+                HorizontalAlignment="Left"
+                />
         </Grid>
 
         <!-- ボーダー -->
-        <Border Grid.Row="2" Grid.Column="1"
-                BorderBrush="Gray" BorderThickness="1" Height="1" VerticalAlignment="Center"/>
+        <Border 
+            Grid.Row="2" Grid.Column="1"
+            BorderBrush="Gray" 
+            BorderThickness="1" 
+            Height="1" 
+            VerticalAlignment="Center"
+            />
 
         <!-- ボタン -->
         <Grid Grid.Row="3" Grid.Column="1">
