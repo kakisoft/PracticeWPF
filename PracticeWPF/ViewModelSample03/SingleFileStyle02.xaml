@@ -193,11 +193,12 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Button  Grid.Row="0" Grid.Column="2"
-                     Content="登録" 
-                     Command="{Binding Path=SaveCommand}" 
-                     CommandParameter="{Binding ElementName=Window}" 
-                     />
+            <Button  
+                Grid.Row="0" Grid.Column="2"
+                Content="登録" 
+                Command="{Binding Path=SaveCommand}" 
+                CommandParameter="{Binding ElementName=Window}" 
+                />
 
             <!--<Button  Grid.Row="0" Grid.Column="4"
                      x:Name="ButtonCancel" Content="キャンセル" Click="ButtonCancel_Click" />-->
