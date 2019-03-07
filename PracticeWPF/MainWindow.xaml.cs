@@ -167,3 +167,9 @@ namespace PracticeWPF
     }
 
 }
+
+/*
+TextBlock：横中央揃えができる、縦方向の中央揃えができない
+TextBox：横・縦の中央揃えができる
+Label：横・縦の中央揃えができる
+*/
